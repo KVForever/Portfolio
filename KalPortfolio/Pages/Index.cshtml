@@ -60,6 +60,24 @@
         </div>
     </div>
 
+    <div class="text-center col-lg-12">
+        <h2>Collapsible</h2>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gibberish">Click to see gibberish<span class="caret"></span></button>
+
+        <div class="dropdown">
+            <div id="gibberish" class="collapse">
+                <p>
+                    Nunc faucibus a pellentesque sit. Nisl rhoncus mattis rhoncus urna neque. Non consectetur a erat nam at lectus urna duis convallis. Tincidunt dui ut ornare lectus.
+                    Eu volutpat odio facilisis mauris sit amet massa. Sit amet porttitor eget dolor morbi. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam purus.
+                    Platea dictumst quisque sagittis purus sit amet volutpat. Ornare quam viverra orci sagittis eu volutpat odio. Metus aliquam eleifend mi in nulla posuere.
+                    Consequat interdum varius sit amet mattis vulputate enim nulla. In nisl nisi scelerisque eu ultrices vitae auctor. Amet tellus cras adipiscing enim eu turpis egestas.
+                    Ullamcorper sit amet risus nullam eget felis eget. Pretium lectus quam id leo in vitae turpis. Malesuada fames ac turpis egestas integer eget aliquet nibh.
+                    Mi eget mauris pharetra et ultrices. A condimentum vitae sapien pellentesque habitant morbi.
+                </p>
+            </div>
+        </div>
+    </div>
+
     <div class="text-center">
         <h2>Images</h2>
         <div class="col-sm-4">
@@ -142,24 +160,77 @@
         </div>
     </div>
 
-    <div class="text-center col-lg-12" >
-        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gibberish">Click to see gibberish<span class="caret"></span></button>
-        
-        <div class="dropdown">
-            <div id="gibberish" class="collapse">
-                <p>
-                    Nunc faucibus a pellentesque sit. Nisl rhoncus mattis rhoncus urna neque. Non consectetur a erat nam at lectus urna duis convallis. Tincidunt dui ut ornare lectus.
-                    Eu volutpat odio facilisis mauris sit amet massa. Sit amet porttitor eget dolor morbi. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam purus.
-                    Platea dictumst quisque sagittis purus sit amet volutpat. Ornare quam viverra orci sagittis eu volutpat odio. Metus aliquam eleifend mi in nulla posuere.
-                    Consequat interdum varius sit amet mattis vulputate enim nulla. In nisl nisi scelerisque eu ultrices vitae auctor. Amet tellus cras adipiscing enim eu turpis egestas.
-                    Ullamcorper sit amet risus nullam eget felis eget. Pretium lectus quam id leo in vitae turpis. Malesuada fames ac turpis egestas integer eget aliquet nibh.
-                    Mi eget mauris pharetra et ultrices. A condimentum vitae sapien pellentesque habitant morbi.
-                </p>
+    <div id="myCarousel" class="carousel slide col-lg-12" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="https://suitespot.tv/wp-content/uploads/2017/12/San-Francisco.jpg" alt="San Francisco">
+                <div class="carousel-caption">
+                    <h3>San Francisco</h3>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="https://live.staticflickr.com/2586/3894167039_dbae8c4ebc_b.jpg" alt="Michigan Tech">
+                <div class="carousel-caption">
+                    <h3>Michigan Tech</h3>
+                </div>
+                
+            </div>
+
+            <div class="item">
+                <img src="https://th.bing.com/th/id/R.9a4a848cb8647e32b6ca7fd874a76f66?rik=lRzgjUGGbBxkvQ&riu=http%3a%2f%2fawoisoak.com%2fwp-content%2fuploads%2f2017%2f11%2fdsc08915_lzn.jpg&ehk=hKfJkS1%2fMt0jXhF5bHhQ63NBDYTfC9dgNo1xgWKuTKY%3d&risl=&pid=ImgRaw&r=0" alt="Vancouver">
+                <div class="carousel-caption"> 
+                    <h3>Vancouver Canada</h3>
+                </div>
             </div>
         </div>
-         
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 
+    <div class="col-lg-12 text-center">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Model</button>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <h4 class="modalcard-title text-center">Modal Header</h4>
+                            <button type="button" class="close text-align-left" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                            <p>OMG this is a modal that is incredible I had no idea that it could be this amazing. I am at a loss for words. Just incredible, I have tears in my eyes. </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 text-center">
+        <form class="form-inline">
+            <div>
+                <h2>MadLib Form</h2>
+            </div>
+            <div class="form-group">
+                <p> Hello there, it was just another tuesday <input type="text" class="form-check-control" id="verb" /> the trash when I say It in the sky.
+                    There is a lot of things I belive in but when I saw It I did not belive my <input type="text" class="form-check-control" id="noun" /> </p>
+            </div>
+        </form>
+        
+    </div>
+   
 </body>
 
 </html>
