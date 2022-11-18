@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
     <title>@ViewData["Title"] - KalPortfolio</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -31,16 +31,26 @@
         </nav>
         -->
         <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
+            <div class="container-fluid d-block">
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
                     <a class="navbar-brand" href="Index">Kalkidan Vassar</a>
                 </div>
-                <ul class="nav navbar-nav d-sm-inline-block">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
-                </ul>
+                
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav d-inline-block ">
+                        <li class="active"><a asp-page="/Index">Home</a></li>
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                    </ul>
+                </div>
+                
             </div>
         </nav>
     </header>
@@ -48,12 +58,13 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+        <footer>
+
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
     </div>
   
-    <footer>
-       
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
+    
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
