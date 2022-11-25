@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace KalPortfolio
 {
     public class Startup
@@ -47,13 +48,17 @@ namespace KalPortfolio
             app.UseRouting();
 
             app.UseAuthorization();
-
-            
+            /*
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+            });
+            */
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=bootstrap}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
            
         }
