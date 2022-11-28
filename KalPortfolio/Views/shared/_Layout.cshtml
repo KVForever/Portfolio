@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=2.0" />
     <title>@ViewData["Title"] - KalPortfolio</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-   
+
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar">
             <div class="container-fluid d-block">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -22,12 +22,12 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" href="Index">Kalkidan Vassar</a>
+                    <a class="navbar-brand" href="Index"><b class="fs-1">K</b></a>
                 </div>
                 
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav d-inline-block ">
-                        <li class="active"><a href="/Home/Index">Home</a></li>
+                        <li class="active"><a href="/Home/Index"><p class="text-decoration-underline">Home</p></a></li>
                         <li><a href="/Home/Contact">Contact</a></li>
                         <li><a href="/Home/Projects">Projects</a></li>
                         <li><a href="/Home/Resume">Resume</a></li>
