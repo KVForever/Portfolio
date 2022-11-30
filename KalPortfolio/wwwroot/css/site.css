@@ -17,6 +17,12 @@ pre {
     border-color: #000;
     color: #fff;
 }
+
+p {
+     background-color: #000;
+     color: #fff;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -33,11 +39,14 @@ pre {
     background-color: #000;
 }
 
-li {
-    text-decoration-line: underline;
-    text-decoration-style: dotted;
-    text-decoration-color: red;
-    text-decoration-thickness: 4px;
+.panel {
+    background-color: #000;
+    border: 0px;
+}
+
+.panel-body {
+    padding: 0px;
+    border: 0px;
 }
 
 /* Sticky footer styles
@@ -89,4 +98,24 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+/*Custom*/
 
+underline {
+    text-decoration-line: underline
+}
+
+.single-top {
+    margin-top: 40vh;
+    margin-bottom: 50vh;
+}
+
+.single{
+    margin-bottom: 50vh;
+}
+.home-intro1 {
+    font-size: 60px;
+}
+
+.home-intro2 {
+    font-size: 20px;
+}

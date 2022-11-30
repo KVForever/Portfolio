@@ -4,16 +4,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="contanier-fluid">
-    <h1 class="text-left"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
-    <pre>    I am achiving my goal of being a software engineer one line of code at a time.</pre>
+<div class="container col-sm-12 single-top">
+    <h1 class="text-left home-intro1"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
+    <pre class="text-wrap home-intro2">    I am achiving my goal of being a software engineer one line of code at a time.</pre>
+   <hr />
 </div>
 
-<div class="panel panel-default">
-     <div class="panel-heading">
-         <p></p>
-     </div>
+<div class="container single">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="panel panel-danger col-sm-8">
+        <div class="panel panel-body">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tabs" href="#intro">About Me</a></li>
+                <li><a data-toggle="tabs" href="#employment">Employment</a></li>
+                <li><a data-toggle="tabs" href="#activeIn">Achievements</a></li>
+            </ul>
+        </div>
+
+        <div class="tab-content text-wrap  ">
+            <div id="intro" class="tab-pane fade in active">
+                <p>
+                    Hi, originally born in Ethiopia a was adopted at an early age and grew up in the United States of America.
+                    My love of technology has guided me and led me to where I am today. I always wanted to help in the creation of new and exciting technologies, and I can do this through the development of impactful and robust software.
+                </p>
+                <p>Somethings to know about me include:</p>
+                <dl>
+                    <dd>- I like to read in my spare time.</dd>
+                    <dd>- I am always looking to learn new things.</dd>
+                    <dd>- I enjoy playing soccer.</dd>
+                </dl>
+            </div>
+
+            <div id="employment" class="tab-pane fade in">
+                <p>Marcus Vally Grand Cinema</p>
+                <p>Heartland Business Systems</p>
+            </div>
+
+            <div id="activeIn" class="tab-pane fade in">
+                <p>Cyberstart America</p>
+                <p>Student Counsel</p>
+                <p>Chazzo Warriors</p>
+                <p>Spark crew</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+    </div>
 </div>
+<hr />
+
+
 <!--
 <div id="myCarousel" class="carousel slide col-lg-12" data-ride="carousel">
     <ol class="carousel-indicators">
