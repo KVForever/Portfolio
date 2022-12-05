@@ -5,46 +5,55 @@
 }
 
 <div class="container">
-    <div id="single-item" class="row">
+    <div id="home-intro" class="row">
         <div class="container col-11">
-            
-            <h1 class="text-left"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
-            <pre class="text-wrap">    I am achiving my goal of being a software engineer one line of code at a time.</pre>
+            <h1 id="home-info-header" class="text-left"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
+            <pre class="text-wrap" id="tag-line">    I am achiving my goal of being a software engineer one line of code at a time.</pre>
         </div>
         
     </div>
 </div>
+
 <div classclass="row">
     <div class="col-12">
         <div id="scroll-arrow">
             <span class="glyphicon glyphicon-arrow-down "></span>
         </div>
     </div>
+ 
 </div>
 
+<div id="single-item" class="container row">
+    <div class="col-1">
 
-
-<div id="single-item" class="row">
-    <div>
-        <div class="col-12 text-left container-fluid">
-            <h2>Have a quick look about me</h2>
-        </div>
     </div>
-     <div class="row">
-         <div class="col-2">
-             
-         </div>
-        <div class="panel col-8">
-            <div class="panel panel-body">
+    <div class="col-10 panel">
+        <div class="panel-body ">
+            <ul class="nav nav-tabs">
+                <li class="nav-item active">
+                    <a class="nav-link active" data-toggle="tab" href="#intro">About Me</a>
+                </li>
 
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tabs" href="#intro">About Me</a></li>
-                    <li><a data-toggle="tabs" href="#employment">Employment</a></li>
-                    <li><a data-toggle="tabs" href="#activeIn">Achievements</a></li>
-                </ul>
-            </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#employment">Employment</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" data-toggle="tab" href="#heartland">Heartland</a>
+                        <a class="dropdown-item" data-toggle="tab" href="#marcus">Marcus</a>
+                    </div>
+                </li>
 
-            <div class="tab-content text-wrap  ">
+                <li class="nav-item dropdowm">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#activein">Active In</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" data-toggle="tab" href="#studentcouncil">Student Council</a>
+                        <a class="dropdown-item" data-toggle="tab" href="#chazzo">Chazoo</a>
+                        <a class="dropdown-item" data-toggle="tab" href="#sparkcrew">Spark Crew</a>
+                        <a class="dropdown-item" data-toggle="tab" href="#cyberstart">Cyberstart</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="tab-content text-wrap ">
                 <div id="intro" class="tab-pane fade in active">
                     <p>
                         Hi, originally born in Ethiopia a was adopted at an early age and grew up in the United States of America.
@@ -57,23 +66,43 @@
                         <dd>- I enjoy playing soccer.</dd>
                     </dl>
                 </div>
-
-                <div id="employment" class="tab-pane fade in">
-                    <p>Marcus Vally Grand Cinema</p>
-                    <p>Heartland Business Systems</p>
+               
+                <div id="heartland" class="tab-pane fade ">
+                    <h1>Heartland Business Systems</h1>
+                    <p>Heartland, the start of my professional devolpment, is an experiance that I will look back opon with shock when I reflecton the fact... </p>
                 </div>
 
-                <div id="activeIn" class="tab-pane fade in">
-                    <p>Cyberstart America</p>
-                    <p>Student Counsel</p>
-                    <p>Chazzo Warriors</p>
-                    <p>Spark crew</p>
+                <div id="marcus" class="tab-pane fade">
+                    <h1>Marcus Vally Grand Cinema</h1>
+                    <p>Marcus was my first job and will always be viewed warmly.</p>
+                </div>
+         
+                
+                <div id="cyberstart" class="tab-pane fade">
+                    <h1>Cyberstart America</h1>
+                    <p>Cyberstart America is a cyber security devolpment resource where users act as if they are an agent in a cyber security organisation that thwarts bad actors...</p>
+                </div>
+
+                <div id="studentcouncil" class="tab-pane fade">
+                    <h1>Student Counsel</h1>
+                    <p>Eventually I want to be a lead my own team in this indistry in order to do this I have to gain leadership experience Student Council provides this...</p>
+                </div>
+
+                <div id="chazzo" class="tab-pane fade">
+                    <h1>Chazzo Warriors</h1>
+                    <p>Chazzo Warriors is a group that I participate in that helps in providing opertunities for middle schoolers to have fun activitys that also help to develop ther faith...</p>
+                </div>
+
+                <div id="sparkcrew" class="tab-pane fade">
+                    <h1>Spark crew</h1>
+                    <p>Spark Crew is a group that helps with middle school religion at my church. </p>
                 </div>
             </div>
         </div>
-        <div class="col-2">
-        </div>
-     </div>
+    </div>
+    <div class="col-1">
+
+    </div>
 </div>
 
 

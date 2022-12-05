@@ -7,7 +7,6 @@ namespace KalPortfolio.Controllers
 
         public ActionResult Index()
         {
-            
             return View();  
         }
 

@@ -13,13 +13,13 @@ a {
 }
 
 pre {
-    background-color: #000;
-    border-color: #000;
+    background-color: transparent;
+    border:0px;
     color: #fff;
 }
 
 p {
-     background-color: #000;
+     background-color: transparent;
      color: #fff;
 }
 
@@ -37,17 +37,22 @@ p {
 
 .nav {
     background-color: #000;
+    
 }
 
 .panel {
     background-color: #000;
-    border: 0px;
+    border: 3px red solid;
+    border-radius: 20px;
+    padding: 2rem;
 }
 
 .panel-body {
     padding: 5px 0px 0px 0px;
     border: 0px;
 }
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -84,11 +89,12 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  background-color: #000;
-  width: 100%;
-  color: #fff;
+    /* Margin bottom by footer height */
+    background-color: #000;
+    width: 100%;
+    color: #fff;
+    background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/06/Black-And-Red-Image-HD.jpg);
+    background-repeat: no-repeat;
 }
 .footer {
   position: absolute;
@@ -100,8 +106,17 @@ body {
 
 /*Custom id*/
 
-#single-item {
+#home-intro {
     height: calc(98vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+}
+
+#single-item {
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,8 +127,7 @@ body {
     margin-bottom: 3vh;
     display: flex;
     justify-content: right;
-    transition: all 1.5s ease-in-out;
-    animation-iteration-count:infinite;
+   
 }
 @keyframes arrowMove {
     0% {
@@ -129,14 +143,105 @@ body {
         top: 0px
     }
 }
+
+#home-info-header{
+    animation-name: home-header;
+    animation-duration: 4s;
+    position: relative;
+}
+
+@keyframes home-header{
+    0% {
+        right: 100vw;
+        top: 0px;
+    }
+    100% {
+        right: 0px;
+        top:0px;
+    }
+}
+
+#tag-line {
+    animation-name: home-tag-line;
+    animation-duration: 4s;
+    position: relative;
+}
+
+@keyframes home-tag-line {
+    0% {
+        left: 100vw;
+        top: 0px;
+    }
+    
+    100% {
+        left: 0px;
+        top: 0px;
+    }
+}
+
+#nav-in {
+    animation-name: nav-in;
+    animation-duration: 4s;
+    position: relative;
+}
+@keyframes nav-in {
+    0%  {
+        top: -100vh;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+#arrow-in {
+    animation-name: arrow-in;
+    animation-duration: 4s;
+    position: relative;
+}
+
+@keyframes arrow-in {
+    0% {
+        left: 100vw;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+#inner-panel {
+    border: 0px;
+}
+
+#find-me{
+    display: flex;
+    justify-content: right;
+}
+/*custom class*/
 .glyphicon-arrow-down {
     color: red;
+    animation-delay: 4s;
     animation-name: arrowMove;
     animation-iteration-count: infinite;
     animation-duration: 4s;
     position:relative;
 }
-    /*custom class*/
-    .header {
-        height: 100px
-    }
+   
+.header {
+    height: 100px
+}
+
+#footer {
+    border-color: red;
+    margin: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+#footer-image {
+    width: 100%;
+    height: 100%;
+}
