@@ -106,6 +106,7 @@ body {
 
 /*Custom id*/
 
+/*Home styling*/
 #home-intro {
     height: calc(98vh - 100px);
     display: flex;
@@ -125,6 +126,7 @@ body {
 
 #scroll-arrow {
     margin-bottom: 3vh;
+    margin-right: 10vw;
     display: flex;
     justify-content: right;
    
@@ -146,7 +148,7 @@ body {
 
 #home-info-header{
     animation-name: home-header;
-    animation-duration: 4s;
+    animation-duration: 3s;
     position: relative;
 }
 
@@ -163,7 +165,7 @@ body {
 
 #tag-line {
     animation-name: home-tag-line;
-    animation-duration: 4s;
+    animation-duration: 3s;
     position: relative;
 }
 
@@ -181,7 +183,7 @@ body {
 
 #nav-in {
     animation-name: nav-in;
-    animation-duration: 4s;
+    animation-duration: 3s;
     position: relative;
 }
 @keyframes nav-in {
@@ -196,7 +198,7 @@ body {
 
 #arrow-in {
     animation-name: arrow-in;
-    animation-duration: 4s;
+    animation-duration: 3s;
     position: relative;
 }
 
@@ -214,17 +216,51 @@ body {
     border: 0px;
 }
 
-#find-me{
-    display: flex;
-    justify-content: right;
+#find-me {
+    display: inline;
+    margin-right: 10px;
+    align-items: center;
+    align-content: center;
 }
+
+#projects-title {
+    margin: 0px;
+}
+
+#footer {
+    display: grid;
+    height: 50px;
+    grid-template-columns: 60vw auto;
+    grid-template-rows: auto;
+    
+}
+
+#give-margins{
+    margin: 0px 5vw 0px 5vw;
+}
+
+#projects-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+}
+/*Projects styling*/
+
+
 /*custom class*/
+.projects-background {
+    background-image: linear-gradient(to bottom right, black, hsl(0, 100%, 17%));
+    border-radius: 10px;
+    margin: 0px;
+}
+
 .glyphicon-arrow-down {
     color: red;
-    animation-delay: 4s;
+    animation-delay: 2s;
     animation-name: arrowMove;
     animation-iteration-count: infinite;
-    animation-duration: 4s;
+    animation-duration: 3s;
     position:relative;
 }
    
@@ -232,16 +268,6 @@ body {
     height: 100px
 }
 
-#footer {
-    border-color: red;
-    margin: 0px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    align-content: center;
-}
 
-#footer-image {
-    width: 100%;
-    height: 100%;
-}
+
+

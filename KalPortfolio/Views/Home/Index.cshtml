@@ -1,109 +1,238 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+    <title>KalPortfolio</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav id="nav-in" class="navbar">
+            <div class="container-fluid d-block ">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-<div class="container">
-    <div id="home-intro" class="row">
-        <div class="container col-11">
-            <h1 id="home-info-header" class="text-left"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
-            <pre class="text-wrap" id="tag-line">    I am achiving my goal of being a software engineer one line of code at a time.</pre>
+                    <a class="navbar-brand" href="Index">K</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav d-inline-block ">
+                        <li class="active"><a href="#home-link"><underline>Home</underline></a></li>
+                        <li><a href="#contact-link"><underline>Contact</underline></a></li>
+                        <li><a href="#projects-link"><underline>Projects</underline></a></li>
+                        <li><a href="#resume-link"><underline>Resume</underline></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    
+    <section id="home-link">
+        <div class="container">
+            <div id="home-intro" class="row">
+                <div class="container col-11">
+                    <h1 id="home-info-header" class="text-left display-4"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
+                    <pre class="text-wrap lead" id="tag-line">    I am achiving my goal of being a software engineer one line of code at a time.</pre>
+                </div>
+
+            </div>
         </div>
+
         
-    </div>
-</div>
-
-<div classclass="row">
-    <div class="col-12">
-        <div id="scroll-arrow">
-            <span class="glyphicon glyphicon-arrow-down "></span>
+        <div>
+            <div id="scroll-arrow">
+                <span class="glyphicon glyphicon-arrow-down "></span>
+            </div>
         </div>
-    </div>
- 
-</div>
 
-<div id="single-item" class="container row">
-    <div class="col-1">
+       
 
-    </div>
-    <div class="col-10 panel">
-        <div class="panel-body ">
-            <ul class="nav nav-tabs">
-                <li class="nav-item active">
-                    <a class="nav-link active" data-toggle="tab" href="#intro">About Me</a>
-                </li>
+        <div id="single-item" class="container">
+            <div class="panel">
+                <div class="panel-body ">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#intro">About Me</a>
+                        </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#employment">Employment</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" data-toggle="tab" href="#heartland">Heartland</a>
-                        <a class="dropdown-item" data-toggle="tab" href="#marcus">Marcus</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#employment">Employment</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" data-toggle="tab" href="#heartland">Heartland</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#marcus">Marcus</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdowm">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#activein">Active In</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" data-toggle="tab" href="#studentcouncil">Student Council</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#chazzo">Chazoo</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#sparkcrew">Spark Crew</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#cyberstart">Cyberstart</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content text-wrap ">
+                        <div id="intro" class="tab-pane fade in active">
+                            <h1>About Me</h1>
+                            <p>
+                                Hi, originally born in Ethiopia a was adopted at an early age and grew up in the United States of America.
+                                My love of technology has guided me and led me to where I am today. I always wanted to help in the creation of new and exciting technologies, and I can do this through the development of impactful and robust software.
+                            </p>
+                            <p>Somethings to know about me include:</p>
+                            <dl>
+                                <dd>- I like to read in my spare time.</dd>
+                                <dd>- I am always looking to learn new things.</dd>
+                                <dd>- I enjoy playing soccer.</dd>
+                            </dl>
+                        </div>
+
+                        <div id="heartland" class="tab-pane fade ">
+                            <h1>Heartland Business Systems</h1>
+                            <p>Heartland, the start of my professional devolpment, is an experiance that I will look back opon with shock when I reflecton the fact... </p>
+                        </div>
+
+                        <div id="marcus" class="tab-pane fade">
+                            <h1>Marcus Vally Grand Cinema</h1>
+                            <p>Marcus was my first job and will always be viewed warmly.</p>
+                        </div>
+
+
+                        <div id="cyberstart" class="tab-pane fade">
+                            <h1>Cyberstart America</h1>
+                            <p>Cyberstart America is a cyber security devolpment resource where users act as if they are an agent in a cyber security organisation that thwarts bad actors...</p>
+                        </div>
+
+                        <div id="studentcouncil" class="tab-pane fade">
+                            <h1>Student Counsel</h1>
+                            <p>Eventually I want to be a lead my own team in this indistry in order to do this I have to gain leadership experience Student Council provides this...</p>
+                        </div>
+
+                        <div id="chazzo" class="tab-pane fade">
+                            <h1>Chazzo Warriors</h1>
+                            <p>Chazzo Warriors is a group that I participate in that helps in providing opertunities for middle schoolers to have fun activitys that also help to develop ther faith...</p>
+                        </div>
+
+                        <div id="sparkcrew" class="tab-pane fade">
+                            <h1>Spark crew</h1>
+                            <p>Spark Crew is a group that helps with middle school religion at my church. </p>
+                        </div>
                     </div>
-                </li>
-
-                <li class="nav-item dropdowm">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#activein">Active In</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" data-toggle="tab" href="#studentcouncil">Student Council</a>
-                        <a class="dropdown-item" data-toggle="tab" href="#chazzo">Chazoo</a>
-                        <a class="dropdown-item" data-toggle="tab" href="#sparkcrew">Spark Crew</a>
-                        <a class="dropdown-item" data-toggle="tab" href="#cyberstart">Cyberstart</a>
-                    </div>
-                </li>
-            </ul>
-
-            <div class="tab-content text-wrap ">
-                <div id="intro" class="tab-pane fade in active">
-                    <p>
-                        Hi, originally born in Ethiopia a was adopted at an early age and grew up in the United States of America.
-                        My love of technology has guided me and led me to where I am today. I always wanted to help in the creation of new and exciting technologies, and I can do this through the development of impactful and robust software.
-                    </p>
-                    <p>Somethings to know about me include:</p>
-                    <dl>
-                        <dd>- I like to read in my spare time.</dd>
-                        <dd>- I am always looking to learn new things.</dd>
-                        <dd>- I enjoy playing soccer.</dd>
-                    </dl>
-                </div>
-               
-                <div id="heartland" class="tab-pane fade ">
-                    <h1>Heartland Business Systems</h1>
-                    <p>Heartland, the start of my professional devolpment, is an experiance that I will look back opon with shock when I reflecton the fact... </p>
-                </div>
-
-                <div id="marcus" class="tab-pane fade">
-                    <h1>Marcus Vally Grand Cinema</h1>
-                    <p>Marcus was my first job and will always be viewed warmly.</p>
-                </div>
-         
-                
-                <div id="cyberstart" class="tab-pane fade">
-                    <h1>Cyberstart America</h1>
-                    <p>Cyberstart America is a cyber security devolpment resource where users act as if they are an agent in a cyber security organisation that thwarts bad actors...</p>
-                </div>
-
-                <div id="studentcouncil" class="tab-pane fade">
-                    <h1>Student Counsel</h1>
-                    <p>Eventually I want to be a lead my own team in this indistry in order to do this I have to gain leadership experience Student Council provides this...</p>
-                </div>
-
-                <div id="chazzo" class="tab-pane fade">
-                    <h1>Chazzo Warriors</h1>
-                    <p>Chazzo Warriors is a group that I participate in that helps in providing opertunities for middle schoolers to have fun activitys that also help to develop ther faith...</p>
-                </div>
-
-                <div id="sparkcrew" class="tab-pane fade">
-                    <h1>Spark crew</h1>
-                    <p>Spark Crew is a group that helps with middle school religion at my church. </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-1">
+        <hr />
+    </section>
 
-    </div>
-</div>
+    <section id="projects-link" class="projects-background">
+        <div id="give-margins" >
+            <h1 id="projects-title" class="dispaly-4">About My <b class="text-danger">Projects</b></h1>
+            <div class="row">
+                <p class="lead col-8">
+                    Currently my projects are all about learning. Through tutorials I can learn about new technologies and concepts in a more formal and organized manner.
+                    After being able to learn about these technologies projects I create on my own can be used to explore what I learned in my own way, confirm my understanding of the technology, and gain experience with the given technology.
+                    The following projects let me do what I just have stated and provide me not only with experience but a sense of pride when I am able to implement what I learned a new way that I had not known how to previously.
+                </p>
+            </div>
+            <div>
+                <div id="projects-grid">                  
+                    <div class="panel text-wrap">
+                        <div class="panel-heading ">
+                            <h1>Matching Icons Game</h1>
+                        </div>
+                        <div class="panel-body">
+                            <p >This is one of my first projects where I utilized visual studios, C#, and microsoft forms. 
+                                In this project I created a matching icons game.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="panel text-wrap">
+                        <div class="panel-heading">
+                            <h1>Maze Game</h1>
+                        </div>
+                        <div class="panel-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            </p>
+                        </div>
+                    </div>
+                    <div class="panel text-wrap">
+                        <div class="panel-heading">
+                            <h1>Math Quiz Game</h1>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            </p>
+                        </div>
+                    </div>
+                    <div class="panel text-wrap">
+                        <div class="panel-heading">
+                            <h1>Calculator</h1>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="resume-link">
+        <h1>Resume</h1>
+    </section>
+
+    <section id="contact-link">
+        <h1>Contacts</h1>
+    </section>
+            
+    
+    <footer id="footer">
+        <div>
+            <p>&copy; @DateTime.Now.Year - My Portfolio</p>
+        </div>
+
+        <div>
+            <p id="find-me">Find Me On:</p>
+
+            <a href="https://github.com/kvassar" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-github" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+    
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+   
+</body>
+</html>
+
+
 
 
 
