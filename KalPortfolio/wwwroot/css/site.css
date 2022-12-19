@@ -119,14 +119,6 @@ body {
     
 }
 
-#single-item {
-    height: 95vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-
 #scroll-arrow {
     margin-bottom: 3vh;
     margin-right: 10vw;
@@ -234,7 +226,7 @@ body {
     
 }
 
-#give-margins{
+.give-margins{
     margin: 0px 5vw 0px 5vw;
 }
 
@@ -321,4 +313,39 @@ body {
     margin: 1em 0;
     padding: 0;
     width: 20rem;
+}
+
+.single-item {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.give-margins {
+    margin: 0px 5vw 0px 5vw;
+}
+
+.skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 4rem;
+    height: 3rem;
+    overflow: hidden;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+input{
+    background-color: black;
+    color: white;
+    border: 1px solid red;
 }
