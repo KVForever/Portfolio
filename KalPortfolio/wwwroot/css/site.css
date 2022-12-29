@@ -99,6 +99,11 @@ body {
     background-image: url(https://wallpapertag.com/wallpaper/full/f/9/c/500431-download-black-and-blue-abstract-wallpaper-1920x1200-for-computer.jpg);
     background-repeat: no-repeat;
 }
+
+form{
+    text-align: left;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -247,9 +252,27 @@ body {
 
 }
 
+#personName{
+    height: 5vh;
+    width: calc(25% - 2.5px);
+}
+
+#personSubject{
+    height: 5vh;
+    width: calc(25% - 2.5px);
+}
+
+#personEmail{
+    height: 5vh;
+    width: 50%;
+}
 
 
-/*Projects styling*/
+#personMessage{
+    height: 40vh;
+    width: 50%;
+}
+/*Projects styling*/       
 
 
 /*custom class*/
@@ -348,4 +371,5 @@ input{
     background-color: black;
     color: white;
     border: 1px solid red;
+    margin: 5px;
 }
