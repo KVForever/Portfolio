@@ -12,6 +12,11 @@ a {
   color: #fff;
 }
 
+footer{
+    border-top: solid 5px red;
+    margin-top: 10px;
+    padding: 5px;
+}
 
 pre {
     background-color: transparent;
@@ -105,10 +110,10 @@ form{
 }
 
 .footer {
+  border: solid 5px red;
   position: absolute;
   bottom: 0;
   width: 100%;
-  white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
 
@@ -223,13 +228,6 @@ form{
     align-content: center;
 }
 
-#footer {
-    display: grid;
-    height: 50px;
-    grid-template-columns: 60vw auto;
-    grid-template-rows: auto;
-    
-}
 
 .give-margins{
     margin: 0px 5vw 0px 5vw;
@@ -254,29 +252,42 @@ form{
 
 #first-name{
     height: 5vh;
-    width: calc(50% - 12px);
+    width: 49%;
 }
 
 #last-name {
     height: 5vh;
-    width: calc(50% - 12px);
+    width: 49%;
 }
 
 #subject{
     height: 5vh;
-    width: calc(50% - 12px);
+    width: 49%;
 }
 
 #email{
     height: 5vh;
-    width: calc(50% - 12px);
+    width: 49%;
 }
 
 
 #message{
+    border-color: red;
+    background-color: black;
     height: 40vh;
-    width: 100%;
+    width: 100% ;
 }
+
+#submit-message {
+    font-size: 30px;
+    background-color: red;
+    color: black;
+    width: 100%;
+    height: 5vh;
+    border: solid 5px #8B0000;
+}
+
+
 
 
 /*Projects styling*/       
@@ -378,10 +389,19 @@ input{
     background-color: black;
     color: white;
     border: 1px solid red;
-    margin: 5px;
+    margin-block: 5px;  
+}
+
+.space{
+    margin-left: 11px;
 }
 
 .carousel {
     width: 100%;
-    height: 449px;
+    height: 60vh;
+}
+
+.carousel-inner{
+    width: 100%;
+    height: 60vh;
 }

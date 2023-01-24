@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace KalPortfolio.Models
 {
@@ -21,4 +23,10 @@ namespace KalPortfolio.Models
 
 
     }
+
+    public class MessageDbContext : DbContext
+    { 
+        public DbSet<Message> Messages { get; set; }
+    }
+
 }
