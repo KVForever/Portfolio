@@ -111,6 +111,7 @@ form{
 
 .footer {
   border: solid 5px red;
+  font-size: 20px;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -287,6 +288,9 @@ form{
     border: solid 5px #8B0000;
 }
 
+.contact-me{
+    justify-content: right;
+}
 
 
 

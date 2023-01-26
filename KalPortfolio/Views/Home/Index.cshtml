@@ -1,7 +1,4 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model DataEntities.Message
 
 <!DOCTYPE html>
 <html lang="en">
@@ -198,7 +195,8 @@
                 <div class="media-body">
                     <div class="lead col-9">
                         <h1>Matching Game</h1>
-                        <p>My first web form project was a not just a learning experience with windows forms but how to use Visual Studios IED and working with C#...</p>
+                        <p>My first web form project was a not just a learning experience with windows forms but how to use Visual Studios IED and working with C#. 
+                            I was able to work on using tables </p>
                     </div>
                     
                     <div class="project-resources">
@@ -324,19 +322,20 @@
     <section id="contact-link">
         
         <div class="give-margins">          
-            <h1 class="display-4"><b class="text-danger">Contact</b> Me</h1>
+            <h1 class="display-4 "><b class="text-danger contact-me">Contact</b> Me</h1>
             <div class="row">
                 <div class="col-6">
                     <form method="post">
+                        
                         <input type="text" id="first-name" name="FirstName" placeholder="First Name" />
-
+                        
                         <input type="text" class="space" id="last-name" name="LastName" placeholder="Last Name" /><br />
-
+                        
                         <input type="text" id="subject" name="Subject" placeholder="Subject" />
-
+                       
                         <input type="email" class="space" id="email" name="Email" placeholder="Email" /><br />
-
-                        <textarea type="text" id="message" name="ViewerMessage" placeholder="Message"></textarea><br /> 
+                        
+                        <textarea type="text" id="message" name="Message1" placeholder="Message"></textarea><br /> 
 
                         <input type="submit" id="submit-message" value="Submit"/>
                     </form>
