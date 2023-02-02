@@ -1,27 +1,34 @@
 ﻿using DataEntities;
-using DataLogic;
+using MessagesLibrary;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace KalPortfolio.Controllers
 {
     public class HomeController : Controller
     {
-        MessageLogic message = new MessageLogic();
+       
+        private readonly IMessageRepository _repository;
+
+        public HomeController(IMessageRepository message)
+        {
+            _repository = message;
+        }
 
         public ActionResult Index()
         {
-            return View();  
+            UserMessage dto = new UserMessage();
+            return View(dto);  
         }
 
         [HttpPost]
-        public ActionResult Index(Message formData)
+        public ActionResult Index( UserMessage formData)
         {
-            if(ModelState.IsValid)
-            {
-                Message user = message.NewMessage(formData);
-            }
-            return View();
+            
+            _repository.AddMessage(formData);
+            
+            return View(formData);
         }
-
     }
 }

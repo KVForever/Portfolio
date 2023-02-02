@@ -97,13 +97,24 @@ html {
 }
 
 body {
-    /* Margin bottom by footer height */
     background-color: #000;
-    width: 100%;
+    width: 100vw;
     color: #fff;
-    background-image: url(https://wallpapertag.com/wallpaper/full/f/9/c/500431-download-black-and-blue-abstract-wallpaper-1920x1200-for-computer.jpg);
-    background-repeat: no-repeat;
+   
 }
+
+    body.home {
+        background-image: url(https://wallpapertag.com/wallpaper/full/f/9/c/500431-download-black-and-blue-abstract-wallpaper-1920x1200-for-computer.jpg);
+        background-repeat: no-repeat;
+        width: 100vw;
+    }
+
+    body.table {
+        background-image: url(https://th.bing.com/th/id/R.6b0de3bf04be27160bf338233d656948?rik=K4%2fab1AlSaNU1Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fBest-Black-And-Red-Backgrounds.jpg&ehk=XnsgviCZCh%2fZiCs1ZFoUiWM%2b%2f0Y4esXgURbjYXJtzRM%3d&risl=&pid=ImgRaw&r=0);
+        background-repeat: no-repeat;
+        width: 90vw;
+    }
+   
 
 form{
     text-align: left;
@@ -408,4 +419,17 @@ input{
 .carousel-inner{
     width: 100%;
     height: 60vh;
+}
+
+.message-table{
+    border: 2px solid red;
+    width: 90vw;
+    color: white;
+}
+
+.text-overflow {
+    max-width: 10vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
 }
