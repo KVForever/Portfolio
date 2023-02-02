@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+@model IEnumerable<DataEntities.UserMessage>;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+    <title>KalPortfolio</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</head>
+<body class="table">
+    <header>
+        <a href="#home-link" class="skip">Skip navigation</a>
+        <nav id="nav-in" class="navbar">
+            <div class="container-fluid d-block ">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="Index">K</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav d-inline-block ">
+                       
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="give-margins">
+        <table class="message-table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                </tr>               
+            </thead>
+            <tbody>
+                
+                @foreach(var message in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
+
+                        <td>@Html.DisplayFor(modelItem => message.LastName)</td>
+
+                        <td>@Html.DisplayFor(modelItem => message.Email)</td>
+
+                        <td>@Html.DisplayFor(modelItem => message.Subject)</td>
+
+                        <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
+                   
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+
+        <div class="rectangle">
+
+        </div>
+    </section>
+    </body>
+</html>
+
+

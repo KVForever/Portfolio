@@ -1,4 +1,4 @@
-﻿@model DataEntities.Message
+﻿@model DataEntities.UserMessage
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 </head>
-<body>
+<body class="home">
     <header>
         <a href="#home-link" class="skip">Skip navigation</a>
         <nav id="nav-in" class="navbar">
@@ -329,13 +329,18 @@
                         
                         <input type="text" id="first-name" name="FirstName" placeholder="First Name" />
                         
+
                         <input type="text" class="space" id="last-name" name="LastName" placeholder="Last Name" /><br />
                         
+
                         <input type="text" id="subject" name="Subject" placeholder="Subject" />
-                       
+                        
+
                         <input type="email" class="space" id="email" name="Email" placeholder="Email" /><br />
                         
-                        <textarea type="text" id="message" name="Message1" placeholder="Message"></textarea><br /> 
+
+                        <textarea type="text" id="message" name="Message" placeholder="Message"></textarea><br /> 
+                        
 
                         <input type="submit" id="submit-message" value="Submit"/>
                     </form>
@@ -388,6 +393,9 @@
                 </div>
             </div>
         </div>
+
+        
+        
     </section>
             
     

@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataEntities;
 
-
 public partial class PortfolioMessagesContext : DbContext
 {
     public PortfolioMessagesContext(DbContextOptions<PortfolioMessagesContext> options)
@@ -12,26 +11,23 @@ public partial class PortfolioMessagesContext : DbContext
     {
     }
 
-    public virtual DbSet<Message> Messages { get; set; }
+    public virtual DbSet<UserMessage> UserMessages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Message>(entity =>
+        modelBuilder.Entity<UserMessage>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK_Message");
-
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("ID");
+            entity.Property(e => e.Id);
+            entity.Property(e => e.Email)
+                .HasMaxLength(50)
+                .IsUnicode(false);
             entity.Property(e => e.FirstName)
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.LastName)
                 .HasMaxLength(50)
                 .IsUnicode(false);
-            entity.Property(e => e.Message1)
-                .IsUnicode(false)
-                .HasColumnName("Message");
+            entity.Property(e => e.Message).IsUnicode(false);
             entity.Property(e => e.Subject)
                 .HasMaxLength(50)
                 .IsUnicode(false);
