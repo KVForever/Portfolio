@@ -245,12 +245,12 @@ form{
     margin: 0px 5vw 0px 5vw;
 }
 
-#projects-grid {
+/*#projects-grid {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: auto;
     grid-gap: .5rem;   
-}
+}*/
 
 #projects-title {
     padding-left: 15px;
@@ -291,7 +291,7 @@ form{
 }
 
 #submit-message {
-    font-size: 30px;
+    font-size: 3vh;
     background-color: red;
     color: black;
     width: 100%;
@@ -299,16 +299,29 @@ form{
     border: solid 5px #8B0000;
 }
 
-.contact-me{
-    justify-content: right;
-}
 
-
-
-/*Projects styling*/       
+      
 
 
 /*custom class*/
+
+.table-buttons{
+    width: 10vw;
+    height: 5vh;
+    margin-right: 10vw;
+    border-radius: 10px;
+}
+
+.message-editing{
+    padding: 4%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-me {
+    justify-content: right;
+}
+
 .projects-background {
     background-image: linear-gradient(to bottom right, black, hsl(232, 98%, 59%));
     border-radius: 10px;
@@ -408,7 +421,7 @@ input{
 }
 
 .space{
-    margin-left: 11px;
+    margin-right: 1%;
 }
 
 .carousel {
