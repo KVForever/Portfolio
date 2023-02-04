@@ -45,6 +45,22 @@
     </header>
 
     <section class="give-margins">
+
+        <div class="message-editing">
+            <div class="row">
+                <div class="col-6">
+                    <input class="table-buttons" type="button" id="delete" value="Delete" />
+                </div>
+                <div class="col-6">
+                    <form method="post"> 
+                        <input class="table-buttons" type="button" id="searchsubmit" value="Search" /> <input type="text" id="search-table" name="SearchTable" placeholder="Search">
+                    </form>
+                    
+                </div>
+
+            </div>
+        </div>
+
         <table class="message-table">
             <thead>
                 <tr>
@@ -59,36 +75,24 @@
                 
                 @foreach(var message in Model)
                 {
-                    <tr>
+                    <tr id="message-row">
                         <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
 
                         <td>@Html.DisplayFor(modelItem => message.LastName)</td>
 
-                        <td>@Html.DisplayFor(modelItem => message.Email)</td>
+                        <td><a class="mail-to" href="mailto:@Html.DisplayFor(modelItem => message.Email)">Send Email To: @Html.DisplayFor(modelItem => message.Email)</a></td>
 
                         <td>@Html.DisplayFor(modelItem => message.Subject)</td>
 
                         <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
-                   
+
                     </tr>
                 }
                 
             </tbody>
         </table>
 
-        <div class="message-editing">
-            <div class="row">
-                <div class="col-4">
-                    <input class="table-buttons"  type="button" id="delete" value="Delete" />
-                </div>
-                <div class="col-4">
-                    <input class="table-buttons" type="button" id="search" value="Search"/>
-                </div>
-                <div class="col-4">
-                    <input class="table-buttons" type="button" id="email" value="Email"/>
-                </div>
-            </div>
-        </div>
+       
     </section>
     </body>
 </html>
