@@ -1,10 +1,4 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-    
-}
-
-@model IEnumerable<DataEntities.UserMessage>;
+﻿@model IEnumerable<DataEntities.UserMessage>;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +9,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <link href="~/css/site.css" rel="stylesheet" />  
+    <link href="~/css/site.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
@@ -37,7 +31,6 @@
 
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav d-inline-block ">
-                       
                     </ul>
                 </div>
 
@@ -49,13 +42,13 @@
 
         <div class="message-editing">
             <div class="row">
-  
+
                 <div class="col-12">
-                    <form  method="post">
-                        <input type="search" id="search" name="SearchButton" placeholder="Search"/> 
-                        <button type="submit" id="search">Search</button> 
+                    <form method="post">
+                        <input type="text" id="search" name="SearchButton" placeholder="Search" />
+                        <button type="submit" id="search">Search</button>
                     </form>
-                    
+
                 </div>
 
             </div>
@@ -63,21 +56,21 @@
 
         <table class="message-table">
             <thead>
-                <tr>                    
+                <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Subject</th>
                     <th>Message</th>
                     <th>Edit</th>
-                </tr>               
+                </tr>
             </thead>
             <tbody>
-                
-                @foreach(var message in Model)
+
+                @foreach (var message in Model)
                 {
                     <tr id="message-row">
-                        
+
 
                         <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
 
@@ -92,13 +85,11 @@
                         <td><button id="delete">Delete</button></td>
                     </tr>
                 }
-                
+
             </tbody>
         </table>
 
-       
+
     </section>
-    </body>
+</body>
 </html>
-
-

@@ -1,5 +1,7 @@
-﻿using MessagesLibrary;
+﻿using DataEntities;
+using MessagesLibrary;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace KalPortfolio.Controllers
 {
@@ -12,9 +14,15 @@ namespace KalPortfolio.Controllers
             _repository = message;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View(_repository.GetAllMessages());
+        }
+
+        [HttpPost]
+        public ActionResult Search(Guid search)
+        {
+            return View(_repository.GetMessageById(search));
         }
     }
 }

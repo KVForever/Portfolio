@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DataEntities;
 
@@ -20,6 +18,6 @@ public partial class UserMessage
     [RegularExpression(@"^[A-Z]+[a-zA-Z'\s/]*$")]
     public string? Subject { get; set; }
 
-    [Required(ErrorMessage = "If you are submiting the form please fill out the message section.")]
+    [Required(ErrorMessage = "Please fill out this feild in order to submit this form.")]
     public string Message { get; set; } = null!;
 }

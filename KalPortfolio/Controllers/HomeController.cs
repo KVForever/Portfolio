@@ -25,10 +25,13 @@ namespace KalPortfolio.Controllers
         [HttpPost]
         public ActionResult Index( UserMessage formData)
         {
+            if(ModelState.IsValid)
+            {
+                _repository.AddMessage(formData);
+            }
             
-            _repository.AddMessage(formData);
             
-            return View(formData);
+            return View();
         }
     }
 }

@@ -113,6 +113,7 @@ body {
         background-image: url(https://th.bing.com/th/id/R.6b0de3bf04be27160bf338233d656948?rik=K4%2fab1AlSaNU1Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fBest-Black-And-Red-Backgrounds.jpg&ehk=XnsgviCZCh%2fZiCs1ZFoUiWM%2b%2f0Y4esXgURbjYXJtzRM%3d&risl=&pid=ImgRaw&r=0);
         background-repeat: no-repeat;
         width: 90vw;
+        
     }
    
 
@@ -304,29 +305,35 @@ form{
     background-color: hsla(360, 100%, 66%, 0.5);
 }
 
+#search {
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    border-radius: 10px;
+    height: 5vh;
+}
 
+#delete{
+    
+    background-color: transparent;
+    color: red;
+    text-decoration: underline;
+    border: 0px;
+}
       
 
 
 /*custom class*/
 
+
 .mail-to:hover{
-    color:black;
+    color:red;
     text-decoration: none;
 }
 
-.table-buttons{
-    width: 10vw;
-    height: 5vh;
-    margin-right: 10vw;
-    border-radius: 10px;
-}
-
 .message-editing{
-    padding: 4%;
-    display: flex;
-    justify-content: center;
     width: 100vw;
+    margin-bottom: 5vh;
 }
 
 .contact-me {
