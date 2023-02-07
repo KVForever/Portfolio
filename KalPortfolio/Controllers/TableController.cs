@@ -1,7 +1,10 @@
 ﻿using DataEntities;
 using MessagesLibrary;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
+using NuGet.Protocol.Core.Types;
 using System;
+using System.Linq;
 
 namespace KalPortfolio.Controllers
 {
@@ -19,10 +22,20 @@ namespace KalPortfolio.Controllers
             return View(_repository.GetAllMessages());
         }
 
-        [HttpPost]
-        public ActionResult Search(Guid search)
+       
+        public ActionResult Index(string name)
         {
-            return View(_repository.GetMessageById(search));
+            if(_repository.GetAllMessages().Count == 0)
+            {
+                return Problem("There are no messages to search");
+            }
+
+            var message = from x in _repository.GetAllMessages()
+                          select x;
+
+            message = message.Where(y => y.FirstName.Contains(name));
+
+            return View(message.ToList());
         }
     }
 }

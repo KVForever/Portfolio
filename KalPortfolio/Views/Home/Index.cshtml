@@ -329,22 +329,22 @@
             <div class="row">
                 <div class="col-6">
                     <form method="post">
-                        
-                        
 
+
+                        @Html.ValidationMessageFor(x => x.FirstName, "", new {@class = "text-danger"})
                         <input type="text" class="space" id="first-name" name="FirstName" placeholder="First Name" />
-                        
 
+                       @* @Html.ValidationMessageFor(x => x.Message, "", new {@class = "text-danger header"})*@
                         <input type="text"  id="last-name" name="LastName" placeholder="Last Name" /><br />
-                        
 
+                        @Html.ValidationMessageFor(x => x.Subject, "", new {@class = "text-danger"})
                         <input type="text" class="space"  id="subject" name="Subject" placeholder="Subject" />
-                        
 
+                        
                         <input type="email" id="email" name="Email" placeholder="Email" /><br />
 
-                        @Html.ValidationMessageFor(x => x.Message, "", new {@class = "text-danger"})
-                        <textarea type="text" id="message" name="Message" placeholder="Message"></textarea><br /> 
+                       
+                        <textarea type="text" id="message" name="Message" placeholder="Message" required></textarea><br /> 
                         
 
                         <input type="submit" id="submit-message" value="Submit"/>

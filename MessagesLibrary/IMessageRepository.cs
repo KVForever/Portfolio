@@ -9,7 +9,7 @@ namespace MessagesLibrary
 {
     public interface IMessageRepository
     {
-        public UserMessage GetMessageById(Guid id);
+        public UserMessage GetMessageByName(string id);
 
         public List<UserMessage> GetAllMessages();
 

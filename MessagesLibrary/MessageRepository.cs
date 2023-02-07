@@ -18,9 +18,9 @@ namespace MessagesLibrary
             return allMessages;
         }
 
-        public UserMessage GetMessageById(Guid id)
+        public UserMessage GetMessageByName(string name)
         {
-            var message = _dbContext.UserMessages.FirstOrDefault(x => x.Id == id);
+            var message = _dbContext.UserMessages.FirstOrDefault(x => x.LastName == name);
             return message;
         }
 

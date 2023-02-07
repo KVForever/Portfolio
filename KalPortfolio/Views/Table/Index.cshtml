@@ -18,6 +18,7 @@
     <link href="~/css/site.css" rel="stylesheet" />  
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
 
 </head>
 <body class="table">
@@ -37,7 +38,8 @@
 
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav d-inline-block ">
-                       
+                        <li class="active"><a href="/Table/Index">Table</a></li>
+                        <li><a href="/Search/Index">Search</a></li>
                     </ul>
                 </div>
 
@@ -51,7 +53,7 @@
             <div class="row">
   
                 <div class="col-12">
-                    <form  method="post">
+                    <form method="post" asp-action="Create">
                         <input type="search" id="search" name="SearchButton" placeholder="Search"/> 
                         <button type="submit" id="search">Search</button> 
                     </form>
@@ -61,7 +63,13 @@
             </div>
         </div>
 
-        <table class="message-table">
+        <div>
+            <p>Your Search Result:</p>
+        </div>
+
+        
+
+       <table class="message-table">
             <thead>
                 <tr>                    
                     <th>First Name</th>
