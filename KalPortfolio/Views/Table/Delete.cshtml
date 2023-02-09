@@ -1,4 +1,4 @@
-﻿@model DataEntities.UserMessage
+﻿@model IEnumerable<DataEntities.UserMessage>;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +12,7 @@
     <link href="~/css/site.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script type="text/javascript">
-        function search() {
-            location.href = '/Table/Index?id=' + document.querySelector('#search-for-message').value;
-        }
-    </script>
+
 
 </head>
 <body class="table">
@@ -36,8 +32,6 @@
 
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav d-inline-block ">
-                        <li class="active"><a href="/Table/Index">Table</a></li>
-                        <li><a href="/Search/Index">Search</a></li>
                     </ul>
                 </div>
 
@@ -49,19 +43,17 @@
 
         <div class="message-editing">
             <div class="row">
-                <div class="col-12">
 
-                    <form>
-                        <input type="text" class="search-message" id="search-for-message" placeholder="Search" />
-                        <button type="button" class="search-message" onclick="search()">Search</button>
-                    </form>
-                                       
+                <div class="col-12">
+                    @using (Html.BeginForm("Search", "table"))
+                    {
+                        <form method="post">
+                            <input type="text" id="search" name="SearchButton" placeholder="Search" />
+                            <button type="submit" id="search">Search</button>
+                        </form>
+                    }
                 </div>
             </div>
-        </div>
-
-        <div>
-            <p>Your Search Result:</p>
         </div>
 
         <table class="message-table">
@@ -76,20 +68,26 @@
                 </tr>
             </thead>
             <tbody>
+
+                @foreach (var message in Model)
+                {
                     <tr id="message-row">
 
-                        <td>@Html.DisplayFor(model => model.FirstName)</td>
 
-                        <td>@Html.DisplayFor(model => model.LastName)</td>
+                        <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
 
-                        <td><a class="mail-to" href="mailto:@Html.DisplayFor(model => model.Email)">Respond To: @Html.DisplayFor(model => model.Email)</a></td>
+                        <td>@Html.DisplayFor(modelItem => message.LastName)</td>
 
-                        <td>@Html.DisplayFor(model => model.Subject)</td>
+                        <td><a class="mail-to" href="mailto:@Html.DisplayFor(modelItem => message.Email)">Respond To: @Html.DisplayFor(modelItem => message.Email)</a></td>
 
-                        <td class="text-overflow">@Html.DisplayFor(model => model.Message)</td>
+                        <td>@Html.DisplayFor(modelItem => message.Subject)</td>
 
-                        <td><button id="delete">Delete</button></td>
+                        <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
+
+                        <td><input type="button" value="delete" onclick="location.href='@Url.Action("Table", "Delete")'" id="delete" /></td>
                     </tr>
+                }
+
             </tbody>
         </table>
 

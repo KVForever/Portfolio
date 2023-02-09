@@ -18,10 +18,16 @@ namespace MessagesLibrary
             return allMessages;
         }
 
-        public UserMessage GetMessageByName(string name)
+        public List<UserMessage> GetMessageByName(string name)
         {
-            var message = _dbContext.UserMessages.FirstOrDefault(x => x.LastName == name);
-            return message;
+            if(GetAllMessages().Any())
+            {
+                 var message = GetAllMessages().Where(x => x.LastName.Contains(name)).ToList();
+                return message;
+            }
+            List<UserMessage> error = new List<UserMessage>(0);
+            return error;
+            
         }
 
         public void AddMessage(UserMessage message)

@@ -17,6 +17,8 @@ public partial class PortfolioMessagesContext : DbContext
     {
         modelBuilder.Entity<UserMessage>(entity =>
         {
+            entity.ToTable("UserMessage");
+
             entity.Property(e => e.Id);
             entity.Property(e => e.Email)
                 .HasMaxLength(50)

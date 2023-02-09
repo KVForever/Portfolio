@@ -27,8 +27,4 @@
     <ProjectReference Include="..\MessagesLibrary\MessagesLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>

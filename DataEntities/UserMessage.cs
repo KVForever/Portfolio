@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DataEntities;
 
@@ -6,19 +7,13 @@ public partial class UserMessage
 {
     public Guid Id { get; set; }
 
-    [Required(ErrorMessage = "This is a required feild")]
-    public string? FirstName { get; set; }
+    public string FirstName { get; set; } = null!;
 
-    [Required(ErrorMessage = "This is a required feild")]
-    public string? LastName { get; set; }
+    public string LastName { get; set; } = null!;
 
-    
     public string? Email { get; set; }
 
-    
-    public string? Subject { get; set; }
+    public string Subject { get; set; } = null!;
 
-    
     public string Message { get; set; } = null!;
 }
-//RegularExpression(@"^[A-Z]+[a-zA-Z'\s/]*$")

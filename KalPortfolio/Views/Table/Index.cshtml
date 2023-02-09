@@ -18,7 +18,12 @@
     <link href="~/css/site.css" rel="stylesheet" />  
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
+    <script type="text/javascript">
+        function search()
+        {
+            location.href = '/Table/Index?id=' + document.querySelector('#search-for-message').value;
+        }
+    </script>
 
 </head>
 <body class="table">
@@ -38,8 +43,8 @@
 
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav d-inline-block ">
-                        <li class="active"><a href="/Table/Index">Table</a></li>
-                        <li><a href="/Search/Index">Search</a></li>
+                        
+                        
                     </ul>
                 </div>
 
@@ -51,24 +56,16 @@
 
         <div class="message-editing">
             <div class="row">
-  
-                <div class="col-12">
-                    <form method="post" asp-action="Create">
-                        <input type="search" id="search" name="SearchButton" placeholder="Search"/> 
-                        <button type="submit" id="search">Search</button> 
+            
+                   <div class="col-12">              
+                    <form>
+                        <input type="text" class="search-message" id="search-for-message" placeholder="Search" />
+                        <button type="button" class="search-message" onclick="search()">Search</button>
                     </form>
-                    
                 </div>
-
             </div>
-        </div>
-
-        <div>
-            <p>Your Search Result:</p>
-        </div>
-
-        
-
+        </div> 
+       
        <table class="message-table">
             <thead>
                 <tr>                    
@@ -97,7 +94,7 @@
 
                         <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
 
-                        <td><button id="delete">Delete</button></td>
+                        <td><input type="button" value="delete" onclick="location.href='@Url.Action("Table", "Delete")'" id="delete"/></td>
                     </tr>
                 }
                 

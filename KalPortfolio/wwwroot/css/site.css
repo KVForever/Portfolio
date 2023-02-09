@@ -305,7 +305,7 @@ form{
     background-color: hsla(360, 100%, 66%, 0.5);
 }
 
-#search {
+#search-for-message {
     background-color: black;
     color: white;
     border: 1px solid red;
@@ -320,11 +320,17 @@ form{
     text-decoration: underline;
     border: 0px;
 }
-      
+
 
 
 /*custom class*/
-
+.search-message {
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    border-radius: 10px;
+    height: 5vh;
+}
 
 .mail-to:hover{
     color:red;
@@ -459,8 +465,7 @@ input{
 
     
 }
-   
-
+  
 .text-overflow {
     max-width: 10vw;
     overflow: hidden;

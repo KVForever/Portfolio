@@ -1,9 +1,12 @@
 ﻿using DataEntities;
+using KalPortfolio.Models;
 using MessagesLibrary;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using NuGet.Protocol.Core.Types;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace KalPortfolio.Controllers
@@ -17,25 +20,22 @@ namespace KalPortfolio.Controllers
             _repository = message;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string? name = null)
         {
+            if(name != null)
+            {
+                if(_repository.GetMessageByName(name) != null)
+                {
+                    return View(_repository.GetMessageByName(name));
+                }
+                return NotFound();
+                 
+            }
             return View(_repository.GetAllMessages());
         }
 
        
-        public ActionResult Index(string name)
-        {
-            if(_repository.GetAllMessages().Count == 0)
-            {
-                return Problem("There are no messages to search");
-            }
 
-            var message = from x in _repository.GetAllMessages()
-                          select x;
-
-            message = message.Where(y => y.FirstName.Contains(name));
-
-            return View(message.ToList());
-        }
+        
     }
 }
