@@ -11,10 +11,11 @@ namespace MessagesLibrary
     {
         public List<UserMessage> GetMessageByName(string name);
 
+        public UserMessage GetMessageById(Guid id);
+
         public List<UserMessage> GetAllMessages();
 
         public void AddMessage(UserMessage message);
-
 
         public void DeleteMessage(Guid id);
     }

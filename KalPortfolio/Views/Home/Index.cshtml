@@ -49,7 +49,7 @@
             <div id="home-intro" class="row">
                 <div class="container col-11">
                     <h1 id="home-info-header" class="text-left display-4"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
-                    <pre class="text-wrap lead" id="tag-line">    I am achiving my goal of being a software engineer one line of code at a time.</pre>
+                    <pre class="text-wrap lead" id="tag-line">    I am achieving my goal of being a software engineer one line of code at a time.</pre>
                 </div>
 
             </div>
@@ -330,14 +330,14 @@
                 <div class="col-6">
                     <form method="post">
 
-                        @Html.ValidationMessageFor(x => x.FirstName, "", new {@class = "text-danger"})
-                        <input type="text" class="space" id="first-name" name="FirstName" placeholder="First Name" />
+                        @*@Html.ValidationMessageFor(x => x.FirstName, "", new {@class = "text-danger"})*@
+                        <input type="text" class="space" id="first-name" name="FirstName" placeholder="First Name" required/>
 
-                       @* @Html.ValidationMessageFor(x => x.Message, "", new {@class = "text-danger header"})*@
-                        <input type="text"  id="last-name" name="LastName" placeholder="Last Name" /><br />
+                        @*@Html.ValidationMessageFor(x => x.Message, "", new {@class = "text-danger header"})*@
+                        <input type="text"  id="last-name" name="LastName" placeholder="Last Name" required/><br />
 
-                        @Html.ValidationMessageFor(x => x.Subject, "", new {@class = "text-danger"})
-                        <input type="text" class="space"  id="subject" name="Subject" placeholder="Subject" />
+                        @*@Html.ValidationMessageFor(x => x.Subject, "", new {@class = "text-danger"})*@
+                        <input type="text" class="space"  id="subject" name="Subject" placeholder="Subject" required/>
 
                         
                         <input type="email" id="email" name="Email" placeholder="Email" /><br />

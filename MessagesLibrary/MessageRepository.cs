@@ -15,19 +15,22 @@ namespace MessagesLibrary
         public List<UserMessage> GetAllMessages()
         {
             var allMessages = _dbContext.UserMessages.ToList();
+
             return allMessages;
         }
 
         public List<UserMessage> GetMessageByName(string name)
+        { 
+            var message = GetAllMessages().Where(x => x.LastName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            return message;
+        }
+
+        public UserMessage GetMessageById(Guid id)
         {
-            if(GetAllMessages().Any())
-            {
-                 var message = GetAllMessages().Where(x => x.LastName.Contains(name)).ToList();
-                return message;
-            }
-            List<UserMessage> error = new List<UserMessage>(0);
-            return error;
-            
+            var message = GetAllMessages().FirstOrDefault(x => x.Id == id);
+
+            return message;
         }
 
         public void AddMessage(UserMessage message)
@@ -42,7 +45,6 @@ namespace MessagesLibrary
             _dbContext.UserMessages.Remove(message);
             _dbContext.SaveChanges();
         }
-
 
     }
 }

@@ -5,6 +5,7 @@ namespace DataEntities;
 
 public partial class UserMessage
 {
+    
     public Guid Id { get; set; }
 
     public string FirstName { get; set; } = null!;

@@ -21,7 +21,34 @@
     <script type="text/javascript">
         function search()
         {
-            location.href = '/Table/Index?id=' + document.querySelector('#search-for-message').value;
+            
+           
+            //$.ajax({
+            //    url: "/Table/Index?name=" + test,
+            //    method: "GET", 
+            //    data: {
+                    
+            //    },
+            //    success: function (response) {
+            //        alert("success")
+            //    },
+            //    error: function () {
+            //        alert("error");
+            //    }
+
+            //});
+
+
+            location.href = '/Table/Index?name=' + document.querySelector('#search-for-message').value;
+        }
+
+        function deleteMessage(){
+
+            location.href = '/Table/Delete?id=' + document.querySelector('#id').value;
+        }
+
+        function detailsMessage(){
+            location.href = '/Table/Details?id=' + document.querySelector('#details').value
         }
     </script>
 
@@ -94,7 +121,24 @@
 
                         <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
 
-                        <td><input type="button" value="delete" onclick="location.href='@Url.Action("Table", "Delete")'" id="delete"/></td>
+                        <td>
+                            @using (Html.BeginForm("Table", "Delete"))
+                            {
+                                <input type="hidden" name="MessageId" class="edit-btn" id="id" value="@Html.DisplayFor(modelItem => message.Id)" />
+                                <input type="button" value="Delete" class="edit-btn" onclick="deleteMessage()"/>
+                            }
+                        </td>
+
+                        <td>
+                            @using (Html.BeginForm("Table", "Details"))
+                            {
+                                <input type="hidden" name="MessageDetails" class="edit-btn" id="details" value="@Html.DisplayFor(modelItem => message.Id)" />
+                                <input type="button" value="Details" class="edit-btn" onclick="detailsMessage()"/>
+                            }
+                        </td>
+                        
+
+                        
                     </tr>
                 }
                 

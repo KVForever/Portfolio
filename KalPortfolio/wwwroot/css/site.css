@@ -113,7 +113,10 @@ body {
         background-image: url(https://th.bing.com/th/id/R.6b0de3bf04be27160bf338233d656948?rik=K4%2fab1AlSaNU1Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fBest-Black-And-Red-Backgrounds.jpg&ehk=XnsgviCZCh%2fZiCs1ZFoUiWM%2b%2f0Y4esXgURbjYXJtzRM%3d&risl=&pid=ImgRaw&r=0);
         background-repeat: no-repeat;
         width: 90vw;
-        
+    }
+
+    body.detail {
+        background-color: hsl(355.96, 98.11%, 41.57%);
     }
    
 
@@ -313,17 +316,34 @@ form{
     height: 5vh;
 }
 
-#delete{
+
+
+
+
+/*custom class*/
+.edit-btn{
     
     background-color: transparent;
     color: red;
     text-decoration: underline;
     border: 0px;
+    padding: 0px;
+    
 }
 
+.focus{
+    background-color: black;
+    border-radius: 20px;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    height: 80vh;
+    width: 80vw;
+    box-shadow: 20px, 20px 5px black;
+}
 
-
-/*custom class*/
+.message-detail{
+    width: 100vw;
+}
 .search-message {
     background-color: black;
     color: white;
@@ -408,17 +428,17 @@ form{
     width: 20rem;
 }
 
-.single-item {
+/*.single-item {
     height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
-}
+}*/
 
-.give-margins {
+/*.give-margins {
     margin: 0px 5vw 0px 5vw;
-}
+}*/
 
 .skip {
     position: absolute;
