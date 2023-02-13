@@ -20,9 +20,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script type="text/javascript">
         function search()
-        {
-            
-           
+        {                       
             //$.ajax({
             //    url: "/Table/Index?name=" + test,
             //    method: "GET", 
@@ -48,13 +46,15 @@
         }
 
         function detailsMessage(){
-            location.href = '/Table/Details?id=' + document.querySelector('#details').value
+
+            var test = document.querySelector('#details').value;
+            location.href = '/Table/Details?id=' + document.querySelector('#details').value;
         }
     </script>
 
 </head>
 <body class="table">
-    <header>
+    @*<header>
         <a href="#home-link" class="skip">Skip navigation</a>
         <nav id="nav-in" class="navbar">
             <div class="container-fluid d-block ">
@@ -77,9 +77,9 @@
 
             </div>
         </nav>
-    </header>
+    </header>*@
 
-    <section class="give-margins">
+    <section @*class="give-margins"*@>
 
         <div class="message-editing">
             <div class="row">
@@ -122,19 +122,13 @@
                         <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
 
                         <td>
-                            @using (Html.BeginForm("Table", "Delete"))
-                            {
-                                <input type="hidden" name="MessageId" class="edit-btn" id="id" value="@Html.DisplayFor(modelItem => message.Id)" />
-                                <input type="button" value="Delete" class="edit-btn" onclick="deleteMessage()"/>
-                            }
+                            <input type="hidden" name="MessageId" class="edit-btn" id="id" value="@Html.DisplayFor(modelItem => message.Id)" />
+                            <input type="button" value="Delete" class="edit-btn" onclick="deleteMessage()"/>
                         </td>
 
                         <td>
-                            @using (Html.BeginForm("Table", "Details"))
-                            {
-                                <input type="hidden" name="MessageDetails" class="edit-btn" id="details" value="@Html.DisplayFor(modelItem => message.Id)" />
-                                <input type="button" value="Details" class="edit-btn" onclick="detailsMessage()"/>
-                            }
+                            <input type="hidden" name="MessageDetails" class="edit-btn" id="details" value="@Html.DisplayFor(modelItem => message.Id)" />
+                            <input type="button" value="Details" class="edit-btn" onclick="detailsMessage()"/>
                         </td>
                         
 

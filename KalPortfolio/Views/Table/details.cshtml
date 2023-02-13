@@ -24,49 +24,40 @@
 
 </head>
 <body class="detail">
-    <section class="give-margins">
-
-        <div class="focus ">
+    <section>
+        <div class="depth"></div>
+        <div class="focus">
             <h1 class="display-2">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
 
             <h2>
                 @Html.DisplayFor(model => model.Message)
             </h2>
 
-            <div class="message-detail">
-                <div class="row">
-                    <div class="col-3">
-                        @Html.DisplayNameFor(model => model.FirstName)
-                    </div>
-                    <div class="col-3">
-                        @Html.DisplayNameFor(model => model.LastName)
-                    </div>
-                    <div class="col-3">
-                        @Html.DisplayNameFor(model => model.Subject)
-                    </div>
-                    <div class="col-3">
-                        @Html.DisplayNameFor(model => model.Email)
-                    </div>
-                </div>
+            <table class="message-detail">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> @Html.DisplayFor(model => model.FirstName)</td>
 
-                <div class="row">
+                        <td> @Html.DisplayFor(model => model.LastName)</td>
 
-                    <div class="col-4">
-                        @Html.DisplayFor(model => model.LastName)
-                    </div>
+                        <td><a class="mail-to" href="mailto@Html.DisplayNameFor(model => model.Email):">Respond To: @Html.DisplayFor(model => model.Email) </a></td>
 
-                    <div class="col-4">
-                        @Html.DisplayFor(model => model.Subject)
-                    </div>
+                        <td>@Html.DisplayFor(model => model.Subject)</td>
 
-                    <div class="col-4">
-                        <a class="mail-to" href="mailto:@Html.DisplayFor(model=> model.Email)">@Html.DisplayFor(model=> model.Email)</a>
-                    </div>
-                </div>
-
-            </div>
-
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+        
     </section>
 </body>
 </html>
