@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KalPortfolio</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -21,40 +21,29 @@
     <script type="text/javascript">
         function search()
         {                       
-            //$.ajax({
-            //    url: "/Table/Index?name=" + test,
-            //    method: "GET", 
-            //    data: {
-                    
-            //    },
-            //    success: function (response) {
-            //        alert("success")
-            //    },
-            //    error: function () {
-            //        alert("error");
-            //    }
-
-            //});
-
-
             location.href = '/Table/Index?name=' + document.querySelector('#search-for-message').value;
         }
 
-        function deleteMessage(){
+        function deleteMessage(message_id){
+            //alert("Are you sure you want to delete this Message?");
+            //var input = prompt("Yes or No").toLowerCase();
+            //if(input == "yes")
+            //{
+            //    location.href = '/Table/Delete?id=' + document.querySelector('#id').value;
+            //}
 
-            location.href = '/Table/Delete?id=' + document.querySelector('#id').value;
+            location.href = '/Table/Delete?id=' + message_id;
         }
 
-        function detailsMessage(){
+        function detailsMessage(message_id){
 
-            var test = document.querySelector('#details').value;
-            location.href = '/Table/Details?id=' + document.querySelector('#details').value;
+            location.href = '/Table/Details?id=' + message_id ;
         }
     </script>
 
 </head>
 <body class="table">
-    @*<header>
+    <header>
         <a href="#home-link" class="skip">Skip navigation</a>
         <nav id="nav-in" class="navbar">
             <div class="container-fluid d-block ">
@@ -69,36 +58,36 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav d-inline-block ">
-                        
+                    <ul class="nav navbar-nav d-inline-block table-navbar">
+                        <li><a href="/Home/Index">Home</a></li>
+                        <li><a href="/Table/Index">Table</a></li>
                         
                     </ul>
                 </div>
 
             </div>
         </nav>
-    </header>*@
+    </header>
 
-    <section @*class="give-margins"*@>
+    <section class="table-display">
 
-        <div class="message-editing">
-            <div class="row">
-            
-                   <div class="col-12">              
+        <div class="search-input">
+            <div class="row">           
+                <div class="col-12">              
                     <form>
                         <input type="text" class="search-message" id="search-for-message" placeholder="Search" />
                         <button type="button" class="search-message" onclick="search()">Search</button>
                     </form>
                 </div>
             </div>
-        </div> 
-       
-       <table class="message-table">
+        </div>
+
+        <table class="message-table">
             <thead>
-                <tr>                    
+                <tr >
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Email</th>
+                    <th>Respond To</th>
                     <th>Subject</th>
                     <th>Message</th>
                     <th>Edit</th>
@@ -108,31 +97,24 @@
                 
                 @foreach(var message in Model)
                 {
-                    <tr id="message-row">
+                    <tr >
                         
-
                         <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
 
                         <td>@Html.DisplayFor(modelItem => message.LastName)</td>
 
-                        <td><a class="mail-to" href="mailto:@Html.DisplayFor(modelItem => message.Email)">Respond To: @Html.DisplayFor(modelItem => message.Email)</a></td>
+                        <td><a class="mail-to" href="mailto:@Html.DisplayFor(modelItem => message.Email)">@Html.DisplayFor(modelItem => message.Email)</a></td>
 
                         <td>@Html.DisplayFor(modelItem => message.Subject)</td>
 
                         <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
 
                         <td>
-                            <input type="hidden" name="MessageId" class="edit-btn" id="id" value="@Html.DisplayFor(modelItem => message.Id)" />
-                            <input type="button" value="Delete" class="edit-btn" onclick="deleteMessage()"/>
+                            <input type="button" value="Delete" id="delete-btn" onclick="deleteMessage('@message.Id')" />
+
+                            <input type="button" value="Details" id="details-btn" onclick="detailsMessage('@message.Id')" />
                         </td>
 
-                        <td>
-                            <input type="hidden" name="MessageDetails" class="edit-btn" id="details" value="@Html.DisplayFor(modelItem => message.Id)" />
-                            <input type="button" value="Details" class="edit-btn" onclick="detailsMessage()"/>
-                        </td>
-                        
-
-                        
                     </tr>
                 }
                 

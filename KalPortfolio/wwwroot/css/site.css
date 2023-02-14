@@ -110,7 +110,7 @@ body {
     }
 
     body.detail {
-        background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(204,0,0,1) 13%, rgba(148,7,7,1) 67%, rgba(193,15,15,1) 94%);
+        background: linear-gradient(90deg, rgba(0,196,255,1) 0%, rgba(0,167,204,1) 13%, rgba(7,68,148,1) 67%, rgba(15,122,193,1) 94%);
     }
 
 
@@ -118,6 +118,16 @@ form {
     text-align: left;
 }
 
+th {
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+}
 .footer {
     border: solid 5px red;
     font-size: 20px;
@@ -241,11 +251,6 @@ form {
     align-content: center;
 }
 
-
-/*.give-margins {
-    margin: 0px 5vw 0px 5vw;
-}*/
-
 #projects-grid {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
@@ -298,25 +303,29 @@ form {
     border: solid 5px #8B0000;
 }
 
-#message-row:hover {
-    font-size: 2vh;
-    background-color: hsla(360, 100%, 66%, 0.5);
-}
+
 
 
 /*Table view*/
+
+.search-input{
+    width: 50vw;
+    margin-left: 40vw;
+    margin-bottom: 5vh
+}
+
 #search-for-message {
     background-color: black;
     color: white;
     border: 1px solid red;
-    border-radius: 10px;
     height: 5vh;
 }
 
 .message-table {
     border: 2px solid red;
-    width: 100vw;
+    width: 80vw;
     color: white;
+    margin-left: 10vw;
 }
 
 .text-overflow {
@@ -338,25 +347,48 @@ form {
 }
 
 .message-editing {
-    width: 100vw;
+    width: 80vw;
     margin-bottom: 5vh;
+    margin-left: 10vw;
 }
 
 .search-message {
     background-color: black;
     color: white;
     border: 1px solid red;
-    border-radius: 10px;
     height: 5vh;
 }
 
-/*custom class*/
-.edit-btn {
+.table-navbar {
+    background-color: transparent;
+}
+
+
+#details-btn {
+    background-color: transparent;
+    color: bisque;
+    text-decoration: underline;
+    border: 0px;
+    padding: 1vh;
+}
+
+#delete-btn {
     background-color: transparent;
     color: red;
     text-decoration: underline;
     border: 0px;
     padding: 1vh;
+}
+/*custom class*/
+
+.projects-display {
+    width: 90vw;
+    margin-left: 5vw;
+}
+
+.contact-display {
+    width: 90vw;
+    margin-left: 5vw;
 }
 
 .depth {
@@ -371,7 +403,7 @@ form {
 }
 .focus {
     position: relative;
-    background-color: #cc0000;
+    background-color: #2099cd;
     border-radius: 20px;
     padding: 5% 5% 5% 5%;
     margin-top: 10vh;
@@ -449,10 +481,6 @@ form {
     justify-content: center;
     align-items: center;
     align-content: center;
-}
-
-.give-margins {
-    margin: 0px 5vw 0px 5vw;
 }
 
 .skip {

@@ -28,10 +28,15 @@ namespace MessagesLibrary
 
         public UserMessage GetMessageById(Guid id)
         {
-            var message = GetAllMessages().FirstOrDefault(x => x.Id == id);
 
+            var message = GetAllMessages().FirstOrDefault(x => x.Id == id);
+                
             return message;
+                       
         }
+            
+            
+        
 
         public void AddMessage(UserMessage message)
         {

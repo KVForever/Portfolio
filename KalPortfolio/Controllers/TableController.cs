@@ -21,7 +21,7 @@ namespace KalPortfolio.Controllers
             _repository = message;
         }
 
-        public ActionResult Index(string? name)
+        public ActionResult Index(string name)
         {
             if(name != null)
             {
@@ -40,17 +40,14 @@ namespace KalPortfolio.Controllers
             return View(_repository.GetAllMessages());
         }
 
-        
         public ActionResult Delete(string id)
         {
-            
-                if(Guid.TryParse(id, out var result))
-                {
-                    _repository.DeleteMessage(result);
-                }
-                
-                return Redirect("/Table/Index");
-            
+            if(Guid.TryParse(id, out var result))
+            {
+                _repository.DeleteMessage(result);
+            }
+
+            return Redirect("/Table/Index");
         }
 
         public ActionResult Details(string id)

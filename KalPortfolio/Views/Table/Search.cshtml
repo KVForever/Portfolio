@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KalPortfolio</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -45,19 +45,22 @@
         </nav>
     </header>
 
-    <section class="give-margins">
+    <section>
 
         <div class="message-editing">
-            <div class="row">
-                <div class="col-12">
+            <div class="search-input">
+                <div class="row">
+                    <div class="col-12">
 
-                    <form>
-                        <input type="text" class="search-message" id="search-for-message" placeholder="Search" />
-                        <button type="button" class="search-message" onclick="search()">Search</button>
-                    </form>
-                                       
+                        <form>
+                            <input type="text" class="search-message" id="search-for-message" placeholder="Search" />
+                            <button type="button" class="search-message" onclick="search()">Search</button>
+                        </form>
+
+                    </div>
                 </div>
             </div>
+            
         </div>
 
         <div>
@@ -66,30 +69,30 @@
 
         <table class="message-table">
             <thead>
-                <tr>
+                <tr >
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Email</th>
+                    <th>Respond To</th>
                     <th>Subject</th>
                     <th>Message</th>
                     <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
-                    <tr id="message-row">
+                <tr >
 
-                        <td>@Html.DisplayFor(model => model.FirstName)</td>
+                    <td>@Html.DisplayFor(model => model.FirstName)</td>
 
-                        <td>@Html.DisplayFor(model => model.LastName)</td>
+                    <td>@Html.DisplayFor(model => model.LastName)</td>
 
-                        <td><a class="mail-to" href="mailto:@Html.DisplayFor(model => model.Email)">Respond To: @Html.DisplayFor(model => model.Email)</a></td>
+                    <td><a class="mail-to" href="mailto:@Html.DisplayFor(model => model.Email)">@Html.DisplayFor(model => model.Email)</a></td>
 
-                        <td>@Html.DisplayFor(model => model.Subject)</td>
+                    <td>@Html.DisplayFor(model => model.Subject)</td>
 
-                        <td class="text-overflow">@Html.DisplayFor(model => model.Message)</td>
+                    <td class="text-overflow">@Html.DisplayFor(model => model.Message)</td>
 
-                        <td><button id="delete">Delete</button></td>
-                    </tr>
+                    <td><button id="delete">Delete</button></td>
+                </tr>
             </tbody>
         </table>
 
