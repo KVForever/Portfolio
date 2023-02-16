@@ -327,35 +327,24 @@
             <h1 class="display-4 "><b class="text-danger contact-me">Contact</b> Me</h1>
             <div class="row">
                 <div class="col-6">
-                    <form method="post">
-                        <div class="align">
-                            <div>
-                                <input type="text" class="space" id="first-name" name="FirstName" placeholder="First Name" required minlength="1" maxlength="40" />
-                            </div>
-
-                            <div>
-                                <input type="text" id="last-name" name="LastName" placeholder="Last Name" required minlength="1" maxlength="40" />
-                            </div>
-                                
-                            <div>
-                                <input type="text" class="space" id="subject" name="Subject" placeholder="Subject" required minlength="4" maxlength="40" />
-                            </div>
-
-                            <div>
-                                <input type="email" id="email" name="Email" placeholder="Email" />
-                            </div>
-
+                    <form method="post"> 
+                        <table class="message">
+                            <tbody>
+                                <tr>
+                                    <td> <input type="text" class="space" id="first-name" name="FirstName" placeholder="First Name" required minlength="1" maxlength="40" /></td>
+                                    <td><input type="text" id="last-name" name="LastName" placeholder="Last Name" required minlength="1" maxlength="40" /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="space" id="subject" name="Subject" placeholder="Subject" required minlength="4" maxlength="40" /></td>
+                                    <td><input type="email" id="email" name="Email" placeholder="Email" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><textarea type="text" id="message" name="Message" placeholder="Message" required minlength="4" maxlength="600"></textarea></td>
+                                </tr>
+                                <tr><td colspan="2"><input type="submit" id="submit-message" value="Submit" /></td></tr>
+                            </tbody>
                             
-                               
-                            
-
-                            
-                                
-                            
-                        </div>                        
-                        <textarea type="text" id="message" name="Message" placeholder="Message" required minlength="4" maxlength="600"></textarea>
-                        
-                        <input type="submit" id="submit-message" value="Submit" />
+                        </table>
                     </form>
                 </div>
 

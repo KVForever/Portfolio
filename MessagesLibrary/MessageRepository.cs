@@ -1,5 +1,6 @@
 ﻿using DataEntities;
-
+using Microsoft.EntityFrameworkCore;
+using System.CodeDom;
 
 namespace MessagesLibrary
 {
@@ -27,16 +28,26 @@ namespace MessagesLibrary
         }
 
         public UserMessage GetMessageById(Guid id)
-        {
+        { 
+            try
+            {
+                var message = GetAllMessages().FirstOrDefault(x => x.Id == id);
 
-            var message = GetAllMessages().FirstOrDefault(x => x.Id == id);
+                if(message != null)
+                {
+                    return message;
+                }
+            }
+            catch(KeyNotFoundException)
+            {
+                throw new KeyNotFoundException("This message can not be found in the database.");
+            }
+            
+           UserMessage messages = new();
+
+            return messages;
                 
-            return message;
-                       
         }
-            
-            
-        
 
         public void AddMessage(UserMessage message)
         {
@@ -47,8 +58,12 @@ namespace MessagesLibrary
         public void DeleteMessage(Guid id)
         {
             var message = _dbContext.UserMessages.FirstOrDefault(x => x.Id == id);
-            _dbContext.UserMessages.Remove(message);
-            _dbContext.SaveChanges();
+            if(message != null)
+            {
+                _dbContext.UserMessages.Remove(message);
+                _dbContext.SaveChanges();
+            }
+           
         }
 
     }

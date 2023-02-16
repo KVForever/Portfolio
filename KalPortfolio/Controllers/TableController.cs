@@ -1,14 +1,6 @@
-﻿using DataEntities;
-using KalPortfolio.Models;
-using MessagesLibrary;
+﻿using MessagesLibrary;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
-using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
-using NuGet.Protocol.Core.Types;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 
 namespace KalPortfolio.Controllers
 {
@@ -52,12 +44,17 @@ namespace KalPortfolio.Controllers
 
         public ActionResult Details(string id)
         {
-            if (Guid.TryParse(id, out var result))
+            if(id != null)
             {
-                return View(_repository.GetMessageById(result));
+                if (Guid.TryParse(id, out var result))
+                {                   
+                    return View(_repository.GetMessageById(result));
+                }
+                return NotFound();
             }
-
             return NotFound();
+
+            
         }
 
     }
