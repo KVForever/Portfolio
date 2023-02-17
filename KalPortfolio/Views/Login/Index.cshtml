@@ -11,9 +11,54 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </head>
-    <body>
-  
+    <body class="login">
+        <div class="login-focus">
+        
+            <div class="login-form">
 
+                <div id="login-welcome">
+                    <h1 id="login-heading"><b>Welcome!</b></h1>
+                    <p class="reveal">Please login or create an account.</p>
+                </div>
+                
+                    
+ 
+                <form method="post">
+
+                    <div class=row>
+                        <div class="col-12">
+                            <label for="username" class="login-label">Username</label>
+                            <input type="text" id="username" name="username"  />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="password" class="login-label">Password</label>
+                            <input type="text" id="password" name="password"  />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="submit" value="Login" id="login"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="/CreateAccount/Index"></a>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            
+               
+                
+            
+        </div>
     </body>
 
 </html>
