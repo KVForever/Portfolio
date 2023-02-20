@@ -4,9 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataEntities;
 
-public partial class UserMessage
+public partial class UserMessages
 {
-    
     public Guid Id { get; set; }
 
     [Required, RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]

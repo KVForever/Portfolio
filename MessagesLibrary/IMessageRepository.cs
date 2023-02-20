@@ -9,13 +9,13 @@ namespace MessagesLibrary
 {
     public interface IMessageRepository
     {
-        public List<UserMessage> GetMessageByName(string name);
+        public List<UserMessages> GetMessageByName(string name);
 
-        public UserMessage GetMessageById(Guid id);
+        public UserMessages GetMessageById(Guid id);
 
-        public List<UserMessage> GetAllMessages();
+        public List<UserMessages> GetAllMessages();
 
-        public void AddMessage(UserMessage message);
+        public void AddMessage(UserMessages message);
 
         public void DeleteMessage(Guid id);
     }

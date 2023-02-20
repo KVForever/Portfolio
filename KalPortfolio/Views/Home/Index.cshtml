@@ -1,6 +1,6 @@
 ﻿
 
-@model DataEntities.UserMessage
+@model DataEntities.UserMessages
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +32,10 @@
 
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav d-inline-block ">
-                        <li class="active"><a href="#home-link">Home</a></li>
-                        <li><a href="#contact-link">Contact</a></li>
-                        <li><a href="#projects-link">Projects</a></li>
-                        <li><a href="#resume-link">Resume</a></li>
+                        <li class="active"><a href="#home-link" area-label="Go to the top of the home page">Home</a></li>
+                        <li><a href="#contact-link" area-label="Go to the contacts section.">Contact</a></li>
+                        <li><a href="#projects-link" area-label="Go to the projects section.">Projects</a></li>
+                        <li><a href="#resume-link" aria-label="Go to resume section." >Resume</a></li>
                         <li><a href="/Table/Index">Tables</a></li>
                         <li><a href="/Login/Index">Login</a></li>
                     </ul>
@@ -73,18 +73,18 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#employment">Employment</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" data-toggle="tab" href="#heartland">Heartland</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#marcus">Marcus</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#heartland" area-label="Go to Heartland employment section.">Heartland</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#marcus" area-label="Go to the Marcus employment section.">Marcus</a>
                             </div>
                         </li>
 
                         <li class="nav-item dropdowm">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#activein">Active In</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" data-toggle="tab" href="#studentcouncil">Student Council</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#chazzo">Chazoo</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#sparkcrew">Spark Crew</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#cyberstart">Cyberstart</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#studentcouncil" area-label="Go to the student council involvement section">Student Council</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#chazzo" area-label="Go to the Chazoo involvement section">Chazoo</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#sparkcrew" area-label="Go to the Spark Crew involvement section">Spark Crew</a>
+                                <a class="dropdown-item" data-toggle="tab" href="#cyberstart" area-label="Go to the Cyberstart America involvement section">Cyberstart</a>
                             </div>
                         </li>
                     </ul>

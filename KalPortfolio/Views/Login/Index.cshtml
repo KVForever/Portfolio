@@ -10,6 +10,18 @@
         <link href="~/css/site.css" rel="stylesheet" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+       @* <script type="text/javascript">
+            $(document).ready(funciton())
+            {
+                pageLoadAnimations()
+      
+            }
+
+            function pageLoadAnimations()
+            {
+                document.querySelector(username)
+            }
+        </script>*@
     </head>
     <body class="login">
         <div class="login-focus">
@@ -47,11 +59,9 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <a href="/CreateAccount/Index"></a>
+                            <button class="create-account" href="/CreateAccount/Index" type="button" aria-label="Go to the account creation page.">Create Account</button>
                         </div>
                     </div>
-
-
                 </form>
             </div>
             

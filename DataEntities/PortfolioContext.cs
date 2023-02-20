@@ -4,20 +4,36 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataEntities;
 
-public partial class PortfolioMessagesContext : DbContext
+public partial class PortfolioContext : DbContext
 {
-    public PortfolioMessagesContext(DbContextOptions<PortfolioMessagesContext> options)
+    public PortfolioContext(DbContextOptions<PortfolioContext> options)
         : base(options)
     {
     }
 
-    public virtual DbSet<UserMessage> UserMessages { get; set; }
+    public virtual DbSet<UserLogin> UserLogins { get; set; }
+
+    public virtual DbSet<UserMessages> UserMessages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<UserMessage>(entity =>
+        modelBuilder.Entity<UserLogin>(entity =>
         {
-            entity.ToTable("UserMessage");
+            entity.ToTable("UserLogin");
+
+            entity.Property(e => e.Id);
+            entity.Property(e => e.DateAdded).HasColumnType("datetime");
+            entity.Property(e => e.Password)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.UserName)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<UserMessages>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_UserMessage");
 
             entity.Property(e => e.Id);
             entity.Property(e => e.Email)

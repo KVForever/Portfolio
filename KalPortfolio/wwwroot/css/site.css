@@ -435,6 +435,23 @@ table.message {
     }
 }
 
+.create-account {
+    color: rgba(7, 68, 148, 1);
+    display: block;
+    background: rgba(7, 68, 148, 1);
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    height: 5vh;
+    margin: 5% 0 5% 0;
+    text-align: center;
+    
+    animation-name: text-reveal;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
 .login-form {
     width: 60%;
     margin-left: 20%;
@@ -459,32 +476,8 @@ table.message {
     margin: 5% 0 5% 0;
 }
 
-#password:hover {
-     animation-name: pulse;
-     animation-duration: 2s;
-     animation-iteration-count: infinite;
-}
-
-@keyframes pulse {
-    from {
-        height: 5vh;
-        width: 100%;
-    }
-
-    50% {
-        height: 4vh;
-        margin-left: 5%;
-        width: 90%;
-       
-    }
-
-    to {
-        height: 5vh;
-        width: 100%;
-    }
-}
-
 #login {
+    color: rgba(7, 68, 148, 1);
     background: rgba(7, 68, 148, 1);
     width: 100%;
     border-radius: 10px;
@@ -495,7 +488,7 @@ table.message {
     animation-duration: 2s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
-    color: rgba(7, 68, 148, 1);
+    
 }
 
 #login-heading {

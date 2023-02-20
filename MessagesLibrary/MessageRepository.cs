@@ -6,28 +6,28 @@ namespace MessagesLibrary
 {
     public class MessageRepository: IMessageRepository
     {
-        private readonly PortfolioMessagesContext _dbContext;
+        private readonly PortfolioContext _dbContext;
 
-        public MessageRepository(PortfolioMessagesContext dbContext)
+        public MessageRepository(PortfolioContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public List<UserMessage> GetAllMessages()
+        public List<UserMessages> GetAllMessages()
         {
             var allMessages = _dbContext.UserMessages.ToList();
 
             return allMessages;
         }
 
-        public List<UserMessage> GetMessageByName(string name)
+        public List<UserMessages> GetMessageByName(string name)
         { 
             var message = GetAllMessages().Where(x => x.LastName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
 
             return message;
         }
 
-        public UserMessage GetMessageById(Guid id)
+        public UserMessages GetMessageById(Guid id)
         { 
             try
             {
@@ -43,13 +43,13 @@ namespace MessagesLibrary
                 throw new KeyNotFoundException("This message can not be found in the database.");
             }
             
-           UserMessage messages = new();
+           UserMessages messages = new();
 
             return messages;
                 
         }
 
-        public void AddMessage(UserMessage message)
+        public void AddMessage(UserMessages message)
         {
             _dbContext.Add(message);
             _dbContext.SaveChanges();

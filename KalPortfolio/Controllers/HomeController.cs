@@ -18,12 +18,12 @@ namespace KalPortfolio.Controllers
 
         public ActionResult Index()
         {
-            UserMessage dto = new UserMessage();
+            UserMessages dto = new UserMessages();
             return View(dto);  
         }
 
         [HttpPost]
-        public ActionResult Index( UserMessage formData)
+        public ActionResult Index( UserMessages formData)
         {        
             if(ModelState.IsValid)
             {

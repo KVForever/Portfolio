@@ -25,7 +25,7 @@ namespace KalPortfolio
             //services.AddRazorPages();
             services.AddControllersWithViews();
 
-            services.AddDbContext<PortfolioMessagesContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:messagesconnectionstring"]));
+            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:messagesconnectionstring"]));
             services.AddScoped<IMessageRepository, MessageRepository>();
         }
 
