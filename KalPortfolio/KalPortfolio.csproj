@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataEntities\DataEntities.csproj" />
+    <ProjectReference Include="..\LoginLibrary\LoginLibrary.csproj" />
     <ProjectReference Include="..\MessagesLibrary\MessagesLibrary.csproj" />
   </ItemGroup>
 

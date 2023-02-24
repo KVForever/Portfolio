@@ -11,18 +11,15 @@ public partial class PortfolioContext : DbContext
     {
     }
 
-    public virtual DbSet<UserLogin> UserLogins { get; set; }
+    public virtual DbSet<UserLogins> UserLogins { get; set; }
 
     public virtual DbSet<UserMessages> UserMessages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<UserLogin>(entity =>
+        modelBuilder.Entity<UserLogins>(entity =>
         {
-            entity.ToTable("UserLogin");
-
             entity.Property(e => e.Id);
-            entity.Property(e => e.DateAdded).HasColumnType("datetime");
             entity.Property(e => e.Password)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -33,8 +30,6 @@ public partial class PortfolioContext : DbContext
 
         modelBuilder.Entity<UserMessages>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK_UserMessage");
-
             entity.Property(e => e.Id);
             entity.Property(e => e.Email)
                 .HasMaxLength(50)

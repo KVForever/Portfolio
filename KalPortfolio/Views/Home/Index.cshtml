@@ -329,19 +329,20 @@
             <div class="row">
                 <div class="col-6">
                     <form method="post"> 
+                        @Html.AntiForgeryToken()
                         <div class="row">
                             <div class="col-6">
-                                <input type="text" class="space message-input" id="first-name" name="FirstName" placeholder="First Name" required minlength="1" maxlength="40" />
+                                <input type="text" class="message-input" id="first-name" name="FirstName" placeholder="First Name" pattern="^[a-zA-Z''-'\s]{2,40}$" required minlength="2" maxlength="40" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must only be letters and have more than one letter!')" />
                             </div>
 
                             <div class="col-6">
-                                <input type="text" id="last-name" class="message-input" name="LastName" placeholder="Last Name" required minlength="1" maxlength="40" />
+                                <input type="text" id="last-name" class="message-input" name="LastName" placeholder="Last Name" pattern="^[a-zA-Z''-'\s]{2,40}$" required minlength="2" maxlength="40" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must only be letters and have more than one letter!')" />
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col-6">
-                                <input type="text" class="space message-input" id="subject" name="Subject" placeholder="Subject" required minlength="4" maxlength="40" />
+                                <input type="text" class="message-input" id="subject" name="Subject" placeholder="Subject" pattern="^[a-zA-Z''-'\s]{2,40}$" required minlength="2" maxlength="40" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must only be letters and have more than one letter!')" />
                             </div>
 
                             <div class="col-6">
@@ -351,7 +352,7 @@
                         
                         <div class="row">
                             <div class="col-12">
-                                <textarea type="text" class="message-input" id="message" name="Message" placeholder="Message" required minlength="4" maxlength="600"></textarea>
+                                <textarea type="text" class="message-input" id="message" name="Message" placeholder="Message" required minlength="2" maxlength="600" pattern="^[a-zA-Z''-'\S]{2,600}$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must be greater than one character!')"></textarea>
                             </div>
                         </div>
 

@@ -103,7 +103,7 @@
 
                         <td>@Html.DisplayFor(modelItem => message.LastName)</td>
 
-                        <td><a class="mail-to" href="mailto:@Html.DisplayFor(modelItem => message.Email)"></a></td>
+                        <td><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
 
                         <td>@Html.DisplayFor(modelItem => message.Subject)</td>
 

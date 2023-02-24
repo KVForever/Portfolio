@@ -1,5 +1,6 @@
 using DataEntities;
 using MessagesLibrary;
+using LoginLibrary;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,8 +26,9 @@ namespace KalPortfolio
             //services.AddRazorPages();
             services.AddControllersWithViews();
 
-            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:messagesconnectionstring"]));
+            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:portfolioconnectionstring"]));
             services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +61,7 @@ namespace KalPortfolio
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}");
+                    pattern: "{controller=Login}/{action=Index}");
             });
 
             

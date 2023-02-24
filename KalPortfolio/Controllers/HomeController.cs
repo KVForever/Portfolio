@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace KalPortfolio.Controllers
 {
+    
     public class HomeController : Controller
     {
        
@@ -17,13 +18,13 @@ namespace KalPortfolio.Controllers
         }
 
         public ActionResult Index()
-        {
-            UserMessages dto = new UserMessages();
-            return View(dto);  
+        {    
+            return View();  
         }
 
         [HttpPost]
-        public ActionResult Index( UserMessages formData)
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(UserMessages formData)
         {        
             if(ModelState.IsValid)
             {

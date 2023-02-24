@@ -9,66 +9,75 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <link href="~/css/site.css" rel="stylesheet" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-       @* <script type="text/javascript">
-            $(document).ready(funciton())
-            {
-                pageLoadAnimations()
-      
+        <script src="~/js/site.js" asp-append-version="true"></script>  
+        <script href="text/javascript">
+            function createPage(){
+                location.href = '/Login/CreateAccount';
             }
-
-            function pageLoadAnimations()
-            {
-                document.querySelector(username)
-            }
-        </script>*@
+        </script>
     </head>
     <body class="login">
-        <div class="login-focus">
-        
-            <div class="login-form">
+        <div class="login-container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="login-focus">
 
-                <div id="login-welcome">
-                    <h1 id="login-heading"><b>Welcome!</b></h1>
-                    <p class="reveal">Please login or create an account.</p>
+                        <div class="login-form">
+
+                            <div id="login-welcome">
+                                <h1 id="login-heading"><b>Welcome!</b></h1>
+                                <p class="reveal">Please login or create an account.</p>
+                            </div>
+
+
+
+                            <form method="post">
+                                @Html.AntiForgeryToken()
+                                <div class=row>
+                                    <div class="col-12">
+                                        <label for="username" class="login-label">Username</label>
+                                        <input type="text" id="username" name="username" required pattern="^((?=.*[a-z])(?=.*[A-Z]).{8,15})$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is incorrect!')" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="password" class="login-label">Password</label>
+                                        <input type="password" id="password" name="password" required pattern="^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect!')" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="submit" value="Login" id="login" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="create-account" onclick="createPage()" type="button" aria-label="Go to the account creation page.">Create Account</button>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 
-                    
- 
-                <form method="post">
-
-                    <div class=row>
-                        <div class="col-12">
-                            <label for="username" class="login-label">Username</label>
-                            <input type="text" id="username" name="username"  />
-                        </div>
+                <div class="col-6">
+                    <div class="shapes">
+                        <div class="rect-3"></div>
+                        <div class="triangle-1"></div>
+                        <div class="rect-2"></div>
+                        <div class="rect-1"></div>
+                        <div class="triangle-2"></div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="password" class="login-label">Password</label>
-                            <input type="text" id="password" name="password"  />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <input type="submit" value="Login" id="login"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <button class="create-account" href="/CreateAccount/Index" type="button" aria-label="Go to the account creation page.">Create Account</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
+                
             </div>
             
-               
-                
-            
         </div>
+        
     </body>
 
 </html>
