@@ -116,12 +116,11 @@ body {
     }
 
     body.login {
-        
         background: linear-gradient(196deg, rgba(0,0,0,1) 29%, rgba(2,30,66,1) 52%, rgba(7,68,148,1) 70%, rgba(32,153,205,1) 85%);
     }
 
     body.create-account-background {
-        background: linear-gradient(142deg, rgba(0,0,0,1) 29%, rgba(2,30,66,1) 52%, rgba(7,68,148,1) 70%, rgba(32,153,205,1) 85%);
+       background: #000;
     }
 
 form {
@@ -141,13 +140,11 @@ td {
     text-align: center;
     vertical-align: middle;
     padding: 0;
-   
 }
 
 
 table.message {
     width: 100%
-
 }
 
 .footer {
@@ -277,7 +274,7 @@ table.message {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: auto;
-    grid-gap: .5rem;   
+    grid-gap: .5rem;
 }
 
 #projects-title {
@@ -330,7 +327,7 @@ table.message {
 
 /*Table view*/
 
-.search-input{
+.search-input {
     width: 50vw;
     margin-left: 40vw;
     margin-bottom: 5vh
@@ -445,7 +442,7 @@ table.message {
     border: 0;
     height: 6vh;
     margin: 5% 0 5% 0;
-    text-align: center;   
+    text-align: center;
     animation-name: text-reveal;
     animation-delay: 2s;
     animation-duration: 2s;
@@ -488,7 +485,6 @@ table.message {
     animation-duration: 2s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
-    
 }
 
 #login-heading {
@@ -507,9 +503,8 @@ table.message {
 
 .login-focus {
     animation-name: login-focus;
-    animation-duration: 3s; 
+    animation-duration: 3s;
     animation-fill-mode: forwards;
-    
 }
 
 @keyframes login-focus {
@@ -521,6 +516,7 @@ table.message {
         margin-left: 10vw;
         border-radius: 40px
     }
+
     10% {
         background: rgba(7, 68, 148, 1);
         width: 40vw;
@@ -529,6 +525,7 @@ table.message {
         margin-left: 10vw;
         border-radius: 40px
     }
+
     to {
         background: rgba(7, 68, 148, 0.16);
         width: 40vw;
@@ -558,7 +555,7 @@ rect-3 {
 }
 
 
-.triangle-1{
+.triangle-1 {
     width: 0;
     height: 0;
     border-left: 2Vw solid transparent;
@@ -576,27 +573,47 @@ triangle-2 {
     margin: 2rem;
 }
 
-.shapes{
+.shapes {
     width: 100%;
     height: 100%;
-    
 }
 
-.login-container{
+.login-container {
     width: 100vw;
 }
 
 /*Create Account Styling*/
 
 .create-account-focus {
-    background: hsl(350, 0%, 0%, .50);
+    background-size: 100% 100%;
+    background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+    background-image: radial-gradient(49% 81% at 45% 47%, #FFE20345 0%, #073AFF00 100%),radial-gradient(113% 91% at 17% -2%, #001AFFFF 4%, #FF000000 99%),radial-gradient(142% 91% at 83% 7%, #00C1FFFF 1%, #FF000000 99%),radial-gradient(142% 91% at -6% 74%, #00CDFFFF 1%, #FF000000 99%),conic-gradient(from 56deg at 30% 71%, #00FFFFFF 0%, #073AFFFF 100%);
     border-radius: 40px;
     margin-top: 10vh;
     margin-left: 10vw;
     width: 80vw;
     height: 80vh;
+}
+
+.create-account-form {
+    padding: 20% 20% 20% 20%;
+    border-right: 3px black solid;
+    margin: 7% 0 5% 0;
 
 }
+
+.create-account-field {
+    width: 100%;
+    height: 5vh;
+    margin-top: 5%;
+    border-radius: 10px;
+    background: #000;
+    color: white;
+}
+
+    .create-account-field:hover {
+        border: 1px solid red;
+    }
 
 
 
@@ -737,7 +754,6 @@ triangle-2 {
     color: white;
     border: 1px solid red;
     margin-block: 5px;
-   
 }
 
 .carousel {

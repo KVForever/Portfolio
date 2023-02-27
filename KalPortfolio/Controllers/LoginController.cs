@@ -1,4 +1,5 @@
-﻿using DataEntities;
+﻿
+using DataEntities;
 using LoginLibrary;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,8 @@ namespace KalPortfolio.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Index(UserLogins login)
+        
+        public ActionResult Index(Users login)
         {
             
                 if (login != null)
@@ -36,10 +38,21 @@ namespace KalPortfolio.Controllers
             
             
         }
-        [AllowAnonymous]
         public ActionResult CreateAccount()
         {
             return View();
         }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult CreateAccount(Users createAccount)
+        {
+            
+             return View(CreateAccount(createAccount));
+            
+            
+        }
+
+        
     }
 }

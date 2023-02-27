@@ -13,42 +13,53 @@
 </head>
 <body class="create-account-background">
     <div class="create-account-focus">
+        <div class="row">
+            <div class="col-6">
+                <div class="create-account-form">
+                    <form method="post">
+                        <div class=row>
+                            <div class="col-12">
+                                
+                                <input id="create-account-email" class="create-account-field" placeholder="Email" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid!')" />
+                            </div>
+                        </div>
 
-        <form method="post">
-            <div class=row>
-                <div class="col-12">        
-                    <input id="create-account-email" placeholder="Email" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid!')" />
-                </div>
-            </div>
-        </form>
+                        <div class=row>
+                            <div class="col-12">
+                                
+                                <input id="create-username" class="create-account-field" placeholder="Username" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid!')" />
+                            </div>
+                        </div>
 
-        <form method="post">
-            <div class=row>
-                <div class="col-12">                    
-                    <input id="create-username" placeholder="Username" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid!')" />
+                        <div class="row">
+                            <div class="col-12">
+                                
+                                <input id="create-password" class="create-account-field" placeholder="Password" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect!')" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                
+                                <input id="confirm-password" class="create-account-field" placeholder="Confirm Password" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect!')" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="submit" value="Create" id="create-account" class="create-account-field" />
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </form>
-            
-        <form method="post">
-            <div class="row">
-                <div class="col-12">
-                    <input id="create-password" placeholder="Password" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect!')" />
-                </div>
+                
             </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <input id="confirm-password" placeholder="Confirm Password" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect!')" />
-                </div>
-            </div>
+            <div class="col-6">
 
-            <div class="row">
-                <div class="col-12">
-                    <input type="submit" value="Create" id="create-account" />
-                </div>
             </div>
-        </form>
+        </div>
+        
 
     </div>
 </body>

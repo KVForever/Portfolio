@@ -29,6 +29,7 @@ namespace KalPortfolio
             services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:portfolioconnectionstring"]));
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
