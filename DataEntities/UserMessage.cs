@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataEntities;
 
-public partial class UserMessages
+public partial class UserMessage
 {
     [Key]
     public Guid Id { get; set; }

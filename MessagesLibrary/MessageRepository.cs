@@ -13,21 +13,21 @@ namespace MessagesLibrary
             _dbContext = dbContext;
         }
 
-        public List<UserMessages> GetAllMessages()
+        public List<UserMessage> GetAllMessages()
         {
             var allMessages = _dbContext.UserMessages.ToList();
 
             return allMessages;
         }
 
-        public List<UserMessages> GetMessageByName(string name)
+        public List<UserMessage> GetMessageByName(string name)
         { 
             var message = GetAllMessages().Where(x => x.LastName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
 
             return message;
         }
 
-        public UserMessages GetMessageById(Guid id)
+        public UserMessage GetMessageById(Guid id)
         { 
             try
             {
@@ -43,13 +43,13 @@ namespace MessagesLibrary
                 throw new KeyNotFoundException("This message can not be found in the database.");
             }
             
-           UserMessages messages = new();
+           UserMessage messages = new();
 
             return messages;
                 
         }
 
-        public void AddMessage(UserMessages message)
+        public void AddMessage(UserMessage message)
         {
             _dbContext.Add(message);
             _dbContext.SaveChanges();

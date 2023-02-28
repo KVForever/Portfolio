@@ -24,7 +24,7 @@ namespace KalPortfolio.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(UserMessages formData)
+        public ActionResult Index(UserMessage formData)
         {        
             if(ModelState.IsValid)
             {

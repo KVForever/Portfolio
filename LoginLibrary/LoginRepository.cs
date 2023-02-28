@@ -24,48 +24,51 @@ namespace LoginLibrary
             _DbContext = dbContext;
         }
 
-        public string Hash(string input)
+        //public string Hash(string input)
+        //{
+        //    if(input == null)
+        //    {
+        //        return string.Empty;
+        //    }
+
+        //    byte[] salt = RandomNumberGenerator.GetBytes(16);
+        //    byte[] hash = Rfc2898DeriveBytes.Pbkdf2(input, salt, 100000, HashAlgorithmName.SHA256, 32);
+        //    const char segnmentDelimiter = ':';
+
+        //    return String.Join(segnmentDelimiter, Convert.ToHexString(hash), Convert.ToHexString(salt), 100000, HashAlgorithmName.SHA256);
+        //}
+
+        //public bool Verify(string input, string HashString)
+        //{
+        //    const char segmentDelimiter = ':';
+        //    string[] segments = HashString.Split(segmentDelimiter);
+        //    byte[] hash = Convert.FromHexString(segments[0]);
+        //    byte[] salt = Convert.FromHexString(segments[1]);
+        //    int iterations = int.Parse(segments[2]);
+        //    HashAlgorithmName algorithm = new(segments[3]);
+        //    byte[] inputHash = Rfc2898DeriveBytes.Pbkdf2(input, salt, iterations, algorithm, hash.Length);
+
+        //    return CryptographicOperations.FixedTimeEquals(inputHash, hash);
+        //}
+
+        public void CreateAccount(User user)
         {
-            byte[] salt = RandomNumberGenerator.GetBytes(16);
-            byte[] hash = Rfc2898DeriveBytes.Pbkdf2(input, salt, 100000, HashAlgorithmName.SHA256, 32);
-            const char segnmentDelimiter = ':';
-
-            return String.Join(segnmentDelimiter, Convert.ToHexString(hash), Convert.ToHexString(salt), 100000, HashAlgorithmName.SHA256);
-        }
-
-        public bool Verify(string input, string HashString)
-        {
-            const char segmentDelimiter = ':';
-            string[] segments = HashString.Split(segmentDelimiter);
-            byte[] hash = Convert.FromHexString(segments[0]);
-            byte[] salt = Convert.FromHexString(segments[1]);
-            int iterations = int.Parse(segments[2]);
-            HashAlgorithmName algorithm = new HashAlgorithmName(segments[3]);
-            byte[] inputHash = Rfc2898DeriveBytes.Pbkdf2(input, salt, iterations, HashAlgorithmName.SHA256, hash.Length);
-
-            return CryptographicOperations.FixedTimeEquals(inputHash, hash);
-        }
-
-        public void CreateAccount(Users user)
-        {
-            string hashed = Hash(user.PasswordHash);
-
-            _DbContext.Add(hashed);
-            _DbContext.Add(user.Id);
-            _DbContext.Add(user.Email);
-            _DbContext.Add(user.UserName);
+            
+            _DbContext.Add(user);
 
             _DbContext.SaveChanges();
 
         }
 
-        public bool Login(Users login)
+        public bool Login(User password)
         {
-            string hashed = Hash(login.PasswordHash);
-
-            bool isPasswordCorrect = Verify(login.PasswordHash, hashed);
-
-            return isPasswordCorrect;
+            var find = _DbContext.Users.Where(x => x.Password == password.Password && x.Username == password.Username);
+            if (!find.Any())
+            {
+                return true;
+            }
+            return false;
+                       
         }
     }
 }

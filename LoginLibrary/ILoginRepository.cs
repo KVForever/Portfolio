@@ -9,12 +9,12 @@ namespace LoginLibrary
 {
     public interface ILoginRepository
     {
-        public bool Login(Users login);
+        public bool Login(User login);
 
-        public string Hash(string input);
+        //public string Hash(string input);
 
-        public bool Verify(string input, string HashString);
+        //public bool Verify(string input);
 
-        public void CreateAccount(Users user);
+        public void CreateAccount(User user);
     }
 }

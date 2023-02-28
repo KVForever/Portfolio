@@ -16,41 +16,42 @@ namespace KalPortfolio.Controllers
             _repository = repository;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        
-        public ActionResult Index(Users login)
+        [HttpPost]       
+        public ActionResult Index(User login)
         {
             
-                if (login != null)
+            if (login != null)
+            {
+                if (_repository.Login(login))
                 {
-                    if (_repository.Login(login))
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
+                    return RedirectToAction("Index", "Home");
                 }
-                return View();
+            }
+            return View();
             
             
         }
+
+        
         public ActionResult CreateAccount()
         {
             return View();
         }
 
-        [AllowAnonymous]
+        
         [HttpPost]
-        public ActionResult CreateAccount(Users createAccount)
+        public ActionResult CreateAccount(User createAccount)
         {
-            
-             return View(CreateAccount(createAccount));
-            
-            
+
+            _repository.CreateAccount(createAccount);
+
+            return RedirectToAction("Index", "Home");
         }
 
         

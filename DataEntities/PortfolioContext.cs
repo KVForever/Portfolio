@@ -11,25 +11,27 @@ public partial class PortfolioContext : DbContext
     {
     }
 
-    public virtual DbSet<Users> Users { get; set; }
+    public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<UserMessages> UserMessages { get; set; }
+    public virtual DbSet<UserMessage> UserMessages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Users>(entity =>
+        modelBuilder.Entity<User>(entity =>
         {
             entity.Property(e => e.Id);
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .IsUnicode(false);
-            entity.Property(e => e.UserName)
+            entity.Property(e => e.Password)
                 .HasMaxLength(50)
                 .IsUnicode(false);
-            entity.Property(e => e.PasswordHash).IsUnicode(false);
+            entity.Property(e => e.Username)
+                .HasMaxLength(50)
+                .IsUnicode(false);
         });
 
-        modelBuilder.Entity<UserMessages>(entity =>
+        modelBuilder.Entity<UserMessage>(entity =>
         {
             entity.Property(e => e.Id);
             entity.Property(e => e.Email)

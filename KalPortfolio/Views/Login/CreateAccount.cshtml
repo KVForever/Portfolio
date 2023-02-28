@@ -20,28 +20,21 @@
                         <div class=row>
                             <div class="col-12">
                                 
-                                <input id="create-account-email" class="create-account-field" placeholder="Email" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid!')" />
+                                <input type="email" id="create-account-email" class="create-account-field" placeholder="Email" required oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your Email is invalid')" />
                             </div>
                         </div>
 
                         <div class=row>
                             <div class="col-12">
                                 
-                                <input id="create-username" class="create-account-field" placeholder="Username" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid!')" />
+                                <input type="text" id="create-username" class="create-account-field" placeholder="Username" required pattern="^((?=.*[a-z])(?=.*[A-Z]).{8,15})$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid!')" />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12">
                                 
-                                <input id="create-password" class="create-account-field" placeholder="Password" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect!')" />
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                
-                                <input id="confirm-password" class="create-account-field" placeholder="Confirm Password" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect!')" />
+                                <input type="password" id="create-password" class="create-account-field" placeholder="Password" required pattern="^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid!')" />
                             </div>
                         </div>
 
