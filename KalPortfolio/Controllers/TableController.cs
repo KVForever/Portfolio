@@ -14,8 +14,7 @@ namespace KalPortfolio.Controllers
             _repository = message;
         }
 
-        [Authorize]
-        [ValidateAntiForgeryToken]
+       
         public ActionResult Index(string name)
         {
             if(name != null)
@@ -35,7 +34,7 @@ namespace KalPortfolio.Controllers
             return View(_repository.GetAllMessages());
         }
 
-        [Authorize]
+        
         public ActionResult Delete(string id)
         {
             if(Guid.TryParse(id, out var result))
@@ -46,7 +45,7 @@ namespace KalPortfolio.Controllers
             return Redirect("/Table/Index");
         }
 
-        [Authorize]
+       
         public ActionResult Details(string id)
         {
             if(id != null)

@@ -329,7 +329,7 @@
             <div class="row">
                 <div class="col-6">
                     <form method="post"> 
-                        @Html.AntiForgeryToken()
+                        
                         <div class="row">
                             <div class="col-6">
                                 <input type="text" class="message-input" id="first-name" name="FirstName" placeholder="First Name" pattern="^[a-zA-Z''-'\s]{2,40}$" required minlength="2" maxlength="40" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must only be letters and have more than one letter!')" />
@@ -361,6 +361,8 @@
                                 <input type="submit" class="message-input" id="submit-message" value="Submit" />
                             </div>
                         </div>
+                        
+                        
                     </form>
                 </div>
 

@@ -17,14 +17,14 @@ namespace KalPortfolio.Controllers
             _repository = message;
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {    
             return View();  
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Index(UserMessage formData)
+        
+        public IActionResult Index(UserMessage formData)
         {        
             if(ModelState.IsValid)
             {

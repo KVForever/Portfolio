@@ -433,7 +433,7 @@ table.message {
     }
 }
 
-.create-account {
+#create-account {
     color: rgba(7, 68, 148, 1);
     display: block;
     background: rgba(7, 68, 148, 1);
@@ -495,10 +495,6 @@ table.message {
     animation-duration: 2s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
-}
-
-#login-welcome {
-    padding-top: 20%;
 }
 
 .login-focus {
@@ -578,9 +574,7 @@ triangle-2 {
     height: 100%;
 }
 
-.login-container {
-    width: 100vw;
-}
+
 
 /*Create Account Styling*/
 

@@ -19,7 +19,9 @@ public partial class PortfolioContext : DbContext
     {
         modelBuilder.Entity<User>(entity =>
         {
-            entity.Property(e => e.Id);
+            entity.ToTable("User");
+
+            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -33,7 +35,7 @@ public partial class PortfolioContext : DbContext
 
         modelBuilder.Entity<UserMessage>(entity =>
         {
-            entity.Property(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .IsUnicode(false);

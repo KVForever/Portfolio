@@ -1,9 +1,6 @@
-﻿
-using DataEntities;
+﻿using DataEntities;
 using LoginLibrary;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace KalPortfolio.Controllers
 {
@@ -16,44 +13,27 @@ namespace KalPortfolio.Controllers
             _repository = repository;
         }
 
-        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]       
-        public ActionResult Index(User login)
-        {
-            
-            if (login != null)
-            {
-                if (_repository.Login(login))
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-            }
-            return View();
-            
-            
-        }
-
-        
-        public ActionResult CreateAccount()
-        {
-            return View();
-        }
-
-        
         [HttpPost]
-        public ActionResult CreateAccount(User createAccount)
+        public IActionResult Index(User login)
         {
 
-            _repository.CreateAccount(createAccount);
-
-            return RedirectToAction("Index", "Home");
+            return View(login);
         }
 
-        
+        public IActionResult CreateAccount()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateAccount(User user)
+        {
+            return View(user);
+        }
     }
 }

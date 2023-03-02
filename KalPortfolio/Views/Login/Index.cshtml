@@ -1,80 +1,53 @@
-﻿<!DOCTYPE html>
+﻿@model DataEntities.User
+
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>KalPortfolio</title>
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <link href="~/css/site.css" rel="stylesheet" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>  
-        <script href="text/javascript">
-            function createPage(){
-                location.href = '/Login/CreateAccount';
-            }
-        </script>
-    </head>
-    <body class="login">
-        <div class="login-container">
-            <div class="row">
-                <div class="col-6">
-                    <div class="login-focus">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KalPortfolio</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
 
-                        <div class="login-form">
 
-                            <div id="login-welcome">
-                                <h1 id="login-heading"><b>Welcome!</b></h1>
-                                <p class="reveal">Please login or create an account.</p>
-                            </div>
+    </script>
 
-                            <form method="post">
-                               
-                                <div class=row>
-                                    <div class="col-12">
-                                        <label for="username" class="login-label">Username</label>
-                                        <input type="text" id="username" name="username" required pattern="^((?=.*[a-z])(?=.*[A-Z]).{8,15})$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is incorrect!')" />
-                                    </div>
-                                </div>
+</head>
+<body class="login">
+    <section>
+        <div class="login-focus">            
+            <div class="row">                
+                <div class="login-form">                      
+                    
+                    <div class="login-Heading">
+                        <p class="display-3">Welcome!</p>
+                    </div>
 
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label for="password" class="login-label">Password</label>
-                                        <input type="password" id="password" name="password" required pattern="^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect!')" />
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-12">
-                                        <input type="submit" value="Login" id="login" />
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button class="create-account" onclick="createPage()" type="button" aria-label="Go to the account creation page.">Create Account</button>
-                                    </div>
-                                </div>
-                            </form>
+                    <form method="post">
+                        <div class="row">
+                            <label class="login-label">Username</label>
+                            <input type="text" name="Username" id="username" placeholder="Username" required pattern="^[a-zA-Z''-'\s]{2,40}$" onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is incorrect')" />
                         </div>
-                    </div>
-                </div>
-                
-               @* <div class="col-6">
-                    <div class="shapes">
-                        <div class="rect-3"></div>
-                        <div class="triangle-1"></div>
-                        <div class="rect-2"></div>
-                        <div class="rect-1"></div>
-                        <div class="triangle-2"></div>
-                    </div>
-                </div>*@
-                
-            </div>
-            
-        </div>
-        
-    </body>
+                        <div class="row">
+                            <label class="login-label">Password</label>
+                            <input type="password" name="Password" id="password" placeholder="Password" required pattern="^[a-zA-Z''-'\s]{2,40}$" onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect')" />
+                        </div>
+                        <div class="row">
+                            <input type="submit" name="Login" id="login" placeholder="Login" />
+                        </div>
+                        <div class="row">
+                            <input type="button" name="CreateAccount" id="create-account" value="Create Account" />
+                        </div>
+                    </form>
 
+                </div>                                   
+            </div>          
+        </div>
+    </section>
+</body>
 </html>
