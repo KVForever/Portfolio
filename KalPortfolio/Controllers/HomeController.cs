@@ -22,8 +22,7 @@ namespace KalPortfolio.Controllers
             return View();  
         }
 
-        [HttpPost]
-        
+        [HttpPost]      
         public IActionResult Index(UserMessage formData)
         {        
             if(ModelState.IsValid)

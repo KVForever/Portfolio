@@ -13,7 +13,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script type="text/javascript">
-
+        function createAccountBtn(){
+            location.href = '/Login/CreateAccount';
+        }
 
     </script>
 
@@ -22,13 +24,13 @@
     <section>
         <div class="login-focus">            
             <div class="row">                
-                <div class="login-form">                      
+                <div asp-action="login" class="login-form">                      
                     
                     <div class="login-Heading">
                         <p class="display-3">Welcome!</p>
                     </div>
 
-                    <form method="post">
+                    <form action="/Login/Index" method="post">
                         <div class="row">
                             <label class="login-label">Username</label>
                             <input type="text" name="Username" id="username" placeholder="Username" required pattern="^[a-zA-Z''-'\s]{2,40}$" onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is incorrect')" />
@@ -41,7 +43,7 @@
                             <input type="submit" name="Login" id="login" placeholder="Login" />
                         </div>
                         <div class="row">
-                            <input type="button" name="CreateAccount" id="create-account" value="Create Account" />
+                            <input type="button" onclick="createAccountBtn()" id="create-account" value="Create Account" />
                         </div>
                     </form>
 

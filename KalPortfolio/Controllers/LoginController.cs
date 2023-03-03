@@ -21,6 +21,10 @@ namespace KalPortfolio.Controllers
         [HttpPost]
         public IActionResult Index(User login)
         {
+            if (_repository.Login(login))
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
             return View(login);
         }
@@ -33,7 +37,9 @@ namespace KalPortfolio.Controllers
         [HttpPost]
         public IActionResult CreateAccount(User user)
         {
-            return View(user);
+            _repository.CreateAccount(user);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

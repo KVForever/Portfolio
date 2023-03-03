@@ -2,44 +2,50 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KalPortfolio</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <link href="~/css/site.css" rel="stylesheet" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script type="text/javascript">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KalPortfolio</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <link href="~/css/site.css" rel="stylesheet" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script type="text/javascript">
 
 
-    </script>
+        </script>
 
-</head>
-<body class="create-account-background">
-    <section>
+    </head>
+    <body class="create-account-background">
+        <section>
         <div class="create-account-focus">
-            <div class="create-account-form">
-                <form method="post">
-                    <div class="row">
-                        <label class="login-label">Username</label>
-                        <input type="text" class="Username" id="create-account-username" placeholder="Username" required pattern="^[a-zA-Z''-'\s]{2,40}$" onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid')" />
-                    </div>
-                    <div class="row">
-                        <label class="login-label">Password</label>
-                        <input type="password" class="create-account-field" id="create-account-password" placeholder="Password" required pattern="^[a-zA-Z''-'\s]{2,40}$" onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
-                    </div>
-                    <div class="row">
-                        <input type="button" class="create-account-field" value="Create Account" />
-                    </div>
-                </form>
+            <div class="col-6">
+                <div class="create-account-form">
+                    
+                    <form action="/Login/CreateAccount" method="post">
+                        <div class="row">
+                            <label for="account-email" class="create-account-label">Email</label>
+                            <input type="email" name="create-email" class="create-account-field" id="account-email" placeholder="Email" required onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This is not a valid Email.')" />
+                        </div>
+                        <div class="row">
+                            <label for="create-account-password" class="create-account-label">Password</label>
+                            <input type="password" name="create-password" class="create-account-field" id="create-account-password" placeholder="Password" required pattern="^[a-zA-Z''-'\s]{2,40}$" onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
+                        </div>
+                        <div class="row">
+                            <label for="create-account-username" class="create-account-label">Username</label>
+                            <input type="text" name="create-password" class="create-account-field" id="create-account-username" placeholder="Username" required pattern="^[a-zA-Z''-'\s]{2,40}$" onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid')" />
+                        </div>
+                        
+                        <div class="row">
+                            <input type="submit" name="create" class="create-account-field" value="Create Account" />
+                        </div>
+                    </form>
+                    
+                </div>
             </div>
-            
-            
-            
         </div>
-    </section>
-</body>
+        </section>
+    </body>
 </html>

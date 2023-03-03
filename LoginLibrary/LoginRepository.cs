@@ -12,6 +12,28 @@ namespace LoginLibrary
         }
 
 
+        public bool Login(User user)
+        {
+            if(user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            var check = _DbContext.Users.FirstOrDefault(x => x.Password == user.Password && x.Username == user.Username);
+
+            if(check == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public void CreateAccount(User user)
+        {
+            _DbContext.Users.Add(user);
+            _DbContext.SaveChanges();
+        }
         
     }
 }

@@ -9,6 +9,8 @@ namespace LoginLibrary
 {
     public interface ILoginRepository
     {
-        
+        public bool Login(User user);
+
+        public void CreateAccount(User user);
     }
 }

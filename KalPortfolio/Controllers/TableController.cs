@@ -15,7 +15,7 @@ namespace KalPortfolio.Controllers
         }
 
        
-        public ActionResult Index(string name)
+        public IActionResult Index(string name)
         {
             if(name != null)
             {
@@ -35,7 +35,7 @@ namespace KalPortfolio.Controllers
         }
 
         
-        public ActionResult Delete(string id)
+        public IActionResult Delete(string id)
         {
             if(Guid.TryParse(id, out var result))
             {
@@ -46,7 +46,7 @@ namespace KalPortfolio.Controllers
         }
 
        
-        public ActionResult Details(string id)
+        public IActionResult Details(string id)
         {
             if(id != null)
             {
