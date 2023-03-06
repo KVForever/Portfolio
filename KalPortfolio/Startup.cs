@@ -8,6 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System;
+using Microsoft.AspNetCore.Http;
 
 namespace KalPortfolio
 {
@@ -29,13 +32,20 @@ namespace KalPortfolio
             services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:portfolioconnectionstring"]));
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
-            
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+                options.SlidingExpiration = true;
+                options.AccessDeniedPath = "/Forbidden/";
+            });
             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -50,10 +60,20 @@ namespace KalPortfolio
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            //app.MapRazorPages();
+            //app.MapDefaultControllerRoute();
+
             app.UseRouting();
 
-            
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            var cookiePolicyOptions = new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Strict
+            };
+            app.UseCookiePolicy(cookiePolicyOptions);
+            
             /*
             app.UseEndpoints(endpoints =>
             {
@@ -66,9 +86,6 @@ namespace KalPortfolio
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}");
             });
-
-            
-
         }
     }
 }

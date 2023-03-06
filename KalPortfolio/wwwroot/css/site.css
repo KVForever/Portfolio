@@ -417,7 +417,6 @@ table.message {
 .reveal {
     animation-name: text-reveal;
     animation-duration: 2s;
-    animation-delay: 2s;
     animation-fill-mode: forwards;
     color: rgba(7, 68, 148, 1);
     margin-bottom: 10%;
@@ -592,9 +591,9 @@ triangle-2 {
 }
 
 .create-account-form {
-    padding: 0 20% 5% 10%;
+    padding: 0% 20% 5% 10%;
     border-right: 3px black solid;
-    margin: 7% 0 5% 0;
+    margin: 15% 0 5% 0;
 
 }
 

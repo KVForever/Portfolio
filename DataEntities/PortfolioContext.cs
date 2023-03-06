@@ -22,10 +22,24 @@ public partial class PortfolioContext : DbContext
             entity.ToTable("User");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.DateCreated).HasColumnType("datetime");
+            entity.Property(e => e.DateModified).HasColumnType("datetime");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .IsUnicode(false);
+            entity.Property(e => e.FirstName)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.LastName)
+                .HasMaxLength(50)
+                .IsUnicode(false);
             entity.Property(e => e.Password)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Salt)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Token)
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Username)

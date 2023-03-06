@@ -21,12 +21,12 @@ namespace LoginLibrary
 
             var check = _DbContext.Users.FirstOrDefault(x => x.Password == user.Password && x.Username == user.Username);
 
-            if(check == null)
+            if(check != null)
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         public void CreateAccount(User user)
