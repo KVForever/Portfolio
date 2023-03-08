@@ -25,16 +25,23 @@
                 <div class="create-account-form">
                     
                     <form action="/Login/CreateAccount" method="post">
-                        
+
                         <div class="row">
-                            <label for="create-account-password" class="create-account-label">Password</label>
-                            <input type="password" name="Password" class="create-account-field" id="create-account-password" placeholder="Password" required pattern="^[a-zA-Z''-'\s]{2,40}$" onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
+                            <input type="email" name="Email" class="create-account-field" id="create-account-email" placeholder="Password" required pattern="^[a-zA-Z''-'\s]{2,40}$" onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
                         </div>
                         <div class="row">
-                            <label for="create-account-username" class="create-account-label">Username</label>
-                            <input type="text" name="Username" class="create-account-field" id="create-account-username" placeholder="Username" required pattern="^[a-zA-Z''-'\s]{2,40}$" onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid')" />
+                            <input type="text" name="Username" class="create-account-field" id="create-account-username" placeholder="Username" required onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid')" />
                         </div>
-                        
+                        <div class="row">
+                            <input type="password" name="Password" class="create-account-field" id="create-account-password" placeholder="Password" required  onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
+                        </div>                        
+                        <div class="row">
+                            <input type="text" name="FirstName" class="create-account-field" id="create-account-firstname" placeholder="Password" required  onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
+                        </div>
+                        <div class="row">
+                            <input type="text" name="LastName" class="create-account-field" id="create-account-lastname" placeholder="Username" required  onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid')" />
+                        </div>
+              
                         <div class="row">
                             <input type="submit" class="create-account-field" value="Create Account" />
                         </div>

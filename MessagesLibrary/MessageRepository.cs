@@ -22,7 +22,7 @@ namespace MessagesLibrary
 
         public List<UserMessage> GetMessageByName(string name)
         { 
-            var message = GetAllMessages().Where(x => x.LastName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
+            var message = GetAllMessages().Where(u => u.LastName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
 
             return message;
         }
@@ -31,7 +31,7 @@ namespace MessagesLibrary
         { 
             try
             {
-                var message = GetAllMessages().FirstOrDefault(x => x.Id == id);
+                var message = GetAllMessages().FirstOrDefault(u => u.Id == id);
 
                 if(message != null)
                 {
@@ -57,7 +57,7 @@ namespace MessagesLibrary
 
         public void DeleteMessage(Guid id)
         {
-            var message = _dbContext.UserMessages.FirstOrDefault(x => x.Id == id);
+            var message = _dbContext.UserMessages.FirstOrDefault(u => u.Id == id);
             if(message != null)
             {
                 _dbContext.UserMessages.Remove(message);

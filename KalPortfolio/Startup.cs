@@ -33,7 +33,8 @@ namespace KalPortfolio
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
             {
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.SlidingExpiration = true;
@@ -66,6 +67,7 @@ namespace KalPortfolio
             app.UseRouting();
 
             app.UseAuthentication();
+
             app.UseAuthorization();
 
             var cookiePolicyOptions = new CookiePolicyOptions

@@ -1,4 +1,5 @@
 ﻿using DataEntities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LoginLibrary
 {
@@ -11,6 +12,14 @@ namespace LoginLibrary
             _DbContext = dbContext;
         }
 
+        //public async Task<User> GetUserByUsername(string username)
+        //{
+        //    var result = await _DbContext.Users.Where(u => u.Username == username && !u.IsDeleted)
+        //        .Include(u => u.Roles)
+        //        .FirstOrDefaultAsync();
+
+        //    return result;
+        //}
 
         public bool Login(User user)
         {
@@ -19,7 +28,7 @@ namespace LoginLibrary
                 throw new ArgumentNullException("user");
             }
 
-            var check = _DbContext.Users.FirstOrDefault(x => x.Password == user.Password && x.Username == user.Username);
+            var check = _DbContext.Users.FirstOrDefault(u => u.Password == user.Password && u.Username == user.Username);
 
             if(check != null)
             {
