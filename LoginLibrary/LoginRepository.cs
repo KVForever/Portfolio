@@ -12,36 +12,28 @@ namespace LoginLibrary
             _DbContext = dbContext;
         }
 
-        //public async Task<User> GetUserByUsername(string username)
-        //{
-        //    var result = await _DbContext.Users.Where(u => u.Username == username && !u.IsDeleted)
-        //        .Include(u => u.Roles)
-        //        .FirstOrDefaultAsync();
-
-        //    return result;
-        //}
-
-        public bool Login(User user)
+        public async Task<User> GetUserByUsername(string username)
         {
-            if(user == null)
-            {
-                throw new ArgumentNullException("user");
-            }
+            var result = await _DbContext.Users.Where(u => u.Username == username && !u.IsDeleted)
+                .Include(u => u.Roles)
+                .FirstOrDefaultAsync();
 
-            var check = _DbContext.Users.FirstOrDefault(u => u.Password == user.Password && u.Username == user.Username);
-
-            if(check != null)
-            {
-                return true;
-            }
-
-            return false;
+            return result;
         }
 
-        public void CreateAccount(User user)
+        public async Task<User> CreateAccount(User user)
         {
+            user.DateCreated = DateTime.Now;
+            user.DateModified = DateTime.Now;
+
+            user.Roles.Clear();
+
+            //user.Roles.Add(_DbContext.Roles.Where(r => r.Name.Equals("User")));
+
             _DbContext.Users.Add(user);
-            _DbContext.SaveChanges();
+            await _DbContext.SaveChangesAsync();
+
+            return user;
         }
         
     }

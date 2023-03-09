@@ -9,10 +9,8 @@ namespace LoginLibrary
 {
     public interface ILoginRepository
     {
-        //public Task<User> GetUserByUsername(string username);
+        public Task<User> GetUserByUsername(string username);
 
-        public bool Login(User user);
-
-        public void CreateAccount(User user);
+        public Task<User> CreateAccount(User user);
     }
 }

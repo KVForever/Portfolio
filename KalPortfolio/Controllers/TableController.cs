@@ -1,4 +1,5 @@
-﻿using MessagesLibrary;
+﻿using DataEntities;
+using MessagesLibrary;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -35,30 +36,29 @@ namespace KalPortfolio.Controllers
         }
 
         
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
-            if(Guid.TryParse(id, out var result))
-            {
-                _repository.DeleteMessage(result);
-            }
+            UserMessage message = _repository.GetMessageById(id);
 
+            if(message != null)
+            {
+                _repository.DeleteMessage(id);
+            }
+            
             return Redirect("/Table/Index");
         }
 
        
-        public IActionResult Details(string id)
+        public IActionResult Details(int id)
         {
-            if(id != null)
-            {
-                if (Guid.TryParse(id, out var result))
-                {                   
-                    return View(_repository.GetMessageById(result));
-                }
-                return NotFound();
-            }
-            return NotFound();
+            UserMessage message = _repository.GetMessageById(id);
 
-            
+            if(message != null)
+            {
+                return View(_repository.GetMessageById(id));
+            }
+                            
+            return NotFound();
         }
 
     }

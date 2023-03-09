@@ -5,7 +5,7 @@ namespace DataEntities;
 
 public partial class User
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     public string Username { get; set; } = null!;
 
@@ -21,9 +21,11 @@ public partial class User
 
     public string? Token { get; set; }
 
-    public DateTime? DateCreated { get; set; }
+    public DateTime DateCreated { get; set; }
 
-    public DateTime? DateModified { get; set; }
+    public DateTime DateModified { get; set; }
 
-    public bool? IsDeleted { get; set; }
+    public bool IsDeleted { get; set; }
+
+    public virtual ICollection<Role> Roles { get; } = new List<Role>();
 }

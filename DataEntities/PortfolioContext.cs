@@ -21,68 +21,54 @@ public partial class PortfolioContext : DbContext
     {
         modelBuilder.Entity<Role>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Role");
-
-            entity.Property(e => e.DateCreated).HasColumnType("datetime");
-            entity.Property(e => e.DateModified).HasColumnType("datetime");
-            entity.Property(e => e.Name)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-
-            entity.HasOne(d => d.IdNavigation).WithMany()
-                .HasForeignKey(d => d.Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Role_User");
+            entity.Property(e => e.DateCreated)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.DateModified)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Name).HasMaxLength(255);
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.ToTable("User");
+            entity.Property(e => e.DateCreated)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.DateModified)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Password).HasMaxLength(255);
+            entity.Property(e => e.Salt).HasMaxLength(255);
+            entity.Property(e => e.Token).HasMaxLength(32);
+            entity.Property(e => e.Username).HasMaxLength(255);
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.DateCreated).HasColumnType("datetime");
-            entity.Property(e => e.DateModified).HasColumnType("datetime");
-            entity.Property(e => e.Email)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.FirstName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.LastName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Password)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Salt)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Token)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Username)
-                .HasMaxLength(50)
-                .IsUnicode(false);
+            entity.HasMany(d => d.Roles).WithMany(p => p.Users)
+                .UsingEntity<Dictionary<string, object>>(
+                    "UserRole",
+                    r => r.HasOne<Role>().WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_UserRoles_Roles"),
+                    l => l.HasOne<User>().WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_UserRoles_Users"),
+                    j =>
+                    {
+                        j.HasKey("UserId", "RoleId");
+                        j.ToTable("UserRoles");
+                    });
         });
 
         modelBuilder.Entity<UserMessage>(entity =>
         {
-            entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.Email)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.FirstName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.LastName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Message).IsUnicode(false);
-            entity.Property(e => e.Subject)
-                .HasMaxLength(50)
-                .IsUnicode(false);
+            entity.Property(e => e.Id);
+            entity.Property(e => e.FirstName);
+            entity.Property(e => e.LastName);
+            entity.Property(e => e.Email);
+            entity.Property(e => e.Subject);
+            entity.Property(e => e.Message);
         });
 
         OnModelCreatingPartial(modelBuilder);

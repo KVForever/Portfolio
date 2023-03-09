@@ -27,7 +27,7 @@ namespace MessagesLibrary
             return message;
         }
 
-        public UserMessage GetMessageById(Guid id)
+        public UserMessage GetMessageById(int id)
         { 
             try
             {
@@ -55,9 +55,10 @@ namespace MessagesLibrary
             _dbContext.SaveChanges();
         }
 
-        public void DeleteMessage(Guid id)
+        public void DeleteMessage(int id)
         {
             var message = _dbContext.UserMessages.FirstOrDefault(u => u.Id == id);
+
             if(message != null)
             {
                 _dbContext.UserMessages.Remove(message);

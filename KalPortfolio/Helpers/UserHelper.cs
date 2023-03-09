@@ -32,11 +32,10 @@ namespace KalPortfolio.Helpers
             rng.GetBytes(buff);
             return Convert.ToBase64String(buff);    
         }
-
-        /*What is this doing*/
+        
         public static bool OnlyInRole(this IPrincipal user, string role)
         {
-            var roles = new List<string> { "Admin", "Dispatch", "Orders", "Account", "Scale" };
+            var roles = new List<string> { "Admin", "User" };
             return user.IsInRole(role) && roles.Where(x => x != role).All(r => !user.IsInRole(r));
         }
 
