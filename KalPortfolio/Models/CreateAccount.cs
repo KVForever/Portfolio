@@ -14,7 +14,9 @@ namespace KalPortfolio.Models
 
         public string Email { get; set; }
 
-        public List<Role> Roles { get; set; }
+        public List<Role> Roles { get; set; } = new List<Role>();
+
+        public List<int> SelectedRoles { get; set; } = new List<int>();
 
         public string FirstName { get; set; }
 

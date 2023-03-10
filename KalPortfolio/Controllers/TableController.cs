@@ -15,7 +15,7 @@ namespace KalPortfolio.Controllers
             _repository = message;
         }
 
-       
+        [Authorize(Roles = "Admin")]
         public IActionResult Index(string name)
         {
             if(name != null)
@@ -35,7 +35,7 @@ namespace KalPortfolio.Controllers
             return View(_repository.GetAllMessages());
         }
 
-        
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             UserMessage message = _repository.GetMessageById(id);
@@ -48,7 +48,7 @@ namespace KalPortfolio.Controllers
             return Redirect("/Table/Index");
         }
 
-       
+        [Authorize(Roles = "Admin")]
         public IActionResult Details(int id)
         {
             UserMessage message = _repository.GetMessageById(id);

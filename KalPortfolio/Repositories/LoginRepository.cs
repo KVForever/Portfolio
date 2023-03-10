@@ -1,10 +1,13 @@
 ﻿using DataEntities;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 namespace LoginLibrary
 {
-    public class LoginRepository: ILoginRepository
+    public class LoginRepository : ILoginRepository
     {
         public readonly PortfolioContext _DbContext;
 
@@ -27,18 +30,27 @@ namespace LoginLibrary
             user.DateCreated = DateTime.Now;
             user.DateModified = DateTime.Now;
 
-            user.Roles.Clear();
-            foreach(var role in user.Roles)
+            var rolesToBeAssigned = new List<int>();
+
+            foreach (var role in user.Roles)
             {
-                user.Roles.Add(await _DbContext.Roles.Where(r => r.Id == role.Id).FirstAsync());
+                rolesToBeAssigned.Add(role.Id);
             }
-            
+
+            user.Roles.Clear();
+            //user.Roles = new List<Role>();
+            //user.Roles.Add(await _DbContext.Roles.Where(r => r.Id == 2).FirstAsync());
+
+            foreach (var roleId in rolesToBeAssigned)
+            {
+                user.Roles.Add(await _DbContext.Roles.Where(r => r.Id == roleId).FirstAsync());
+            }
 
             _DbContext.Users.Add(user);
             await _DbContext.SaveChangesAsync();
 
             return user;
         }
-        
+
     }
 }

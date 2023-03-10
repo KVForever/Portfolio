@@ -32,12 +32,14 @@ namespace KalPortfolio
             services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:portfolioconnectionstring"]));
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
             {
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.SlidingExpiration = true;
+                options.LoginPath = "/login/Index";
                 options.AccessDeniedPath = "/Forbidden/";
             });
             
@@ -86,7 +88,7 @@ namespace KalPortfolio
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

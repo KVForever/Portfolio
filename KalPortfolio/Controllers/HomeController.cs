@@ -1,5 +1,6 @@
 ﻿using DataEntities;
 using MessagesLibrary;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,14 @@ namespace KalPortfolio.Controllers
         {
             _repository = message;
         }
-
+        [Authorize(Roles = "User")]
         public IActionResult Index()
         {    
             return View();  
         }
 
-        [HttpPost]      
+        [HttpPost]
+        [Authorize(Roles = "User")]
         public IActionResult Index(UserMessage formData)
         {        
             if(ModelState.IsValid)

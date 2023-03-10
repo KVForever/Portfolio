@@ -1,4 +1,4 @@
-﻿@model DataEntities.User
+﻿@model KalPortfolio.Models.CreateAccount
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,10 +44,13 @@
                         <div class="row">
                             <input type="text" name="LastName" class="create-account-field" id="create-account-lastname" placeholder="Last Name" required  onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid')" />
                         </div>
-              
+                        <div>
+                            <input type="hidden" name="SelectedRoles" value="2" />
+                        </div>
                         <div class="row">
                             <input type="submit" class="create-account-field" value="Create Account" />
                         </div>
+                        
                     </form>
                     
                 </div>

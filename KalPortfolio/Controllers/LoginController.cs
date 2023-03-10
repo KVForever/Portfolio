@@ -14,17 +14,18 @@ using Microsoft.AspNetCore.Authorization.Infrastructure;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Linq;
 
 namespace KalPortfolio.Controllers
 {
     public class LoginController : Controller
     {
         private readonly ILoginRepository _repository;
-       
-
-        public LoginController(ILoginRepository repository)
+        private readonly IRoleRepository _roleRepository;
+        public LoginController(ILoginRepository repository, IRoleRepository roleRepository)
         {
             _repository = repository;
+            _roleRepository = roleRepository; 
         }
 
         public ActionResult Index(string returnUrl = "/")
@@ -43,68 +44,94 @@ namespace KalPortfolio.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(UserLoginModel login)
         {
-            var user = await _repository.GetUserByUsername(login.Username);
-            if (user != null)
+            if (ModelState.IsValid)
             {
-                var hashedPassword = UserHelper.GetHashedPassword(login.Password, user.Salt);
-                if (hashedPassword == user.Password)
+                var user = await _repository.GetUserByUsername(login.Username);
+
+                if (user != null)
                 {
-                    var claims = new List<Claim>()
-                    {
-                        new Claim(ClaimTypes.Name, user.Username),
-                        new Claim("FirstName", user.FirstName),
-                        new Claim("LastName", user.LastName),
-                        new Claim(ClaimTypes.Email, user.Email),
-                    };
+                    var hashedPassword = UserHelper.GetHashedPassword(login.Password, user.Salt);
 
-                    foreach (var role in user.Roles)
+                    if (hashedPassword == user.Password)
                     {
-                        claims.Add(new Claim(ClaimTypes.Role, role.Name));
+                        var claims = new List<Claim>()
+                        {
+                            new Claim(ClaimTypes.Name, user.Username),
+                            new Claim("FirstName", user.FirstName),
+                            new Claim("LastName", user.LastName),
+                            new Claim(ClaimTypes.Email, user.Email),
+                        };
+
+                        foreach (var role in user.Roles)
+                        {
+                            claims.Add(new Claim(ClaimTypes.Role, role.Name));
+                        }
+
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+                        return LocalRedirect(login.ReturnUrl);
                     }
-
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-
-                    return LocalRedirect(login.ReturnUrl);
                 }
-
-                ModelState.AddModelError("", "Login Failed. Please try again");   
-            }
+                ModelState.AddModelError("", "Login Failed. Please try again");
+            }            
             return View(login);
         }
-        public ActionResult CreateAccount()
+        public async Task<ActionResult> CreateAccount()
         {
-            return View();
+            CreateAccount model = new()
+            {
+                Roles = await _roleRepository.GetAllRoles()
+            };
+
+            return View(model);
         }
+
+        
 
         [HttpPost]
         public async Task<ActionResult> CreateAccount(CreateAccount model)
         {
-            var existingUser = await _repository.GetUserByUsername(model.Username);
-
-            if(existingUser == null)
+            if (ModelState.IsValid)
             {
-                if(model.Password == model.ConfirmPassword)
+                var existingUser = await _repository.GetUserByUsername(model.Username);
+
+                if (existingUser == null)
                 {
-                    var salt = UserHelper.GetSalt();
-
-                    User user = new();
+                    if (model.Password == model.ConfirmPassword)
                     {
-                        user.Email = model.Email;
-                        user.FirstName = model.FirstName;
-                        user.LastName = model.LastName;
-                        user.Username = model.Username;
-                        user.Password = UserHelper.GetHashedPassword(model.Password, salt);
-                        user.Salt = salt;
-                        
-                    }
+                        var salt = UserHelper.GetSalt();
 
-                    await _repository.CreateAccount(user);
-                    return RedirectToAction("Index","Home");
+
+
+                        User user = new();
+                        {
+                            user.Email = model.Email;
+                            user.FirstName = model.FirstName;
+                            user.LastName = model.LastName;
+                            user.Username = model.Username;
+                            user.Password = UserHelper.GetHashedPassword(model.Password, salt);
+                            user.Salt = salt;
+                            user.Token = UserHelper.GenerateToken();
+                            user.Roles = model.SelectedRoles.Select(r =>
+                                new Role()
+                                {
+                                    Id = r,
+                                    Name = "User",                                    
+                                }).ToList();
+
+
+                        }
+
+                        await _repository.CreateAccount(user);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    ModelState.AddModelError("Password", "Passwords Do Not Match");
                 }
-                ModelState.AddModelError("Password", "Passwords Do Not Match");
+                ModelState.AddModelError("Username", "Username Already in Use");
             }
-            ModelState.AddModelError("Username", "Username Already in Use");
+            model.Roles = await _roleRepository.GetAllRoles();
             return View(model);
         }
     }

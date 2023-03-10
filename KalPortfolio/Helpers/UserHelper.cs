@@ -35,7 +35,7 @@ namespace KalPortfolio.Helpers
         
         public static bool OnlyInRole(this IPrincipal user, string role)
         {
-            var roles = new List<string> { "Admin", "User" };
+            var roles = new List<string> {"Admin", "User"};
             return user.IsInRole(role) && roles.Where(x => x != role).All(r => !user.IsInRole(r));
         }
 
