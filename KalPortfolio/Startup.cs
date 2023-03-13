@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication;
 
 namespace KalPortfolio
 {
@@ -39,8 +40,10 @@ namespace KalPortfolio
             {
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.SlidingExpiration = true;
-                options.LoginPath = "/login/Index";
+                options.LoginPath = "/login/Login";
                 options.AccessDeniedPath = "/Forbidden/";
+                
+                
             });
             
         }
@@ -48,6 +51,12 @@ namespace KalPortfolio
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var cookiePolicyOptions = new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Strict
+            };
+
+            app.UseCookiePolicy(cookiePolicyOptions);
 
             if (env.IsDevelopment())
             {
@@ -72,23 +81,17 @@ namespace KalPortfolio
 
             app.UseAuthorization();
 
-            var cookiePolicyOptions = new CookiePolicyOptions
-            {
-                MinimumSameSitePolicy = SameSiteMode.Strict
-            };
-            app.UseCookiePolicy(cookiePolicyOptions);
             
-            /*
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
-            */
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapRazorPages();
+            //});
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Home}/{id?}");
             });
         }
     }

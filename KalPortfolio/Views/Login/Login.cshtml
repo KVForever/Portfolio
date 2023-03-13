@@ -39,6 +39,9 @@
                             <label class="login-label">Password</label>
                             <input type="password" name="Password" id="password" placeholder="Password" required pattern="^[a-zA-Z''-'\s]{2,40}$" onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect')" />
                         </div>
+                        <div>
+                            <input type="hidden" name="ReturnUrl" id="returnurl" value="@Model.ReturnUrl"/>
+                        </div>
                         <div class="row">
                             <input type="submit" id="login" placeholder="Login" />
                         </div>

@@ -13,6 +13,7 @@
     <link href="~/css/site.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
 </head>
 <body class="home">
     <header>
@@ -34,9 +35,14 @@
                         <li class="active"><a href="#home-link" area-label="Go to the top of the home page">Home</a></li>
                         <li><a href="#contact-link" area-label="Go to the contacts section.">Contact</a></li>
                         <li><a href="#projects-link" area-label="Go to the projects section.">Projects</a></li>
-                        <li><a href="#resume-link" aria-label="Go to resume section." >Resume</a></li>
-                        <li><a href="/Table/Index">Tables</a></li>
-                        <li><a href="/Login/Index">Login</a></li>
+                        <li><a href="#resume-link" aria-label="Go to resume section.">Resume</a></li>
+                        <li><a href="/Table/Home">Tables</a></li>
+                        <li><a href="/Login/Login">Login</a></li>
+                        <li>
+                            <form action="Home/Logout" method="post">
+                                <input type="submit" value="submit">
+                            </form>  
+                       </li>
                     </ul>
                 </div>
 

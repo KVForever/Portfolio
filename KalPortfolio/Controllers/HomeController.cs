@@ -1,9 +1,12 @@
 ﻿using DataEntities;
 using MessagesLibrary;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace KalPortfolio.Controllers
 {
@@ -17,15 +20,15 @@ namespace KalPortfolio.Controllers
         {
             _repository = message;
         }
-        [Authorize(Roles = "User")]
-        public IActionResult Index()
+       
+        public IActionResult Home()
         {    
             return View();  
         }
 
         [HttpPost]
-        [Authorize(Roles = "User")]
-        public IActionResult Index(UserMessage formData)
+        
+        public IActionResult Home(UserMessage formData)
         {        
             if(ModelState.IsValid)
             {
@@ -34,6 +37,12 @@ namespace KalPortfolio.Controllers
             return View(formData);
         }
 
-       
+        [HttpPost]
+        public async Task<ActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("/Login/Login");
+        }
+
     }
 }

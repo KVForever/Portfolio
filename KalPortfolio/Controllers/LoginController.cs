@@ -1,20 +1,16 @@
 ﻿using DataEntities;
 using KalPortfolio.Models;
-
 using LoginLibrary;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using KalPortfolio.Helpers;
-using Microsoft.AspNetCore.Authorization.Infrastructure;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Linq;
+using Microsoft.IdentityModel.Tokens;
 
 namespace KalPortfolio.Controllers
 {
@@ -28,10 +24,10 @@ namespace KalPortfolio.Controllers
             _roleRepository = roleRepository; 
         }
 
-        public ActionResult Index(string returnUrl = "/")
+        public ActionResult Login(string returnUrl = "/")
         {
             if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Home", "Home");
 
             UserLoginModel model = new();
             {
@@ -42,7 +38,7 @@ namespace KalPortfolio.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Index(UserLoginModel login)
+        public async Task<ActionResult> Login(UserLoginModel login)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +65,7 @@ namespace KalPortfolio.Controllers
 
                         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity)); 
 
                         return LocalRedirect(login.ReturnUrl);
                     }
@@ -78,6 +74,8 @@ namespace KalPortfolio.Controllers
             }            
             return View(login);
         }
+       
+
         public async Task<ActionResult> CreateAccount()
         {
             CreateAccount model = new()
@@ -113,7 +111,7 @@ namespace KalPortfolio.Controllers
                             user.Username = model.Username;
                             user.Password = UserHelper.GetHashedPassword(model.Password, salt);
                             user.Salt = salt;
-                            user.Token = UserHelper.GenerateToken();
+                            
                             user.Roles = model.SelectedRoles.Select(r =>
                                 new Role()
                                 {
