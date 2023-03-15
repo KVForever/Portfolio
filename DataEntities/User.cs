@@ -27,5 +27,5 @@ public partial class User
 
     public bool IsDeleted { get; set; }
 
-    public virtual List<Role> Roles { get; set;} = new List<Role>();
+    public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
 }

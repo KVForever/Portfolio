@@ -1,26 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace DataEntities;
 
 public partial class UserMessage
 {
-    [Key]
     public int Id { get; set; }
 
-    [Required, RegularExpression(@"^[a-zA-Z''-'\s]{2,40}$")]
-    public string FirstName { get; set; } = null!;
+    public string? FirstName { get; set; }
 
-    [Required, RegularExpression(@"^[a-zA-Z''-'\s]{2,40}$")]
-    public string LastName { get; set; } = null!;
+    public string? LastName { get; set; }
 
-    [EmailAddress]
-    public string Email { get; set; } = null!;
+    public string? Email { get; set; }
 
-    [Required, RegularExpression(@"^[a-zA-Z''-'\s]{2,40}$")]
-    public string Subject { get; set; } = null!;
+    public string? Subject { get; set; }
 
-    [Required, RegularExpression(@"^[a-zA-Z''-'\s]{2,40}$")]
-    public string? Message { get; set; }
+    public string Message { get; set; } = null!;
 }

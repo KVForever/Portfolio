@@ -24,7 +24,8 @@ namespace MessagesLibrary
 
         public List<UserMessage> GetMessageByName(string name)
         {
-            var message = GetAllMessages().Where(u => u.LastName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
+            var message = GetAllMessages().Where(u => u.LastName.Contains(name, StringComparison.OrdinalIgnoreCase))
+                .ToList();
 
             return message;
         }

@@ -5,6 +5,7 @@ using LoginLibrary;
 using MessagesLibrary;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,7 +25,14 @@ namespace KalPortfolio.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult Tables(string name)
+        public ActionResult UserView()
+        {
+            return View();
+        }
+
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Home(string name)
         {
             if(name != null)
             {

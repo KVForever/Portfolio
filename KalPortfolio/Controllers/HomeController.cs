@@ -27,7 +27,6 @@ namespace KalPortfolio.Controllers
         }
 
         [HttpPost]
-        
         public IActionResult Home(UserMessage formData)
         {        
             if(ModelState.IsValid)
@@ -41,7 +40,8 @@ namespace KalPortfolio.Controllers
         public async Task<ActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("/Login/Login");
+            return RedirectToAction("Login", "Login");
+           
         }
 
     }

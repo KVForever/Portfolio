@@ -30,14 +30,14 @@
                         <p class="display-3">Welcome!</p>
                     </div>
 
-                    <form action="/Login/Index" method="post">
+                    <form action="/Login/Login" method="post">
                         <div class="row">
                             <label class="login-label">Username</label>
-                            <input type="text" name="Username" id="username" placeholder="Username" required pattern="^[a-zA-Z''-'\s]{2,40}$" onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is incorrect')" />
+                            <input type="text" name="Username" id="username" placeholder="Username" required  onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is incorrect')" />
                         </div>
                         <div class="row">
                             <label class="login-label">Password</label>
-                            <input type="password" name="Password" id="password" placeholder="Password" required pattern="^[a-zA-Z''-'\s]{2,40}$" onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect')" />
+                            <input type="password" name="Password" id="password" placeholder="Password" required  onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is incorrect')" />
                         </div>
                         <div>
                             <input type="hidden" name="ReturnUrl" id="returnurl" value="@Model.ReturnUrl"/>

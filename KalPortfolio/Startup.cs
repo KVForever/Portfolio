@@ -40,7 +40,7 @@ namespace KalPortfolio
             {
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.SlidingExpiration = true;
-                options.LoginPath = "/login/Login";
+                options.LoginPath = "/Login/Login";
                 options.AccessDeniedPath = "/Forbidden/";
                 
                 
@@ -91,7 +91,7 @@ namespace KalPortfolio
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Home}/{id?}");
+                    pattern: "{controller=Login}/{action=Login}/{id?}");
             });
         }
     }

@@ -3,14 +3,12 @@ using KalPortfolio.Models;
 using LoginLibrary;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using KalPortfolio.Helpers;
 using System.Linq;
-using Microsoft.IdentityModel.Tokens;
 
 namespace KalPortfolio.Controllers
 {
@@ -27,7 +25,17 @@ namespace KalPortfolio.Controllers
         public ActionResult Login(string returnUrl = "/")
         {
             if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
-                return RedirectToAction("Home", "Home");
+            {
+                if(HttpContext.User.Claims.Equals("User"))
+                {
+                    return RedirectToAction("Home", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("Home", "Admin");
+                }
+            }
+                
 
             UserLoginModel model = new();
             {
@@ -61,6 +69,15 @@ namespace KalPortfolio.Controllers
                         foreach (var role in user.Roles)
                         {
                             claims.Add(new Claim(ClaimTypes.Role, role.Name));
+                            
+                            if(role.Name.Equals("User"))
+                            {
+                                login.ReturnUrl = "/Home/Home";
+                            }
+                            else
+                            {
+                                login.ReturnUrl = "/Admin/Home";
+                            }
                         }
 
                         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -86,8 +103,6 @@ namespace KalPortfolio.Controllers
             return View(model);
         }
 
-        
-
         [HttpPost]
         public async Task<ActionResult> CreateAccount(CreateAccount model)
         {
@@ -100,8 +115,6 @@ namespace KalPortfolio.Controllers
                     if (model.Password == model.ConfirmPassword)
                     {
                         var salt = UserHelper.GetSalt();
-
-
 
                         User user = new();
                         {
@@ -118,12 +131,9 @@ namespace KalPortfolio.Controllers
                                     Id = r,
                                     Name = "User",                                    
                                 }).ToList();
-
-
                         }
-
                         await _repository.CreateAccount(user);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Home", "Home");
                     }
                     ModelState.AddModelError("Password", "Passwords Do Not Match");
                 }

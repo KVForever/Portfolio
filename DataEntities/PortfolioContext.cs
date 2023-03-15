@@ -61,16 +61,7 @@ public partial class PortfolioContext : DbContext
                     });
         });
 
-        modelBuilder.Entity<UserMessage>(entity =>
-        {
-            entity.Property(e => e.Id);
-            entity.Property(e => e.FirstName);
-            entity.Property(e => e.LastName);
-            entity.Property(e => e.Email);
-            entity.Property(e => e.Subject);
-            entity.Property(e => e.Message);
-        });
-
+       
         OnModelCreatingPartial(modelBuilder);
     }
 

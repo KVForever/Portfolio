@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Security.Principal;
 using System.Text;
 
 namespace KalPortfolio.Helpers
@@ -33,11 +30,11 @@ namespace KalPortfolio.Helpers
             return Convert.ToBase64String(buff);    
         }
         
-        public static bool OnlyInRole(this IPrincipal user, string role)
-        {
-            var roles = new List<string> {"Admin", "User"};
-            return user.IsInRole(role) && roles.Where(x => x != role).All(r => !user.IsInRole(r));
-        }
+        //public static bool OnlyInRole(this IPrincipal user, string role)
+        //{
+        //    var roles = new List<string> {"Admin", "User"};
+        //    return user.IsInRole(role) && roles.Where(x => x != role).All(r => !user.IsInRole(r));
+        //}
 
         public static string GenerateToken()
         {
