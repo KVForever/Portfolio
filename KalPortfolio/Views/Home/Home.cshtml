@@ -1,5 +1,5 @@
 ﻿
-@model DataEntities.UserMessage
+@model KalPortfolio.Models.CreateMessage
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@
                     <li><a href="#contact-link" aria-label="Go to the contacts section.">Contact</a></li>
                     <li><a href="#projects-link" aria-label="Go to the projects section.">Projects</a></li>
                     <li><a href="#resume-link" aria-label="Go to resume section.">Resume</a></li>
-                    
+                    <li><a href="/Home/Account" aria-label="Go to account page">Account</a></li>
                 </ul>
                 <div class="logout" >
                     <form action="/Home/Logout" method="post">
@@ -342,9 +342,7 @@
                                 <input type="email" id="email" class="message-input" name="Email" placeholder="Email" />
                             </div>
                         </div>
-                        @*<div>
-                            <input type="hidden" value="@Context.Request."
-                        </div>*@
+                        
                         <div class="row">
                             <div class="col-12">
                                 <textarea type="text" class="message-input" id="message" name="Message" placeholder="Message" required minlength="2" maxlength="600" pattern="^[a-zA-Z''-'\S]{2,600}$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must be greater than one character!')"></textarea>

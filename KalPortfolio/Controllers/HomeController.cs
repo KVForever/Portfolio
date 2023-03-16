@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using KalPortfolio.Models;
 
 namespace KalPortfolio.Controllers
 {
@@ -27,11 +29,20 @@ namespace KalPortfolio.Controllers
         }
 
         [HttpPost]
-        public IActionResult Home(UserMessage formData)
+        public async Task<ActionResult> Home(CreateMessage formData)
         {        
             if(ModelState.IsValid)
             {
-                _repository.AddMessage(formData);
+                UserMessage userMessage = new();
+                {
+                    userMessage.FirstName = formData.FirstName;
+                    userMessage.LastName = formData.LastName;
+                    userMessage.Email = formData.Email;
+                    userMessage.Subject = formData.Email;
+                    userMessage.Message = formData.Message;
+                }
+
+                await _repository.AddMessage(userMessage);
             }
             return View(formData);
         }

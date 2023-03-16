@@ -15,7 +15,7 @@ namespace MessagesLibrary
 
         public List<UserMessage> GetAllMessages();
 
-        public void AddMessage(UserMessage message);
+        public Task<UserMessage> AddMessage(UserMessage message);
 
         public void DeleteMessage(int id);
     }

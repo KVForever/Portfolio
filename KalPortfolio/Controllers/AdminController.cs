@@ -61,7 +61,7 @@ namespace KalPortfolio.Controllers
                 _repository.DeleteMessage(id);
             }
             
-            return Redirect("/Table/Index");
+            return Redirect("/Admin/Home");
         }
 
         [Authorize(Roles = "Admin")]
@@ -108,7 +108,7 @@ namespace KalPortfolio.Controllers
                         }
 
                         await _loginRepository.CreateAccount(user);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Home", "Home");
                     }
                     ModelState.AddModelError("Password", "Passwords Do Not Match");
                 }

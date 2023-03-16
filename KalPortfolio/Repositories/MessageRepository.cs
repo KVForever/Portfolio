@@ -1,5 +1,6 @@
 ﻿using DataEntities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,10 +53,12 @@ namespace MessagesLibrary
 
         }
 
-        public void AddMessage(UserMessage message)
+        public async Task<UserMessage> AddMessage(UserMessage message)
         {
             _dbContext.Add(message);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
+
+            return (message);
         }
 
         public void DeleteMessage(int id)

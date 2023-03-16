@@ -21,7 +21,7 @@
     <script type="text/javascript">
         function search()
         {                       
-            location.href = '/Table/Index?name=' + document.querySelector('#search-for-message').value;
+            location.href = '/Admin/Home?name=' + document.querySelector('#search-for-message').value;
         }
 
         function deleteMessage(message_id){
@@ -32,38 +32,38 @@
             //    location.href = '/Table/Delete?id=' + document.querySelector('#id').value;
             //}
 
-            location.href = '/Table/Delete?id=' + message_id;
+            location.href = '/Admin/Delete?id=' + message_id;
         }
 
         function detailsMessage(message_id){
 
-            location.href = '/Table/Details?id=' + message_id ;
+            location.href = '/Admin/Details?id=' + message_id ;
         }
     </script>
 
 </head>
 <body class="table">
-    <header>
-        <a href="#home-link" class="skip">Skip navigation</a>
-        <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="Index">K</a>
-            <div id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/Admin/Home" aria-label="Go to the top of the home page">Home</a></li>
-                    <li><a href="/Admin/UserView">User View</a></li>
-                </ul>
-                <div class="logout">
-                    <form action="/Home/Logout" method="post">
-                        <input type="submit" value="Logout" id="logout-btn" />
-                    </form>
-                </div>
-            </div>
-
-        </nav>
-    </header>
+    
+    <a href="#home-link" class="skip">Skip navigation</a>
+    <nav class="admin-nav">
+        <div>
+            <ul id="admin-nav-list">
+                <li class="admin-li"><a class="site-logo" href="Home">K</a></li>
+                <li class="admin-li"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
+                <li class="admin-li"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
+                <li class="admin-li"><a class="nav-link" href="/Admin/AddAdmin" aria-label="Go to add admin page.">Add Admin</a></li>
+                <li class="admin-li"><a class="nav-link" href="/Admin/ViewUsers" aria-label="Go to View users page.">View Users</a></li>
+                
+            </ul>
+        </div>            
+    </nav>
 
     <section class="table-display">
-
+        <div class="admin-logout">
+            <form action="/Home/Logout" method="post" class="admin-logout-form">
+                <input type="submit" value="Logout" id="admin-logout-btn" />
+            </form>
+        </div>
         <div class="search-input">
             <div class="row">           
                 <div class="col-12">              
