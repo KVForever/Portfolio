@@ -7,13 +7,19 @@ public partial class UserMessage
 {
     public int Id { get; set; }
 
-    public string? FirstName { get; set; }
+    public string FirstName { get; set; } = null!;
 
-    public string? LastName { get; set; }
+    public string LastName { get; set; } = null!;
 
-    public string? Email { get; set; }
+    public string Subject { get; set; } = null!;
 
-    public string? Subject { get; set; }
+    public string Email { get; set; } = null!;
 
     public string Message { get; set; } = null!;
+
+    public DateTime DateCreated { get; set; }
+
+    public DateTime DateModified { get; set; }
+
+    public bool IsDeleted { get; set; }
 }

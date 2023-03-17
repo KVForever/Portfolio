@@ -23,7 +23,7 @@ namespace KalPortfolio.Controllers
             _repository = message;
         }
        
-        public IActionResult Home()
+        public ActionResult Home()
         {    
             return View();  
         }
@@ -40,6 +40,7 @@ namespace KalPortfolio.Controllers
                     userMessage.Email = formData.Email;
                     userMessage.Subject = formData.Email;
                     userMessage.Message = formData.Message;
+            
                 }
 
                 await _repository.AddMessage(userMessage);

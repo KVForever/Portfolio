@@ -30,48 +30,51 @@ namespace KalPortfolio.Controllers
             return View();
         }
 
-
         [Authorize(Roles = "Admin")]
-        public IActionResult Home(string name)
+        public async Task<ActionResult> Home()
         {
-            if(name != null)
-            {
-                if(_repository.GetMessageByName(name).Count > 0)
-                {
-                    return View(_repository.GetMessageByName(name));
-                }
-                
-            }
-            if(name != null && _repository.GetMessageByName(name).Count == 0 )
-            {
-
-                return NotFound();
-            }
-            
-            return View(_repository.GetAllMessages());
+            return View(await _repository.GetAllMessages());
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult Delete(int id)
+        [HttpPost]
+        public async Task<ActionResult> Home(string name)
         {
-            UserMessage message = _repository.GetMessageById(id);
+            var message = await _repository.GetMessagesByName(name);
+
+            if(name != null)
+            {   
+                if(message.Count > 0)
+                {
+                    return View(message);
+                }
+                
+            }
+
+             return View(name);       
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            UserMessage message = await _repository.GetMessageById(id);
 
             if(message != null)
             {
-                _repository.DeleteMessage(id);
+                await _repository.DeleteMessage(id);
             }
             
             return Redirect("/Admin/Home");
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            UserMessage message = _repository.GetMessageById(id);
+            UserMessage message = await _repository.GetMessageById(id);
 
             if(message != null)
             {
-                return View(_repository.GetMessageById(id));
+                return View( await _repository.GetMessageById(id));
             }
                             
             return NotFound();

@@ -61,7 +61,17 @@ public partial class PortfolioContext : DbContext
                     });
         });
 
-       
+        modelBuilder.Entity<UserMessage>(entity =>
+        {
+            entity.Property(e => e.DateCreated).HasColumnType("datetime");
+            entity.Property(e => e.DateModified).HasColumnType("datetime");
+            entity.Property(e => e.Email).HasMaxLength(255);
+            entity.Property(e => e.FirstName).HasMaxLength(255);
+            entity.Property(e => e.LastName).HasMaxLength(255);
+            entity.Property(e => e.Message).HasMaxLength(255);
+            entity.Property(e => e.Subject).HasMaxLength(255);
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 

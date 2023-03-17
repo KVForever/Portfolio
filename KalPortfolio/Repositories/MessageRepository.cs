@@ -16,26 +16,25 @@ namespace MessagesLibrary
             _dbContext = dbContext;
         }
 
-        public List<UserMessage> GetAllMessages()
+        public async Task<IEnumerable<UserMessage>> GetAllMessages()
         {
-            var allMessages = _dbContext.UserMessages.ToList();
+            var allMessages = await _dbContext.UserMessages.Where(u => u.IsDeleted != true).ToListAsync();
 
             return allMessages;
         }
 
-        public List<UserMessage> GetMessageByName(string name)
+        public async Task<List<UserMessage>> GetMessagesByName(string lastName)
         {
-            var message = GetAllMessages().Where(u => u.LastName.Contains(name, StringComparison.OrdinalIgnoreCase))
-                .ToList();
-
-            return message;
+            var messages = await _dbContext.UserMessages.Where(u => u.LastName.Contains(lastName) && u.IsDeleted == false).ToListAsync();
+                
+            return messages;
         }
 
-        public UserMessage GetMessageById(int id)
+        public async Task<UserMessage> GetMessageById(int id)
         {
             try
             {
-                var message = GetAllMessages().FirstOrDefault(u => u.Id == id);
+                var message = await _dbContext.UserMessages.Where(u => u.Id == id && u.IsDeleted == false).FirstOrDefaultAsync();
 
                 if (message != null)
                 {
@@ -55,22 +54,26 @@ namespace MessagesLibrary
 
         public async Task<UserMessage> AddMessage(UserMessage message)
         {
+            message.DateCreated = DateTime.Now;
+            message.DateModified = DateTime.Now;  
+
             _dbContext.Add(message);
             await _dbContext.SaveChangesAsync();
 
             return (message);
         }
 
-        public void DeleteMessage(int id)
+        public async Task<bool> DeleteMessage(int id)
         {
-            var message = _dbContext.UserMessages.FirstOrDefault(u => u.Id == id);
+            var message = await _dbContext.UserMessages.Where(u => u.Id == id).FirstOrDefaultAsync();
 
             if (message != null)
             {
-                _dbContext.UserMessages.Remove(message);
-                _dbContext.SaveChanges();
+                message.IsDeleted = true;
+                await _dbContext.SaveChangesAsync();
             }
 
+            return true;
         }
 
     }

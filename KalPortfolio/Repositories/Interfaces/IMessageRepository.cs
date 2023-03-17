@@ -9,14 +9,14 @@ namespace MessagesLibrary
 {
     public interface IMessageRepository
     {
-        public List<UserMessage> GetMessageByName(string name);
+        public Task<List<UserMessage>> GetMessagesByName(string name);
 
-        public UserMessage GetMessageById(int id);
+        public Task<UserMessage> GetMessageById(int id);
 
-        public List<UserMessage> GetAllMessages();
+        public Task<IEnumerable<UserMessage>> GetAllMessages();
 
         public Task<UserMessage> AddMessage(UserMessage message);
 
-        public void DeleteMessage(int id);
+        public Task<bool> DeleteMessage(int id);
     }
 }
