@@ -1,8 +1,5 @@
-﻿@{
-    ViewData["Title"] = "Index";
-
-}
-
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model DataEntities.UserMessage;
 
 <!DOCTYPE html>
@@ -16,7 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <link href="~/css/site.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     <script type="text/javascript">
         
 
@@ -60,5 +56,8 @@
         </div>
         
     </section>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>

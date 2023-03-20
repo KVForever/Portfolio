@@ -23,9 +23,9 @@ namespace MessagesLibrary
             return allMessages;
         }
 
-        public async Task<List<UserMessage>> GetMessagesByName(string lastName)
+        public async Task<IEnumerable<UserMessage>> GetMessagesByName(string lastName)
         {
-            var messages = await _dbContext.UserMessages.Where(u => u.LastName.Contains(lastName) && u.IsDeleted == false).ToListAsync();
+            var messages = await _dbContext.UserMessages.Where(u => u.LastName.ToLower().Equals(lastName.ToLower()) && u.IsDeleted == false).ToListAsync();
                 
             return messages;
         }

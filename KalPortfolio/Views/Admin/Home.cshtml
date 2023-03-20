@@ -1,6 +1,5 @@
 ﻿
-
-@*@model IEnumerable<DataEntities.UserMessage>;*@
+@model IEnumerable<DataEntities.UserMessage>;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,11 +13,13 @@
     <link href="~/css/site.css" rel="stylesheet" />  
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script type="text/javascript">
-        //function search()
-        //{                       
-        //    location.href = '/Admin/Home?name=' + document.querySelector('#search-for-message').value;
-        //}
+        function search()
+        {                       
+            location.href = '/Admin/Home?name=' + document.querySelector('#search-for-message').value;
+        }
 
         function deleteMessage(message_id){
             //alert("Are you sure you want to delete this Message?");
@@ -57,16 +58,14 @@
     <section class="table-display">
         <div class="admin-logout">
             <form action="/Home/Logout" method="post" class="admin-logout-form">
-                <input type="submit" value="Logout" id="admin-logout-btn" />
+                <button asp-validation-for="" value="Logout" id="admin-logout-btn" />
             </form>
         </div>
         <div class="search-input">
             <div class="row">           
-                <div class="col-12">              
-                    <form action="/Admin/Home" method="post">
-                        <input type="text" class="search-message" id="search-for-message" placeholder="Search Last Name" />
-                        <button type="submit" class="search-message">Search</button>
-                    </form>
+                <div class="col-12">                                  
+                    <input type="text" class="search-message" id="search-for-message" placeholder="Search Last Name" />
+                    <button type="submit" class="search-message" onclick="search()">Search</button>                    
                 </div>
             </div>
         </div>
@@ -84,7 +83,7 @@
             </thead>
             <tbody>
                 
-               @* @foreach(var message in Model)
+                @foreach(var message in Model)
                 {
                     <tr >
                         
@@ -105,13 +104,16 @@
                         </td>
 
                     </tr>
-                }*@
+                }
                 
             </tbody>
         </table>
 
        
     </section>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     </body>
 </html>
 

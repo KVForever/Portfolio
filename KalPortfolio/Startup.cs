@@ -42,8 +42,7 @@ namespace KalPortfolio
                 options.SlidingExpiration = true;
                 options.LoginPath = "/Login/Login";
                 options.AccessDeniedPath = "/Forbidden/";
-                
-                
+
             });
             
         }

@@ -30,28 +30,27 @@ namespace KalPortfolio.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Home()
-        {
-            return View(await _repository.GetAllMessages());
-        }
+        //[Authorize(Roles = "Admin")]
+        //public async Task<ActionResult> Home()
+        //{
+        //    return View(await _repository.GetAllMessages());
+        //}
 
         [Authorize(Roles = "Admin")]
-        [HttpPost]
         public async Task<ActionResult> Home(string name)
         {
-            var message = await _repository.GetMessagesByName(name);
-
             if(name != null)
-            {   
-                if(message.Count > 0)
+            {    
+                var message = await _repository.GetMessagesByName(name);
+
+                if(message.Any())
                 {
                     return View(message);
                 }
-                
+                return View("Error");
             }
 
-             return View(name);       
+            return View(await _repository.GetAllMessages());
         }
 
         [Authorize(Roles = "Admin")]

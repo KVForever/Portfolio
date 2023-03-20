@@ -38,7 +38,7 @@ namespace KalPortfolio.Controllers
                     userMessage.FirstName = formData.FirstName;
                     userMessage.LastName = formData.LastName;
                     userMessage.Email = formData.Email;
-                    userMessage.Subject = formData.Email;
+                    userMessage.Subject = formData.Subject;
                     userMessage.Message = formData.Message;
             
                 }

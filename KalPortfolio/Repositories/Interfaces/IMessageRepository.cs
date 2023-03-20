@@ -9,7 +9,7 @@ namespace MessagesLibrary
 {
     public interface IMessageRepository
     {
-        public Task<List<UserMessage>> GetMessagesByName(string name);
+        public Task<IEnumerable<UserMessage>> GetMessagesByName(string name);
 
         public Task<UserMessage> GetMessageById(int id);
 

@@ -16,6 +16,7 @@ namespace KalPortfolio.Controllers
     {
         private readonly ILoginRepository _repository;
         private readonly IRoleRepository _roleRepository;
+
         public LoginController(ILoginRepository repository, IRoleRepository roleRepository)
         {
             _repository = repository;
@@ -35,7 +36,6 @@ namespace KalPortfolio.Controllers
                     return RedirectToAction("Home", "Admin");
                 }
             }
-                
 
             UserLoginModel model = new();
             {
@@ -87,7 +87,7 @@ namespace KalPortfolio.Controllers
                         return LocalRedirect(login.ReturnUrl);
                     }
                 }
-                ModelState.AddModelError("", "Login Failed. Please try again");
+                ModelState.AddModelError("Password", "Login Failed. Please try again");
             }            
             return View(login);
         }
