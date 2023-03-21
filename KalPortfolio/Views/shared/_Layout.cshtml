@@ -8,32 +8,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>    
     <link href="~/css/site.css" rel="stylesheet" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
-        <nav id="nav-in" class="navbar">
-            <div class="container-fluid d-block ">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <a class="navbar-brand" href="Index">K</a>
+        <a href="#home-link" class="skip">Skip navigation</a>
+        <nav id="nav-in" class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="Home/Home">K</a>
+            <div id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#home-link" aria-label="Go to the top of the home page">Home</a></li>
+                    <li><a href="#contact-link" aria-label="Go to the contacts section.">Contact</a></li>
+                    <li><a href="#projects-link" aria-label="Go to the projects section.">Projects</a></li>
+                    <li><a href="#resume-link" aria-label="Go to resume section.">Resume</a></li>
+                    <li><a href="/Home/Account" aria-label="Go to account page">Account</a></li>
+                </ul>
+                <div class="logout">
+                    <form asp-action="Logout" asp-controller="Home" method="post">
+                        <button type="submit" value="Logout" id="logout-btn">Logout</button>
+                    </form>
                 </div>
-                
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav d-inline-block ">
-                        <li class="active"><a href="#home"><underline>Home</underline></a></li>
-                        <li><a href="#contact"><underline>Contact</underline></a></li>
-                        <li><a href="#projects"><underline>Projects</underline></a></li>
-                        <li><a href="#resume"><underline>Resume</underline></a></li>
-                    </ul>
-                </div>
-
             </div>
+
         </nav>
     </header>
     <div class="container">
@@ -57,7 +52,10 @@
         </main>   
         
     </div>
-
+    
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>

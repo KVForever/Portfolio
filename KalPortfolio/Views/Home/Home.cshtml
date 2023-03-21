@@ -6,13 +6,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KalPortfolio</title>
+    <title>Kalkidan's Portfolio - Home</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <link href="~/css/site.css" rel="stylesheet" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
+
 </head>
 <body class="home">
     <header>
@@ -28,8 +26,8 @@
                     <li><a href="/Home/Account" aria-label="Go to account page">Account</a></li>
                 </ul>
                 <div class="logout" >
-                    <form action="/Home/Logout" method="post">
-                        <input type="submit" value="Logout" id="logout-btn" />
+                    <form asp-action="Logout" asp-controller="Home" method="post">
+                        <button type="submit" value="Logout" id="logout-btn">Logout</button>
                     </form>
                 </div>
             </div>
@@ -319,38 +317,43 @@
         <div class="contact-display">          
             <h1 class="display-4 "><b class="text-danger contact-me">Contact</b> Me</h1>
             <div class="row">
-                <div class="col-6">
-                    <form action="/Home/Home" method="post"> 
+                <div class="col-6" >
+                    <form asp-action="Home" asp-controller="Home" method="post"> 
                         
                         <div class="row">
                             <div class="col-6">
-                                <input type="text" class="message-input" id="first-name" name="FirstName" placeholder="First Name" pattern="^[a-zA-Z''-'\s]{2,40}$" required minlength="2" maxlength="40" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must only be letters and have more than one letter!')" />
+                                <input type="text" asp-for="@Model.FirstName" class="message-input" id="first-name" placeholder="First Name" required/>
+                                <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
                             </div>
 
                             <div class="col-6">
-                                <input type="text" id="last-name" class="message-input" name="LastName" placeholder="Last Name" pattern="^[a-zA-Z''-'\s]{2,40}$" required minlength="2" maxlength="40" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must only be letters and have more than one letter!')" />
+                                <input type="text" asp-for="@Model.LastName" id="last-name" class="message-input" placeholder="Last Name" required/>
+                                <span asp-validation-for="@Model.LastName" class="text-danger"></span>
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col-6">
-                                <input type="text" class="message-input" id="subject" name="Subject" placeholder="Subject" pattern="^[a-zA-Z''-'\s]{2,40}$" required minlength="2" maxlength="40" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must only be letters and have more than one letter!')" />
+                                <input type="text" asp-for="@Model.Subject" class="message-input" id="subject" placeholder="Subject" required />
+                                <span asp-validation-for="@Model.Subject" class="text-danger"></span>
                             </div>
 
                             <div class="col-6">
-                                <input type="email" id="email" class="message-input" name="Email" placeholder="Email" />
+                                <input type="email" asp-for="@Model.Email" id="email" class="message-input" placeholder="Email" required/>
+                                <span asp-validation-for="@Model.Email" class="text-danger"></span>
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col-12">
-                                <textarea type="text" class="message-input" id="message" name="Message" placeholder="Message" required minlength="2" maxlength="600" pattern="^[a-zA-Z''-'\S]{2,600}$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This input must be greater than one character!')"></textarea>
+                                <textarea type="text" asp-for="@Model.Message" class="message-input" id="message" placeholder="Message" required></textarea>
+                                <span asp-validation-for="@Model.Message" class="text-danger"></span>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12">
-                                <input type="submit" class="message-input" id="submit-message" value="Submit" />
+                                <button type="submit" class="message-input" id="submit-message">Submit</button>
                             </div>
                         </div>
                         
@@ -434,8 +437,8 @@
             </div> 
         </div>        
     </footer>
-    
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

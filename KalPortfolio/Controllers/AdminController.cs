@@ -17,6 +17,7 @@ namespace KalPortfolio.Controllers
         private readonly IMessageRepository _repository;
         private readonly ILoginRepository _loginRepository;
         private readonly IRoleRepository _roleRepository;
+
         public AdminController(IMessageRepository message, ILoginRepository login, IRoleRepository role)
         {
             _repository = message;
@@ -29,12 +30,6 @@ namespace KalPortfolio.Controllers
         {
             return View();
         }
-
-        //[Authorize(Roles = "Admin")]
-        //public async Task<ActionResult> Home()
-        //{
-        //    return View(await _repository.GetAllMessages());
-        //}
 
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Home(string name)

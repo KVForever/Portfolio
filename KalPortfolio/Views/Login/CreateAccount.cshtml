@@ -6,50 +6,43 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>KalPortfolio</title>
+        <title>Kalkidan's Portfolio - Create Account</title>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <link href="~/css/site.css" rel="stylesheet" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript">
-
-
-        </script>
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">        
+        <link href="~/css/site.css" rel="stylesheet" />       
     </head>
     <body class="create-account-background">
         <section>
         <div class="create-account-focus">
             <div class="col-6">
-                <div class="create-account-form">
+                <div class="create-account-form" >
                     
-                    <form action="/Login/CreateAccount" method="post">
+                    <form asp-action="CreateAccount" asp-controller="Login" method="post">
 
                         <div class="row">
-                            <input type="email" name="Email" class="create-account-field" id="create-account-email" placeholder="Email" required onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
+                            <input type="email" asp-for="@Model.Email" class="create-account-field" id="create-account-email" placeholder="Email" required/>
                         </div>
                         <div class="row">
-                            <input type="text" name="Username" class="create-account-field" id="create-account-username" placeholder="Username" required onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid')" />
+                            <input type="text" asp-for="@Model.Username" class="create-account-field" id="create-account-username" placeholder="Username" required/>
                         </div>
                         <div class="row">
-                            <input type="password" name="Password" class="create-account-field" id="create-account-password" placeholder="Password" required  onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
+                            <input type="password" asp-for="@Model.Password" class="create-account-field" id="create-account-password" placeholder="Password" required/>
                         </div> 
                         <div class="row">
-                            <input type="password" name="ConfirmPassword" class="create-account-field" id="confirm-account-password" placeholder="Confirm Password" required onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
+                            <input type="password" asp-for="@Model.ConfirmPassword" class="create-account-field" id="confirm-account-password" placeholder="Confirm Password" required/>
                         </div>
                         <div class="row">
-                            <input type="text" name="FirstName" class="create-account-field" id="create-account-firstname" placeholder="First Name" required  onlcick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your password is invalid')" />
+                            <input type="text" asp-for="@Model.FirstName" class="create-account-field" id="create-account-firstname" placeholder="First Name" required/>
                         </div>
                         <div class="row">
-                            <input type="text" name="LastName" class="create-account-field" id="create-account-lastname" placeholder="Last Name" required  onclick="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Your username is invalid')" />
+                            <input type="text" asp-for="@Model.LastName" class="create-account-field" id="create-account-lastname" placeholder="Last Name" required/>
                         </div>
                         <div>
-                            <input type="hidden" name="SelectedRoles" value="2" />
+                            <input type="hidden" asp-for="@Model.SelectedRoles" value="2" />
                         </div>
                         
                         <div class="row">
-                            <input type="submit" class="create-account-field" value="Create Account" />
+                            <button type="submit" class="create-account-field" value="Create Account">Submit</button>
                         </div>
                         
                     </form>
@@ -58,7 +51,8 @@
             </div>
         </div>
         </section>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

@@ -1,4 +1,4 @@
-﻿
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model IEnumerable<DataEntities.UserMessage>;
 
 <!DOCTYPE html>
@@ -6,15 +6,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KalPortfolio</title>
+    <title>Kalkidan's Portfolio - Admin Home</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <link href="~/css/site.css" rel="stylesheet" />  
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+     
     <script type="text/javascript">
         function search()
         {                       
@@ -22,13 +18,6 @@
         }
 
         function deleteMessage(message_id){
-            //alert("Are you sure you want to delete this Message?");
-            //var input = prompt("Yes or No").toLowerCase();
-            //if(input == "yes")
-            //{
-            //    location.href = '/Table/Delete?id=' + document.querySelector('#id').value;
-            //}
-
             location.href = '/Admin/Delete?id=' + message_id;
         }
 
@@ -42,23 +31,25 @@
 <body class="table">
     
     <a href="#home-link" class="skip">Skip navigation</a>
-    <nav class="admin-nav">
-        <div>
-            <ul id="admin-nav-list">
-                <li class="admin-li"><a class="site-logo" href="Home">K</a></li>
-                <li class="admin-li"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
-                <li class="admin-li"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
-                <li class="admin-li"><a class="nav-link" href="/Admin/AddAdmin" aria-label="Go to add admin page.">Add Admin</a></li>
-                <li class="admin-li"><a class="nav-link" href="/Admin/ViewUsers" aria-label="Go to View users page.">View Users</a></li>
-                
-            </ul>
-        </div>            
-    </nav>
+    <header>
+        <nav class="admin-nav">
+            <div>
+                <ul id="admin-nav-list">
+                    <li class="admin-li"><a class="site-logo" href="Home">K</a></li>
+                    <li class="admin-li"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
+                    <li class="admin-li"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
+                    <li class="admin-li"><a class="nav-link" href="/Admin/AddAdmin" aria-label="Go to add admin page.">Add Admin</a></li>
+                    <li class="admin-li"><a class="nav-link" href="/Admin/ViewUsers" aria-label="Go to View users page.">View Users</a></li>
+                </ul>
+            </div>            
+        </nav>
+    </header>
+    
 
     <section class="table-display">
         <div class="admin-logout">
-            <form action="/Home/Logout" method="post" class="admin-logout-form">
-                <button asp-validation-for="" value="Logout" id="admin-logout-btn" />
+            <form asp-action="Logout" asp-controller="Home" method="post" class="admin-logout-form">
+                <button type="submit" value="Logout" id="admin-logout-btn">Logout</button>
             </form>
         </div>
         <div class="search-input">
@@ -81,12 +72,11 @@
                     <th>Edit</th>
                 </tr>               
             </thead>
-            <tbody>
-                
+
+            <tbody>               
                 @foreach(var message in Model)
                 {
                     <tr >
-                        
                         <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
 
                         <td>@Html.DisplayFor(modelItem => message.LastName)</td>
@@ -104,13 +94,14 @@
                         </td>
 
                     </tr>
-                }
-                
+                }                
             </tbody>
         </table>
 
        
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
