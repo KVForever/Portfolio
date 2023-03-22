@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace KalPortfolio
 {
@@ -41,7 +43,7 @@ namespace KalPortfolio
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.SlidingExpiration = true;
                 options.LoginPath = "/Login/Login";
-                options.AccessDeniedPath = "/Forbidden/";
+                options.AccessDeniedPath = "/Error/AccessDenied";
 
             });
             

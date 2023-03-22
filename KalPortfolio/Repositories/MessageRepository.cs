@@ -1,4 +1,5 @@
 ﻿using DataEntities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using System;
@@ -32,23 +33,14 @@ namespace MessagesLibrary
 
         public async Task<UserMessage> GetMessageById(int id)
         {
-            try
+            
+            var message = await _dbContext.UserMessages.Where(u => u.Id == id && u.IsDeleted == false).FirstOrDefaultAsync();
+
+            if (message != null)
             {
-                var message = await _dbContext.UserMessages.Where(u => u.Id == id && u.IsDeleted == false).FirstOrDefaultAsync();
-
-                if (message != null)
-                {
-                    return message;
-                }
+                return message;
             }
-            catch (KeyNotFoundException)
-            {
-                throw new KeyNotFoundException("This message can not be found in the database.");
-            }
-
-            UserMessage messages = new();
-
-            return messages;
+            return null;
 
         }
 

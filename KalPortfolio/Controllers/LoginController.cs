@@ -27,14 +27,16 @@ namespace KalPortfolio.Controllers
         {
             if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
             {
-                if(HttpContext.User.Claims.Equals("User"))
+                if(HttpContext.User.IsInRole("User"))
                 {
                     return RedirectToAction("Home", "Home");
                 }
-                else
+                
+                if (HttpContext.User.IsInRole("Admin"))
                 {
                     return RedirectToAction("Home", "Admin");
                 }
+                
             }
 
             UserLoginModel model = new();
@@ -45,6 +47,7 @@ namespace KalPortfolio.Controllers
             return View(model);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> Login(UserLoginModel login)
         {
@@ -87,7 +90,7 @@ namespace KalPortfolio.Controllers
                         return LocalRedirect(login.ReturnUrl);
                     }
                 }
-                ModelState.AddModelError("Password", "Login Failed. Please try again");
+                ModelState.AddModelError("", "Please Check your Username and Password.");
             }            
             return View(login);
         }
@@ -103,17 +106,21 @@ namespace KalPortfolio.Controllers
             return View(model);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> CreateAccount(CreateAccount model)
         {
             if (ModelState.IsValid)
             {
+                
                 var existingUser = await _repository.GetUserByUsername(model.Username);
 
                 if (existingUser == null)
                 {
+                    
                     if (model.Password == model.ConfirmPassword)
                     {
+                        
                         var salt = UserHelper.GetSalt();
 
                         User user = new();
@@ -135,11 +142,17 @@ namespace KalPortfolio.Controllers
                         await _repository.CreateAccount(user);
                         return RedirectToAction("Home", "Home");
                     }
-                    ModelState.AddModelError("Password", "Passwords Do Not Match");
+                    else
+                    {
+                        ModelState.AddModelError("Password", "Passwords Does Not Match");
+                    }
                 }
-                ModelState.AddModelError("Username", "Username Already in Use");
-            }
-            model.Roles = await _roleRepository.GetAllRoles();
+                else
+                {
+                    ModelState.AddModelError("Username", "Username Already In Use");
+                }
+                
+            }           
             return View(model);
         }
     }

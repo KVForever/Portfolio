@@ -44,7 +44,6 @@ hr {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
-   
 }
 
 .nav {
@@ -53,11 +52,10 @@ hr {
     border-radius: 10px;
 }
 
-.nav>li>a:hover
-{
-    border-radius: 10px;
-    color: black;
-}
+    .nav > li > a:hover {
+        border-radius: 10px;
+        color: black;
+    }
 
 .panel {
     background-color: #000;
@@ -106,7 +104,6 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
-    
 }
 
     body.home {
@@ -130,7 +127,7 @@ body {
     }
 
     body.create-account-background {
-       background: #000;
+        background: #000;
     }
 
 form {
@@ -163,571 +160,14 @@ table.message {
     position: absolute;
     bottom: 0;
     width: 100%;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 60px; /* Vertically center the text */
 }
-
-
 
 /*Home styling*/
-#home-intro {
-    height: calc(98vh - 100px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-
-#scroll-arrow {
-    margin-bottom: 3vh;
-    margin-right: 10vw;
-    display: flex;
-    justify-content: right;
-}
-
-@keyframes arrowMove {
-    0% {
-        left: 0px;
-        top: 0px;
-    }
-
-    50% {
-        left: 0px;
-        top: -50px;
-    }
-
-    100% {
-        left: 0px;
-        top: 0px
-    }
-}
-
-#home-info-header {
-    animation-name: home-header;
-    animation-duration: 3s;
-    position: relative;
-}
-
-@keyframes home-header {
-    0% {
-        right: 100vw;
-        top: 0px;
-    }
-
-    100% {
-        right: 0px;
-        top: 0px;
-    }
-}
-
-#tag-line {
-    animation-name: home-tag-line;
-    animation-duration: 3s;
-    position: relative;
-}
-
-@keyframes home-tag-line {
-    0% {
-        left: 100vw;
-        top: 0px;
-    }
-
-    100% {
-        left: 0px;
-        top: 0px;
-    }
-}
-
-#nav-in {
-    animation-name: nav-in;
-    animation-duration: 3s;
-    position: relative;
-}
-
-@keyframes nav-in {
-    0% {
-        top: -100vh;
-    }
-
-    100% {
-        top: 0px;
-    }
-}
-
-#arrow-in {
-    animation-name: arrow-in;
-    animation-duration: 3s;
-    position: relative;
-}
-
-@keyframes arrow-in {
-    0% {
-        left: 100vw;
-    }
-
-    100% {
-        left: 0px;
-    }
-}
-
-#inner-panel {
-    border: 0px;
-}
-
-#find-me {
-    display: inline;
-    margin-right: 10px;
-    align-items: center;
-    align-content: center;
-}
-
-#projects-grid {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: auto;
-    grid-gap: .5rem;
-}
-
-#projects-title {
-    padding-left: 15px;
-}
-
-#grid-image {
-    height: 18rem;
-    width: 100%;
-}
-
-#first-name {
-    height: 5vh;
-    width: 100%;
-}
-
-#last-name {
-    height: 5vh;
-    width: 100%;
-}
-
-#subject {
-    height: 5vh;
-    width: 100%;
-}
-
-#email {
-    height: 5vh;
-    width: 100%;
-}
-
-#message {
-    border-color: red;
-    background-color: black;
-    height: 40vh;
-    width: 100%;
-}
-
-#submit-message {
-    font-size: 3vh;
-    background-color: red;
-    color: black;
-    width: 100%;
-    height: 5vh;
-    border: solid 5px #8B0000;
-}
-
-
-/*Table view*/
-
-ul#admin-nav-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 10%;
-    background-color: hsla(0, 0%, 14%, 0.5);
-    height: 100%; 
-    position: fixed; 
-}
-
-   a:hover {
-       color: white;
-   }
-
-li.admin-li {
-    margin-top: 1vh;
-}
-.table-display {
-    padding: 1vh 5vw 0 5vw
-    
-}
-
-.admin-logout {
-    margin-left: 90vw;
-    width: 5%;
-    border: solid red 2px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-    .admin-logout:hover {
-        background-color: red;
-        color: black;
-    }
-
-form.admin-logout-form {
-    text-align: center;
-}
-
-#admin-logout-btn {
-    background: transparent;
-    border: 0;
-    color: white;
-    font-size: 1rem;
-    padding: 15%;
-    border-radius: 10px;
-}
-
-.site-logo {
-    font-size: 2rem;
-    margin-left: 5%;
-    
-}
-
-    .site-logo:hover {
-        text-decoration: none;
-    }
-
-.nav-link {
-    font-size: 1rem;
-}
-
-    .nav-link:hover {
-        background-color: black;
-    }
-
-.search-input {
-    width: 50vw;
-    margin-left: 40vw;
-    margin-bottom: 5vh
-}
-
-#search-for-message {
-    background-color: black;
-    color: white;
-    border: 1px solid red;
-    height: 5vh;
-}
-
-.message-table {
-    
-    border: 2px solid red;
-    width: 80vw;
-    color: white;
-    margin-left: 10vw;
-}
-
-.text-overflow {
-    max-width: 10vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap
-}
-
-.message-detail {
-    position: absolute;
-    width: 90%;
-    bottom: 10%;
-}
-
-.mail-to:hover {
-    color: red;
-    text-decoration: none;
-}
-
-.message-editing {
-    width: 80vw;
-    margin-bottom: 5vh;
-    margin-left: 10vw;
-}
-
-.search-message {
-    background-color: black;
-    color: white;
-    border: 1px solid red;
-    height: 5vh;
-}
-
-.table-navbar {
-    background-color: transparent;
-}
-
-
-#details-btn {
-    background-color: transparent;
-    color: bisque;
-    text-decoration: underline;
-    border: 0px;
-    padding: 1vh;
-}
-
-#delete-btn {
-    background-color: transparent;
-    color: red;
-    text-decoration: underline;
-    border: 0px;
-    padding: 1vh;
-}
-
-
-
-
-
-/*login styling*/
-
-.login-label {
-    animation-name: text-reveal;
-    animation-duration: 2s;
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
-    color: rgba(7, 68, 148, 1);
-    margin: 0;
-}
-
-.reveal {
-    animation-name: text-reveal;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    color: rgba(7, 68, 148, 1);
-    margin-bottom: 10%;
-}
-
-@keyframes text-reveal {
-    from {
-        color: rgba(7, 68, 148, 1);
-    }
-
-    to {
-        color: white;
-    }
-}
-
-#create-account {
-    color: rgba(7, 68, 148, 1);
-    display: block;
-    background: rgba(7, 68, 148, 1);
-    width: 100%;
-    border-radius: 10px;
-    border: 0;
-    height: 6vh;
-    margin: 5% 0 5% 0;
-    text-align: center;
-    animation-name: text-reveal;
-    animation-delay: 2s;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-}
-
-#login-form {
-    margin-top: 10%;
-    width: 60%;
-    margin-left: 20%;
-    height: 50%;
-}
-
-#username {
-    background: rgba(7, 68, 148, 1);
-    width: 100%;
-    border-radius: 10px;
-    border: 0;
-    height: 6vh;
-    margin: 5% 0 5% 0;
-}
-
-#password {
-    background: rgba(7, 68, 148, 1);
-    width: 100%;
-    border-radius: 10px;
-    border: 0;
-    height: 6vh;
-    margin: 5% 0 5% 0;
-}
-
-#login {
-    color: rgba(7, 68, 148, 1);
-    background: rgba(7, 68, 148, 1);
-    width: 100%;
-    border-radius: 10px;
-    border: 0;
-    height: 6vh;
-    margin: 5% 0 5% 0;
-    animation-name: text-reveal;
-    animation-duration: 2s;
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
-}
-
-#login-heading {
-    text-align: left;
-    font-size: 4rem;
-    color: rgba(7, 68, 148, 1);
-    animation-name: text-reveal;
-    animation-duration: 2s;
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
-}
-
-.login-focus {
-    animation-name: login-focus;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes login-focus {
-    from {
-        background: rgba(7, 68, 148, 1);
-        width: 40vw;
-        height: 80vh;
-        margin-top: 10vh;
-        margin-left: 10vw;
-        border-radius: 40px
-    }
-
-    10% {
-        background: rgba(7, 68, 148, 1);
-        width: 40vw;
-        height: 80vh;
-        margin-top: 10vh;
-        margin-left: 10vw;
-        border-radius: 40px
-    }
-
-    to {
-        background: rgba(7, 68, 148, 0.16);
-        width: 40vw;
-        height: 80vh;
-        margin-top: 10vh;
-        margin-left: 10vw;
-        border-radius: 50px
-    }
-}
-
-.rect-1 {
-    background-color: white;
-    width: 2vw;
-    height: 30vh;
-}
-
-.rect-2 {
-    background-color: white;
-    width: 2vw;
-    height: 30vh;
-}
-
-rect-3 {
-    background-color: white;
-    width: 2vw;
-    height: 30vh;
-}
-
-
-.triangle-1 {
-    width: 0;
-    height: 0;
-    border-left: 2Vw solid transparent;
-    border-right: 2vw solid transparent;
-    border-bottom: 5vh solid white;
-    margin: 2rem;
-}
-
-triangle-2 {
-    width: 0;
-    height: 0;
-    border-left: 2Vw solid transparent;
-    border-right: 2vw solid transparent;
-    border-bottom: 5vh solid white;
-    margin: 2rem;
-    animation-name: size-and-rotation;
-    animation-fill-mode: forwards;
-    animation-duration: 2s;
-}
-
-@keyframes size-and-rotation{
-    from{
-        offset-rotate: 0deg;
-        transform: none;
-    }
-
-    to{
-        offset-rotate: 5deg;
-        transform: scale(2);
-        
-    }
-}
-
-.shapes {
-    width: 100%;
-    height: 100%;
-}
-
-
-
-/*Create Account Styling*/
-
-.create-account-focus {
-    background-size: 100% 100%;
-    background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
-    background-image: radial-gradient(49% 81% at 45% 47%, #FFE20345 0%, #073AFF00 100%),radial-gradient(113% 91% at 17% -2%, #001AFFFF 4%, #FF000000 99%),radial-gradient(142% 91% at 83% 7%, #00C1FFFF 1%, #FF000000 99%),radial-gradient(142% 91% at -6% 74%, #00CDFFFF 1%, #FF000000 99%),conic-gradient(from 56deg at 30% 71%, #00FFFFFF 0%, #073AFFFF 100%);
-    border-radius: 40px;
-    margin-top: 10vh;
-    margin-left: 10vw;
-    padding-top: 5%;
-    width: 80vw;
-    height: 80vh;
-}
-
-.create-account-form {
-    padding: 0% 20% 5% 10%;
-    border-right: 3px black solid;
-    margin: 0 0 5% 0;
-
-}
-
-.create-account-field {
-    width: 100%;
-    height: 6vh;
-    margin-top: 3%;
-    border-radius: 10px;
-    background: #000;
-    color: white;
-}
-
-    .create-account-field:hover {
-        border: 1px solid red;
-    }
-
-.create-account-label{
-    margin-top: 2%;
-}
-
-#logout-btn {
-    background: transparent;
-    border: 0;
-    color: white;
-    font-size: 1rem;
-    padding: 25%;
-    border-radius: 10px;
-}
-
-    #logout-btn:hover {
-        background-color: #ff3333;
-        color: black;
-    }
-
-.logout {
-    margin-left: 90vw;
-}
-/*custom class*/
 
 .projects-display {
     width: 90vw;
     margin-left: 5vw;
-    
 }
 
 .contact-display {
@@ -840,33 +280,479 @@ triangle-2 {
 
 .skip {
     position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 4rem;
-    height: 3rem;
-    overflow: hidden;
-    background-color: red;
-    border-radius: 10px;
+    left: -20vw;
+    text-align: center;
 }
 
     .skip:focus {
         position: static;
-        width: auto;
-        height: auto;
+        width: 8vw;
+        height: 4vh;
     }
-
-.message-input {
-    background-color: black;
-    color: white;
-    border: 1px solid red;
-    margin-block: 5px;
-}
 
 .carousel {
     width: 100%;
     height: 60vh;
 }
 
-.full-width {
+#home-intro {
+    height: calc(98vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#scroll-arrow {
+    margin-bottom: 3vh;
+    margin-right: 10vw;
+    display: flex;
+    justify-content: right;
+}
+
+@keyframes arrowMove {
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+
+    50% {
+        left: 0px;
+        top: -50px;
+    }
+
+    100% {
+        left: 0px;
+        top: 0px
+    }
+}
+
+#home-info-header {
+    animation-name: home-header;
+    animation-duration: 3s;
+    position: relative;
+}
+
+@keyframes home-header {
+    0% {
+        right: 100vw;
+        top: 0px;
+    }
+
+    100% {
+        right: 0px;
+        top: 0px;
+    }
+}
+
+#tag-line {
+    animation-name: home-tag-line;
+    animation-duration: 3s;
+    position: relative;
+}
+
+@keyframes home-tag-line {
+    0% {
+        left: 100vw;
+        top: 0px;
+    }
+
+    100% {
+        left: 0px;
+        top: 0px;
+    }
+}
+
+#nav-in {
+    animation-name: nav-in;
+    animation-duration: 3s;
+    position: relative;
+}
+
+@keyframes nav-in {
+    0% {
+        top: -100vh;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+#arrow-in {
+    animation-name: arrow-in;
+    animation-duration: 3s;
+    position: relative;
+}
+
+@keyframes arrow-in {
+    0% {
+        left: 100vw;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+#find-me {
+    display: inline;
+    margin-right: 10px;
+    align-items: center;
+    align-content: center;
+}
+
+#projects-grid {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    grid-gap: .5rem;
+}
+
+#projects-title {
+    padding-left: 15px;
+}
+
+#grid-image {
+    height: 18rem;
     width: 100%;
+}
+
+.message-input {
+    height: 5vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    margin-block: 5px;
+}
+
+#message {
+    border-color: red;
+    background-color: black;
+    height: 40vh;
+    width: 100%;
+}
+
+#submit-message {
+    font-size: 2rem;
+    vertical-align: middle;
+    background-color: red;
+    color: black;
+    width: 100%;
+    height: 5vh;
+    border: solid 5px #8B0000;
+}
+
+/*Admin styling*/
+
+ul#admin-nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    background-color: hsla(0, 0%, 14%, 0.5);
+    height: 100%;
+    position: fixed;
+}
+
+a:hover {
+    color: white;
+}
+
+li.admin-li {
+    margin-top: 1vh;
+}
+
+.table-display {
+    padding: 1vh 5vw 0 5vw
+}
+
+.admin-logout {
+    margin-left: 90vw;
+    width: 5%;
+    border: solid red 2px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+    .admin-logout:hover {
+        background-color: red;
+        color: black;
+    }
+
+form.admin-logout-form {
+    text-align: center;
+}
+
+#admin-logout-btn {
+    background: transparent;
+    border: 0;
+    color: white;
+    font-size: 1rem;
+    padding: 15%;
+    border-radius: 10px;
+}
+
+.site-logo {
+    font-size: 2rem;
+    margin-left: calc(50% - 3rem);
+}
+
+    .site-logo:hover {
+        text-decoration: none;
+    }
+
+.nav-link {
+    font-size: 1rem;
+    text-align: center;
+}
+
+    .nav-link:hover {
+        background-color: black;
+    }
+
+.search-input {
+    width: 50vw;
+    margin-left: 40vw;
+    margin-bottom: 5vh
+}
+
+#search-for-message {
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    height: 5vh;
+}
+
+.message-table {
+    border: 2px solid red;
+    width: 80vw;
+    color: white;
+    margin-left: 10vw;
+}
+
+.text-overflow {
+    max-width: 10vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.message-detail {
+    position: absolute;
+    width: 90%;
+    bottom: 10%;
+}
+
+.mail-to:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.message-editing {
+    width: 80vw;
+    margin-bottom: 5vh;
+    margin-left: 10vw;
+}
+
+.search-message {
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    height: 5vh;
+}
+
+.table-navbar {
+    background-color: transparent;
+}
+
+#details-btn {
+    background-color: transparent;
+    color: bisque;
+    text-decoration: underline;
+    border: 0px;
+    padding: 1vh;
+}
+
+#delete-btn {
+    background-color: transparent;
+    color: red;
+    text-decoration: underline;
+    border: 0px;
+    padding: 1vh;
+}
+
+/*login styling*/
+
+.login-label {
+    animation-name: text-reveal;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    color: rgba(7, 68, 148, 1);
+    margin: 0;
+}
+
+.reveal {
+    animation-name: text-reveal;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    color: rgba(7, 68, 148, 1);
+    margin-bottom: 10%;
+}
+
+@keyframes text-reveal {
+    from {
+        color: rgba(7, 68, 148, 1);
+    }
+
+    to {
+        color: white;
+    }
+}
+
+#create-account {
+    color: rgba(7, 68, 148, 1);
+    display: block;
+    background: rgba(7, 68, 148, 1);
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    height: 6vh;
+    margin: 5% 0 5% 0;
+    text-align: center;
+    animation-name: text-reveal;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+#login-form {
+    margin-top: 10%;
+    width: 60%;
+    margin-left: 20%;
+    height: 50%;
+}
+
+.login-input {
+    background: rgba(7, 68, 148, 1);
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    height: 6vh;
+    margin: 5% 0 5% 0;
+}
+
+#login {
+    color: rgba(7, 68, 148, 1);
+    background: rgba(7, 68, 148, 1);
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    height: 6vh;
+    margin: 5% 0 5% 0;
+    animation-name: text-reveal;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+#login-heading {
+    text-align: left;
+    font-size: 4rem;
+    color: rgba(7, 68, 148, 1);
+    animation-name: text-reveal;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+.login-focus {
+    animation-name: login-focus;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes login-focus {
+    from {
+        background: rgba(7, 68, 148, 1);
+        width: 40vw;
+        height: 80vh;
+        margin-top: 10vh;
+        margin-left: 10vw;
+        border-radius: 40px
+    }
+
+    10% {
+        background: rgba(7, 68, 148, 1);
+        width: 40vw;
+        height: 80vh;
+        margin-top: 10vh;
+        margin-left: 10vw;
+        border-radius: 40px
+    }
+
+    to {
+        background: rgba(7, 68, 148, 0.16);
+        width: 40vw;
+        height: 80vh;
+        margin-top: 10vh;
+        margin-left: 10vw;
+        border-radius: 50px
+    }
+}
+
+/*Create Account Styling*/
+
+.create-account-focus {
+    background-size: 100% 100%;
+    background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+    background-image: radial-gradient(49% 81% at 45% 47%, #FFE20345 0%, #073AFF00 100%),radial-gradient(113% 91% at 17% -2%, #001AFFFF 4%, #FF000000 99%),radial-gradient(142% 91% at 83% 7%, #00C1FFFF 1%, #FF000000 99%),radial-gradient(142% 91% at -6% 74%, #00CDFFFF 1%, #FF000000 99%),conic-gradient(from 56deg at 30% 71%, #00FFFFFF 0%, #073AFFFF 100%);
+    border-radius: 40px;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    padding-top: 5%;
+    width: 80vw;
+    height: 80vh;
+}
+
+.create-account-form {
+    padding: 0% 20% 5% 10%;
+    border-right: 3px black solid;
+    margin: 0 0 5% 0;
+}
+
+.create-account-field {
+    width: 100%;
+    height: 6vh;
+    margin-top: 3%;
+    border-radius: 10px;
+    background: #000;
+    color: white;
+}
+
+    .create-account-field:hover {
+        border: 1px solid red;
+    }
+
+.create-account-label {
+    margin-top: 2%;
+}
+
+#logout-btn {
+    background: transparent;
+    border: 0;
+    color: white;
+    font-size: 1rem;
+    padding: 25%;
+    border-radius: 10px;
+}
+
+    #logout-btn:hover {
+        background-color: #ff3333;
+        color: black;
+    }
+
+.logout {
+    margin-left: 90vw;
 }

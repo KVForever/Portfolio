@@ -38,8 +38,6 @@ namespace LoginLibrary
             }
 
             user.Roles.Clear();
-            //user.Roles = new List<Role>();
-            //user.Roles.Add(await _DbContext.Roles.Where(r => r.Id == 2).FirstAsync());
 
             foreach (var roleId in rolesToBeAssigned)
             {

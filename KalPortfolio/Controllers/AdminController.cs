@@ -49,22 +49,25 @@ namespace KalPortfolio.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(int id) 
         {
-            UserMessage message = await _repository.GetMessageById(id);
+            /* Is it better to have var or UserMessage*/
+
+            var message = await _repository.GetMessageById(id);
 
             if(message != null)
             {
                 await _repository.DeleteMessage(id);
+                return Redirect("/Admin/Home");
             }
-            
-            return Redirect("/Admin/Home");
+
+            return NotFound();
         }
 
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Details(int id)
         {
-            UserMessage message = await _repository.GetMessageById(id);
+            var message = await _repository.GetMessageById(id);
 
             if(message != null)
             {
