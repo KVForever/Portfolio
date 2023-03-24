@@ -27,6 +27,7 @@
                 </ul>
                 <div class="logout">
                     <form asp-action="Logout" asp-controller="Home" method="post">
+                        @Html.AntiForgeryToken()
                         <button type="submit" value="Logout" id="logout-btn">Logout</button>
                     </form>
                 </div>
@@ -320,7 +321,7 @@
             <div class="row">
                 <div class="col-6">
                     <form asp-action="Home" asp-controller="Home" method="post">
-
+                        @Html.AntiForgeryToken()
                         <div class="row">
                             <div class="col-6">
                                 <input type="text" asp-for="@Model.FirstName" class="message-input" id="first-name" placeholder="First Name" required />

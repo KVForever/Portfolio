@@ -2,17 +2,13 @@
 using MessagesLibrary;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
 using KalPortfolio.Models;
 
 namespace KalPortfolio.Controllers
 {
-    
+
     public class HomeController : Controller
     {
        
@@ -47,7 +43,7 @@ namespace KalPortfolio.Controllers
             }
             return View(formData);
         }
-
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> Logout()
         {

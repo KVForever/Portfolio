@@ -30,31 +30,7 @@ namespace KalPortfolio.Helpers
             return Convert.ToBase64String(buff);    
         }
         
-        //public static bool OnlyInRole(this IPrincipal user, string role)
-        //{
-        //    var roles = new List<string> {"Admin", "User"};
-        //    return user.IsInRole(role) && roles.Where(x => x != role).All(r => !user.IsInRole(r));
-        //}
-
-        public static string GenerateToken()
-        {
-            return GenerateRandomString();
-        }
-
-        public static string GenerateRandomString()
-        {
-            var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
-            var data = new byte[1];
-            var crypto = RandomNumberGenerator.Create();
-            crypto.GetNonZeroBytes(data);
-            data = new byte[SALT_SIZE];
-            crypto.GetNonZeroBytes(data);
-            var result = new StringBuilder(SALT_SIZE);
-            foreach(var x in data)
-            {
-                result.Append(chars[x % (chars.Length)]);
-            }
-            return result.ToString();
+        
         }
     }
 }

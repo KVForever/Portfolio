@@ -40,7 +40,6 @@ public partial class PortfolioContext : DbContext
                 .HasColumnType("datetime");
             entity.Property(e => e.Password).HasMaxLength(255);
             entity.Property(e => e.Salt).HasMaxLength(255);
-            entity.Property(e => e.Token).HasMaxLength(32);
             entity.Property(e => e.Username).HasMaxLength(255);
 
             entity.HasMany(d => d.Roles).WithMany(p => p.Users)

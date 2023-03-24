@@ -15,12 +15,12 @@ namespace KalPortfolio.Controllers
     public class LoginController : Controller
     {
         private readonly ILoginRepository _repository;
-        private readonly IRoleRepository _roleRepository;
+        
 
-        public LoginController(ILoginRepository repository, IRoleRepository roleRepository)
+        public LoginController(ILoginRepository repository)
         {
             _repository = repository;
-            _roleRepository = roleRepository; 
+             
         }
 
         public ActionResult Login(string returnUrl = "/")
@@ -96,14 +96,9 @@ namespace KalPortfolio.Controllers
         }
        
 
-        public async Task<ActionResult> CreateAccount()
-        {
-            CreateAccount model = new()
-            {
-                Roles = await _roleRepository.GetAllRoles()
-            };
-
-            return View(model);
+        public ActionResult CreateAccount()
+        {           
+            return View();
         }
 
         [ValidateAntiForgeryToken]

@@ -19,8 +19,6 @@ public partial class User
 
     public string Email { get; set; } = null!;
 
-    public string? Token { get; set; }
-
     public DateTime DateCreated { get; set; }
 
     public DateTime DateModified { get; set; }

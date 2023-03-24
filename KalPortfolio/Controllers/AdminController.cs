@@ -5,7 +5,6 @@ using LoginLibrary;
 using MessagesLibrary;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,13 +15,13 @@ namespace KalPortfolio.Controllers
     {
         private readonly IMessageRepository _repository;
         private readonly ILoginRepository _loginRepository;
-        private readonly IRoleRepository _roleRepository;
+        
 
-        public AdminController(IMessageRepository message, ILoginRepository login, IRoleRepository role)
+        public AdminController(IMessageRepository message, ILoginRepository login)
         {
             _repository = message;
             _loginRepository = login;
-            _roleRepository = role;
+            
         }
 
         [Authorize(Roles = "Admin")]
@@ -78,6 +77,7 @@ namespace KalPortfolio.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateAdmin(CreateAccount model)
         {
             if (ModelState.IsValid)
@@ -98,23 +98,23 @@ namespace KalPortfolio.Controllers
                             user.Username = model.Username;
                             user.Password = UserHelper.GetHashedPassword(model.Password, salt);
                             user.Salt = salt;
-                            user.Token = UserHelper.GenerateToken();
+                            
                             user.Roles = model.SelectedRoles.Select(r =>
                                 new Role()
                                 {
                                     Id = r,
-                                    Name = "User",
+                                    Name = "Admin",
                                 }).ToList();
                         }
 
                         await _loginRepository.CreateAccount(user);
-                        return RedirectToAction("Home", "Home");
+                        return RedirectToAction("Admin", "Home");
                     }
                     ModelState.AddModelError("Password", "Passwords Do Not Match");
                 }
                 ModelState.AddModelError("Username", "Username Already in Use");
             }
-            model.Roles = await _roleRepository.GetAllRoles();
+            
             return View(model);
         }
 
