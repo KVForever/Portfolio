@@ -1,11 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}
 
 a {
     color: #fff;
@@ -46,16 +41,16 @@ hr {
     border-color: #1861ac;
 }
 
-.nav {
+.navbar {
     background-color: transparent;
     font-size: 1rem;
     border-radius: 10px;
 }
 
-    .nav > li > a:hover {
-        border-radius: 10px;
-        color: black;
-    }
+a.nav-link {
+    color: white;
+
+}
 
 .panel {
     background-color: #000;
@@ -218,13 +213,10 @@ table.message {
     width: 100vw;
 }
 
-.project-resources {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 0;
-    width: 75%;
+.project {
+    height: 25vh;
+    width: 25vw;
+    background-image: image(~/images/mathQuiz.png)
 }
 
 .glyphicon-arrow-down {
@@ -245,20 +237,6 @@ table.message {
     border-radius: 5px;
 }
 
-.media {
-    height: 42vh;
-    position: relative;
-    margin-bottom: 15%;
-    background-color: black;
-    border: 2px solid red;
-    border-radius: 15px;
-}
-
-.media-image {
-    height: 40vh;
-    width: 20vw;
-    border: 2px solid black;
-}
 
 .thick {
     display: block;
@@ -282,9 +260,11 @@ table.message {
     position: absolute;
     left: -20vw;
     text-align: center;
+    border: 0;
 }
 
     .skip:focus {
+        background-color: black;
         position: static;
         width: 8vw;
         height: 4vh;

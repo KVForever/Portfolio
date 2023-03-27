@@ -29,8 +29,6 @@ namespace KalPortfolio.Helpers
             rng.GetBytes(buff);
             return Convert.ToBase64String(buff);    
         }
-        
-        
-        }
+
     }
 }
