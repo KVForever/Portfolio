@@ -33,7 +33,7 @@
                     </ul>
                     @Html.AntiForgeryToken()
                     <form asp-action="Logout" asp-controller="Home" method="post">
-                        <button type="submit" value="Logout" id="logout-btn">Logout</button>
+                        <button class="btn btn-danger" type="submit" value="Logout" id="logout-btn">Logout</button>
                     </form>
                 </div>
             </div>
@@ -58,117 +58,110 @@
             </div>
         </div>
 
-        <div class="container single-item">
-            <div class="panel">
-                <div class="panel-body ">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#intro">About Me</a>
-                        </li>
+       
+        
+   
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#intro-tab-pane" type="button" role="tab" aria-controls="intro-tab-pane" aria-selected="true">About Me</button>
+                    </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#employment">Employment</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" data-toggle="tab" href="#heartland" area-label="Go to Heartland employment section.">Heartland</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#marcus" area-label="Go to the Marcus employment section.">Marcus</a>
-                            </div>
-                        </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="employment-tab" data-bs-toggle="tab" data-bs-target="#employment-tab-pane" type="button" role="tab" aria-controls="employment-tab-pane" aria-selected="false">Employment</button>
+                    </li>
 
-                        <li class="nav-item dropdowm">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#activein">Active In</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" data-toggle="tab" href="#studentcouncil" area-label="Go to the student council involvement section">Student Council</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#chazzo" area-label="Go to the Chazoo involvement section">Chazoo</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#sparkcrew" area-label="Go to the Spark Crew involvement section">Spark Crew</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#cyberstart" area-label="Go to the Cyberstart America involvement section">Cyberstart</a>
-                            </div>
-                        </li>
-                    </ul>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="activeIn-tab" data-bs-toggle="tab" data-bs-target="#activeIn-tab-pane" type="button" role="tab" aria-controls="activeIn-tab-pane" aria-selected="false">Active In</button>
+                    </li>
+                </ul>
 
-                    <div class="tab-content text-wrap ">
-                        <div id="intro" class="tab-pane fade in active">
-                            <h1>About Me</h1>
-                            <p>
-                                Hi, originally born in Ethiopia I was adopted at an early age and grew up in the United States of America.
-                                My love of technology has guided me and led me to where I am today. I always wanted to help in the creation of new and exciting technologies, and I can do this by combining my love of technoligy with a passion for solving problems to create impactful software.
-                            </p>
-                            
-                            <dl>
-                                <dt>Somethings to know about me include:</dt>
-                                <dd>- I like to read in my spare time.</dd>
-                                <dd>- I am always looking to learn new things.</dd>
-                                <dd>- I enjoy playing soccer.</dd>
-                            </dl>
-                        </div>
+                <div class="tab-content d-flex justify-content-center" id="myTabContent">
 
-                        <div id="heartland" class="tab-pane fade ">
-                            <h1>Heartland Business Systems</h1>
-                            <p>
-                                Heartland, the start of my professional development, is an experience that I will look back upon with shock when I reflect on how early I got involved in the industry.
-                                At the age of 16 I am able to learn about current technologies and learn about even more than just technical skills.
-                                I practice communication skills threw collaborations with coworkers to solve different problems.
-                                I am able to learn about how to better interact with coworkers threw standups and mixer meetings.
-                                The list goes on but the importance for my employment at Heartland was to experience what it would be like to work as a software engineer and ultimately if this is something I could do as a career.
-                                Currently this is a very feasible career path for myself.
-                            </p>
-                        </div>
+                    <div class="tab-pane fade show active" id="intro-tab-pane" role="tabpanel" aria-labelledby="info-tab">
+                        <h1>About Me</h1>
+                        <p>
+                            Hi, originally born in Ethiopia I was adopted at an early age and grew up in the United States of America.
+                            My love of technology has guided me and led me to where I am today. I always wanted to help in the creation of new and exciting technologies, and I can do this by combining my love of technoligy with a passion for solving problems to create impactful software.
+                        </p>
 
-                        <div id="marcus" class="tab-pane fade">
-                            <h1>Marcus Vally Grand Cinema</h1>
-                            <p>
-                                Marcus was my first job and will always be viewed warmly.
-                                I got a job at the movie theater because my options where very scarce at 15 years old.
-                                Even so this was a great choice. I was able to gain customer experience which ultimately means I learned how to resolve conflict and anticipate the needs of others.
-                                I am know able to use what I learned to better understand the needs of employers and to go a step beyond what is asked of me.
-                                I am also able to improve my leadership skills as a Shift Lead.
-                                I am in charge of making sure that concessions is running smoothly.
-                                Tasks include making sure that all items are stocked, customers conflicts get resolved efficiently and correctly, retrieve cash for drawers if necessary, and instruct coworkers on correct procedures among other tasks.
+                        <dl>
+                            <dt>Somethings to know about me include:</dt>
+                            <dd>- I like to read in my spare time.</dd>
+                            <dd>- I am always looking to learn new things.</dd>
+                            <dd>- I enjoy playing soccer.</dd>
+                        </dl>
+                    </div>
 
 
-                            </p>
-                        </div>
+                    <div class="tab-pane fade" id="employment-tab-pane" role="tabpanel" aria-labelledby="employment-tab">
 
+                        <h1>Heartland Business Systems</h1>
+                        <p>
+                            Heartland, the start of my professional development, is an experience that I will look back upon with shock when I reflect on how early I got involved in the industry.
+                            At the age of 16 I am able to learn about current technologies and learn about even more than just technical skills.
+                            I practice communication skills threw collaborations with coworkers to solve different problems.
+                            I am able to learn about how to better interact with coworkers threw standups and mixer meetings.
+                            The list goes on but the importance for my employment at Heartland was to experience what it would be like to work as a software engineer and ultimately if this is something I could do as a career.
+                            Currently this is a very feasible career path for myself.
+                        </p>
 
-                        <div id="cyberstart" class="tab-pane fade">
-                            <h1>Cyberstart America</h1>
-                            <p>Cyberstart America is a cyber security devolpment resource where users act as if they are an agent in a cyber security organisation that thwarts bad actors. 
-                                Threw the completion of challanges revolving around various aspects of cybersecurity I am able to learn more about the industry and have a some fun.
-                                I earned one bronze badge for the 2021-2022 year and a bronze and silver badge for the 2022-2023 year.
-                                This means that I earned over 30,000 points to ge the bronze bage and 50,000 for the silver.
-                            </p>
-                        </div>
+                        <h1>Marcus Vally Grand Cinema</h1>
+                        <p>
+                            Marcus was my first job and will always be viewed warmly.
+                            I got a job at the movie theater because my options where very scarce at 15 years old.
+                            Even so this was a great choice. I was able to gain customer experience which ultimately means I learned how to resolve conflict and anticipate the needs of others.
+                            I am know able to use what I learned to better understand the needs of employers and to go a step beyond what is asked of me.
+                            I am also able to improve my leadership skills as a Shift Lead.
+                            I am in charge of making sure that concessions is running smoothly.
+                            Tasks include making sure that all items are stocked, customers conflicts get resolved efficiently and correctly, retrieve cash for drawers if necessary, and instruct coworkers on correct procedures among other tasks.
+                        </p>
 
-                        <div id="studentcouncil" class="tab-pane fade">
-                            <h1>Student Counsel</h1>
-                            <p>
-                                Eventually I want to be a lead my own development team and in order to do this I have to gain leadership experience. Student Council provides this.
-                                As a member of Student Council I help to organize events that take place at my school.
-                                From prom to penny wars to pep-rallies I help to make them run smoothly as possible adding valuable input where I can. Through my time in student council I have learned to present ideas in an attractive manner and have learned more about how to work on a team.
+                    </div>
 
-                            </p>
-                        </div>
+                    <div class="tab-pane fade" id="activeIn-tab-pane" role="tabpanel" aria-labelledby="activeIn-tab">
 
-                        <div id="chazzo" class="tab-pane fade">
-                            <h1>Chazzo Warriors</h1>
-                            <p>
-                                Chazzo Warriors is a group that I participate in that helps in providing opportunities for middle schoolers to have fun activities that develop their faith.
-                                I lead by example and try to make what they come in thinking is a boring situation into one that they can enjoy and get something out of.
-                                Participating in this club is a great way for me to manage stress and to help serve my community.
+                        <h1>Cyberstart America</h1>
+                        <p>
+                            Cyberstart America is a cyber security devolpment resource where users act as if they are an agent in a cyber security organisation that thwarts bad actors.
+                            Threw the completion of challanges revolving around various aspects of cybersecurity I am able to learn more about the industry and have a some fun.
+                            I earned one bronze badge for the 2021-2022 year and a bronze and silver badge for the 2022-2023 year.
+                            This means that I earned over 30,000 points to ge the bronze bage and 50,000 for the silver.
+                        </p>
 
-                            </p>
-                        </div>
+                        <h1>Student Counsel</h1>
+                        <p>
+                            Eventually I want to be a lead my own development team and in order to do this I have to gain leadership experience. Student Council provides this.
+                            As a member of Student Council I help to organize events that take place at my school.
+                            From prom to penny wars to pep-rallies I help to make them run smoothly as possible adding valuable input where I can. Through my time in student council I have learned to present ideas in an attractive manner and have learned more about how to work on a team.
 
-                        <div id="sparkcrew" class="tab-pane fade">
-                            <h1>Spark crew</h1>
-                            <p>Spark Crew is a group that meets every week and just hangs out. I am able to surround myself with good people that are there to support each other and to have fun.
-                                We also do projects through out there such as a food drive, kitty pool kickball, and most members go on the yearly Catholic Heart Work Camp. We all travel to a different state and do service around the chosen community.
- 
-                            </p>
-                        </div>
+                        </p>
+
+                        <h1>Chazzo Warriors</h1>
+                        <p>
+                            Chazzo Warriors is a group that I participate in that helps in providing opportunities for middle schoolers to have fun activities that develop their faith.
+                            I lead by example and try to make what they come in thinking is a boring situation into one that they can enjoy and get something out of.
+                            Participating in this club is a great way for me to manage stress and to help serve my community.
+
+                        </p>
+
+                        <h1>Spark crew</h1>
+                        <p>
+                            Spark Crew is a group that meets every week and just hangs out. I am able to surround myself with good people that are there to support each other and to have fun.
+                            We also do projects through out there such as a food drive, kitty pool kickball, and most members go on the yearly Catholic Heart Work Camp. We all travel to a different state and do service around the chosen community.
+
+                        </p>
+
                     </div>
                 </div>
             </div>
+            <div class="col-2"></div>
         </div>
+       
+             
+            
         
     </section>
 

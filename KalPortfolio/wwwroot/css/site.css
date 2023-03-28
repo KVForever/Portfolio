@@ -276,7 +276,7 @@ table.message {
 }
 
 #home-intro {
-    height: calc(98vh - 100px);
+    height: calc(98vh - 48px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -483,14 +483,31 @@ form.admin-logout-form {
     }
 
 .nav-link {
-    font-size: 1rem;
-    text-align: center;
+    color: red;
 }
 
-    .nav-link:hover {
-        background-color: black;
-    }
+.nav-link:hover {
+    animation-name: link-hover;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    
+}
 
+    @keyframes link-hover{
+        0% {
+            color: red;
+        }
+
+        50% {
+            color: white;
+            font-weight:600;
+        }
+
+        100% {
+            color: red;
+        }
+
+    }
 .search-input {
     width: 50vw;
     margin-left: 40vw;
@@ -719,20 +736,3 @@ form.admin-logout-form {
     margin-top: 2%;
 }
 
-#logout-btn {
-    background: transparent;
-    border: 0;
-    color: white;
-    font-size: 1rem;
-    padding: 25%;
-    border-radius: 10px;
-}
-
-    #logout-btn:hover {
-        background-color: #ff3333;
-        color: black;
-    }
-
-.logout {
-    margin-left: 90vw;
-}
