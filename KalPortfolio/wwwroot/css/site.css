@@ -101,11 +101,11 @@ body {
     padding: 0;
 }
 
-    body.home {
+   /* body.home {
         background-image: url(https://wallpapertag.com/wallpaper/full/f/9/c/500431-download-black-and-blue-abstract-wallpaper-1920x1200-for-computer.jpg);
         background-repeat: no-repeat;
         width: 100vw;
-    }
+    }*/
 
     body.table {
         background-image: url(https://th.bing.com/th/id/R.6b0de3bf04be27160bf338233d656948?rik=K4%2fab1AlSaNU1Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fBest-Black-And-Red-Backgrounds.jpg&ehk=XnsgviCZCh%2fZiCs1ZFoUiWM%2b%2f0Y4esXgURbjYXJtzRM%3d&risl=&pid=ImgRaw&r=0);
@@ -213,10 +213,46 @@ table.message {
     width: 100vw;
 }
 
+.project-background {
+    background-color: #a50021;
+    border-radius: 10px;
+    width: 30vw;
+    height: 30vh;
+}
+
 .project {
-    height: 25vh;
-    width: 25vw;
-    background-image: image(~/images/mathQuiz.png)
+    background-color: black;
+    border: solid 1px #a50021;
+    border-radius: 10px;
+    width: 30vw;
+    height: 30vh;
+}
+
+.project:hover {
+    animation-name: project-pop;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    
+}
+
+@keyframes project-pop {
+    0% {
+        transform: translate(0,0);
+        
+    }
+
+    100% {
+        transform: translate(20px, -20px);
+        
+    }
+}
+
+.intro {
+    border-radius: 10px;
+    border-top: solid 1px red;
+    border-right: solid 5px red;
+    height: 13vh;
+    width: 50vw;
 }
 
 .glyphicon-arrow-down {
@@ -226,6 +262,7 @@ table.message {
     animation-iteration-count: infinite;
     animation-duration: 3s;
     position: relative;
+    
 }
 
 .header {
@@ -276,7 +313,7 @@ table.message {
 }
 
 #home-intro {
-    height: calc(98vh - 48px);
+    margin-top: calc(50vh - 48px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -287,6 +324,7 @@ table.message {
     margin-right: 10vw;
     display: flex;
     justify-content: right;
+    background-color: white;
 }
 
 @keyframes arrowMove {
@@ -388,8 +426,15 @@ table.message {
     grid-gap: .5rem;
 }
 
-#projects-title {
-    padding-left: 15px;
+.projects-area {
+    margin: 50vh 0 50vh 0;
+}
+
+#about-me-panel {
+    margin: 50vh 0 0 0;
+    border-radius: 30px;
+    border-top: #a50021 1px solid;
+    border-left: #a50021 5px solid;
 }
 
 #grid-image {
