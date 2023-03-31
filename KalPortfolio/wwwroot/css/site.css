@@ -212,30 +212,46 @@ table.message {
     padding-bottom: 100px;
     width: 100vw;
 }
-
-.project-background {
+.project-left-background {
     background-color: #a50021;
     border-radius: 10px;
-    width: 30vw;
+    width: 40vw;
     height: 30vh;
 }
 
-.project {
+.project-right-background {
+    background-color: #a50021;
+    border-radius: 10px;
+    width: 40vw;
+    height: 30vh;
+}
+
+.project-right{
+    margin-top: 50vh;
+}
+
+    .project-right:hover {
+        animation-name: pop;
+        animation-fill-mode: forwards;
+        animation-duration: 2s;
+    }
+
+.project-left {
     background-color: black;
     border: solid 1px #a50021;
     border-radius: 10px;
-    width: 30vw;
+    width: 40vw;
     height: 30vh;
 }
 
-.project:hover {
-    animation-name: project-pop;
+.project-left:hover {
+    animation-name: pop;
     animation-fill-mode: forwards;
     animation-duration: 2s;
     
 }
 
-@keyframes project-pop {
+@keyframes pop {
     0% {
         transform: translate(0,0);
         
@@ -247,12 +263,77 @@ table.message {
     }
 }
 
-.intro {
+.project-img-left-background {
+    width: 20vh;
+    height: 20vh;
     border-radius: 10px;
-    border-top: solid 1px red;
-    border-right: solid 5px red;
+    top: -5vh;
+    margin-left: 80%;
+    background-color: #a50021;
+}
+
+.project-img-left {
+    padding: 0;
+    margin-left: 80%;
+    width: 20vh;
+    height:20vh;
+    border-radius: 10px;
+    top: -5vh;
+   
+}
+    .project-img-left:hover{
+        animation-name: inverse-pop;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+
+.project-img-right-background {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 10px;
+    top: -5vh;
+    margin-left: 80%;
+    background-color: #a50021;
+}
+
+.project-img-right {
+    padding: 0;
+    margin-left: 80%;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 10px;
+    top: -5vh;
+}
+
+    .project-img-right:hover {
+        animation-name: inverse-pop;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+
+@keyframes inverse-pop {
+   
+    100% {
+        transform: translate(-20px, 20px);
+    }
+}
+
+.intro {
+    animation-name: intro-pop;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-delay: 2s;
     height: 13vh;
     width: 50vw;
+}
+
+@keyframes intro-pop{
+    
+    100% {
+        border-radius: 10px;
+        border-top: solid 1px red;
+        border-right: solid 5px red;
+    }
 }
 
 .glyphicon-arrow-down {
@@ -329,18 +410,18 @@ table.message {
 
 @keyframes arrowMove {
     0% {
-        left: 0px;
-        top: 0px;
+        left: 0;
+        top: 0;
     }
 
     50% {
-        left: 0px;
+        left: 0;
         top: -50px;
     }
 
     100% {
-        left: 0px;
-        top: 0px
+        left: 0;
+        top: 0;
     }
 }
 
@@ -408,7 +489,7 @@ table.message {
     }
 
     100% {
-        left: 0px;
+        left: 0;
     }
 }
 
@@ -701,7 +782,6 @@ form.admin-logout-form {
 
 #login-heading {
     text-align: left;
-    font-size: 4rem;
     color: rgba(7, 68, 148, 1);
     animation-name: text-reveal;
     animation-duration: 2s;

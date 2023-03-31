@@ -8,14 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Users can create a create and than view Kalkidan's portfolio site." />
     <title>Kalkidan's Portfolio - Login</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
+ 
     <script type="text/javascript">
         function createAccountBtn(){
             location.href = '/Login/CreateAccount';
         }
-
     </script>
 
 </head>
@@ -26,7 +25,7 @@
                 <div asp-action="login" id="login-form">                      
                     
                     <div class="login-Heading">
-                        <p class="display-3">Welcome!</p>
+                        <h1 class="d-flex justify-content-center">Welcome!</h1>
                     </div>
                     <div>
                         <form asp-action="Login" asp-controller="Login" method="post">
@@ -60,6 +59,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -9,9 +9,8 @@
     <meta  name="discription" content="View Kalkidans projects, contact information, and get to know who Kalkidan is." />
     <title>Kalkidan's Portfolio - Home</title>
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    
     <link href="~/css/site.css" rel="stylesheet" />
-
+    
 </head>
 <body class="home">
     <header>
@@ -33,7 +32,7 @@
                     </ul>
                     @Html.AntiForgeryToken()
                     <form asp-action="Logout" asp-controller="Home" method="post">
-                        <button class="btn btn-danger" type="submit" value="Logout" id="logout-btn">Logout</button>
+                        <button class="btn btn-outline-danger" type="submit" value="Logout" @*id="logout-btn"*@>Logout</button>
                     </form>
                 </div>
             </div>
@@ -183,22 +182,53 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                   
+                    <div class="col-7 position-relative">
 
-                        <div class="project-background">
-                            <div class="position-absolute">
-                                <div class="project project-relative">
-                                    <p>My first project was a simple matching game.</p>
-                                </div>
-                            </div>
+                        <div class="project-left-background z-0 position-absolute"></div>
+                        <div class="project-left z-1 position-absolute">
+                            <p>My first project was a simple matching game.</p>
                         </div>
 
+                        <div class="project-img-left-background z-2 position-absolute"></div>
+                        <img src="~/images/matchingGame.png" class="img-fluid img-thumbnail project-img-left z-3 position-absolute" alt="Image of project" />
                     </div>
+                   
+                </div>
 
-                    <div class="col-6"></div>
+                <div class="row project-right ">
+                    <div class="col-3 position-relative">
+
+                        <div class="project-right-background z-0 position-absolute"></div>
+                        <div class="project z-1 position-absolute">
+                            <p>My first project was a simple matching game.</p>
+                        </div>
+
+                        <div class="project-img-right-background z-2 position-absolute"></div>
+                        <img src="~/images/matchingGame.png" class="img-fluid img-thumbnail project-img-right z-3 position-absolute" alt="Image of project" />
+                    </div>
+                </div>
+            </div>
+           
+
+
+           @* <div class="container mt-5">
+
+
+                <div class="z-0 position-absolute project-background"></div>
+
+                <div class="z-1 position-absolute project">
+                    <p>My first project was a simple matching game.</p>
                 </div>
 
             </div>
+
+            <div class="z-2 position-absolute project-img-background">
+            </div>
+            <div class="z-3 position-absolute project-img">
+                <img src="~/images/matchingGame.png" class="img-fluid img-thumbnail" alt="Image of project" />
+            </div>*@
+            
         </div>
             
 
@@ -332,6 +362,12 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        
+
+          
+
+    </script>
 </body>
 </html>
 

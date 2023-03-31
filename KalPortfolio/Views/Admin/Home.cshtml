@@ -63,9 +63,9 @@
             </div>
         </div>
 
-        <table class="message-table">
+        <table class="message-table table-dark">
             <thead>
-                <tr >
+                <tr class="">
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Respond To</th>
@@ -78,7 +78,7 @@
             <tbody>               
                 @foreach(var message in Model)
                 {
-                    <tr >
+                    <tr>
                         <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
 
                         <td>@Html.DisplayFor(modelItem => message.LastName)</td>

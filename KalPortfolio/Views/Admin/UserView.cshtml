@@ -6,45 +6,46 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="discription" content="An admin can see what a user is seeing threw this User View page." />
+    <meta name="discription" content="View Kalkidans projects, contact information, and get to know who Kalkidan is." />
     <title>Kalkidan's Portfolio - Home</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
 
 </head>
 <body class="home">
     <header>
-        <a type="button" href="/Admin/UserView#home-link" class="btn btn-info skip">Skip navigation</a>
-        <nav id="nav-in" class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="Home/Home">K</a>
-            <div id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/Admin/Home" aria-label="Go to the top of the home page">Home</a></li>
-                    <li><a href="#contact-link" aria-label="Go to the contacts section.">Contact</a></li>
-                    <li><a href="#projects-link" aria-label="Go to the projects section.">Projects</a></li>
-                    <li><a href="#resume-link" aria-label="Go to resume section.">Resume</a></li>
-                    <li><a href="/Home/Account" aria-label="Go to account page">Account</a></li>
-                </ul>
-                <div class="logout">
+        <a type="button" href="/Home/Home#home-link" class="btn btn-info skip">Skip navigation</a>
+
+        <nav class="navbar navbar-expand-lg navbar-dark ms-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/Home/Home">K</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active"><a class="nav-link" href="#home-link" aria-label="Go to the top of the home page">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact-link" aria-label="Go to the contacts section.">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects-link" aria-label="Go to the projects section.">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#resume-link" aria-label="Go to resume section.">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Account" aria-label="Go to account page">Account</a></li>
+                    </ul>
+                    @Html.AntiForgeryToken()
                     <form asp-action="Logout" asp-controller="Home" method="post">
-                        @Html.AntiForgeryToken()
-                        <button type="submit" value="Logout" id="logout-btn">Logout</button>
+                        <button class="btn btn-danger" type="submit" value="Logout" id="logout-btn">Logout</button>
                     </form>
                 </div>
             </div>
-
         </nav>
+
     </header>
 
     <section id="home-link">
-        <div class="container">
-            <div id="home-intro" class="row">
-                <div class="container col-11">
-                    <h1 id="home-info-header" class="text-left display-4"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
-                    <pre class="text-wrap lead" id="tag-line">    I am achieving my goal of being a software engineer one line of code at a time.</pre>
-                </div>
 
+        <div id="home-intro" class="row">
+            <div class="intro container-fluid col-11">
+                <h1 id="home-info-header" class="text-left display-4"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
+                <pre class="text-wrap lead" id="tag-line">    I am achieving my goal of being a software engineer one line of code at a time.</pre>
             </div>
         </div>
 
@@ -54,35 +55,27 @@
             </div>
         </div>
 
-        <div class="container single-item">
-            <div class="panel">
-                <div class="panel-body ">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#intro">About Me</a>
+        <div class="row ">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div id="about-me-panel" class="p-3">
+                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#intro-tab-pane" type="button" role="tab" aria-controls="intro-tab-pane" aria-selected="true">About Me</button>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#employment">Employment</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" data-toggle="tab" href="#heartland" area-label="Go to Heartland employment section.">Heartland</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#marcus" area-label="Go to the Marcus employment section.">Marcus</a>
-                            </div>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="employment-tab" data-bs-toggle="tab" data-bs-target="#employment-tab-pane" type="button" role="tab" aria-controls="employment-tab-pane" aria-selected="false">Employment</button>
                         </li>
 
-                        <li class="nav-item dropdowm">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#activein">Active In</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" data-toggle="tab" href="#studentcouncil" area-label="Go to the student council involvement section">Student Council</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#chazzo" area-label="Go to the Chazoo involvement section">Chazoo</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#sparkcrew" area-label="Go to the Spark Crew involvement section">Spark Crew</a>
-                                <a class="dropdown-item" data-toggle="tab" href="#cyberstart" area-label="Go to the Cyberstart America involvement section">Cyberstart</a>
-                            </div>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="activeIn-tab" data-bs-toggle="tab" data-bs-target="#activeIn-tab-pane" type="button" role="tab" aria-controls="activeIn-tab-pane" aria-selected="false">Active In</button>
                         </li>
                     </ul>
 
-                    <div class="tab-content text-wrap ">
-                        <div id="intro" class="tab-pane fade in active">
+                    <div class="tab-content d-flex justify-content-center" id="myTabContent">
+
+                        <div class="tab-pane fade show active" id="intro-tab-pane" role="tabpanel" aria-labelledby="info-tab">
                             <h1>About Me</h1>
                             <p>
                                 Hi, originally born in Ethiopia I was adopted at an early age and grew up in the United States of America.
@@ -97,7 +90,9 @@
                             </dl>
                         </div>
 
-                        <div id="heartland" class="tab-pane fade ">
+
+                        <div class="tab-pane fade" id="employment-tab-pane" role="tabpanel" aria-labelledby="employment-tab">
+
                             <h1>Heartland Business Systems</h1>
                             <p>
                                 Heartland, the start of my professional development, is an experience that I will look back upon with shock when I reflect on how early I got involved in the industry.
@@ -107,9 +102,7 @@
                                 The list goes on but the importance for my employment at Heartland was to experience what it would be like to work as a software engineer and ultimately if this is something I could do as a career.
                                 Currently this is a very feasible career path for myself.
                             </p>
-                        </div>
 
-                        <div id="marcus" class="tab-pane fade">
                             <h1>Marcus Vally Grand Cinema</h1>
                             <p>
                                 Marcus was my first job and will always be viewed warmly.
@@ -119,13 +112,12 @@
                                 I am also able to improve my leadership skills as a Shift Lead.
                                 I am in charge of making sure that concessions is running smoothly.
                                 Tasks include making sure that all items are stocked, customers conflicts get resolved efficiently and correctly, retrieve cash for drawers if necessary, and instruct coworkers on correct procedures among other tasks.
-
-
                             </p>
+
                         </div>
 
+                        <div class="tab-pane fade" id="activeIn-tab-pane" role="tabpanel" aria-labelledby="activeIn-tab">
 
-                        <div id="cyberstart" class="tab-pane fade">
                             <h1>Cyberstart America</h1>
                             <p>
                                 Cyberstart America is a cyber security devolpment resource where users act as if they are an agent in a cyber security organisation that thwarts bad actors.
@@ -133,9 +125,7 @@
                                 I earned one bronze badge for the 2021-2022 year and a bronze and silver badge for the 2022-2023 year.
                                 This means that I earned over 30,000 points to ge the bronze bage and 50,000 for the silver.
                             </p>
-                        </div>
 
-                        <div id="studentcouncil" class="tab-pane fade">
                             <h1>Student Counsel</h1>
                             <p>
                                 Eventually I want to be a lead my own development team and in order to do this I have to gain leadership experience. Student Council provides this.
@@ -143,9 +133,7 @@
                                 From prom to penny wars to pep-rallies I help to make them run smoothly as possible adding valuable input where I can. Through my time in student council I have learned to present ideas in an attractive manner and have learned more about how to work on a team.
 
                             </p>
-                        </div>
 
-                        <div id="chazzo" class="tab-pane fade">
                             <h1>Chazzo Warriors</h1>
                             <p>
                                 Chazzo Warriors is a group that I participate in that helps in providing opportunities for middle schoolers to have fun activities that develop their faith.
@@ -153,163 +141,65 @@
                                 Participating in this club is a great way for me to manage stress and to help serve my community.
 
                             </p>
-                        </div>
 
-                        <div id="sparkcrew" class="tab-pane fade">
                             <h1>Spark crew</h1>
                             <p>
                                 Spark Crew is a group that meets every week and just hangs out. I am able to surround myself with good people that are there to support each other and to have fun.
                                 We also do projects through out there such as a food drive, kitty pool kickball, and most members go on the yearly Catholic Heart Work Camp. We all travel to a different state and do service around the chosen community.
 
                             </p>
+
                         </div>
                     </div>
                 </div>
+
             </div>
+            <div class="col-2"></div>
+
         </div>
+
+
+
 
     </section>
 
-    <section id="projects-link" class="projects-background">
-        <div class="projects-display">
-            <div class="single-item">
+    <section id="projects-link">
 
-                <div>
-                    <div class="col-12">
+        <div class="projects-area">
+            <div class="container mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-12 d-flex justify-content-center">
                         <h1 id="projects-title" class="display-4">About My <b class="text-danger">Projects</b></h1>
                     </div>
 
-                    <p class="lead col-8">
+                    <p class="col-8">
                         Currently my projects are all about learning. Through tutorials I can learn about new technologies and concepts in a more formal and organized manner.
                         After being able to learn about these technologies projects I create on my own can be used to explore what I learned in my own way, confirm my understanding of the technology, and gain experience with the given technology.
                         The following projects let me do what I just have stated and provide me not only with experience but a sense of pride when I am able to implement what I learned in a new way that I had not known how to previously.
                     </p>
                 </div>
             </div>
-            <div class="media">
-                <div class="media-left">
-                    <img src="~/images/matchinggame.png" alt="Image of matching game." class="img img-circle media-image" />
-                </div>
-                <div class="media-body">
-                    <div class="lead col-9">
-                        <h1>Matching Game</h1>
-                        <p>
-                            My first web form project was a not just a learning experience with windows forms but how to use Visual Studios IED and working with C#.
-                            I was able to work on using tables
-                        </p>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+
+                        <div class="project-background">
+                            <div class="position-absolute">
+                                <div class="project project-relative">
+                                    <p>My first project was a simple matching game.</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="project-resources">
-                        <div>
-                        </div>
-
-                        <div>
-                            <hr class="thick" />
-                        </div>
-
-                        <div>
-                            <p>
-                                Find source code here:
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
+                    <div class="col-6"></div>
                 </div>
+
             </div>
-
-            <div class="media">
-                <div class="media-body text-wrap">
-
-                    <div class="lead col-9">
-                        <h1>Calculator</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <div class="project-resources ">
-                        <div>
-                        </div>
-
-                        <div>
-                            <hr class="thick" />
-                        </div>
-
-                        <div>
-                            <p>
-                                Find source code here:
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="media-right">
-                    <img src="~/images/calculator.png" alt="Image of calculator application" class="img img-circle media-image" />
-                </div>
-            </div>
-
-            <div class="media">
-                <div class="media-left">
-                    <img src="~/images/loginForm.png" alt="Image of Login Form application" class="img img-circle media-image" />
-                </div>
-                <div class="media-body">
-                    <div class="lead col-9">
-                        <h1>Login Form</h1>
-                        <p>My first web form project was a not just a learning experience with windows forms but how to use Visual Studios IED and working with C#...</p>
-                    </div>
-
-                    <div class="project-resources">
-                        <div>
-                        </div>
-
-                        <div>
-                            <hr class="thick" />
-                        </div>
-
-                        <div>
-                            <p>
-                                Find source code here:
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="media">
-                <div class="media-body text-wrap">
-
-                    <div class="lead col-9">
-                        <h1>Math Quize Game</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <div class="project-resources ">
-                        <div>
-                        </div>
-
-                        <div>
-                            <hr class="thick" />
-                        </div>
-
-                        <div>
-                            <p>
-                                Find source code here:
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="media-right">
-                    <img src="~/images/mathQuiz.png" alt="Image of Math Quiz game." class="img img-circle media-image" />
-                </div>
-            </div>
-
         </div>
+
 
     </section>
 
@@ -363,50 +253,46 @@
 
                     </form>
                 </div>
-
                 <div class="col-6">
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="https://live.staticflickr.com/8529/8563111064_a91558e626_b.jpg" alt="Favorite food is pizza.">
-                                <div class="carousel-caption">
-                                    <h3>My Favorite Food is Pizza</h3>
-                                    <p>I think a lot of people are on board with me on this one!</p>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <img src="https://th.bing.com/th/id/R.811ca17972b566be28ee7cd436097af5?rik=n%2bLGxYzQJp9yvg&pid=ImgRaw&r=0" alt="Vera Nazarian's Servive is my favorite book" />
-                                <div class="carousel-caption">
-                                    <h3>I Like to Read</h3>
-                                    <p>My favorite book series is the Atlantis Grail series. </p>
-                                </div>
-
-                            </div>
-
-                            <div class="item">
-                                <img class="img-fluid" src="https://3.bp.blogspot.com/-5p3D5TNqJec/XaeC7eEI2fI/AAAAAAABDbc/Ccq2-qTZcJMWE_QUU_oAeH1oBwRFj564QCLcBGAsYHQ/s1600/Study%2BShows%2BThat%2BTraveling%2BCan%2BMake%2BYou%2BHappier%2BThan%2BA%2BMarriage%2B2.jpg" alt="Vera Nazarian's Servive is my favorite book" />
-                                <div class="carousel-caption">
-                                    <h3>I love to travel</h3>
-                                    <p>When I become finatualy independent I hope to travel to diffrent countries.</p>
-                                </div>
-
-                            </div>
-
+                    <div id="about-me-carousel" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#about-me-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#about-me-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#about-me-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
-                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://live.staticflickr.com/8529/8563111064_a91558e626_b.jpg" class="d-block w-100" alt="Camera looking over the shoulder of a kid reading a book.">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1>I love Reading</h1>
+                                    <p>Some of my favorite books include Percy Jackson series, Atlantis Grail series, and Infinity born. I love science fiction and also find action and adventure interesting to read.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://th.bing.com/th/id/R.811ca17972b566be28ee7cd436097af5?rik=n%2bLGxYzQJp9yvg&pid=ImgRaw&r=0" class="d-block w-100" alt="Man with backpack over looks a lake that is surrounded by mountains.">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1>I enjoy traveling</h1>
+                                    <p>Some of my places I have traveled inclued California, Florida, Montana, and Iowa</p>
+                                </div>
+
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://3.bp.blogspot.com/-5p3D5TNqJec/XaeC7eEI2fI/AAAAAAABDbc/Ccq2-qTZcJMWE_QUU_oAeH1oBwRFj564QCLcBGAsYHQ/s1600/Study%2BShows%2BThat%2BTraveling%2BCan%2BMake%2BYou%2BHappier%2BThan%2BA%2BMarriage%2B2.jpg" class="d-block w-100" alt="Picture of pizza.">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1>My favorite food is pizza</h1>
+                                    <p>My Favorite food has always been pizza it has been a great constent in my life and I will always have a special place in my heart for a good slice of pizza.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#about-me-carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#about-me-carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -443,8 +329,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
 
