@@ -7,11 +7,11 @@ a {
 }
 
 footer {
-    width: 94vw;
-    margin-left: 3vw;
+    width: 50vw;
+    margin-left: 25vw;
     border-top: solid 5px red;
     margin-top: 10px;
-    padding: 2vh;
+   
 }
 
 pre {
@@ -41,15 +41,14 @@ hr {
     border-color: #1861ac;
 }
 
+.nav-tabs .nav-link {
+    color: red;
+}
+
 .navbar {
     background-color: transparent;
     font-size: 1rem;
     border-radius: 10px;
-}
-
-a.nav-link {
-    color: white;
-
 }
 
 .panel {
@@ -107,7 +106,7 @@ body {
         width: 100vw;
     }*/
 
-    body.table {
+    body.admin-home {
         background-image: url(https://th.bing.com/th/id/R.6b0de3bf04be27160bf338233d656948?rik=K4%2fab1AlSaNU1Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fBest-Black-And-Red-Backgrounds.jpg&ehk=XnsgviCZCh%2fZiCs1ZFoUiWM%2b%2f0Y4esXgURbjYXJtzRM%3d&risl=&pid=ImgRaw&r=0);
         background-repeat: no-repeat;
         width: 100vw
@@ -129,26 +128,6 @@ form {
     text-align: left;
 }
 
-th {
-    text-align: center;
-}
-
-td {
-    text-align: center;
-    margin-right: 5px;
-}
-
-.table td {
-    text-align: center;
-    vertical-align: middle;
-    padding: 0;
-}
-
-
-table.message {
-    width: 100%
-}
-
 .footer {
     border: solid 5px red;
     font-size: 20px;
@@ -160,14 +139,9 @@ table.message {
 
 /*Home styling*/
 
-.projects-display {
-    width: 90vw;
-    margin-left: 5vw;
-}
-
 .contact-display {
-    width: 90vw;
-    margin-left: 5vw;
+    width: 80vw;
+    margin-left: 10vw;
 }
 
 .depth {
@@ -206,50 +180,6 @@ table.message {
     justify-content: right;
 }
 
-.projects-background {
-    background-image: linear-gradient(to bottom right, black, hsl(232, 98%, 59%));
-    border-radius: 10px;
-    padding-bottom: 100px;
-    width: 100vw;
-}
-.project-left-background {
-    background-color: #a50021;
-    border-radius: 10px;
-    width: 40vw;
-    height: 30vh;
-}
-
-.project-right-background {
-    background-color: #a50021;
-    border-radius: 10px;
-    width: 40vw;
-    height: 30vh;
-}
-
-.project-right{
-    margin-top: 50vh;
-}
-
-    .project-right:hover {
-        animation-name: pop;
-        animation-fill-mode: forwards;
-        animation-duration: 2s;
-    }
-
-.project-left {
-    background-color: black;
-    border: solid 1px #a50021;
-    border-radius: 10px;
-    width: 40vw;
-    height: 30vh;
-}
-
-.project-left:hover {
-    animation-name: pop;
-    animation-fill-mode: forwards;
-    animation-duration: 2s;
-    
-}
 
 @keyframes pop {
     0% {
@@ -263,78 +193,6 @@ table.message {
     }
 }
 
-.project-img-left-background {
-    width: 20vh;
-    height: 20vh;
-    border-radius: 10px;
-    top: -5vh;
-    margin-left: 80%;
-    background-color: #a50021;
-}
-
-.project-img-left {
-    padding: 0;
-    margin-left: 80%;
-    width: 20vh;
-    height:20vh;
-    border-radius: 10px;
-    top: -5vh;
-   
-}
-    .project-img-left:hover{
-        animation-name: inverse-pop;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-    }
-
-.project-img-right-background {
-    width: 20vh;
-    height: 20vh;
-    border-radius: 10px;
-    top: -5vh;
-    margin-left: 80%;
-    background-color: #a50021;
-}
-
-.project-img-right {
-    padding: 0;
-    margin-left: 80%;
-    width: 20vh;
-    height: 20vh;
-    border-radius: 10px;
-    top: -5vh;
-}
-
-    .project-img-right:hover {
-        animation-name: inverse-pop;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-    }
-
-@keyframes inverse-pop {
-   
-    100% {
-        transform: translate(-20px, 20px);
-    }
-}
-
-.intro {
-    animation-name: intro-pop;
-    animation-fill-mode: forwards;
-    animation-duration: 2s;
-    animation-delay: 2s;
-    height: 13vh;
-    width: 50vw;
-}
-
-@keyframes intro-pop{
-    
-    100% {
-        border-radius: 10px;
-        border-top: solid 1px red;
-        border-right: solid 5px red;
-    }
-}
 
 .glyphicon-arrow-down {
     color: red;
@@ -349,12 +207,6 @@ table.message {
 .header {
     height: 100px
 }
-
-.windows-form-project {
-    border: 5px solid black;
-    border-radius: 5px;
-}
-
 
 .thick {
     display: block;
@@ -394,10 +246,83 @@ table.message {
 }
 
 #home-intro {
-    margin-top: calc(50vh - 48px);
+    margin-top: calc(40vh - 48px);
+    margin-left: 20vw;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.vertical-line {
+    height: 10vh;
+    border: 1px solid white;
+    margin-left: 42vw;
+    
+}
+
+    .vertical-line-animate {
+        animation-name: vertical-line;
+        animation-delay: 2.5s; 
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes vertical-line {
+        100% {
+            transform: translateX(calc(31vw - 2px));
+            height: 34vh;
+            margin-top: 13vh;
+            position: fixed;
+        }
+    }
+
+.find-me-links {
+    margin-left: 42vw;
+    height: 20vh;   
+}
+
+    .find-me-links.animate {
+        animation-name: find-me-links-reveal;
+        animation-delay: 2.5s;
+        animation-fill-mode: forwards;
+        animation-duration: 3s
+    }
+
+    @keyframes find-me-links-reveal{
+        100% {
+            transform: translateX(30vw);
+            position: fixed;
+           
+        }
+    }
+
+#linkedIn-link {
+    height: 80%;
+}
+
+.hidden-rect {
+    width: 30vw;
+    height: 10vh;
+    background-color: black;
+    margin-left: 22vw;
+}
+
+#find-me {
+    animation-name: find-me;
+    animation-duration: 2s; 
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+    @keyframes find-me {
+        100% {
+            transform: translateX(25vw);
+        
+        }
+    }
+
+#home-link {
+    margin-bottom: 50vh;
 }
 
 #scroll-arrow {
@@ -493,22 +418,38 @@ table.message {
     }
 }
 
+#projects-link {
+    margin-bottom: 20vh
+}
+
+.project-quick-look {
+    width: 100%;
+    height: 40vh;
+    background-color: #a50021;
+    border-radius: 10px;
+    opacity: .8;
+}
+
+
+    .project-quick-look:hover {
+        opacity: 1;
+        box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    }
+.project-hr {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 5%;
+}
+
+#contact-link{
+    margin-bottom: 5vh;
+}
+
 #find-me {
     display: inline;
     margin-right: 10px;
     align-items: center;
     align-content: center;
-}
-
-#projects-grid {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: auto;
-    grid-gap: .5rem;
-}
-
-.projects-area {
-    margin: 50vh 0 50vh 0;
 }
 
 #about-me-panel {
@@ -517,12 +458,6 @@ table.message {
     border-top: #a50021 1px solid;
     border-left: #a50021 5px solid;
 }
-
-#grid-image {
-    height: 18rem;
-    width: 100%;
-}
-
 .message-input {
     height: 5vh;
     width: 100%;
@@ -540,14 +475,17 @@ table.message {
 }
 
 #submit-message {
-    font-size: 2rem;
-    vertical-align: middle;
-    background-color: red;
-    color: black;
     width: 100%;
     height: 5vh;
-    border: solid 5px #8B0000;
+    border: solid 1px red;
+    background-color: transparent;
+    color: red;
 }
+
+    #submit-message:hover {
+        background-color: red;
+        color: black;
+    }
 
 /*Admin styling*/
 
@@ -561,16 +499,18 @@ ul#admin-nav-list {
     position: fixed;
 }
 
+.site-logo {
+    text-decoration: none;
+}
+
 a:hover {
     color: white;
+    text-decoration: none;
 }
-
-li.admin-li {
-    margin-top: 1vh;
-}
-
-.table-display {
-    padding: 1vh 5vw 0 5vw
+.admin-message-table {
+    border: 1px solid red;
+    background-color: transparent;
+    color: white;
 }
 
 .admin-logout {
@@ -608,16 +548,6 @@ form.admin-logout-form {
         text-decoration: none;
     }
 
-.nav-link {
-    color: red;
-}
-
-.nav-link:hover {
-    animation-name: link-hover;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    
-}
 
     @keyframes link-hover{
         0% {
@@ -645,13 +575,6 @@ form.admin-logout-form {
     color: white;
     border: 1px solid red;
     height: 5vh;
-}
-
-.message-table {
-    border: 2px solid red;
-    width: 80vw;
-    color: white;
-    margin-left: 10vw;
 }
 
 .text-overflow {
@@ -683,10 +606,6 @@ form.admin-logout-form {
     color: white;
     border: 1px solid red;
     height: 5vh;
-}
-
-.table-navbar {
-    background-color: transparent;
 }
 
 #details-btn {

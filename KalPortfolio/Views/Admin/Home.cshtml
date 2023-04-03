@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="discription" content="View a message table and also have control over users and user messages." /> 
     <title>Kalkidan's Portfolio - Admin Home</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />  
      
     <script type="text/javascript">
@@ -29,33 +28,34 @@
     </script>
 
 </head>
-<body class="table">
+<body class="admin-home">
     
     <a type="button" href="/Home/Home#home-link" class="btn btn-info skip">Skip navigation</a>
     <header>
         <nav class="admin-nav">
             <div>
                 <ul id="admin-nav-list">
-                    <li class="admin-li"><a class="site-logo" href="Home">@User.Identity.Name.ToString()</a></li>
-                    <li class="admin-li"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
-                    <li class="admin-li"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
-                    <li class="admin-li"><a class="nav-link" href="/Admin/AddAdmin" aria-label="Go to add admin page.">Add Admin</a></li>
-                    <li class="admin-li"><a class="nav-link" href="/Admin/ViewUsers" aria-label="Go to View users page.">View Users</a></li>
+                    <li><a class="site-logo" href="Home">@User.Identity.Name.ToString()</a></li>
+                    <li class="d-flex justify-content-center mt-4"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
+                    <li class="d-flex justify-content-center mt-4"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
+                    <li class="d-flex justify-content-center mt-4"><a class="nav-link disabled" href="/Admin/AddAdmin" aria-label="disabled.">Disabled</a></li>
+                    <li class="d-flex justify-content-center mt-4"><a class="nav-link disabled" href="/Admin/ViewUsers" aria-label="disabled.">Disabled</a></li>
+                    <form asp-action="Logout" asp-controller="Home" method="post" class="d-flex justify-content-center mt-4">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" value="Logout" class="btn btn-outline-danger">Logout</button>
+                    </form>
                 </ul>
-            </div>            
+                
+            </div>
+            
         </nav>
     </header>
     
 
     <section class="table-display">
-        <div class="admin-logout">
-            <form asp-action="Logout" asp-controller="Home" method="post" class="admin-logout-form">
-                @Html.AntiForgeryToken()
-                <button type="submit" value="Logout" id="admin-logout-btn">Logout</button>
-            </form>
-        </div>
+        
         <div class="search-input">
-            <div class="row">           
+            <div class="row pt-5">           
                 <div class="col-12">                                  
                     <input type="text" class="search-message" id="search-for-message" placeholder="Search Last Name" />
                     <button type="submit" class="search-message" onclick="search()">Search</button>                    
@@ -63,50 +63,54 @@
             </div>
         </div>
 
-        <table class="message-table table-dark">
-            <thead>
-                <tr class="">
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Respond To</th>
-                    <th>Subject</th>
-                    <th>Message</th>
-                    <th>Edit</th>
-                </tr>               
-            </thead>
-
-            <tbody>               
-                @foreach(var message in Model)
-                {
+        <div class="container p-0">
+            <table class="table admin-message-table">
+                <thead>
                     <tr>
-                        <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
-
-                        <td>@Html.DisplayFor(modelItem => message.LastName)</td>
-
-                        <td><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
-
-                        <td>@Html.DisplayFor(modelItem => message.Subject)</td>
-
-                        <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
-
-                        <td>
-                            <input type="button" value="Delete" id="delete-btn" onclick="deleteMessage('@message.Id')" />
-
-                            <input type="button" value="Details" id="details-btn" onclick="detailsMessage('@message.Id')" />
-                        </td>
-
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Respond To</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Edit</th>
                     </tr>
-                }                
-            </tbody>
-        </table>
+                </thead>
 
+                <tbody>
+                    @foreach (var message in Model)
+                    {
+                        <tr>
+
+                            <td>@Html.DisplayFor(modelItem => message.LastName)</td>
+
+                            <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
+
+                            <td><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
+
+                            <td>@Html.DisplayFor(modelItem => message.Subject)</td>
+
+                            <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
+
+                            <td>
+                                <button type="button" class="btn btn-outline-danger btn-sm" value="Delete" onclick="deleteMessage('@message.Id')">Delete</button>
+
+                                <button type="button" class="btn btn-outline-light btn-sm" value="Details" onclick="detailsMessage('@message.Id')">Details</button>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+       
+        
        
     </section>
-    
+        
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>
 
