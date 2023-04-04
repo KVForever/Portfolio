@@ -137,6 +137,8 @@ form {
     line-height: 60px; /* Vertically center the text */
 }
 
+
+
 /*Home styling*/
 
 .contact-display {
@@ -247,6 +249,7 @@ form {
 
 #home-intro {
     margin-top: calc(40vh - 48px);
+    margin-bottom: 20vh;
     margin-left: 20vw;
     display: flex;
     justify-content: center;
@@ -257,35 +260,41 @@ form {
     height: 10vh;
     border: 1px solid white;
     margin-left: 42vw;
-    
+    display: absolute;
+    z-index: -1;
 }
 
-    .vertical-line-animate {
+    .line-animate {
         animation-name: vertical-line;
-        animation-delay: 2.5s; 
-        animation-duration: 3s;
+        animation-duration: 2s;
         animation-fill-mode: forwards;
     }
 
     @keyframes vertical-line {
         100% {
+            margin-top: 13vh;
             transform: translateX(calc(31vw - 2px));
             height: 34vh;
-            margin-top: 13vh;
             position: fixed;
+           
         }
-    }
+    } 
+
+#linkedIn-link {
+    margin-top: 5vh;
+    
+}
 
 .find-me-links {
     margin-left: 42vw;
     height: 20vh;   
+    
 }
 
-    .find-me-links.animate {
+    .links-animate {
         animation-name: find-me-links-reveal;
-        animation-delay: 2.5s;
         animation-fill-mode: forwards;
-        animation-duration: 3s
+        animation-duration: 2s
     }
 
     @keyframes find-me-links-reveal{
@@ -296,9 +305,7 @@ form {
         }
     }
 
-#linkedIn-link {
-    height: 80%;
-}
+
 
 .hidden-rect {
     width: 30vw;
@@ -307,47 +314,38 @@ form {
     margin-left: 22vw;
 }
 
-#find-me {
-    animation-name: find-me;
-    animation-duration: 2s; 
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
+.find-me {
+   position: absolute;
+   z-index: 0; 
+  
 }
+
+    .find-me-in{
+        margin-left: -50vw;
+        animation: find-me-in 3s forwards;
+    }
+
+    .find-me-animate {
+        margin-left: 0;
+        animation-name: find-me;
+        animation-duration: 1s; 
+        animation-fill-mode: forwards;
+    }
 
     @keyframes find-me {
         100% {
             transform: translateX(25vw);
-        
+        }
+    }
+
+    @keyframes find-me-in {
+        100% {
+            margin-left: 0;
         }
     }
 
 #home-link {
     margin-bottom: 50vh;
-}
-
-#scroll-arrow {
-    margin-bottom: 3vh;
-    margin-right: 10vw;
-    display: flex;
-    justify-content: right;
-    background-color: white;
-}
-
-@keyframes arrowMove {
-    0% {
-        left: 0;
-        top: 0;
-    }
-
-    50% {
-        left: 0;
-        top: -50px;
-    }
-
-    100% {
-        left: 0;
-        top: 0;
-    }
 }
 
 #home-info-header {
@@ -430,11 +428,11 @@ form {
     opacity: .8;
 }
 
-
     .project-quick-look:hover {
         opacity: 1;
         box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     }
+
 .project-hr {
     border: 2px solid black;
     border-radius: 10px;
@@ -443,13 +441,6 @@ form {
 
 #contact-link{
     margin-bottom: 5vh;
-}
-
-#find-me {
-    display: inline;
-    margin-right: 10px;
-    align-items: center;
-    align-content: center;
 }
 
 #about-me-panel {
