@@ -16,9 +16,14 @@ $(function () {
 
         if (scroll >= (5) && count < 1) {
             findMeLinks.addClass("links-animate");
-            verticalLine.addClass("line-animate");
-            findMe.addClass("find-me-animate")
+            verticalLine.addClass("line-left");
+            findMe.addClass("find-me-animate");
             count++;
         }
+
+        //if (count == 1) {
+        //    $(".line-left").addClass("line-height");
+        //}
+       
     });
 });

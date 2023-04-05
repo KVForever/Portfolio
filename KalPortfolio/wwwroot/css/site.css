@@ -1,7 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-
 a {
     color: #fff;
 }
@@ -41,6 +40,14 @@ hr {
     border-color: #1861ac;
 }
 
+.nav-link {
+    color: white;   
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+}
+
 .nav-tabs .nav-link {
     color: red;
 }
@@ -63,29 +70,10 @@ hr {
 }
 
 
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
 html {
     position: relative;
     min-height: 100%;
+    font-size: .9vw;
 }
 
 header {
@@ -93,23 +81,20 @@ header {
 }
 
 body {
+    border: 0;
     background-color: #000;
     width: 100vw;
+    overflow-x: hidden;
     color: #fff;
     margin: 0;
     padding: 0;
 }
 
-   /* body.home {
-        background-image: url(https://wallpapertag.com/wallpaper/full/f/9/c/500431-download-black-and-blue-abstract-wallpaper-1920x1200-for-computer.jpg);
-        background-repeat: no-repeat;
-        width: 100vw;
-    }*/
-
     body.admin-home {
         background-image: url(https://th.bing.com/th/id/R.6b0de3bf04be27160bf338233d656948?rik=K4%2fab1AlSaNU1Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fBest-Black-And-Red-Backgrounds.jpg&ehk=XnsgviCZCh%2fZiCs1ZFoUiWM%2b%2f0Y4esXgURbjYXJtzRM%3d&risl=&pid=ImgRaw&r=0);
         background-repeat: no-repeat;
-        width: 100vw
+        background-size: cover;
+        
     }
 
     body.detail {
@@ -126,15 +111,6 @@ body {
 
 form {
     text-align: left;
-}
-
-.footer {
-    border: solid 5px red;
-    font-size: 20px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    line-height: 60px; /* Vertically center the text */
 }
 
 
@@ -196,16 +172,6 @@ form {
 }
 
 
-.glyphicon-arrow-down {
-    color: red;
-    animation-delay: 2s;
-    animation-name: arrowMove;
-    animation-iteration-count: infinite;
-    animation-duration: 3s;
-    position: relative;
-    
-}
-
 .header {
     height: 100px
 }
@@ -249,7 +215,7 @@ form {
 
 #home-intro {
     margin-top: calc(40vh - 48px);
-    margin-bottom: 20vh;
+   
     margin-left: 20vw;
     display: flex;
     justify-content: center;
@@ -259,26 +225,31 @@ form {
 .vertical-line {
     height: 10vh;
     border: 1px solid white;
-    margin-left: 42vw;
+    margin-left: 100vw;
     display: absolute;
     z-index: -1;
+    position: fixed;
 }
 
-    .line-animate {
-        animation-name: vertical-line;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-    }
+.line-left {
+    animation: 2s forwards vertical-line, 2s cubic-bezier(0.85, 0.1, 0.99, 0.94) forwards make-line-longer;
+}
 
     @keyframes vertical-line {
+
         100% {
             margin-top: 13vh;
-            transform: translateX(calc(31vw - 2px));
-            height: 34vh;
-            position: fixed;
-           
+            transform: translateX(calc(31vw - 2px));           
+            margin-left: 43vw;
         }
-    } 
+    }
+
+    @keyframes make-line-longer {
+        100% {            
+            height: 36vh;
+            
+        }
+    }
 
 #linkedIn-link {
     margin-top: 5vh;
@@ -286,22 +257,23 @@ form {
 }
 
 .find-me-links {
-    margin-left: 42vw;
+    margin-left: 100vw;
     height: 20vh;   
-    
+    display: absolute;
+    position: fixed;
 }
 
     .links-animate {
         animation-name: find-me-links-reveal;
         animation-fill-mode: forwards;
-        animation-duration: 2s
+        animation-duration: 2s;
+        
     }
 
     @keyframes find-me-links-reveal{
         100% {
-            transform: translateX(30vw);
-            position: fixed;
-           
+            transform: translateX(42vw);
+            margin-left: 31vw;
         }
     }
 
@@ -321,7 +293,6 @@ form {
 }
 
     .find-me-in{
-        margin-left: -50vw;
         animation: find-me-in 3s forwards;
     }
 
@@ -340,7 +311,7 @@ form {
 
     @keyframes find-me-in {
         100% {
-            margin-left: 0;
+            
         }
     }
 
@@ -400,20 +371,58 @@ form {
     }
 }
 
-#arrow-in {
-    animation-name: arrow-in;
-    animation-duration: 3s;
-    position: relative;
+.projects-intro-discription {
+    
 }
 
-@keyframes arrow-in {
-    0% {
-        left: 100vw;
-    }
+.projects {
+    height: 50vh;
+    width: 60vw;
+    margin: 20vh 0 10vh 0;
+}
 
-    100% {
-        left: 0;
-    }
+.project-img {
+    width: 40vw;
+    height: 40vh;
+    background-image: url('../images/website.png');
+    background-size: cover;
+
+    margin: 0 0 0 5vw;
+}
+
+.project-discription {
+    width: 30vw;
+    height: 12vh;
+    background-color: #a50021;
+    margin: 10vh 0 0 35vw;
+    border-radius: 10px;
+}
+
+.website-discription {
+    font-size: .9rem;
+    margin: 0;
+}
+
+.website-tech {
+    font-size: .569rem;
+}
+
+.project-technologies {
+    width: 30vw;
+    height: 2vh;
+    margin: 23vh 0 0 35vw
+}
+
+.project-header {
+    height: 10vh;
+    width: 65vw;
+  
+}
+
+.project-links {
+    height: 5vh;
+    width: 65vw;
+    margin: 27vh 0 0 0;
 }
 
 #projects-link {
