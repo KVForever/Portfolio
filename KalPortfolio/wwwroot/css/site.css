@@ -10,7 +10,6 @@ footer {
     margin-left: 25vw;
     border-top: solid 5px red;
     margin-top: 10px;
-   
 }
 
 pre {
@@ -41,11 +40,16 @@ hr {
 }
 
 .nav-link {
-    color: white;   
+    color: white;
+}
+
+.nav-link.disabled {
+    color: gray;
 }
 
 .navbar-brand {
     font-size: 1.2rem;
+    padding: 0;
 }
 
 .nav-tabs .nav-link {
@@ -80,6 +84,10 @@ header {
     width: 100%;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 body {
     border: 0;
     background-color: #000;
@@ -88,13 +96,14 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
     body.admin-home {
         background-image: url(https://th.bing.com/th/id/R.6b0de3bf04be27160bf338233d656948?rik=K4%2fab1AlSaNU1Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fBest-Black-And-Red-Backgrounds.jpg&ehk=XnsgviCZCh%2fZiCs1ZFoUiWM%2b%2f0Y4esXgURbjYXJtzRM%3d&risl=&pid=ImgRaw&r=0);
         background-repeat: no-repeat;
         background-size: cover;
-        
     }
 
     body.detail {
@@ -116,6 +125,11 @@ form {
 
 
 /*Home styling*/
+
+.nav-border {
+    border-radius: 0;
+    border-bottom: 1px solid #262626;
+}
 
 .contact-display {
     width: 80vw;
@@ -160,14 +174,12 @@ form {
 
 
 @keyframes pop {
-    0% {
+    from {
         transform: translate(0,0);
-        
     }
 
-    100% {
+    to {
         transform: translate(20px, -20px);
-        
     }
 }
 
@@ -215,7 +227,6 @@ form {
 
 #home-intro {
     margin-top: calc(40vh - 48px);
-   
     margin-left: 20vw;
     display: flex;
     justify-content: center;
@@ -231,51 +242,54 @@ form {
     position: fixed;
 }
 
-.line-left {
-    animation: 2s forwards vertical-line, 2s cubic-bezier(0.85, 0.1, 0.99, 0.94) forwards make-line-longer;
+@media screen and (min-width: 1675px) {
+    .line-left {
+        animation: 2s forwards vertical-line, 2s cubic-bezier(0.85, 0.1, 0.99, 0.94) forwards make-line-longer;
+    }
 }
 
-    @keyframes vertical-line {
 
-        100% {
-            margin-top: 13vh;
-            transform: translateX(calc(31vw - 2px));           
-            margin-left: 43vw;
-        }
-    }
+@keyframes vertical-line {
 
-    @keyframes make-line-longer {
-        100% {            
-            height: 36vh;
-            
-        }
+    100% {
+        margin-top: 13vh;
+        transform: translateX(calc(31vw - 2px));
+        margin-left: 43vw;
     }
+}
+
+@keyframes make-line-longer {
+    100% {
+        height: 36vh;
+    }
+}
 
 #linkedIn-link {
     margin-top: 5vh;
-    
 }
 
 .find-me-links {
     margin-left: 100vw;
-    height: 20vh;   
+    height: 20vh;
     display: absolute;
     position: fixed;
 }
 
+@media screen and (min-width: 1675px) {
     .links-animate {
         animation-name: find-me-links-reveal;
         animation-fill-mode: forwards;
         animation-duration: 2s;
-        
     }
+}
 
-    @keyframes find-me-links-reveal{
-        100% {
-            transform: translateX(42vw);
-            margin-left: 31vw;
-        }
+
+@keyframes find-me-links-reveal {
+    to {
+        transform: translateX(42vw);
+        margin-left: 31vw;
     }
+}
 
 
 
@@ -287,33 +301,35 @@ form {
 }
 
 .find-me {
-   position: absolute;
-   z-index: 0; 
-  
+    position: absolute;
+    z-index: 0;
+    margin-left: -100vw;
 }
 
-    .find-me-in{
-        animation: find-me-in 3s forwards;
-    }
+.find-me-in {
+    animation: find-me-in 3s forwards;
+}
 
+@media screen and (min-width: 1675px) {
     .find-me-animate {
         margin-left: 0;
         animation-name: find-me;
-        animation-duration: 1s; 
+        animation-duration: 1s;
         animation-fill-mode: forwards;
     }
+}
 
-    @keyframes find-me {
-        100% {
-            transform: translateX(25vw);
-        }
+@keyframes find-me {
+    to {
+        transform: translateX(25vw);
     }
+}
 
-    @keyframes find-me-in {
-        100% {
-            
-        }
+@keyframes find-me-in {
+    to {
+        margin-left: 0;
     }
+}
 
 #home-link {
     margin-bottom: 50vh;
@@ -326,12 +342,12 @@ form {
 }
 
 @keyframes home-header {
-    0% {
+    from {
         right: 100vw;
         top: 0px;
     }
 
-    100% {
+    to {
         right: 0px;
         top: 0px;
     }
@@ -344,12 +360,12 @@ form {
 }
 
 @keyframes home-tag-line {
-    0% {
+    from {
         left: 100vw;
         top: 0px;
     }
 
-    100% {
+    to {
         left: 0px;
         top: 0px;
     }
@@ -362,17 +378,16 @@ form {
 }
 
 @keyframes nav-in {
-    0% {
+    from {
         top: -100vh;
     }
 
-    100% {
+    to {
         top: 0px;
     }
 }
 
 .projects-intro-discription {
-    
 }
 
 .projects {
@@ -386,7 +401,6 @@ form {
     height: 40vh;
     background-image: url('../images/website.png');
     background-size: cover;
-
     margin: 0 0 0 5vw;
 }
 
@@ -416,7 +430,6 @@ form {
 .project-header {
     height: 10vh;
     width: 65vw;
-  
 }
 
 .project-links {
@@ -448,7 +461,7 @@ form {
     margin-top: 5%;
 }
 
-#contact-link{
+#contact-link {
     margin-bottom: 5vh;
 }
 
@@ -458,6 +471,7 @@ form {
     border-top: #a50021 1px solid;
     border-left: #a50021 5px solid;
 }
+
 .message-input {
     height: 5vh;
     width: 100%;
@@ -489,24 +503,11 @@ form {
 
 /*Admin styling*/
 
-ul#admin-nav-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 10%;
-    background-color: hsla(0, 0%, 14%, 0.5);
-    height: 100%;
-    position: fixed;
-}
-
-.site-logo {
-    text-decoration: none;
-}
-
 a:hover {
     color: white;
     text-decoration: none;
 }
+
 .admin-message-table {
     border: 1px solid red;
     background-color: transparent;
@@ -549,21 +550,21 @@ form.admin-logout-form {
     }
 
 
-    @keyframes link-hover{
-        0% {
-            color: red;
-        }
-
-        50% {
-            color: white;
-            font-weight:600;
-        }
-
-        100% {
-            color: red;
-        }
-
+@keyframes link-hover {
+    0% {
+        color: red;
     }
+
+    50% {
+        color: white;
+        font-weight: 600;
+    }
+
+    100% {
+        color: red;
+    }
+}
+
 .search-input {
     width: 50vw;
     margin-left: 40vw;
@@ -626,6 +627,7 @@ form.admin-logout-form {
 
 /*login styling*/
 
+
 .login-label {
     animation-name: text-reveal;
     animation-duration: 2s;
@@ -683,9 +685,11 @@ form.admin-logout-form {
     border: 0;
     height: 6vh;
     margin: 5% 0 5% 0;
+    color: white;
 }
 
 #login {
+   
     color: rgba(7, 68, 148, 1);
     background: rgba(7, 68, 148, 1);
     width: 100%;
@@ -709,36 +713,33 @@ form.admin-logout-form {
 }
 
 .login-focus {
+    background-color: rgba(7, 68, 148, 1);
+  
+    height: 80vh;
     animation-name: login-focus;
     animation-duration: 3s;
     animation-fill-mode: forwards;
 }
 
 @keyframes login-focus {
-    from {
-        background: rgba(7, 68, 148, 1);
-        width: 40vw;
+    0% {
+        background: rgba(7, 68, 148, 1);      
         height: 80vh;
         margin-top: 10vh;
-        margin-left: 10vw;
         border-radius: 40px
     }
 
     10% {
-        background: rgba(7, 68, 148, 1);
-        width: 40vw;
+        background: rgba(7, 68, 148, 1);       
         height: 80vh;
-        margin-top: 10vh;
-        margin-left: 10vw;
+        margin-top: 10vh;       
         border-radius: 40px
     }
 
-    to {
-        background: rgba(7, 68, 148, 0.16);
-        width: 40vw;
+    100% {
+        background: rgba(7, 68, 148, 0.16);       
         height: 80vh;
-        margin-top: 10vh;
-        margin-left: 10vw;
+        margin-top: 10vh;       
         border-radius: 50px
     }
 }
@@ -779,4 +780,3 @@ form.admin-logout-form {
 .create-account-label {
     margin-top: 2%;
 }
-

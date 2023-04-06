@@ -3,114 +3,100 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="discription" content="View a message table and also have control over users and user messages." /> 
-    <title>Kalkidan's Portfolio - Admin Home</title>
-    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />  
-     
-    <script type="text/javascript">
-        function search()
-        {                       
-            location.href = '/Admin/Home?name=' + document.querySelector('#search-for-message').value;
-        }
-
-        function deleteMessage(message_id){
-            location.href = '/Admin/Delete?id=' + message_id;
-        }
-
-        function detailsMessage(message_id){
-
-            location.href = '/Admin/Details?id=' + message_id ;
-        }
-    </script>
-
-</head>
-<body class="admin-home">
-    
-    <a type="button" href="/Home/Home#home-link" class="btn btn-info skip">Skip navigation</a>
-    <header>
-        <nav class="admin-nav">
-            <div>
-                <ul id="admin-nav-list">
-                    <li><a class="site-logo" href="Home">@User.Identity.Name.ToString()</a></li>
-                    <li class="d-flex justify-content-center mt-4"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
-                    <li class="d-flex justify-content-center mt-4"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
-                    <li class="d-flex justify-content-center mt-4"><a class="nav-link disabled" href="/Admin/AddAdmin" aria-label="disabled.">Disabled</a></li>
-                    <li class="d-flex justify-content-center mt-4"><a class="nav-link disabled" href="/Admin/ViewUsers" aria-label="disabled.">Disabled</a></li>
-                    <form asp-action="Logout" asp-controller="Home" method="post" class="d-flex justify-content-center mt-4">
-                        @Html.AntiForgeryToken()
-                        <button type="submit" value="Logout" class="btn btn-outline-danger">Logout</button>
-                    </form>
-                </ul>
-                
-            </div>
-            
-        </nav>
-    </header>
-    
-
-    <section class="table-display">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="View a message table and also have control over users and user messages." />
         
-        <div class="search-input">
-            <div class="row pt-5">           
-                <div class="col-12">                                  
-                    <input type="text" class="search-message" id="search-for-message" placeholder="Search Last Name" />
-                    <button type="submit" class="search-message" onclick="search()">Search</button>                    
+        <title>Kalkidan's Portfolio - Admin Home</title>
+        <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />  
+    </head>
+
+    <body class="admin-home">   
+        <a type="button" href="/Home/Home#home-link" class="btn btn-info skip">Skip navigation</a>
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark ms-3 nav-border">
+                <div class="container-fluid">
+               
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="Home">@User.Identity.Name.ToString()</a>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
+                            <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
+                            <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/AddAdmin" aria-label="disabled.">Disabled</a></li>
+                            <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/ViewUsers" aria-label="disabled.">Disabled</a></li>
+                        </ul>
+                        @Html.AntiForgeryToken()
+                        <form asp-action="Logout" asp-controller="Home" method="post" class="d-flex">
+                            <button class="btn btn-outline-danger" type="submit" value="Logout">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    
+
+        <section class="table-display">
+        
+            <div class="search-input">
+                <div class="row pt-5">           
+                    <div class="col-12">                                  
+                        <input type="text" class="search-message" id="search-for-message" placeholder="Search Last Name" />
+                        <button type="submit" class="search-message" onclick="search()">Search</button>                    
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container p-0">
-            <table class="table admin-message-table">
-                <thead>
-                    <tr>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Respond To</th>
-                        <th scope="col">Subject</th>
-                        <th scope="col">Message</th>
-                        <th scope="col">Edit</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach (var message in Model)
-                    {
+            <div class="container">
+                <table class="table admin-message-table">
+                    <thead>
                         <tr>
-
-                            <td>@Html.DisplayFor(modelItem => message.LastName)</td>
-
-                            <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
-
-                            <td><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
-
-                            <td>@Html.DisplayFor(modelItem => message.Subject)</td>
-
-                            <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
-
-                            <td>
-                                <button type="button" class="btn btn-outline-danger btn-sm" value="Delete" onclick="deleteMessage('@message.Id')">Delete</button>
-
-                                <button type="button" class="btn btn-outline-light btn-sm" value="Details" onclick="detailsMessage('@message.Id')">Details</button>
-                            </td>
-
+                            <th scope="col">Last Name</th>
+                            <th scope="col">First Name</th>                       
+                            <th scope="col">Respond To</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Message</th>
+                            <th scope="col">Edit</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-       
-        
-       
-    </section>
-        
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var message in Model)
+                        {
+                            <tr>
+
+                                <td>@Html.DisplayFor(modelItem => message.LastName)</td>
+
+                                <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
+
+                                <td><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
+
+                                <td>@Html.DisplayFor(modelItem => message.Subject)</td>
+
+                                <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
+
+                                <td>
+                                    <button type="button" class="btn btn-outline-danger btn-sm" value="Delete" onclick="deleteMessage('@message.Id')">Delete</button>
+
+                                    <button type="button" class="btn btn-outline-light btn-sm" value="Details" onclick="detailsMessage('@message.Id')">Details</button>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>        
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/js/site.js"></script>
     </body>
 </html>
 

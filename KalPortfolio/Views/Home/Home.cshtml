@@ -6,23 +6,23 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta  name="discription" content="View Kalkidans projects, contact information, and get to know who Kalkidan is." />
+        <meta name="description" content="View Kalkidans projects, contact information, and get to know who Kalkidan is." />
         <title>Kalkidan's Portfolio - Home</title>
         <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <link href="~/css/site.css" rel="stylesheet" />    
     </head>
    
-
     <body class="home">
         <header>
             <a type="button" href="/Home/Home#home-link" class="btn btn-info skip">Skip navigation</a>
         
-            <nav class="navbar navbar-expand-lg navbar-dark ms-3 home-nav" id="nav-in">
+            <nav class="navbar navbar-expand-lg navbar-dark mx-3 nav-border" id="nav-in">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/Home/Home">K</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    <a class="navbar-brand" href="/Home/Home">K</a>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item active"><a class="nav-link" href="#home-link" aria-label="Go to the top of the home page">Home</a></li>
@@ -226,8 +226,8 @@
                         <p class="fs-6">My first major project</p>
                     </div>
                     <div class="project-img position-absolute"></div>
-                    <div class="project-discription position-absolute text-end">
-                        <p class="website-discription me-3 pt-1">One of my first larger projects at Heartland was to make a personal website implimenting what I have learned about Visual Studio, ASP.Net Core, MVC, Bootstrap, Html, CSS, C#, and SQL Server Mangment Studio. As I made this site I expanded my knowledge of these varius technoligies well also learning about incapsulation, dependence injection, project structure and best practices. </p>
+                    <div class="project-discription position-absolute text-end text-center">
+                        <p class="website-discription me-3">One of my first projects at Heartland was to make a personal website implimenting what I have learned about Visual Studio, ASP.Net Core, MVC, Bootstrap, Html, CSS, C#, and SQL Server Mangment Studio. As I made this site I expanded my knowledge of these varius technoligies well also learning about incapsulation, dependence injection, project structure and best practices. </p>
                     </div>
                     <div class="project-technologies position-absolute">
                         <pre class="website-tech">  C#    Visual Studio    CSS    HTML    Bootstrap    MVC    ASP.Net Core    SQL Server Mangment Studio  </pre>
@@ -553,28 +553,6 @@
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="~/js/site.js" type="application/javascript"></script>
-
-        @*<script type="text/javascript">
-        
-            $(function() {
-                var homeNav = $(".home-nav");
-                var findMeLinks = $(".find-me-links");
-                var verticalLine = $(".vertical-line")
-                var homeNavTop = homeNav.offset().top;
-                var windowHeight = $(window).height();
-
-                $(window).scroll(function() {
-                    var scroll = $(window).scrollTop();
-
-                    if ( scroll >= ( homeNav - windowHeight )) {
-                        findMeLinks.addClass("animate");
-                        //verticalLine.addClass("vertical-line-animate");
-                    } 
-                });
-            });
-
-        </script>*@
-
     </body>
 </html>
 

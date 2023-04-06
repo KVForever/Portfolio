@@ -23,7 +23,7 @@ namespace KalPortfolio.Controllers
              
         }
 
-        public ActionResult Login(string returnUrl = "/")
+        public ActionResult Login()
         {
             if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
             {
@@ -39,12 +39,7 @@ namespace KalPortfolio.Controllers
                 
             }
 
-            UserLoginModel model = new();
-            {
-                model.ReturnUrl = returnUrl;
-            };
-
-            return View(model);
+            return View();
         }
 
         [ValidateAntiForgeryToken]

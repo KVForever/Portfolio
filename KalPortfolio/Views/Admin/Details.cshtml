@@ -4,57 +4,54 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="discription" content="View message details along with information of the message creator."/>
-    <title>Kalkidan's Portfolio - details</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link href="~/css/site.css" rel="stylesheet" />
-    
-</head>
-<body class="detail">
-    <section>
-        <div class="depth"></div>
-        <div class="bottom-line"></div>
-        <div class="focus">
-            <h1 class="display-2">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="View message details along with information of the message creator."/>
+        <title>Kalkidan's Portfolio - details</title>
+         <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+    </head>
 
-            <h2>
-                @Html.DisplayFor(model => model.Message)
-            </h2>
+    <body class="detail">
+        <section>
+            <div class="depth"></div>
+            <div class="bottom-line"></div>
+            <div class="focus">
+                <h1 class="display-2">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1>
 
-            <table class="message-detail">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Subject</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> @Html.DisplayFor(model => model.FirstName)</td>
+                <h2>
+                    @Html.DisplayFor(model => model.Message)
+                </h2>
 
-                        <td> @Html.DisplayFor(model => model.LastName)</td>
+                <table class="message-detail">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> @Html.DisplayFor(model => model.FirstName)</td>
 
-                        <td><a class="mail-to" href="mailto@Html.DisplayNameFor(model => model.Email):">Respond To: @Html.DisplayFor(model => model.Email) </a></td>
+                            <td> @Html.DisplayFor(model => model.LastName)</td>
 
-                        <td>@Html.DisplayFor(model => model.Subject)</td>
+                            <td><a class="mail-to" href="mailto@Html.DisplayNameFor(model => model.Email):">Respond To: @Html.DisplayFor(model => model.Email) </a></td>
 
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                            <td>@Html.DisplayFor(model => model.Subject)</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         
-    </section>
+        </section>
     
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>   
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
-</body>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>   
+    </body>
 </html>

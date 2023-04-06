@@ -3,62 +3,67 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Users can create a create and than view Kalkidan's portfolio site." />
-    <title>Kalkidan's Portfolio - Login</title>
-    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
- 
-    <script type="text/javascript">
-        function createAccountBtn(){
-            location.href = '/Login/CreateAccount';
-        }
-    </script>
-
-</head>
-<body class="login">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Users can create a create and than view Kalkidan's portfolio site." />
+        <title>Kalkidan's Portfolio - Login</title>
+        <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+    </head>
+    <body class="login">
     <section>
-        <div class="login-focus">            
-            <div class="row">                
-                <div asp-action="login" id="login-form">                      
-                    
-                    <div class="login-Heading">
-                        <h1 class="d-flex justify-content-center">Welcome!</h1>
-                    </div>
-                    <div>
-                        <form asp-action="Login" asp-controller="Login" method="post">
-                            @Html.AntiForgeryToken()
-                            <div class="row">
-                                <label asp-for="@Model.Username" class="login-label">Username</label>
-                                <input asp-for="@Model.Username" type="text" class="login-input" placeholder="Username" required />
-                                <span asp-validation-for="@Model.Username" class="text-danger"></span>
-                            </div>
-                            <div class="row">
-                                <label asp-for="@Model.Password" class="login-label">Password</label>
-                                <input asp-for="@Model.Password" type="password" class="login-input" placeholder="Password" required />
-                                <span asp-validation-for="@Model.Password" class="text-danger"></span>
-                            </div>
-                            <div>
-                                <input type="hidden" asp-for="@Model.ReturnUrl" id="returnurl" />
-                            </div>
-                            <div class="row">
-                                <button type="submit" id="login" placeholder="Login">Login</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" onclick="createAccountBtn()" id="create-account">Create Account</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>                                   
-            </div>          
-        </div>
-    </section>
+        <div class="container">
+            <div class="row">               
+                <div class="login-focus col-lg-6 col-sm-12 col-md-12">
+                    <div asp-action="login" id="login-form">
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
-</body>
+                        <div id="login-heading">
+                            <h1 class="d-flex justify-content-center">Welcome!</h1>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <form asp-action="Login" asp-controller="Login" method="post">
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="row">
+                                        <label asp-for="@Model.Username" class="login-label">Username</label>
+                                        <input asp-for="@Model.Username" type="text" class="login-input" required />
+                                        <span asp-validation-for="@Model.Username" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="row">
+                                        <label asp-for="@Model.Password" class="login-label">Password</label>
+                                        <input asp-for="@Model.Password" type="password" class="login-input" required />
+                                        <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                                    </div>
+
+                                    <div>
+                                        <input type="hidden" asp-for="@Model.ReturnUrl" id="returnurl" />
+                                    </div>
+
+                                    <div class="row">
+                                        <button type="submit" id="login" placeholder="Login">Login</button>
+                                    </div>
+
+                                    <div class="row">
+                                        <button type="button" onclick="createAccountBtn()" id="create-account">Create Account</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                            
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        </section>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    </body>
 </html>

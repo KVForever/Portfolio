@@ -43,6 +43,7 @@ namespace KalPortfolio.Controllers
             }
             return View(formData);
         }
+
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> Logout()

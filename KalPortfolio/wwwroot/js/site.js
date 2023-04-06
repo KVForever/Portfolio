@@ -4,12 +4,9 @@
 // Write your Javascript code.
 
 $(function () {
-    var navBar = $(".home-nav")
     var findMeLinks = $(".find-me-links");
-    var verticalLine = $(".vertical-line")
-    var findMe = $(".find-me")
-    var navBarTop = navBar.offset().top;
-    var windowHeight = $(window).height();
+    var verticalLine = $(".vertical-line");
+    var findMe = $(".find-me");
     var count = 0;
     $(window).scroll(function () {
         var scroll = $(window).scrollTop();
@@ -20,10 +17,22 @@ $(function () {
             findMe.addClass("find-me-animate");
             count++;
         }
-
-        //if (count == 1) {
-        //    $(".line-left").addClass("line-height");
-        //}
-       
     });
 });
+
+function search() {
+    location.href = '/Admin/Home?name=' + document.querySelector('#search-for-message').value;
+}
+
+function deleteMessage(message_id) {
+    location.href = '/Admin/Delete?id=' + message_id;
+}
+
+function detailsMessage(message_id) {
+
+    location.href = '/Admin/Details?id=' + message_id;
+}
+
+function createAccountBtn() {
+    location.href = '/Login/CreateAccount';
+}
