@@ -12,55 +12,46 @@
         <link href="~/css/site.css" rel="stylesheet" />
     </head>
     <body class="login">
-    <section>
-        <div class="container">
-            <div class="row">               
-                <div class="login-focus col-lg-6 col-sm-12 col-md-12">
-                    <div asp-action="login" id="login-form">
+        <div class="container ">
+            <div class="row">
+                <div class="login-focus col-lg-6 col-sm-12 col-md-10">
 
-                        <div id="login-heading">
-                            <h1 class="d-flex justify-content-center">Welcome!</h1>
+                    <h1 class="d-flex justify-content-center mt-5">Welcome!</h1>
+
+                    <div class="row mx-5">
+                        <div class="col-12">
+                            <form asp-action="Login" asp-controller="Login" method="post" class="mx-lg-4">
+                                @Html.AntiForgeryToken()
+                                <div class="row mt-5">
+                                    <label class="login-label" for="Username">Username</label>
+                                    <input type="text" class="login-input py-3 " required="" data-val="true" data-val-required="The Username field is required." id="Username" name="Username" value="">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Username" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row mt-5">
+                                    <label class="login-label " for="Password">Password</label>
+                                    <input type="password" class="login-input py-3" required="" data-val="true" data-val-required="The Password field is required." id="Password" name="Password">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="returnurl" name="ReturnUrl" value="">
+                                </div>
+
+                                <div class="row mt-5">
+                                    <button type="submit" class="py-3 " id="login" placeholder="Login">Login</button>
+                                </div>
+
+                                <div class="row my-5">
+                                    <a href="/Login/CreateAccount" class="btn btn-primary py-3">Create Account</a>
+                                </div>
+
+                            </form>
                         </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <form asp-action="Login" asp-controller="Login" method="post">
-                                    @Html.AntiForgeryToken()
-
-                                    <div class="row">
-                                        <label asp-for="@Model.Username" class="login-label">Username</label>
-                                        <input asp-for="@Model.Username" type="text" class="login-input" required />
-                                        <span asp-validation-for="@Model.Username" class="text-danger"></span>
-                                    </div>
-
-                                    <div class="row">
-                                        <label asp-for="@Model.Password" class="login-label">Password</label>
-                                        <input asp-for="@Model.Password" type="password" class="login-input" required />
-                                        <span asp-validation-for="@Model.Password" class="text-danger"></span>
-                                    </div>
-
-                                    <div>
-                                        <input type="hidden" asp-for="@Model.ReturnUrl" id="returnurl" />
-                                    </div>
-
-                                    <div class="row">
-                                        <button type="submit" id="login" placeholder="Login">Login</button>
-                                    </div>
-
-                                    <div class="row">
-                                        <button type="button" onclick="createAccountBtn()" id="create-account">Create Account</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                            
                     </div>
                 </div>
-                
             </div>
         </div>
-        </section>
-
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

@@ -21,7 +21,11 @@ $(function () {
 });
 
 function search() {
-    location.href = '/Admin/Home?name=' + document.querySelector('#search-for-message').value;
+    $.get('/Admin/UserResultList?name=' + document.querySelector('#search-for-message').value, function (data) {
+
+        $("#user-result-list").html(data);
+
+    });
 }
 
 function deleteMessage(message_id) {
@@ -36,3 +40,4 @@ function detailsMessage(message_id) {
 function createAccountBtn() {
     location.href = '/Login/CreateAccount';
 }
+

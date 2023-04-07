@@ -5,10 +5,11 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using KalPortfolio.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KalPortfolio.Controllers
 {
-
+    [Authorize]
     public class HomeController : Controller
     {
        
@@ -24,6 +25,7 @@ namespace KalPortfolio.Controllers
             return View();  
         }
 
+        
         [HttpPost]
         public async Task<ActionResult> Home(CreateMessage formData)
         {        
@@ -41,6 +43,7 @@ namespace KalPortfolio.Controllers
 
                 await _repository.AddMessage(userMessage);
             }
+
             return View(formData);
         }
 

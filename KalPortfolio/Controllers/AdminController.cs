@@ -33,25 +33,18 @@ namespace KalPortfolio.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Home(string name)
         {
-            if(name != null)
-            {    
-                var message = await _repository.GetMessagesByName(name);
+            return View(await _repository.GetMessagesByName(name));
+        }
 
-                if(message.Any())
-                {
-                    return View(message);
-                }
-                return View("Error");
-            }
-
-            return View(await _repository.GetAllMessages());
+        [Authorize(Roles = "Admin")]
+        public async Task<PartialViewResult> UserResultList(string name)
+        {
+            return PartialView(await _repository.GetMessagesByName(name));
         }
 
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int id) 
         {
-            /* Is it better to have var or UserMessage*/
-
             var message = await _repository.GetMessageById(id);
 
             if(message != null)
@@ -59,7 +52,7 @@ namespace KalPortfolio.Controllers
                 await _repository.DeleteMessage(id);
                 return Redirect("/Admin/Home");
             }
-
+            //TODO: Ajax post 
             return NotFound();
         }
 
@@ -72,7 +65,7 @@ namespace KalPortfolio.Controllers
             {
                 return View( await _repository.GetMessageById(id));
             }
-                            
+            //TODO: Ajax get                
             return NotFound();
         }
 

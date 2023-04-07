@@ -43,7 +43,7 @@ namespace KalPortfolio
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.SlidingExpiration = true;
                 options.LoginPath = "/Login/Login";
-                options.AccessDeniedPath = "/Error/AccessDenied";
+                options.AccessDeniedPath = "/Home/Home";
 
             });
             

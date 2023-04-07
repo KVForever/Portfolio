@@ -16,23 +16,25 @@
         <header>
             <a type="button" href="/Home/Home#home-link" class="btn btn-info skip">Skip navigation</a>
         
-            <nav class="navbar navbar-expand-lg navbar-dark mx-3 nav-border" id="nav-in">
+            <nav class="navbar navbar-expand-lg navbar-dark mx-3 " id="nav-in">
                 <div class="container-fluid">
                     
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
                     <a class="navbar-brand" href="/Home/Home">K</a>
+
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item active"><a class="nav-link" href="#home-link" aria-label="Go to the top of the home page">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="#contact-link" aria-label="Go to the contacts section.">Contact</a></li>
                             <li class="nav-item"><a class="nav-link" href="#projects-link" aria-label="Go to the projects section.">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link disabled" href="#resume-link" aria-label="Go to resume section.">Disabled</a></li>
-                            <li class="nav-item"><a class="nav-link disabled" href="/Home/Account" aria-label="Go to account page">Disabled</a></li>
+                            <li class="nav-item"><a class="nav-link disabled" href="#resume-link" aria-label="Currently disabled.">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link disabled" href="/Home/Account" aria-label="Currently disabled.">Account</a></li>
                         </ul>
                         @Html.AntiForgeryToken()
-                        <form asp-action="Logout" asp-controller="Home" method="post">
+                        <form asp-action="Logout" asp-controller="Home" method="post" class="position-absolute end-0 me-3">
                             <button class="btn btn-outline-danger" type="submit" value="Logout">Logout</button>
                         </form>
                     </div>
@@ -40,60 +42,52 @@
             </nav>
         
         </header>
-    
+
+    <div class="container">
         <section id="home-link">
-        
-            <div id="home-intro">
-                <div class="container-fluid">              
-                    <h1 id="home-info-header" class="text-left fs-1"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
-                    <pre class="text-wrap lead fs-5" id="tag-line">    I am achieving my goal of being a software engineer one line of code at a time.</pre>
 
-                    <div class="find-me find-me-in">
-                        <button href="https://github.com/kvassar" target="_blank" class="btn btn-outline-light btn-lg" alt="link to my github">
-                            GitHub
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                            </svg>
-                        </button>
-                        
-                        <button href="blank" target="_blank" class="btn btn-outline-light btn-lg" alt="link to my linkedIn profile">
-                            LinkedIn
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                            </svg>
-                        </button>
-                    </div>
-                   
-                    <div class="vertical-line"></div>
-                    
-                    <div class="find-me-links d-inline">
-                        <a href="https://github.com/kvassar" target="_blank" alt="link to my github"> 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github d-inline position-absolute z-2" viewBox="0 0 16 16">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                            </svg>
-                        </a>
+            <div id="home-intro" class="ms-5">
 
-                        <a href="blank" target="_blank" alt="link to my linked in profile">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-linkedIn d-inline position-absolute z-2" id="linkedIn-link" viewBox="0 0 16 16">
-                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                            </svg>
-                        </a>
-                    </div>
+                <h1 id="home-info-header" class="text-left fs-1"><b>Hello, my name is </b><b class="text-danger">Kalkidan Vassar</b></h1>
+                <p class="text-wrap lead fs-5 ps-3" id="tag-line">I am achieving my goal of being a software engineer one line of code at a time.</p>
 
-                    <div class="hidden-rect d-inline position-absolute z-3"></div>
+                <div class="find-me find-me-in">
+                    <a href="https://github.com/kvassar" target="_blank" class="btn btn-outline-light btn-lg" alt="link to my github">
+                        GitHub
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                    </a>
 
-                   
+                    <a href="blank" target="_blank" class="btn btn-outline-light btn-lg" alt="link to my linkedIn profile">
+                        LinkedIn
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                        </svg>
+                    </a>
                 </div>
-            </div>
-       
-            <div>
-                <div id="scroll-arrow">
-                    <span class="glyphicon glyphicon-arrow-down "></span>
+
+                <div class="vertical-line"></div>
+
+                <div class="find-me-links d-inline">
+                    <a href="https://github.com/kvassar" target="_blank" type="button" alt="link to my github">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github d-inline position-absolute z-2" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                    </a>
+
+                    <a href="blank" target="_blank" type="button" alt="link to my linked in profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-linkedIn d-inline position-absolute z-2" id="linkedIn-link" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                        </svg>
+                    </a>
                 </div>
+
             </div>
-            <div class="container">
-                <div class="row ">
-                <div class="col-1"></div>
+
+
+            <div class="row justify-content-center">
+
                 <div class="col-10">
                     <div id="about-me-panel" class="p-3">
                         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
@@ -116,7 +110,8 @@
                                 <h1>About Me</h1>
                                 <p>
                                     Hi, originally born in Ethiopia I was adopted at an early age and grew up in the United States of America.
-                                    My love of technology has guided me and led me to where I am today. I always wanted to help in the creation of new and exciting technologies, and I can do this by combining my love of technoligy with a passion for solving problems to create impactful software.
+                                    My love of technology has guided me and led me to where I am today. I always wanted to help in the creation of new and exciting technologies, and I can do this by combining my love of technology with a passion for solving problems to create impactful software.
+
                                 </p>
 
                                 <dl>
@@ -188,364 +183,370 @@
                             </div>
                         </div>
                     </div>
-              
+
                 </div>
-                <div class="col-1"></div>
 
             </div>
-            </div>
-            
+
         </section>
-
+        @{
+            //TODO: Shared layout containers out
+        }
         <section id="projects-link">
 
-            <div class="container text-center">
-            
-                <div class="row">
-                    <div class="col-12 ">
-                        <h1 id="projects-title" class="display-4">About My <b class="text-danger">Projects</b></h1>
-                    </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 id="projects-title" class="fs-1">About My <b class="text-danger">Projects</b></h1>
                 </div>
-
-                <div class="row projects-intro-discription">
-                    <p class="col-12">
-                        Currently my projects are all about learning. Through tutorials I can learn about new technologies and concepts in a more formal and organized manner.
-                        After being able to learn about these technologies projects I create on my own can be used to explore what I learned in my own way, confirm my understanding of the technology, and gain experience with the given technology.
-                        The following projects let me do what I just have stated and provide me not only with experience but a sense of pride when I am able to implement what I learned in a new way that I had not known how to previously.
-                    </p>
-                </div>
-                   
-                
             </div>
 
-            <div class="container">
-                <div class="projects position-relative">
+            
+            <div class="row projects-intro-discription justify-content-center ">
+
+                <p class="col-10">
+                    Currently my projects are all about learning. Through tutorials I can learn about new technologies and concepts in a more formal and organized manner.
+                    After being able to learn about these technologies projects I create on my own can be used to explore what I learned in my own way, confirm my understanding of the technology, and gain experience with the given technology.
+                    The following projects let me do what I just have stated and provide me not only with experience but a sense of pride when I am able to implement what I learned in a new way that I had not known how to previously.
+                </p>
+
+            </div>
+           
+
+            
+            <div class="projects position-relative">
+
+                
+
+                <div class="project-img position-absolute"></div>
+
+         
+                <div class="project-technologies position-absolute">
 
                     <div class="project-header position-absolute text-end">
                         <p class="fs-3 m-0">Portfolio Website</p>
                         <p class="fs-6">My first major project</p>
                     </div>
-                    <div class="project-img position-absolute"></div>
-                    <div class="project-discription position-absolute text-end text-center">
-                        <p class="website-discription me-3">One of my first projects at Heartland was to make a personal website implimenting what I have learned about Visual Studio, ASP.Net Core, MVC, Bootstrap, Html, CSS, C#, and SQL Server Mangment Studio. As I made this site I expanded my knowledge of these varius technoligies well also learning about incapsulation, dependence injection, project structure and best practices. </p>
+                    <p class="website-discription me-3 text-end text-center">One of my first projects at Heartland was to make a personal website implementing what I have learned about Visual Studio, ASP.Net Core, MVC, Bootstrap, Html, CSS, C#, and SQL Server Management Studio. As I made this site, I expanded my knowledge of these various technologies well also learning about encapsulation, dependence injection, project structure and best practices. </p>
+
+                    <pre class="website-tech">  C#    Visual Studio    CSS    HTML    Bootstrap    MVC    ASP.Net Core    SQL Server Mangment Studio  </pre>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github me-1 end-100" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                </div>
+
+            </div>
+            
+
+            <h2 class="mb-5">Other Projects</h2>
+                
+            <div class="row ">
+                <div class="col-3">
+                    <div class="project-quick-look p-3">
+
+                        <div class="d-inline">
+                            <p class="d-inline fs-5 me-5">Calculator</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                            </svg>
+                        </div>
+
+                        <hr class="project-hr" />
+                        <p class="mt-4 text-start">
+                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
+                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        </p>
+                        <div class="mt-4">
+                            <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
+                        </div>
                     </div>
-                    <div class="project-technologies position-absolute">
-                        <pre class="website-tech">  C#    Visual Studio    CSS    HTML    Bootstrap    MVC    ASP.Net Core    SQL Server Mangment Studio  </pre>
+                </div>
+                <div class="col-3">
+                    <div class="project-quick-look p-3">
+
+                        <div class="d-inline">
+                            <p class="d-inline fs-5 me-5">Login Form</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                            </svg>
+                        </div>
+
+                        <hr class="project-hr" />
+                        <p class="mt-4 text-start">
+                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
+                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        </p>
+                        <div class="mt-4">
+                            <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
+                        </div>
                     </div>
-                    <div class="project-links position-absolute text-end">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github me-1" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                        </svg>
+                </div>
+                <div class="col-3">
+                    <div class="project-quick-look p-3">
+
+                        <div class="d-inline">
+                            <p class="d-inline fs-5 me-5">Matching Game</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                            </svg>
+                        </div>
+
+                        <hr class="project-hr" />
+                        <p class="mt-4 text-start">
+                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
+                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        </p>
+                        <div class="mt-4">
+                            <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="project-quick-look p-3">
+
+                        <div class="d-inline">
+                            <p class="d-inline fs-5 me-5">Math Quiz</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                            </svg>
+                        </div>
+
+                        <hr class="project-hr" />
+                        <p class="mt-4 text-start">
+                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
+                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        </p>
+                        <div class="mt-4">
+                            <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
+                        </div>
                     </div>
                 </div>
             </div>
-                         
-           
-        
 
-            <div class="container text-center">
-                <div>
-                    <h2 class="mb-5">Other Projects</h2>
+
+            <div class="row mt-5">
+                <div class="col-3">
+                    <div class="project-quick-look p-3">
+
+                        <div class="d-inline">
+                            <p class="d-inline fs-5 me-5">Maze game</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                            </svg>
+                        </div>
+
+                        <hr class="project-hr" />
+                        <p class="mt-4 text-start">
+                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
+                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        </p>
+                        <div class="mt-4">
+                            <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="row ">
-                    <div class="col-3">
-                        <div class="project-quick-look p-3">
-                       
-                            <div class="d-inline">
-                                 <p class="d-inline fs-5 me-5">Calculator</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                                </svg>
-                            </div>
-
-                            <hr class="project-hr"/>
-                            <p class="mt-4 text-start">
-                                I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze. 
-                                Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
-                            </p>
-                            <div class="mt-4">
-                                <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
-                            </div>
+                <div class="col-3">
+                    <div class="project-quick-look p-3">
+                        <div class="d-inline">
+                            <p class="d-inline fs-5 me-5">Music Player</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                            </svg>
                         </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="project-quick-look p-3">
-                       
-                            <div class="d-inline">
-                                 <p class="d-inline fs-5 me-5">Login Form</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                                </svg>
-                            </div>
 
-                            <hr class="project-hr"/>
-                            <p class="mt-4 text-start">
-                                I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze. 
-                                Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
-                            </p>
-                            <div class="mt-4">
-                                <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
-                            </div>
-                        </div>
-                    </div>
-                   <div class="col-3">
-                        <div class="project-quick-look p-3">
-                       
-                            <div class="d-inline">
-                                 <p class="d-inline fs-5 me-5">Matching Game</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                                </svg>
-                            </div>
-
-                            <hr class="project-hr"/>
-                            <p class="mt-4 text-start">
-                                I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze. 
-                                Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
-                            </p>
-                            <div class="mt-4">
-                                <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="project-quick-look p-3">
-                       
-                            <div class="d-inline">
-                                 <p class="d-inline fs-5 me-5">Math Quiz</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                                </svg>
-                            </div>
-
-                            <hr class="project-hr"/>
-                            <p class="mt-4 text-start">
-                                I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze. 
-                                Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
-                            </p>
-                            <div class="mt-4">
-                                <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
-                            </div>
+                        <hr class="project-hr" />
+                        <p class="mt-4 text-start">
+                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
+                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        </p>
+                        <div class="mt-4">
+                            <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
                         </div>
                     </div>
                 </div>
 
+                <div class="col-3">
+                    <div class="project-quick-look p-3">
 
-                <div class="row mt-5">
-                    <div class="col-3">
-                        <div class="project-quick-look p-3">
-                        
-                            <div class="d-inline">
-                                <p class="d-inline fs-5 me-5">Maze game</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                                </svg>
-                            </div>
-
-                            <hr class="project-hr"/>
-                            <p class="mt-4 text-start">
-                                I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze. 
-                                Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
-                            </p>
-                            <div class="mt-4">
-                                <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
-                            </div>
+                        <div class="d-inline">
+                            <p class="d-inline fs-5 me-5">Hkdcmldsa</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github mx-3" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                            </svg>
                         </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="project-quick-look p-3">                        
-                            <div class="d-inline">
-                                <p class="d-inline fs-5 me-5">Music Player</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                                </svg>
-                            </div>
 
-                            <hr class="project-hr"/>
-                            <p class="mt-4 text-start">
-                                I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze. 
-                                Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
-                            </p>
-                            <div class="mt-4">
-                                <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-3">
-                        <div class="project-quick-look p-3">
-                       
-                            <div class="d-inline">
-                                 <p class="d-inline fs-5 me-5">Hkdcmldsa</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github mx-3" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                                </svg>
-                            </div>
-
-                            <hr class="project-hr"/>
-                            <p class="mt-4 text-start">
-                                I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze. 
-                                Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
-                            </p>
-                            <div class="mt-4">
-                                <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-3">
-                        <div class="project-quick-look p-3">
-                            <div class="d-inline">
-                                <p class="d-inline fs-5 me-4">Hldljss Hiods Djoo</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
-                                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                                </svg>
-                            </div>
-
-                            <hr class="project-hr"/>
-                            <p class="mt-4 text-start">
-                                I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze. 
-                                Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
-                            </p>
-                            <div class="mt-4">
-                                <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
-                            </div>
+                        <hr class="project-hr" />
+                        <p class="mt-4 text-start">
+                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
+                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        </p>
+                        <div class="mt-4">
+                            <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
                         </div>
                     </div>
                 </div>
-            </div> 
+
+                <div class="col-3">
+                    <div class="project-quick-look p-3">
+                        <div class="d-inline">
+                            <p class="d-inline fs-5 me-4">Hldljss Hiods Djoo</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                            </svg>
+                        </div>
+
+                        <hr class="project-hr" />
+                        <p class="mt-4 text-start">
+                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
+                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        </p>
+                        <div class="mt-4">
+                            <p class="fs-6 fw-lighter">Technologies: Windows forms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </section>
-
+        
         <section id="resume-link">
         
         </section>
 
         <section id="contact-link">
-        
-            <div class="contact-display">          
-                <h1 class="display-4 "><b class="text-danger contact-me">Contact</b> Me</h1>
-               
-                <div class="row">
-                    <div class="col-6">
-                        <form asp-action="Home" asp-controller="Home" method="post">
-                            @Html.AntiForgeryToken()
-                            <div class="row">
-                                <div class="col-6">
-                                    <input type="text" asp-for="@Model.FirstName" class="message-input" id="first-name" placeholder="First Name" required />
-                                    <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
-                                </div>
 
-                                <div class="col-6">
-                                    <input type="text" asp-for="@Model.LastName" id="last-name" class="message-input" placeholder="Last Name" required />
-                                    <span asp-validation-for="@Model.LastName" class="text-danger"></span>
-                                </div>
+            <h1 class="display-4 "><b class="text-danger contact-me">Contact</b> Me</h1>
+
+            <div class="row">
+                <div class="col-6">
+                    <form asp-action="Home" asp-controller="Home" method="post">
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" asp-for="@Model.FirstName" class="message-input" id="first-name" placeholder="First Name" required />
+                                <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
                             </div>
 
-                            <div class="row">
-                                <div class="col-6">
-                                    <input type="text" asp-for="@Model.Subject" class="message-input" id="subject" placeholder="Subject" required />
-                                    <span asp-validation-for="@Model.Subject" class="text-danger"></span>
-                                </div>
-
-                                <div class="col-6">
-                                    <input type="email" asp-for="@Model.Email" id="email" class="message-input" placeholder="Email" required />
-                                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
-                                </div>
+                            <div class="col-6">
+                                <input type="text" asp-for="@Model.LastName" id="last-name" class="message-input" placeholder="Last Name" required />
+                                <span asp-validation-for="@Model.LastName" class="text-danger"></span>
                             </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <textarea type="text" asp-for="@Model.Message" class="message-input" rows="8" id="message" placeholder="Message" required></textarea>
-                                    <span asp-validation-for="@Model.Message" class="text-danger"></span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <button type="submit" class="fs-3" id="submit-message">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="col-6">
-                        <div id="about-me-carousel" class="carousel slide">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#about-me-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#about-me-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#about-me-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="https://live.staticflickr.com/8529/8563111064_a91558e626_b.jpg" class="d-block w-100" alt="Camera looking over the shoulder of a kid reading a book.">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h1>I love Reading</h1>
-                                        <p>Some of my favorite books include Percy Jackson series, Atlantis Grail series, and Infinity born. I love science fiction and also find action and adventure interesting to read.</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://th.bing.com/th/id/R.811ca17972b566be28ee7cd436097af5?rik=n%2bLGxYzQJp9yvg&pid=ImgRaw&r=0" class="d-block w-100" alt="Man with backpack over looks a lake that is surrounded by mountains.">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h1>I enjoy traveling</h1>
-                                        <p>Some of my places I have traveled inclued California, Florida, Montana, and Iowa</p>
-                                    </div>
-
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://3.bp.blogspot.com/-5p3D5TNqJec/XaeC7eEI2fI/AAAAAAABDbc/Ccq2-qTZcJMWE_QUU_oAeH1oBwRFj564QCLcBGAsYHQ/s1600/Study%2BShows%2BThat%2BTraveling%2BCan%2BMake%2BYou%2BHappier%2BThan%2BA%2BMarriage%2B2.jpg" class="d-block w-100" alt="Picture of pizza.">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h1>My favorite food is pizza</h1>
-                                        <p>My Favorite food has always been pizza it has been a great constent in my life and I will always have a special place in my heart for a good slice of pizza.</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#about-me-carousel" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-
-                            <button class="carousel-control-next" type="button" data-bs-target="#about-me-carousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
                         </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" asp-for="@Model.Subject" class="message-input" id="subject" placeholder="Subject" required />
+                                <span asp-validation-for="@Model.Subject" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-6">
+                                <input type="email" asp-for="@Model.Email" id="email" class="message-input" placeholder="Email" required />
+                                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <textarea type="text" asp-for="@Model.Message" class="message-input" rows="4" id="message" placeholder="Message" required></textarea>
+                                <span asp-validation-for="@Model.Message" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="fs-3" id="submit-message">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-6">
+                    <div id="about-me-carousel" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#about-me-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#about-me-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#about-me-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://live.staticflickr.com/8529/8563111064_a91558e626_b.jpg" class="d-block w-100" alt="Camera looking over the shoulder of a kid reading a book.">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1>I love Reading</h1>
+                                    <p>Some of my favorite books include Percy Jackson series, Atlantis Grail series, and Infinity born. I love science fiction and also find action and adventure interesting to read.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://th.bing.com/th/id/R.811ca17972b566be28ee7cd436097af5?rik=n%2bLGxYzQJp9yvg&pid=ImgRaw&r=0" class="d-block w-100" alt="Man with backpack over looks a lake that is surrounded by mountains.">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1>I enjoy traveling</h1>
+                                    <p>Some of my places I have traveled inclued California, Florida, Montana, and Iowa</p>
+                                </div>
+
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://3.bp.blogspot.com/-5p3D5TNqJec/XaeC7eEI2fI/AAAAAAABDbc/Ccq2-qTZcJMWE_QUU_oAeH1oBwRFj564QCLcBGAsYHQ/s1600/Study%2BShows%2BThat%2BTraveling%2BCan%2BMake%2BYou%2BHappier%2BThan%2BA%2BMarriage%2B2.jpg" class="d-block w-100" alt="Picture of pizza.">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1>My favorite food is pizza</h1>
+                                    <p>My Favorite food has always been pizza it has been a great constent in my life and I will always have a special place in my heart for a good slice of pizza.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#about-me-carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#about-me-carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                </div>            
+                </div>
             </div>
+           
         </section>
+    </div>
+        
+        
+        
+        
+
+       
+
+        
      
 
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -553,6 +554,7 @@
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="~/js/site.js" type="application/javascript"></script>
+        
     </body>
 </html>
 

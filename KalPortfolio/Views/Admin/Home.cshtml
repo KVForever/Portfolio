@@ -17,7 +17,7 @@
         <a type="button" href="/Home/Home#home-link" class="btn btn-info skip">Skip navigation</a>
 
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark ms-3 nav-border">
+            <nav class="navbar navbar-expand-lg navbar-dark mx-3">
                 <div class="container-fluid">
                
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,11 +28,11 @@
                         <ul class="navbar-nav">
                             <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
                             <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
-                            <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/AddAdmin" aria-label="disabled.">Disabled</a></li>
-                            <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/ViewUsers" aria-label="disabled.">Disabled</a></li>
+                            <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/AddAdmin" aria-label="Currently disabled.">Add Admin</a></li>
+                            <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/ViewUsers" aria-label="Currently disabled.">View Users</a></li>
                         </ul>
                         @Html.AntiForgeryToken()
-                        <form asp-action="Logout" asp-controller="Home" method="post" class="d-flex">
+                    <form asp-action="Logout" asp-controller="Home" method="post" class="position-absolute end-0 me-3">
                             <button class="btn btn-outline-danger" type="submit" value="Logout">Logout</button>
                         </form>
                     </div>
@@ -42,7 +42,7 @@
     
 
         <section class="table-display">
-        
+            
             <div class="search-input">
                 <div class="row pt-5">           
                     <div class="col-12">                                  
@@ -64,8 +64,10 @@
                             <th scope="col">Edit</th>
                         </tr>
                     </thead>
-
-                    <tbody>
+                    @{
+                        //TODO: use render partial for each usermodel
+                    }
+                    <tbody id="user-result-list">
                         @foreach (var message in Model)
                         {
                             <tr>
@@ -87,6 +89,7 @@
                                 </td>
 
                             </tr>
+
                         }
                     </tbody>
                 </table>

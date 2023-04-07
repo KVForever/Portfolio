@@ -16,7 +16,7 @@
         <header>
             <a type="button" href="/Admin/Home" class="btn btn-info skip">Skip navigation</a>
         
-            <nav class="navbar navbar-expand-lg navbar-dark ms-3 home-nav" id="nav-in">
+            <nav class="navbar navbar-expand-lg navbar-dark mx-3 " id="nav-in">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="/Home/Home">K</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
                             <li class="nav-item"><a class="nav-link disabled" href="/Home/Account" aria-label="Go to account page">Disabled</a></li>
                         </ul>
                         @Html.AntiForgeryToken()
-                        <form asp-action="Logout" asp-controller="Home" method="post">
+                        <form asp-action="Logout" asp-controller="Home" method="post" class="position-absolute end-0 me-3">
                             <button class="btn btn-outline-danger" type="submit" value="Logout">Logout</button>
                         </form>
                     </div>
