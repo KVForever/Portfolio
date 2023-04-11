@@ -44,7 +44,7 @@ namespace KalPortfolio.Controllers
                 await _repository.AddMessage(userMessage);
             }
 
-            return View(formData);
+            return View();
         }
 
         [ValidateAntiForgeryToken]
