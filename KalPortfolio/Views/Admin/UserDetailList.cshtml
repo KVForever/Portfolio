@@ -1,0 +1,17 @@
+﻿@model DataEntities.UserMessage;
+
+
+<div id="user-info-expanded" >
+
+    <div class="text-center details-heading p-2">
+        <p class="m-0"><b>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</b></p>
+        <a class="mail-to text-decoration-none" href="mailto@Html.DisplayNameFor(model => model.Email):">@Html.DisplayFor(model => model.Email) </a>
+    </div>
+
+    <hr class="details-hr mx-3" />
+
+    <p class="text-start px-3 py-2 m-0"><b>@Html.DisplayFor(model => model.Subject)</b></p>
+
+    <p class="text-center p-2">@Html.DisplayFor(model => model.Message)</p>
+
+</div>

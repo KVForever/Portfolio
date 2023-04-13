@@ -15,13 +15,13 @@ namespace KalPortfolio.Controllers
     {
         private readonly IMessageRepository _repository;
         private readonly ILoginRepository _loginRepository;
-        
+
 
         public AdminController(IMessageRepository message, ILoginRepository login)
         {
             _repository = message;
             _loginRepository = login;
-            
+
         }
 
         [Authorize(Roles = "Admin")]
@@ -43,30 +43,24 @@ namespace KalPortfolio.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Delete(int id) 
+        public async Task<ActionResult> DeleteResultList(int id)
         {
-            var message = await _repository.GetMessageById(id);
 
-            if(message != null)
-            {
-                await _repository.DeleteMessage(id);
-                return Redirect("/Admin/Home");
-            }
-            //TODO: Ajax post 
-            return NotFound();
+            await _repository.DeleteMessage(id);
+            return PartialView(await _repository.GetAllMessages());
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Details(int id)
-        {
-            var message = await _repository.GetMessageById(id);
+        public ActionResult Details()
+        {                
+            return View();
+        }
 
-            if(message != null)
-            {
-                return View( await _repository.GetMessageById(id));
-            }
-            //TODO: Ajax get                
-            return NotFound();
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> UserDetailList(int id)
+        {
+
+            return PartialView(await _repository.GetMessageById(id));
         }
 
         [Authorize(Roles = "Admin")]

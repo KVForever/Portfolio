@@ -28,21 +28,17 @@ function search() {
     });
 }
 
-//function deleteMessage(message_id) {
-//    location.href = '/Admin/Delete?id=' + message_id;
+function remove(id) {
+    $.post('/Admin/DeleteResultList?id=' + id, function (data) {           
+        $('#user-result-list').html(data);
+    });
+       
+}
 
-//}
-
-
-$('.message-delete').click(function () {
-    var val = $(this).val();
-    $.post('/Admin/Delete?id=', val);
-});
-
-
-function detailsMessage(message_id) {
-
-    location.href = '/Admin/Details?id=' + message_id;
+function details(id) {
+    $.get('/Admin/UserDetailList?id=' + id, function (data) {
+        $('#user-info').html(data);
+    });
 }
 
 function createAccountBtn() {

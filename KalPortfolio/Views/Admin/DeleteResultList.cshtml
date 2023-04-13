@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<DataEntities.UserMessage>;
 
 @{
+
 }
 
 
@@ -21,7 +22,7 @@
         <td>
             <button type="button" class="btn btn-outline-danger btn-sm message-delete" onclick="remove(@message.Id)">Delete</button>
 
-            <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="goToDetails(); details((@message.Id))">Details</button>
+            <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="details((@message.Id))">Details</button>
         </td>
 
     </tr>
