@@ -10,17 +10,12 @@
         <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <link href="~/css/site.css" rel="stylesheet" />
     </head>
-
+    @RenderSection("header")
     <body>
-    <header>
-        <a type="button" href="/Home/Home#home-link" class="btn btn-info skip">Skip navigation</a>
-
-        
-
-    </header>
+    
         <div class="container">
             <main role="main">
-                @RenderBody()
+                @RenderSection("body")
             </main>           
         </div>
 

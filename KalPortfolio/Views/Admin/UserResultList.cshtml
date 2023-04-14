@@ -3,25 +3,26 @@
 @{
 }
 
-
 @foreach (var message in Model)
 {
     <tr>
 
-        <td>@Html.DisplayFor(modelItem => message.LastName)</td>
+        <td class="text-overflow">@Html.DisplayFor(modelItem => message.LastName)</td>
 
-        <td>@Html.DisplayFor(modelItem => message.FirstName)</td>
+        <td class="text-overflow">@Html.DisplayFor(modelItem => message.FirstName)</td>
 
-        <td><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
+        <td class="text-overflow"><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
 
-        <td>@Html.DisplayFor(modelItem => message.Subject)</td>
+        <td class="text-overflow">@Html.DisplayFor(modelItem => message.Subject)</td>
 
         <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
 
         <td>
+
             <button type="button" class="btn btn-outline-danger btn-sm message-delete" onclick="remove(@message.Id)">Delete</button>
 
-            <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="goToDetails(); details((@message.Id))">Details</button>
+
+            <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="details(@message.Id)">Details</button>
         </td>
 
     </tr>
