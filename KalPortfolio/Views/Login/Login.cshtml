@@ -5,19 +5,15 @@
     Layout = "_Layout";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Users can create a create and than view Kalkidan's portfolio site." />
-        <title>Kalkidan's Portfolio - Login</title>
-        <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="~/css/site.css" rel="stylesheet" />
-    </head>
+@section description {
+    <meta name="description" content="Login or create an account for Kalkidans website here." />
+}
 
-    <body class="login">
-        <div class="container ">
+@section header {}
+
+@section body {
+    <div class="login">
+        <div class="container">
             <div class="row py-sm-5 my-sm-5 mt-4">
                 <div class="login-focus col-xxl-5 col-lg-6 col-sm-12 col-md-10">
 
@@ -57,9 +53,8 @@
                 </div>
             </div>
         </div>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-        <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
-    </body>
-</html>
+    </div>
+    
+
+}
+   

@@ -1,37 +1,33 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model IEnumerable<DataEntities.UserMessage>;
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="View a message table and also have control over users and user messages." />
-        <title>Kalkidan's Portfolio - Admin Home</title>
-        <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="~/css/site.css" rel="stylesheet" />
-              
-    </head>
+@{
+    Layout = "_Layout";
+}
 
-    <body class="admin-home">   
-        <a type="button" href="/Admin/UserView#home-link" class="btn btn-info skip">Skip navigation</a>
+@section description {
+    <meta name="description" content="This is the admin side of Kalkidans website. Here you can view and delete all messages and users. You can also add new admins here." />
+}
 
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark mx-3">
-                <div class="container-fluid">
-               
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" href="Home">@User.Identity.Name.ToString()</a>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
-                            <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
-                            <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/AddAdmin" aria-label="Currently disabled.">Add Admin</a></li>
-                            <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/ViewUsers" aria-label="Currently disabled.">View Users</a></li>
-                        </ul>
-                        @Html.AntiForgeryToken()
+@section header {
+    <a type="button" href="/Admin/UserView#home-link" class="btn btn-info skip">Skip navigation</a>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark mx-3">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="Home">@User.Identity.Name.ToString()</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/AddAdmin" aria-label="Currently disabled.">Add Admin</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Admin/ViewUsers" aria-label="Currently disabled.">View Users</a></li>
+                    </ul>
+                    @Html.AntiForgeryToken()
                     <form asp-action="Logout" asp-controller="Home" method="post" class="">
 
                         <button class="btn btn-outline-danger" type="submit" value="Logout">
@@ -41,91 +37,89 @@
                             </svg> Logout
                         </button>
                     </form>
-                    </div>
                 </div>
-            </nav>
-        </header>
-    
-        <div class="container">
-            <section class="table-display">
+            </div>
+        </nav>
+    </header>
+}
 
-                
-                <div class="row m-5">
-                    <div class="col-12 d-flex justify-content-center">
-                        <input type="text" class="search-message" id="search-for-message" placeholder="Search Last Name" />
-                        <button type="submit" class="search-message" onclick="search()">Search</button>
-                    </div>
+@section body {
+    <div class="container admin-home">
+
+        <section class="table-display">
+
+
+            <div class="row m-5">
+                <div class="col-12 d-flex justify-content-center">
+                    <input type="text" class="search-message" id="search-for-message" placeholder="Search Last Name" />
+                    <button type="submit" class="search-message" onclick="search()">Search</button>
                 </div>
-               
+            </div>
 
-                <div class="row table-responsive d-flex justify-content-center">
-                    <div class="col-xl-9 col-12">
-                        <table class="table admin-message-table">
-                            <thead>
+
+            <div class="row table-responsive d-flex justify-content-center">
+                <div class="col-xl-9 col-12">
+                    <table class="table admin-message-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Respond To</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Message</th>
+                                <th scope="col">Edit</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="user-result-list">
+                            @foreach (var message in Model)
+                            {
                                 <tr>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Respond To</th>
-                                    <th scope="col">Subject</th>
-                                    <th scope="col">Message</th>
-                                    <th scope="col">Edit</th>
+
+                                    <td class="text-overflow">@Html.DisplayFor(modelItem => message.LastName)</td>
+
+                                    <td class="text-overflow">@Html.DisplayFor(modelItem => message.FirstName)</td>
+
+                                    <td class="text-overflow"><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
+
+                                    <td class="text-overflow">@Html.DisplayFor(modelItem => message.Subject)</td>
+
+                                    <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
+
+                                    <td>
+
+                                        <button type="button" class="btn btn-outline-danger btn-sm message-delete" onclick="remove(@message.Id)">Delete</button>
+
+
+                                        <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="details(@message.Id)">Details</button>
+                                    </td>
+
                                 </tr>
-                            </thead>
-
-                            <tbody id="user-result-list">
-                                @foreach (var message in Model)
-                                {
-                                    <tr>
-
-                                        <td class="text-overflow">@Html.DisplayFor(modelItem => message.LastName)</td>
-
-                                        <td class="text-overflow">@Html.DisplayFor(modelItem => message.FirstName)</td>
-
-                                        <td class="text-overflow"><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
-
-                                        <td class ="text-overflow">@Html.DisplayFor(modelItem => message.Subject)</td>
-
-                                        <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
-
-                                        <td>
-
-                                            <button type="button" class="btn btn-outline-danger btn-sm message-delete" onclick="remove(@message.Id)">Delete</button>
-
-
-                                            <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="details(@message.Id)">Details</button>
-                                        </td>
-
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="col-xl-3 col-12">
-                        <div id="user-info">
-                            
-                            <div class="details-heading px-3 py-2">
-                                    
-                            </div>
-                                
-                            <hr class="details-hr mx-3"/>
-
-                            <p class="text-center p-3">(click details to view an expanded version)</p>
-
-                        </div>
-                    </div>
-                    
+                            }
+                        </tbody>
+                    </table>
                 </div>
-                
-            </section>
-        </div>
-             
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-        <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
-        <script src="~/js/site.js"></script>
-    </body>
-</html>
+
+                <div class="col-xl-3 col-12">
+                    <div id="user-info">
+
+                        <div class="details-heading px-3 py-2">
+                        </div>
+
+                        <hr class="details-hr mx-3" />
+
+                        <p class="text-center p-3">(click details to view an expanded version)</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+     
+    </div>
+}
+   
+
 
 

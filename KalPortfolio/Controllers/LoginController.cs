@@ -9,6 +9,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using KalPortfolio.Helpers;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace KalPortfolio.Controllers
 {
@@ -142,7 +143,8 @@ namespace KalPortfolio.Controllers
                     ModelState.AddModelError("Username", "Username Already In Use");
                 }
                 
-            }           
+            }
+            
             return View(model);
         }
     }

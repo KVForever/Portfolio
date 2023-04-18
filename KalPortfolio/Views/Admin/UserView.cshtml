@@ -4,12 +4,50 @@
     Layout = "_Layout";
 }
 
-<body class="home">
+@section description {
+    <meta name="description" content="This is what a user would see if they loged into the site. Here you can get a feel of what a user is experiencing while still being an Admin." />
+}
 
-    <div class="container">
-        <div class="text-center">
-            <a class="btn btn btn-lg" href="/Admin/Home" aria-label="Go to the top of the admin home page">Admin Home</a>
-        </div>
+
+@section header{
+    <header>
+        <a type="button" href="/Admin/Home" class="btn btn-info skip">Skip navigation</a>
+
+        <nav class="navbar navbar-expand-lg navbar-dark mx-3">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="Home">K</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#projects-link" aria-label="Go to project section.">User View</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#contact-link" aria-label="Go to contact section.">Contact Me</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#resume-link" aria-label="Currently disabled.">Add Admin</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#contact-link" aria-label="Go to contact section.">View Users</a></li>
+                    </ul>
+                    @Html.AntiForgeryToken()
+                    <form asp-action="Logout" asp-controller="Home" method="post" class="">
+
+                        <button class="btn btn-outline-danger" type="submit" value="Logout">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                            </svg> Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+}
+
+@section body {
+
+    <div class="container home">
+           
         <section id="home-link">
 
             <div id="home-intro" class="ms-5">
@@ -155,7 +193,7 @@
             </div>
 
         </section>
-       
+
         <section id="projects-link">
 
             <div class="row">
@@ -499,7 +537,9 @@
             </div>
         </section>
     </div>
-</body>
+   
+}
+
 
 
 

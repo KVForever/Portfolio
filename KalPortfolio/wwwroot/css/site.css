@@ -27,59 +27,6 @@ hr {
     margin: 0px;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.nav-link {
-    color: white;
-}
-
-.btn-primary {
-    background-color: rgba(7, 68, 148, 1);
-    border: 0;
-    border-radius: 10px;
-}
-
-.nav-link.disabled {
-    color: gray;
-}
-
-.navbar-brand {
-    font-size: 1.2rem;
-    padding: 0;
-}
-
-.nav-tabs .nav-link {
-    color: red;
-}
-
-.navbar {
-    background-color: transparent;
-    font-size: 1rem;
-    border-bottom: 1px solid #262626;
-}
-
-.panel {
-    background-color: #000;
-    border: 3px red solid;
-    padding: 2rem;
-}
-
-.panel-body {
-    padding: 5px 0px 0px 0px;
-    border: 0px;
-}
-
-
 html {
     position: relative;
     min-height: 100%;
@@ -90,7 +37,7 @@ header {
     width: 100%;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
 
@@ -98,7 +45,7 @@ body {
     border: 0;
     background-color: #000;
     width: 100vw;
-   /* overflow-x: hidden;*/
+    /* overflow-x: hidden;*/
     color: #fff;
     margin: 0;
     padding: 0;
@@ -209,7 +156,7 @@ form {
     border: 0;
 }
 
-    .skip:focus {       
+    .skip:focus {
         position: static;
         width: 8vw;
         height: 4vh;
@@ -217,7 +164,6 @@ form {
 
 #home-intro {
     margin-top: calc(40vh - 48px);
-    
 }
 
 .vertical-line {
@@ -295,7 +241,6 @@ form {
         animation-name: find-me;
         animation-duration: 1s;
         animation-fill-mode: forwards;
-       
     }
 }
 
@@ -373,11 +318,10 @@ form {
 
 .projects {
     min-height: 50vh;
-   
 }
 
 .large-project-discription {
-    position: absolute; 
+    position: absolute;
 }
 
 @media screen and (max-width: 800px) {
@@ -385,8 +329,8 @@ form {
         position: inherit;
     }
 }
-@media screen and (min-width: 1200px)
-{
+
+@media screen and (min-width: 1200px) {
     .project-img {
         width: 40vw;
         height: 40vh;
@@ -415,8 +359,7 @@ form {
     font-size: .565rem;
 }
 
-@media screen and (max-width: 1400px)
-{
+@media screen and (max-width: 1400px) {
     .website-tech {
         display: none;
     }
@@ -425,7 +368,6 @@ form {
 .project-technologies {
     width: 30vw;
     height: 2vh;
-    
 }
 
 .project-header {
@@ -461,12 +403,6 @@ form {
     border-radius: 10px;
     margin-top: 5%;
 }
-
-/*@media screen and (max-width: 1200px){
-    .large-display-other-projects {
-        display: none;
-    }
-}*/
 
 
 #contact-link {
@@ -515,11 +451,13 @@ form {
         display: none;
     }
 }
+
 /*Admin styling*/
 a:hover {
     color: white;
     text-decoration: none;
 }
+
 
 .admin-message-table {
     border: 1px solid red;
@@ -622,22 +560,6 @@ form.admin-logout-form {
     height: 5vh;
 }
 
-#details-btn {
-    background-color: transparent;
-    color: bisque;
-    text-decoration: underline;
-    border: 0px;
-    padding: 1vh;
-}
-
-#delete-btn {
-    background-color: transparent;
-    color: red;
-    text-decoration: underline;
-    border: 0px;
-    padding: 1vh;
-}
-
 #user-info {
     position: sticky;
     height: 40vh;
@@ -647,7 +569,7 @@ form.admin-logout-form {
 }
 
 .details-hr {
-    border:red solid 2px;
+    border: red solid 2px;
 }
 
 .details-heading {
@@ -714,7 +636,6 @@ form.admin-logout-form {
 }
 
 #login {
-   
     color: rgba(7, 68, 148, 1);
     background: rgba(7, 68, 148, 1);
     width: 100%;
@@ -744,17 +665,17 @@ form.admin-logout-form {
 
 @keyframes login-focus {
     0% {
-        background: rgba(7, 68, 148, 1);      
+        background: rgba(7, 68, 148, 1);
         border-radius: 40px
     }
 
     10% {
-        background: rgba(7, 68, 148, 1);              
+        background: rgba(7, 68, 148, 1);
         border-radius: 40px
     }
 
     100% {
-        background: rgba(7, 68, 148, 0.16);           
+        background: rgba(7, 68, 148, 0.16);
         border-radius: 50px
     }
 }

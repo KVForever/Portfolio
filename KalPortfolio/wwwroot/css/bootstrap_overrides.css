@@ -1,0 +1,40 @@
+﻿.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-link {
+    color: white;
+}
+
+.btn-primary {
+    background-color: rgba(7, 68, 148, 1);
+    border: 0;
+    border-radius: 10px;
+}
+
+.nav-link.disabled {
+    color: gray;
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.nav-tabs .nav-link {
+    color: red;
+}
+
+.navbar {
+    background-color: transparent;
+    font-size: 1rem;
+    border-bottom: 1px solid #262626;
+}
