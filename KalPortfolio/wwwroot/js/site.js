@@ -45,3 +45,17 @@ function createAccountBtn() {
     location.href = '/Login/CreateAccount';
 }
 
+const loginCanvas = document.getElementById('login-canvas');
+
+const c = loginCanvas.getContext("2d");
+
+addEventListener('resize', () => {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+})
+
+c.fillStyle = 'red';
+c.rect(0, 0, c.innerWidth, c.innerheight);
+c.fill();
+
+

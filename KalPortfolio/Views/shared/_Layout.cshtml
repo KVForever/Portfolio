@@ -5,16 +5,16 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        @RenderSection("description")
-        <title>Kalkidan's Portfolio - Home</title>
+        <meta name="description" content="@ViewBag.Description" />
+        <title>Kalkidan's Portfolio - @ViewBag.Title</title>
         <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <link href="~/css/bootstrap_overrides.css" rel="stylesheet" />
         <link href="~/css/site.css" rel="stylesheet" />
+        
     </head>
     @RenderSection("header")
-    <body>
-    
-        
+    <body class="@ViewBag.Background">
+
         @RenderSection("body")
            
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -22,7 +22,6 @@
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="~/js/site.js"></script>
-        @RenderSection("Scripts", required: false)
-        
+        @RenderSection("Scripts", required: false)        
     </body>
 </html>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using KalPortfolio.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace KalPortfolio.Controllers
 {
@@ -44,6 +45,11 @@ namespace KalPortfolio.Controllers
                 await _repository.AddMessage(userMessage);
             }
 
+            var role = HttpContext.User.FindFirst(ClaimTypes.Role).Value;
+            if (role.ToString().Equals("Admin"))
+            {
+                return RedirectToAction("UserView", "Admin");
+            }
             return View();
         }
 

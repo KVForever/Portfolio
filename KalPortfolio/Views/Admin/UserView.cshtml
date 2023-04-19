@@ -2,11 +2,11 @@
 @model KalPortfolio.Models.CreateMessage
 @{
     Layout = "_Layout";
+    ViewBag.Title = "User View";
+    ViewBag.Description = "This is what a user would see if they loged into the site. Here you can get a feel of what a user is experiencing while still being an Admin.";
+    ViewBag.Background = "home";
 }
 
-@section description {
-    <meta name="description" content="This is what a user would see if they loged into the site. Here you can get a feel of what a user is experiencing while still being an Admin." />
-}
 
 
 @section header{
@@ -24,7 +24,7 @@
                     <ul class="navbar-nav">
                         <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
                         <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#projects-link" aria-label="Go to project section.">User View</a></li>
-                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#contact-link" aria-label="Go to contact section.">Contact Me</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#contact-link" aria-label="Go to contact section.">Contact</a></li>
                         <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#resume-link" aria-label="Currently disabled.">Add Admin</a></li>
                         <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#contact-link" aria-label="Go to contact section.">View Users</a></li>
                     </ul>
@@ -46,7 +46,7 @@
 
 @section body {
 
-    <div class="container home">
+    <div class="container">
            
         <section id="home-link">
 

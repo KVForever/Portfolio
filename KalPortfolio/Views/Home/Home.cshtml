@@ -3,10 +3,9 @@
 
 @{
     Layout = "_Layout";
-}
-
-@section description {
-    <meta name="description" content="View Kalkidans projects, contact information, and get to know who Kalkidan is." />
+    ViewBag.Description = "View Kalkidans projects, contact information, and get to know who Kalkidan is.";
+    ViewBag.Title = "Home";
+    ViewBag.Background = "home";
 }
 
 @section header{
@@ -47,7 +46,7 @@
 @section body{
    
 
-    <div class="container home">
+    <div class="container">
         <section id="home-link">
 
             <div id="home-intro" class="ms-5">
@@ -538,8 +537,6 @@
             </div>
         </section>
     </div>
-
-   
 }
 
 

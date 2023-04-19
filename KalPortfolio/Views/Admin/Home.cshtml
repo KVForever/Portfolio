@@ -3,10 +3,9 @@
 
 @{
     Layout = "_Layout";
-}
-
-@section description {
-    <meta name="description" content="This is the admin side of Kalkidans website. Here you can view and delete all messages and users. You can also add new admins here." />
+    ViewBag.Title = "Admin Home";
+    ViewBag.Description = "This is the admin side of Kalkidans website. Here you can view and delete all messages and users. You can also add new admins here.";
+    ViewBag.Background = "admin-home";
 }
 
 @section header {
@@ -44,7 +43,7 @@
 }
 
 @section body {
-    <div class="container admin-home">
+    <div class="container">
 
         <section class="table-display">
 
