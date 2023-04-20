@@ -7,16 +7,15 @@
     ViewBag.Title = "Create Account";
 }
 
-@section header {}
-
 @section body {
-    
+
     <section>
+
         <div class="create-account-focus">
             <div class="col-6">
                 <div class="create-account-form">
 
-                    <form asp-action="CreateAccount" asp-controller="Login" method="post">
+                    <form asp-action="CreateAdmin" asp-controller="Admin" method="post">
                         @Html.AntiForgeryToken()
                         <div class="row">
                             <input type="email" asp-for="@Model.Email" class="create-account-field" id="create-account-email" placeholder="Email" required />
@@ -43,7 +42,7 @@
                             <span asp-validation-for="@Model.LastName" class="text-danger"></span>
                         </div>
                         <div>
-                            <input type="hidden" asp-for="@Model.SelectedRoles" value="2" />
+                            <input type="hidden" asp-for="@Model.SelectedRoles" value="3" />
                             <span asp-validation-for="@Model.SelectedRoles" class="text-danger"></span>
                         </div>
 
@@ -58,8 +57,5 @@
 
         </div>
     </section>
-    
+
 }
-
-    
-

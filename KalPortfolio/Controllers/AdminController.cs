@@ -25,15 +25,19 @@ namespace KalPortfolio.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public ActionResult UserView()
+        public async Task<ActionResult> Home(string name)
         {
-            return View();
+            if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View(await _repository.GetMessagesByName(name));
+            }
+            return RedirectToAction("Login", "login");
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Home(string name)
+        public ActionResult UserView()
         {
-            return View(await _repository.GetMessagesByName(name));
+            return View();
         }
 
         [Authorize(Roles = "Admin")]
@@ -63,6 +67,13 @@ namespace KalPortfolio.Controllers
             return PartialView(await _repository.GetMessageById(id));
         }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult CreateAdmin()
+        {
+            return View();
+        }
+
+        [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateAdmin(CreateAccount model)
@@ -95,7 +106,7 @@ namespace KalPortfolio.Controllers
                         }
 
                         await _loginRepository.CreateAccount(user);
-                        return RedirectToAction("Admin", "Home");
+                        return RedirectToAction("Home", "Admin");
                     }
                     ModelState.AddModelError("Password", "Passwords Do Not Match");
                 }

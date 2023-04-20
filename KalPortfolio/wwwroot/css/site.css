@@ -308,8 +308,6 @@ form {
     }
 }
 
-.projects-intro-discription {
-}
 
 .projects {
     min-height: 50vh;
@@ -344,7 +342,7 @@ form {
     border-radius: 10px;
 }
 
-.website-discription {
+.website-description {
     margin: 0;
     background-color: #a50021;
     border-radius: 10px;
@@ -380,9 +378,22 @@ form {
     margin-bottom: 20vh
 }
 
+.project-quick-look-hidden {
+    width: 100%;
+    min-height: 42vh;
+    background-color: #a50021;
+    border-radius: 10px;
+    opacity: .3;
+    color: black;
+}
+
+    .project-quick-look-hidden p {
+        color: black;
+    }
+
 .project-quick-look {
     width: 100%;
-    min-height: 40vh;
+    min-height: 42vh;
     background-color: #a50021;
     border-radius: 10px;
     opacity: .8;
@@ -398,7 +409,6 @@ form {
     border-radius: 10px;
     margin-top: 5%;
 }
-
 
 #contact-link {
     margin-bottom: 5vh;
@@ -679,8 +689,8 @@ form.admin-logout-form {
 
 .create-account-focus {
     background-size: 100% 100%;
-    background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
-    background-image: radial-gradient(49% 81% at 45% 47%, #FFE20345 0%, #073AFF00 100%),radial-gradient(113% 91% at 17% -2%, #001AFFFF 4%, #FF000000 99%),radial-gradient(142% 91% at 83% 7%, #00C1FFFF 1%, #FF000000 99%),radial-gradient(142% 91% at -6% 74%, #00CDFFFF 1%, #FF000000 99%),conic-gradient(from 56deg at 30% 71%, #00FFFFFF 0%, #073AFFFF 100%);
+    background-position: 0px 0px;
+    background-image: conic-gradient(from 234deg at 60% 30%, #FF0000FF 30%, #000000FF 100%);
     border-radius: 40px;
     margin-top: 10vh;
     margin-left: 10vw;
@@ -693,6 +703,10 @@ form.admin-logout-form {
     padding: 0% 20% 5% 10%;
     border-right: 3px black solid;
     margin: 0 0 5% 0;
+}
+
+.create-account-form span {
+    color: white;
 }
 
 .create-account-field {

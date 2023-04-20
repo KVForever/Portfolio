@@ -10,7 +10,7 @@ using System.Security.Claims;
 
 namespace KalPortfolio.Controllers
 {
-    [Authorize]
+    
     public class HomeController : Controller
     {
        
@@ -22,15 +22,21 @@ namespace KalPortfolio.Controllers
         }
        
         public ActionResult Home()
-        {    
+        {   
+            if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Home", "Admin");
+            }
             return View();  
         }
 
         
         [HttpPost]
         public async Task<ActionResult> Home(CreateMessage formData)
-        {        
-            if(ModelState.IsValid)
+        {
+            
+
+            if (ModelState.IsValid)
             {
                 UserMessage userMessage = new();
                 {

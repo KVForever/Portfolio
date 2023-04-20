@@ -25,19 +25,8 @@
                         <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
                         <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#projects-link" aria-label="Go to project section.">User View</a></li>
                         <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#contact-link" aria-label="Go to contact section.">Contact</a></li>
-                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#resume-link" aria-label="Currently disabled.">Add Admin</a></li>
-                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#contact-link" aria-label="Go to contact section.">View Users</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#resume-link" aria-label="Currently disabled.">Resume</a></li>                        
                     </ul>
-                    @Html.AntiForgeryToken()
-                    <form asp-action="Logout" asp-controller="Home" method="post" class="">
-
-                        <button class="btn btn-outline-danger" type="submit" value="Logout">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg> Logout
-                        </button>
-                    </form>
                 </div>
             </div>
         </nav>
@@ -224,7 +213,7 @@
                         <p class="fs-3 m-0 text-end">Portfolio Website</p>
                         <p class="fs-6 text-end">My first major project</p>
 
-                        <p class="website-discription text-end pe-2">One of my first projects at Heartland was to make a personal website implementing what I have learned about Visual Studio, ASP.Net Core, MVC, Bootstrap, Html, CSS, C#, and SQL Server Management Studio. As I made this site, I expanded my knowledge of these various technologies well also learning about encapsulation, dependence injection, project structure and best practices. </p>
+                        <p class="website-description text-end p-2">One of my first projects at Heartland was to make a personal website implementing what I have learned about Visual Studio, ASP.Net Core, MVC, Bootstrap, Html, CSS, C#, and SQL Server Management Studio. As I made this site, I expanded my knowledge of these various technologies well also learning about encapsulation, dependence injection, project structure and best practices. </p>
 
                         <pre class="website-tech mt-2">  C#    Visual Studio    CSS    HTML    Bootstrap    MVC    ASP.Net Core    SQL Server Mangment Studio  </pre>
 

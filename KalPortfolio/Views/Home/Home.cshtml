@@ -24,19 +24,10 @@
                         <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#home-link" aria-label="Go to the top of the home page.">Home</a></li>
                         <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#projects-link" aria-label="Go to project section.">User View</a></li>
                         <li class="d-flex justify-content-center"><a class="nav-link" href="/Home/Home#contact-link" aria-label="Go to contact section.">Contact Me</a></li>
-                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#resume-link" aria-label="Currently disabled.">Add Admin</a></li>
-                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#contact-link" aria-label="Go to contact section.">View Users</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link disabled" href="/Home/Home#resume-link" aria-label="Currently disabled.">Resume</a></li>
+                        
                     </ul>
-                    @Html.AntiForgeryToken()
-                    <form asp-action="Logout" asp-controller="Home" method="post" class="">
-
-                        <button class="btn btn-outline-danger" type="submit" value="Logout">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg> Logout
-                        </button>
-                    </form>
+                
                 </div>
             </div>
         </nav>
@@ -224,7 +215,7 @@
                         <p class="fs-3 m-0 text-end">Portfolio Website</p>
                         <p class="fs-6 text-end">My first major project</p>
 
-                        <p class="website-discription text-end pe-2">One of my first projects at Heartland was to make a personal website implementing what I have learned about Visual Studio, ASP.Net Core, MVC, Bootstrap, Html, CSS, C#, and SQL Server Management Studio. As I made this site, I expanded my knowledge of these various technologies well also learning about encapsulation, dependence injection, project structure and best practices. </p>
+                        <p class="website-description text-end p-2">One of my first projects at Heartland was to make a personal website implementing what I have learned about Visual Studio, ASP.Net Core, MVC, Bootstrap, Html, CSS, C#, and SQL Server Management Studio. As I made this site, I expanded my knowledge of these various technologies well also learning about encapsulation, dependence injection, project structure and best practices. </p>
 
                         <pre class="website-tech mt-2">  C#    Visual Studio    CSS    HTML    Bootstrap    MVC    ASP.Net Core    SQL Server Mangment Studio  </pre>
 
@@ -258,8 +249,7 @@
 
                         <hr class="project-hr" />
                         <p class="mt-4">
-                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
-                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                            For this project I made a simple calculator that can do multiplication, division, subtration, and addition. This being on of my first projects helped me get familiar with using Windows Forms. 
                         </p>
                         <div class="mt-4">
                             <p class="fs-6 fw-lighter">Windows forms</p>
@@ -282,11 +272,10 @@
 
                         <hr class="project-hr" />
                         <p class="mt-4 ">
-                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
-                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                            I created a very basic login form that asked for a username and a password. The simplicity helped me to learn how to use Visual Studio and Sql Server Managment studio in conjunction.  
                         </p>
                         <div class="mt-4">
-                            <p class="fs-6 fw-lighter">Windows forms</p>
+                            <p class="fs-6 fw-lighter">Windows forms - Sql Server Managment Studio</p>
                         </div>
                     </div>
                 </div>
@@ -306,8 +295,7 @@
 
                         <hr class="project-hr" />
                         <p class="mt-4 ">
-                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
-                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                            This project is one of my favorite ones out of my Widows Forms series. I was able to make a fun matching game! I was able to learn about using timers and working with webdings font library.
                         </p>
                         <div class="mt-4">
                             <p class="fs-6 fw-lighter">Windows forms</p>
@@ -330,8 +318,8 @@
 
                         <hr class="project-hr" />
                         <p class="mt-4 ">
-                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
-                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                            The Math Quiz form included the use of timers and a bit of a heaver focus on logic. The user wants to complete one multiplication, addition, subtraction, and division problem in thirty seconds.
+                            If they do not finish the problems in the amount of time given the game is over and they can try again. Otherwise they will get a congradulation message. 
                         </p>
                         <div class="mt-4">
                             <p class="fs-6 fw-lighter">Windows forms</p>
@@ -381,8 +369,7 @@
 
                         <hr class="project-hr" />
                         <p class="mt-4">
-                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
-                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                            This simple music player let the user browse music stored on their computer and than play, pause, and stop the music and have it restart. You also get a display of the audio waveform.
                         </p>
                         <div class="mt-4">
                             <p class="fs-6 fw-lighter">Windows forms</p>
@@ -391,10 +378,10 @@
                 </div>
 
                 <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="project-quick-look p-3">
+                    <div class="project-quick-look-hidden p-3">
 
                         <div class="d-inline">
-                            <p class="d-inline fs-5 me-5">Hkdcmldsa</p>
+                            <p class="d-inline fs-5 me-5">Coming Soon</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github mx-3" viewBox="0 0 16 16">
                                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                             </svg>
@@ -405,9 +392,8 @@
                         </div>
 
                         <hr class="project-hr" />
-                        <p class="mt-4">
-                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
-                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        <p class="mt-4 text-center">
+                           ...
                         </p>
                         <div class="mt-4">
                             <p class="fs-6 fw-lighter">Windows forms</p>
@@ -416,9 +402,9 @@
                 </div>
 
                 <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="project-quick-look p-3">
+                    <div class="project-quick-look-hidden p-3">
                         <div class="d-inline">
-                            <p class="d-inline fs-5 me-4">Hldljss Hiods Djoo</p>
+                            <p class="d-inline fs-5 me-4">Coming Soon</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github me-3" viewBox="0 0 16 16">
                                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                             </svg>
@@ -429,9 +415,8 @@
                         </div>
 
                         <hr class="project-hr" />
-                        <p class="mt-4">
-                            I created a simple maze game that used your mouse as the object moving through the maze. When the mouse touched the wall, you would be forced to start from the beginning of the maze.
-                            Once you reached the end of the maze a pop-up would display with a congratulations and the game ended.
+                        <p class="mt-4 text-center">
+                           ...
                         </p>
                         <div class="mt-4">
                             <p class="fs-6 fw-lighter">Windows forms</p>
@@ -477,7 +462,7 @@
 
                         <div class="row gy-3">
                             <div class="col-12">
-                                <textarea type="text" asp-for="@Model.Message" class="message-input" rows="10" id="message" placeholder="Message" required></textarea>
+                                <textarea type="text" asp-for="@Model.Message" class="message-input" rows="9" id="message" placeholder="Message" required></textarea>
                                 <span asp-validation-for="@Model.Message" class="text-danger"></span>
                             </div>
 

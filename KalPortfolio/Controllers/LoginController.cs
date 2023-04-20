@@ -26,20 +26,6 @@ namespace KalPortfolio.Controllers
 
         public ActionResult Login()
         {
-            if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
-            {
-                if(HttpContext.User.IsInRole("User"))
-                {
-                    return RedirectToAction("Home", "Home");
-                }
-                
-                if (HttpContext.User.IsInRole("Admin"))
-                {
-                    return RedirectToAction("Home", "Admin");
-                }
-                
-            }
-
             return View();
         }
 
@@ -89,63 +75,6 @@ namespace KalPortfolio.Controllers
                 ModelState.AddModelError("", "Please Check your Username and Password.");
             }            
             return View(login);
-        }
-       
-
-        public ActionResult CreateAccount()
-        {           
-            return View();
-        }
-
-        [ValidateAntiForgeryToken]
-        [HttpPost]
-        public async Task<ActionResult> CreateAccount(CreateAccount model)
-        {
-            if (ModelState.IsValid)
-            {
-                
-                var existingUser = await _repository.GetUserByUsername(model.Username);
-
-                if (existingUser == null)
-                {
-                    
-                    if (model.Password == model.ConfirmPassword)
-                    {
-                        
-                        var salt = UserHelper.GetSalt();
-
-                        User user = new();
-                        {
-                            user.Email = model.Email;
-                            user.FirstName = model.FirstName;
-                            user.LastName = model.LastName;
-                            user.Username = model.Username;
-                            user.Password = UserHelper.GetHashedPassword(model.Password, salt);
-                            user.Salt = salt;
-                            
-                            user.Roles = model.SelectedRoles.Select(r =>
-                                new Role()
-                                {
-                                    Id = r,
-                                    Name = "User",                                    
-                                }).ToList();
-                        }
-                        await _repository.CreateAccount(user);
-                        return RedirectToAction("Home", "Home");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("Password", "Passwords Does Not Match");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("Username", "Username Already In Use");
-                }
-                
-            }
-            
-            return View(model);
         }
     }
 }
