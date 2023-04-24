@@ -1,0 +1,295 @@
+﻿.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-link {
+    color: white;
+}
+
+.website-description {
+    margin: 0;
+    background-color: #a50021;
+    border-radius: 10px;
+}
+
+.website-tech {
+    font-size: .6rem;
+}
+
+.projects {
+    min-height: 50vh;
+}
+
+.large-project-discription {
+    position: absolute;
+}
+
+@media screen and (max-width: 800px) {
+    .large-project-discription {
+        position: inherit;
+    }
+}
+
+#home-link {
+    margin-bottom: 50vh;
+}
+
+.find-me-links {
+    margin-left: 100vw;
+    height: 20vh;
+    display: absolute;
+    position: fixed;
+    display: none;
+}
+
+@media screen and (min-width: 1675px) {
+    .find-me-links {
+        display: none;
+    }
+}
+
+.skip {
+    position: fixed;
+    left: -1000vw;
+    text-align: center;
+    border: 0;
+}
+
+    .skip:focus {
+        position: static;
+        width: 8vw;
+        height: 4vh;
+    }
+
+#home-intro {
+    margin-top: calc(40vh - 48px);
+}
+
+.contact-me {
+    justify-content: right;
+}
+
+a {
+    color: #fff;
+}
+
+pre {
+    background-color: transparent;
+    border: 0px;
+    color: #fff;
+}
+
+p {
+    background-color: transparent;
+    color: #fff;
+}
+
+hr {
+    margin: 0px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    font-size: 1em;
+}
+
+header {
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    border: 0;
+    background-color: #000;
+    width: 100vw;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+
+    body.admin-home {
+        background-image: url(https://th.bing.com/th/id/R.6b0de3bf04be27160bf338233d656948?rik=K4%2fab1AlSaNU1Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fBest-Black-And-Red-Backgrounds.jpg&ehk=XnsgviCZCh%2fZiCs1ZFoUiWM%2b%2f0Y4esXgURbjYXJtzRM%3d&risl=&pid=ImgRaw&r=0);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    body.detail {
+        background: linear-gradient(90deg, rgba(0,196,255,1) 0%, rgba(0,167,204,1) 13%, rgba(7,68,148,1) 67%, rgba(15,122,193,1) 94%);
+    }
+
+    body.login {
+        background: linear-gradient(196deg, rgba(0,0,0,1) 29%, rgba(2,30,66,1) 52%, rgba(7,68,148,1) 70%, rgba(32,153,205,1) 85%);
+    }
+
+form {
+    text-align: left;
+}
+
+.create-account-field {
+    width: 100%;
+    height: 6vh;
+    margin-top: 3%;
+    border-radius: 10px;
+    background: #000;
+    color: white;
+}
+
+.create-account-focus {
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+    background-image: conic-gradient(from 234deg at 60% 30%, #FF0000FF 30%, #000000FF 100%);
+    border-radius: 40px;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    padding-top: 5%;
+    width: 80vw;
+    height: 80vh;
+}
+
+.create-account-form {
+    padding: 0% 20% 5% 10%;
+    border-right: 3px black solid;
+    margin: 0 0 5% 0;
+}
+
+#login {
+    color: white;
+    background: rgba(7, 68, 148, 1);
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    animation-name: text-reveal;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+.login-input {
+    background: rgba(7, 68, 148, 1);
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+}
+
+/*#login {
+    color: white;
+    background: rgba(7, 68, 148, 1);
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    animation-name: text-reveal;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}*/
+
+.details-heading {
+    height: 15%;
+    width: 100%;
+}
+
+.search-message {
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    height: 5vh;
+}
+
+#user-info {
+    position: sticky;
+    height: 40vh;
+    min-width: 100%;
+    background-color: black;
+    border: red solid 1px;
+}
+
+.message-detail {
+    position: absolute;
+    width: 90%;
+    bottom: 10%;
+}
+
+
+.admin-message-table {
+    border: 1px solid red;
+    background-color: transparent;
+    color: white;
+}
+
+#about-me-panel {
+    margin: 50vh 0 0 0;
+    border-radius: 30px;
+    border-top: #a50021 1px solid;
+    border-left: #a50021 5px solid;
+}
+
+.message-input {
+    height: 5vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    margin-block: 5px;
+}
+
+#message {
+    border-color: red;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
+
+#submit-message {
+    width: 100%;
+    height: 5vh;
+    border: solid 1px red;
+    background-color: transparent;
+    color: red;
+}
+
+    #submit-message:hover {
+        background-color: red;
+        color: black;
+    }
+
+@media screen and (max-width: 1200px) {
+
+    #about-me-carousel {
+        display: none;
+    }
+}
+
+.project-quick-look {
+    width: 100%;
+    min-height: 42vh;
+    background-color: #a50021;
+    border-radius: 10px;
+    opacity: .8;
+}
+
+.project-quick-look-hidden {
+    width: 100%;
+    min-height: 42vh;
+    background-color: #a50021;
+    border-radius: 10px;
+    opacity: .3;
+    color: black;
+}
+
+.text-overflow {
+    max-width: 10vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}

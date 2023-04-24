@@ -1,5 +1,4 @@
-﻿using DataEntities;
-using KalPortfolio.Models;
+﻿using KalPortfolio.Models;
 using LoginLibrary;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -8,8 +7,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using KalPortfolio.Helpers;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
 
 namespace KalPortfolio.Controllers
 {
@@ -54,15 +52,8 @@ namespace KalPortfolio.Controllers
                         foreach (var role in user.Roles)
                         {
                             claims.Add(new Claim(ClaimTypes.Role, role.Name));
-                            
-                            if(role.Name.Equals("User"))
-                            {
-                                login.ReturnUrl = "/Home/Home";
-                            }
-                            else
-                            {
-                                login.ReturnUrl = "/Admin/Home";
-                            }
+
+                            login.ReturnUrl = "/Admin/Home";                           
                         }
 
                         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
