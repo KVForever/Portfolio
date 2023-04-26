@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DataEntities.UserMessage>;
+
+@{
+    var messages = Model.ToList();
+    var max = Model.Count();
+
+    if (Model.Count() > 13)
+    {
+        max = 13;
+    }
+
+    for (int i = 0; i < max; i++)
+    {
+
+        <tr>
+
+            <td class="text-overflow">@messages.ElementAt(i).LastName</td>
+
+            <td class="text-overflow">@messages.ElementAt(i).FirstName</td>
+
+            <td class="text-overflow"><a class="mail-to" href="mailto: @messages.ElementAt(i).Email">@messages.ElementAt(i).Email</a></td>
+
+            <td class="text-overflow">@messages.ElementAt(i).Subject</td>
+
+            <td class="text-overflow">@messages.ElementAt(i).Message</td>
+
+            <td>
+
+                <button type="button" class="btn btn-outline-danger btn-sm message-delete" onclick="remove(@messages.ElementAt(i).Id)">Delete</button>
+
+
+                <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="details(@messages.ElementAt(i).Id)">Details</button>
+            </td>
+
+        </tr>
+
+    }
+}
+

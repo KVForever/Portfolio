@@ -21,7 +21,7 @@ $(function () {
 });
 
 function search() {
-    $.get('/Admin/UserResultList?name=' + document.querySelector('#search-for-message').value, function (data) {
+    $.get('/Admin/SearchResultList?name=' + document.querySelector('#search-for-message').value, function (data) {
 
         $('#user-result-list').html(data);
 
@@ -36,7 +36,7 @@ function remove(id) {
 }
 
 function details(id) {
-    $.get('/Admin/UserDetailList?id=' + id, function (data) {
+    $.get('/Admin/MessageDetail?id=' + id, function (data) {
         $('#user-info').html(data);
     });
 }

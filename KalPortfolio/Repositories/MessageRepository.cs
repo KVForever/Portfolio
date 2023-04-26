@@ -27,8 +27,13 @@ namespace MessagesLibrary
         public async Task<IEnumerable<UserMessage>> GetMessagesByName(string lastName)
         {
 
-            var messages = await _dbContext.UserMessages.Where(u =>  (string.IsNullOrEmpty(lastName) || EF.Functions.Like(u.LastName, lastName + "%")) && u.IsDeleted == false).ToListAsync();
-                
+            var messages = await _dbContext.UserMessages.Where(u =>  EF.Functions.Like(u.LastName, lastName + "%") && u.IsDeleted == false).ToListAsync();
+
+            if(lastName == null)
+            {
+                var allMessages = await _dbContext.UserMessages.Where(u => u.IsDeleted != true).ToListAsync();
+                return allMessages;
+            }    
             return messages;
         }
 

@@ -1,7 +1,7 @@
-﻿ Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. 
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
 
-Home styling
+/*Home styling*/
 
 .depth {
     position: absolute;
@@ -60,139 +60,98 @@ Home styling
     width: 20rem;
 }
 
-.vertical-line {
-    height: 10vh;
-    border: 1px solid white;
-    margin-left: 100vw;
-    display: absolute;
-    z-index: -1;
-    position: fixed;
-    display: none
+
+.details-heading {
+    height: 15%;
+    width: 100%;
 }
 
-@media screen and (min-width: 1675px) {
-    .line-left {
-        animation: 2s forwards vertical-line, 2s cubic-bezier(0.85, 0.1, 0.99, 0.94) forwards make-line-longer;
-        display: block;
-    }
+.search-message {
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    height: 5vh;
 }
 
-
-@keyframes vertical-line {
-
-    100% {
-        margin-top: 13vh;
-        transform: translateX(calc(34vw - 2px));
-        margin-left: 43vw;
-    }
+#user-info {
+    position: sticky;
+    height: 40vh;
+    min-width: 100%;
+    background-color: black;
+    border: red solid 1px;
 }
 
-@keyframes make-line-longer {
-    100% {
-        height: 36vh;
-    }
-}
-
-#linkedIn-link {
-    margin-top: 5vh;
-}
-
-@media screen and (min-width: 1675px) {
-    .links-animate {
-        animation-name: find-me-links-reveal;
-        animation-fill-mode: forwards;
-        animation-duration: 2s;
-        display: block;
-    }
-}
-
-
-@keyframes find-me-links-reveal {
-    to {
-        transform: translateX(45vw);
-        margin-left: 31vw;
-    }
-}
-
-.find-me {
+.message-detail {
     position: absolute;
-    z-index: 0;
-    margin-left: -100vw;
-    animation: find-me-in 3s cubic-bezier(0.59, 0.13, 0.29, 1) forwards;
+    width: 90%;
+    bottom: 10%;
 }
 
-@media screen and (min-width: 1675px) {
-    .find-me-animate {
-        margin-left: 0;
-        animation-name: find-me;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
+
+.admin-message-table {
+    border: 1px solid red;
+    background-color: transparent;
+    color: white;
+}
+
+.message-input {
+    height: 5vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    margin-block: 5px;
+}
+
+#message {
+    border-color: red;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
+
+#submit-message {
+    width: 100%;
+    height: 5vh;
+    border: solid 1px red;
+    background-color: transparent;
+    color: red;
+}
+
+    #submit-message:hover {
+        background-color: red;
+        color: black;
     }
-}
 
-@keyframes find-me {
-    to {
-        transform: translateX(-32vw);
+@media screen and (max-width: 1200px) {
+
+    #about-me-carousel {
         display: none;
     }
 }
 
-@keyframes find-me-in {
-    to {
-        margin-left: 0;
-    }
+.project-quick-look {
+    width: 100%;
+    min-height: 42vh;
+    background-color: #a50021;
+    border-radius: 10px;
+    opacity: .8;
 }
 
-#home-info-header {
-    animation-name: home-header;
-    animation-duration: 3s;
-    position: relative;
+.project-quick-look-hidden {
+    width: 100%;
+    min-height: 42vh;
+    background-color: #a50021;
+    border-radius: 10px;
+    opacity: .3;
+    color: black;
 }
 
-@keyframes home-header {
-    from {
-        right: 100vw;
-        top: 0px;
-    }
-
-    to {
-        right: 0px;
-        top: 0px;
-    }
-}
-
-#tag-line {
-    animation-name: home-tag-line;
-    animation-duration: 3s;
-    position: relative;
-}
-
-@keyframes home-tag-line {
-    from {
-        left: 100vw;
-        top: 0px;
-    }
-
-    to {
-        left: 0px;
-        top: 0px;
-    }
-}
-
-#nav-in {
-    animation-name: nav-in;
-    animation-duration: 3s;
-    position: relative;
-}
-
-@keyframes nav-in {
-    from {
-        top: -100vh;
-    }
-
-    to {
-        top: 0px;
-    }
+.text-overflow {
+    max-width: 10vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
 }
 
 @media screen and (min-width: 1200px) {
@@ -205,6 +164,29 @@ Home styling
     }
 }
 
+.website-description {
+    margin: 0;
+    background-color: #a50021;
+    border-radius: 10px;
+}
+
+.website-tech {
+    font-size: .6rem;
+}
+
+.projects {
+    min-height: 50vh;
+}
+
+.large-project-discription {
+    position: absolute;
+}
+
+@media screen and (max-width: 800px) {
+    .large-project-discription {
+        position: inherit;
+    }
+}
 
 .project-discription {
     width: 30vw;
@@ -259,7 +241,8 @@ Home styling
     margin-bottom: 5vh;
 }
 
-Admin styling
+/*Admin styling*/
+
 a:hover {
     color: white;
     text-decoration: none;
@@ -342,58 +325,4 @@ form.admin-logout-form {
 
 .details-hr {
     border: red solid 2px;
-}
-
-
-
-
-
-login styling
-
-#login-heading {
-    text-align: left;
-    color: rgba(7, 68, 148, 1);
-    animation-name: text-reveal;
-    animation-duration: 2s;
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
-}
-
-.login-focus {
-    background-color: rgba(7, 68, 148, 1);
-    animation-name: login-focus;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes login-focus {
-    0% {
-        background: rgba(7, 68, 148, 1);
-        border-radius: 40px
-    }
-
-    10% {
-        background: rgba(7, 68, 148, 1);
-        border-radius: 40px
-    }
-
-    100% {
-        background: rgba(7, 68, 148, 0.16);
-        border-radius: 50px
-    }
-}
-
-Create Account Styling
-
-
-.create-account-form span {
-    color: white;
-}
-
-    .create-account-field:hover {
-        border: 1px solid red;
-    }
-
-.create-account-label {
-    margin-top: 2%;
 }

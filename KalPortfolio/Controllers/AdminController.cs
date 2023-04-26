@@ -41,7 +41,7 @@ namespace KalPortfolio.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<PartialViewResult> UserResultList(string name)
+        public async Task<PartialViewResult> SearchResultList(string name)
         {
             return PartialView(await _repository.GetMessagesByName(name));
         }
@@ -61,7 +61,7 @@ namespace KalPortfolio.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> UserDetailList(int id)
+        public async Task<ActionResult> MessageDetail(int id)
         {
 
             return PartialView(await _repository.GetMessageById(id));

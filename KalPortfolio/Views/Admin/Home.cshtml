@@ -55,7 +55,6 @@
                 </div>
             </div>
 
-
             <div class="row table-responsive d-flex justify-content-center">
                 <div class="col-xl-9 col-12">
                     <table class="table admin-message-table">
@@ -71,30 +70,43 @@
                         </thead>
 
                         <tbody id="user-result-list">
-                            @foreach (var message in Model)
-                            {
-                                <tr>
+                            @{
+                                var messages = Model.ToList();
+                                var max = Model.Count();
 
-                                    <td class="text-overflow">@Html.DisplayFor(modelItem => message.LastName)</td>
+                                if(Model.Count() > 13)
+                                {
+                                    max = 13;
+                                }
 
-                                    <td class="text-overflow">@Html.DisplayFor(modelItem => message.FirstName)</td>
+                                for (int i = 0; i < max; i++)
+                                {
+                               
+                                    <tr>
 
-                                    <td class="text-overflow"><a class="mail-to" href="mailto: @message.Email">@Html.DisplayFor(ModelItem => message.Email)</a></td>
+                                        <td class="text-overflow">@messages.ElementAt(i).LastName</td>
 
-                                    <td class="text-overflow">@Html.DisplayFor(modelItem => message.Subject)</td>
+                                        <td class="text-overflow">@messages.ElementAt(i).FirstName</td>
 
-                                    <td class="text-overflow">@Html.DisplayFor(modelItem => message.Message)</td>
+                                        <td class="text-overflow"><a class="mail-to" href="mailto: @messages.ElementAt(i).Email">@messages.ElementAt(i).Email</a></td>
 
-                                    <td>
+                                        <td class="text-overflow">@messages.ElementAt(i).Subject</td>
 
-                                        <button type="button" class="btn btn-outline-danger btn-sm message-delete" onclick="remove(@message.Id)">Delete</button>
+                                        <td class="text-overflow">@messages.ElementAt(i).Message</td>
+
+                                        <td>
+
+                                            <button type="button" class="btn btn-outline-danger btn-sm message-delete" onclick="remove(@messages.ElementAt(i).Id)">Delete</button>
 
 
-                                        <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="details(@message.Id)">Details</button>
-                                    </td>
+                                            <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="details(@messages.ElementAt(i).Id)">Details</button>
+                                        </td>
 
-                                </tr>
-                            }
+                                    </tr>
+                                        
+                                }
+                           }
+                            
                         </tbody>
                     </table>
                 </div>
