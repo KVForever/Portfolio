@@ -10,16 +10,16 @@ namespace MessagesLibrary
 {
     public class MessageRepository : IMessageRepository
     {
-        private readonly PortfolioContext _dbContext;
+        private readonly PortfolioContext dbContext;
 
         public MessageRepository(PortfolioContext dbContext)
         {
-            _dbContext = dbContext;
+            this.dbContext = dbContext;
         }
 
         public async Task<IEnumerable<UserMessage>> GetAllMessages()
         {
-            var allMessages = await _dbContext.UserMessages.Where(u => u.IsDeleted != true).ToListAsync();
+            var allMessages = await dbContext.UserMessages.Where(u => u.IsDeleted != true).ToListAsync();
 
             return allMessages;
         }
@@ -27,11 +27,11 @@ namespace MessagesLibrary
         public async Task<IEnumerable<UserMessage>> GetMessagesByName(string lastName)
         {
 
-            var messages = await _dbContext.UserMessages.Where(u =>  EF.Functions.Like(u.LastName, lastName + "%") && u.IsDeleted == false).ToListAsync();
+            var messages = await dbContext.UserMessages.Where(u =>  EF.Functions.Like(u.LastName, lastName + "%") && u.IsDeleted == false).ToListAsync();
 
             if(lastName == null)
             {
-                var allMessages = await _dbContext.UserMessages.Where(u => u.IsDeleted != true).ToListAsync();
+                var allMessages = await dbContext.UserMessages.Where(u => u.IsDeleted != true).ToListAsync();
                 return allMessages;
             }    
             return messages;
@@ -40,7 +40,7 @@ namespace MessagesLibrary
         public async Task<UserMessage> GetMessageById(int id)
         {
             
-            var message = await _dbContext.UserMessages.Where(u => u.Id == id && u.IsDeleted == false).FirstOrDefaultAsync();
+            var message = await dbContext.UserMessages.Where(u => u.Id == id && u.IsDeleted == false).FirstOrDefaultAsync();
 
             if (message != null)
             {
@@ -55,20 +55,20 @@ namespace MessagesLibrary
             message.DateCreated = DateTime.Now;
             message.DateModified = DateTime.Now;  
 
-            _dbContext.Add(message);
-            await _dbContext.SaveChangesAsync();
+            dbContext.Add(message);
+            await dbContext.SaveChangesAsync();
 
             return (message);
         }
 
         public async Task<bool> DeleteMessage(int id)
         {
-            var message = await _dbContext.UserMessages.Where(u => u.Id == id).FirstOrDefaultAsync();
+            var message = await dbContext.UserMessages.Where(u => u.Id == id).FirstOrDefaultAsync();
 
             if (message != null)
             {
                 message.IsDeleted = true;
-                await _dbContext.SaveChangesAsync();
+                await dbContext.SaveChangesAsync();
             }
 
             return true;

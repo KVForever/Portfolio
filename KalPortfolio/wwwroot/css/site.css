@@ -60,6 +60,25 @@ for details on configuring this project to bundle and minify static web assets. 
     width: 20rem;
 }
 
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(165,0,33,0.4);
+    z-index: 2;
+    display: none;
+}
+
+.rate-site {
+    height: 50vh;
+    width: 25vw;
+    margin-left: 35.5vw;
+    margin-top: 25vh;
+    background-color: black;
+    border: solid white 2px;
+    z-index: 10;
+}
 
 .details-heading {
     height: 15%;

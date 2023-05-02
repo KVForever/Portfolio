@@ -8,6 +8,16 @@
     ViewBag.Background = "home";
 }
 
+@section scripts {
+    <script>
+        window.onscroll = function (ev) {
+            if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+              var x = document.getElementById("rate");
+              x.style.display = "block";
+            }
+        };
+    </script>
+}
 
 
 @section header{
@@ -35,9 +45,24 @@
 }
 
 @section body{
-   
+
+    
 
     <div class="container">
+
+        <div id="rate" class="position-fixed overlay">
+            <div class="rate-site">
+                <div class="position-relative m-2">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle position-absolute top-0 end-0" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </div>
+               
+                <h3 class="text-center p-3">How do you think the the site is!</h3>
+            </div>
+        </div>
+
         <section id="home-link">
 
             <div id="home-intro" class="ms-5">
@@ -436,7 +461,7 @@
 
             <div class="row">
                 <div class="col-xl-6 col-12">
-                    <form asp-action="Home" asp-controller="Home" method="post">
+                    <form asp-action="Home" asp-controller="Home" method="post" id=messageform>
                         @Html.AntiForgeryToken()
                         <div class="row gy-2">
                             <div class="col-6">

@@ -13,5 +13,5 @@ public partial class Role
 
     public DateTime DateModified { get; set; }
 
-    public virtual ICollection<User> Users { get; } = new List<User>();
+    public virtual ICollection<User> Users { get; set; } = new List<User>();
 }

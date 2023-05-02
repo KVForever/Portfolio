@@ -7,6 +7,39 @@
     ViewBag.Title = "Create Account";
 }
 
+@section header {
+    <a type="button" href="/Admin/UserView#home-link" class="btn btn-info skip">Skip navigation</a>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark mx-3">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="Home">@User.Identity.Name.ToString()</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/UserView" aria-label="Go to user view.">User View</a></li>
+                        <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/ViewAdmins" aria-label="View Admins.">View Admins</a></li>
+                    </ul>
+                    @Html.AntiForgeryToken()
+                    <form asp-action="Logout" asp-controller="Home" method="post" class="">
+
+                        <button class="btn btn-outline-danger" type="submit" value="Logout">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                            </svg> Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+}
+
 @section body {
 
     <section>

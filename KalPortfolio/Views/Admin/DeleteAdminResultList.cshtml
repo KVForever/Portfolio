@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DataEntities.User>
+
+@{
+    foreach (var user in Model)
+    {
+
+        <tr>
+
+            <td class="text-overflow">@user.FirstName</td>
+
+            <td class="text-overflow">@user.LastName</td>
+
+            <td class="text-overflow">@user.DateCreated</td>
+
+            <td class="text-overflow">@user.Email</td>
+
+            <td class="text-overflow"><button type="button" class="btn btn-outline-danger btn-sm message-delete" onclick="remove(@user.Id)">Delete</button></td>
+        </tr>
+
+    }
+}

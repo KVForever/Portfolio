@@ -9,16 +9,16 @@ namespace LoginLibrary
 {
     public class LoginRepository : ILoginRepository
     {
-        public readonly PortfolioContext _DbContext;
+        public readonly PortfolioContext dbContext;
 
         public LoginRepository(PortfolioContext dbContext)
         {
-            _DbContext = dbContext;
+            this.dbContext = dbContext;
         }
 
         public async Task<User> GetUserByUsername(string username)
         {
-            var result = await _DbContext.Users.Where(u => u.Username == username && !u.IsDeleted)
+            var result = await dbContext.Users.Where(u => u.Username.Equals(username) && !u.IsDeleted)
                 .Include(u => u.Roles)
                 .FirstOrDefaultAsync();
 
@@ -41,11 +41,11 @@ namespace LoginLibrary
 
             foreach (var roleId in rolesToBeAssigned)
             {
-                user.Roles.Add(await _DbContext.Roles.Where(r => r.Id == roleId).FirstAsync());
+                user.Roles.Add(await dbContext.Roles.Where(r => r.Id == roleId).FirstAsync());
             }
 
-            _DbContext.Users.Add(user);
-            await _DbContext.SaveChangesAsync();
+            dbContext.Users.Add(user);
+            await dbContext.SaveChangesAsync();
 
             return user;
         }

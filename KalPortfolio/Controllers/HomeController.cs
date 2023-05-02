@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using KalPortfolio.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace KalPortfolio.Controllers
 {
@@ -14,11 +15,11 @@ namespace KalPortfolio.Controllers
     public class HomeController : Controller
     {
        
-        private readonly IMessageRepository _repository;
+        private readonly IMessageRepository messageRepository;
 
-        public HomeController(IMessageRepository message)
+        public HomeController(IMessageRepository messageRepostiory)
         {
-            _repository = message;
+            messageRepository = messageRepostiory;
         }
        
         public ActionResult Home()
@@ -48,15 +49,16 @@ namespace KalPortfolio.Controllers
             
                 }
 
-                await _repository.AddMessage(userMessage);
+                await messageRepository.AddMessage(userMessage);
             }
 
-            var role = HttpContext.User.FindFirst(ClaimTypes.Role).Value;
-            if (role.ToString().Equals("Admin"))
+           
+            if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("UserView", "Admin");
+                return Redirect("/Admin/UserView#contact-link");
+                
             }
-            return View();
+            return Redirect("/Home/Home#contact-link");
         }
 
         [ValidateAntiForgeryToken]

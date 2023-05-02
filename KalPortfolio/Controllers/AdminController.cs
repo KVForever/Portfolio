@@ -1,6 +1,7 @@
 ﻿using DataEntities;
 using KalPortfolio.Helpers;
 using KalPortfolio.Models;
+using KalPortfolio.Repositories.Interfaces;
 using LoginLibrary;
 using MessagesLibrary;
 using Microsoft.AspNetCore.Authorization;
@@ -13,15 +14,15 @@ namespace KalPortfolio.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly IMessageRepository _repository;
-        private readonly ILoginRepository _loginRepository;
+        private readonly IMessageRepository messageRepository;
+        private readonly ILoginRepository loginRepository;
+        private readonly IAdminRepository adminRepository;
 
-
-        public AdminController(IMessageRepository message, ILoginRepository login)
+        public AdminController(IMessageRepository messageRepository, ILoginRepository loginRepository, IAdminRepository adminRepository)
         {
-            _repository = message;
-            _loginRepository = login;
-
+            this.messageRepository = messageRepository;
+            this.loginRepository = loginRepository;
+            this.adminRepository = adminRepository;
         }
 
         [Authorize(Roles = "Admin")]
@@ -29,7 +30,7 @@ namespace KalPortfolio.Controllers
         {
             if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
             {
-                return View(await _repository.GetMessagesByName(name));
+                return View(await messageRepository.GetMessagesByName(name));
             }
             return RedirectToAction("Login", "login");
         }
@@ -43,15 +44,15 @@ namespace KalPortfolio.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<PartialViewResult> SearchResultList(string name)
         {
-            return PartialView(await _repository.GetMessagesByName(name));
+            return PartialView(await messageRepository.GetMessagesByName(name));
         }
 
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteResultList(int id)
         {
 
-            await _repository.DeleteMessage(id);
-            return PartialView(await _repository.GetAllMessages());
+            await messageRepository.DeleteMessage(id);
+            return PartialView(await messageRepository.GetAllMessages());
         }
 
         [Authorize(Roles = "Admin")]
@@ -64,13 +65,26 @@ namespace KalPortfolio.Controllers
         public async Task<ActionResult> MessageDetail(int id)
         {
 
-            return PartialView(await _repository.GetMessageById(id));
+            return PartialView(await messageRepository.GetMessageById(id));
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> ViewAdmins()
+        {
+            return View(await adminRepository.GetAdmins());
         }
 
         [Authorize(Roles = "Admin")]
         public ActionResult CreateAdmin()
         {
             return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> DeleteAdminResultList(int id)
+        {
+            await adminRepository.DeleteAdmin(id);
+            return PartialView(await adminRepository.GetAdmins());
         }
 
         [HttpPost]
@@ -80,7 +94,7 @@ namespace KalPortfolio.Controllers
         {
             if (ModelState.IsValid)
             {
-                var existingUser = await _loginRepository.GetUserByUsername(model.Username);
+                var existingUser = await loginRepository.GetUserByUsername(model.Username);
 
                 if (existingUser == null)
                 {
@@ -105,7 +119,7 @@ namespace KalPortfolio.Controllers
                                 }).ToList();
                         }
 
-                        await _loginRepository.CreateAccount(user);
+                        await loginRepository.CreateAccount(user);
                         return RedirectToAction("Home", "Admin");
                     }
                     ModelState.AddModelError("Password", "Passwords Do Not Match");

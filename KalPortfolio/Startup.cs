@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using KalPortfolio.Repositories.Interfaces;
+using KalPortfolio.Repositories;
 
 namespace KalPortfolio
 {
@@ -35,7 +37,7 @@ namespace KalPortfolio
             services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:portfolioconnectionstring"]));
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
-            
+            services.AddScoped<IAdminRepository, AdminRepository>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>

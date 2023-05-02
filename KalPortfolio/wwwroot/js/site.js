@@ -28,16 +28,22 @@ function search() {
     });
 }
 
-function remove(id) {
+function removeMessage(id) {
     $.post('/Admin/DeleteResultList?id=' + id, function (data) {           
         $('#user-result-list').html(data);
     });
        
 }
 
-function details(id) {
+function messageDetails(id) {
     $.get('/Admin/MessageDetail?id=' + id, function (data) {
         $('#user-info').html(data);
+    });
+}
+
+function removeAdmin(id) {
+    $.post('/Admin/DeleteAdminResultList?id=' + id, function (data) {
+        $('#admin-result-list').html(data);
     });
 }
 
@@ -45,5 +51,8 @@ function createAccountBtn() {
     location.href = '/Login/CreateAccount';
 }
 
+function messageFormSubmit() {
+    location.href = '/Home/Home#contact-form';
+};
 
 
