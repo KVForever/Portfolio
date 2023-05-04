@@ -20,6 +20,45 @@ $(function () {
     });
 });
 
+$(function () {
+    $(window).scroll(function (ev) {
+        if ((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight / 2)) {
+            var x = $(".rate-tease");
+            x.addClass("rate-tease-reveal");
+        }
+    });
+});
+
+
+$(function () {
+    $(document).on("click", ".rate-tease", function () {
+        var element = document.getElementById("tease");
+        var style = window.getComputedStyle(element);
+        var display = style.getPropertyValue("display");
+        
+        if (display != 'none' ) {
+
+            $('.overlay').css('display', 'block');
+        }
+        
+    })
+});
+
+$(function () {
+    $(document).on("click", ".rate-site-close", function () {
+        
+        $('.overlay').css('display', 'none');
+    })
+});
+
+$(function () {
+    $(document).on("click", ".rate-tease-close", function () {
+
+        $('.rate-tease').css('display', 'none');
+        
+    })
+});
+
 function search() {
     $.get('/Admin/SearchResultList?name=' + document.querySelector('#search-for-message').value, function (data) {
 

@@ -70,6 +70,11 @@ for details on configuring this project to bundle and minify static web assets. 
     display: none;
 }
 
+.close {
+    background: transparent;
+    border: 0;
+}
+
 .rate-site {
     height: 50vh;
     width: 25vw;
@@ -77,7 +82,40 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-top: 25vh;
     background-color: black;
     border: solid white 2px;
-    z-index: 10;
+    z-index: 3;
+    
+}
+
+.rate-tease {
+    position: fixed;
+    width: 12vw;
+    height: 6vh;
+    background-color: #a50021;
+    left: -100vw;
+    top: 95vh;
+   
+    border-top: solid black 1px;
+    border-radius: 10px;
+}
+
+.rate-tease-reveal {
+    animation-name: rate-tease-reveal;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+}
+
+@keyframes rate-tease-reveal {
+    from {
+        left: -100vw;
+        top: 95vh;
+        display: none;
+    }
+
+    to {
+        left: 0vw;
+        top: 95vh;
+        display: block;
+    }
 }
 
 .details-heading {
