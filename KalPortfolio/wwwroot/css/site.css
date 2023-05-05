@@ -67,7 +67,12 @@ for details on configuring this project to bundle and minify static web assets. 
     left: 0;
     background-color: rgba(165,0,33,0.4);
     z-index: 2;
-    display: none;
+    display: none
+}
+
+.star {
+    background: transparent;
+    border: 0;
 }
 
 .close {
@@ -75,27 +80,35 @@ for details on configuring this project to bundle and minify static web assets. 
     border: 0;
 }
 
-.rate-site {
-    height: 50vh;
-    width: 25vw;
-    margin-left: 35.5vw;
-    margin-top: 25vh;
-    background-color: black;
-    border: solid white 2px;
-    z-index: 3;
-    
-}
 
 .rate-tease {
     position: fixed;
-    width: 12vw;
-    height: 6vh;
     background-color: #a50021;
+    height: 50%;
+    width: 15%;
     left: -100vw;
-    top: 95vh;
-   
-    border-top: solid black 1px;
+    z-index: 3;
+    border-top: solid white 1px;
     border-radius: 10px;
+}
+
+.rate-site-submit {
+    color: white;
+    border: solid white 2px;
+    border-radius: 10px;
+    width: 50%;
+}
+.rate-site-submit:hover {
+    color: white;
+    border: solid white 2px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    width: 50%;
+}
+
+.rate-tease-text {
+    font-size: 1.3em;
 }
 
 .rate-tease-reveal {
@@ -107,13 +120,13 @@ for details on configuring this project to bundle and minify static web assets. 
 @keyframes rate-tease-reveal {
     from {
         left: -100vw;
-        top: 95vh;
+        top: 94vh;
         display: none;
     }
 
     to {
         left: 0vw;
-        top: 95vh;
+        top: 94vh;
         display: block;
     }
 }
