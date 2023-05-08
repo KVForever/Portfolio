@@ -73,6 +73,7 @@ for details on configuring this project to bundle and minify static web assets. 
 .star {
     background: transparent;
     border: 0;
+    
 }
 
 .close {
@@ -81,15 +82,9 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 
-.rate-tease {
-    position: fixed;
-    background-color: #a50021;
-    height: 50%;
-    width: 15%;
-    left: -100vw;
-    z-index: 3;
-    border-top: solid white 1px;
-    border-radius: 10px;
+.csa-badge {
+    width: 60%;
+    height: 100%;
 }
 
 .rate-site-submit {

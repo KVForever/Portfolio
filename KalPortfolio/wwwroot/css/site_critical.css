@@ -103,6 +103,17 @@ form {
 }
 
 /*Home Style*/
+.rate-tease {
+    position: fixed;
+    background-color: #a50021;
+    height: 50%;
+    width: 15%;
+    left: -100vw;
+    z-index: 3;
+    border-top: solid white 1px;
+    border-radius: 10px;
+  
+}
 
 .rate-site {
     height: 50%;
