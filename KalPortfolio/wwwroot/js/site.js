@@ -22,7 +22,7 @@ $(function () {
 
 $(function () {
     $(window).scroll(function (ev) {
-        if ((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight / 2)) {
+        if ((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight / 1.75)) {
             var x = $(".rate-tease");
             x.addClass("rate-tease-reveal");
         }

@@ -34,85 +34,100 @@
 }
 
 @section body{
-    
 
     <div class="container">
 
-        <div id="rate" class="position-fixed overlay">
-            <div class="rate-site">
-                <div class="position-relative m-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-x-circle position-absolute top-0 end-0 rate-site-close" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                </div>
-                
-                <h2 class="text-center px-3 mt-5">Enjoying my site?</h2>
-                <p class="text-center p-3">Select a star rating and click submit!</p>
-                
-                <div class="text-center mt-4">
-                    <div class="d-inline">
-                        <button type="button" id="star-one" class="star">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
-                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                            </svg>
-                        </button>
-                        
-                    </div>
-                    <div class="d-inline">
-                        <button type="button" id="star-two" class="star">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
-                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div  class="d-inline">
-                        <button type="button" id="star-three" class="star">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
-                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div  class="d-inline">
-                        <button type="button" id="star-four" class="star">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
-                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div  class="d-inline">
-                        <button type="button" id="star-five" class="star">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
-                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                            </svg>
-                        </button>
-                    </div>
+            <div class="position-fixed overlay">
+                <div class="row justify-content-center">
+                    
+                    <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8">
+                        <div id="rate">
+                            <div class="rate-site justify-content-center">
+                                <div class="position-relative m-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-x-circle position-absolute top-0 end-0 rate-site-close" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                    </svg>
+                                </div>
 
-                </div>
+                                <h2 class="text-center px-3 mt-5">Enjoying my site?</h2>
+                                <p class="text-center p-3">Select a star rating and click submit!</p>
 
-                <div class="postion-relative text-center my-4">
-                    <button type="button" aria-label="submit" class="btn btn-lg rate-site-submit">Submit</button>
-                </div>
+                                <div class="text-center mt-4">
+                                    <div class="d-inline">
+                                        <button type="button" id="star-one" class="star">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </button>
 
-                <div class="text-center m-3"><p>Be sure to leave a comment in the contact section as to why you rated the way you did!</p></div>
+                                    </div>
+                                    <div class="d-inline">
+                                        <button type="button" id="star-two" class="star">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="d-inline">
+                                        <button type="button" id="star-three" class="star">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="d-inline">
+                                        <button type="button" id="star-four" class="star">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="d-inline">
+                                        <button type="button" id="star-five" class="star">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-star" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                <div class="postion-relative text-center my-4">
+                                    <button type="button" aria-label="submit" class="btn btn-lg rate-site-submit">Submit</button>
+                                </div>
+
+                                <div class="text-center m-3"><p>Be sure to leave a comment in the contact section as to why you rated the way you did!</p></div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                    
             </div>
-        </div>
-
-
-        <div id="tease" class="rate-tease">
-            <div class="poition-relative "  >
                 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-x-circle position-absolute m-1 top-0 end-0 rate-tease-close" viewBox="0 0 16 16">
+            
+      
+        
+
+
+        <div id="tease">
+
+            <div class="rate-tease px-lg-5 px-sm-3">
+                <div class="poition-relative ">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-x-circle position-absolute m-1 top-0 end-0 rate-tease-close" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                </svg>
-              
+                    </svg>
 
+                </div>
+
+                <div class="text-left text-center mt-3">
+                    <p class="rate-tease-text">Want To Rate the site!</p>
+                </div>
             </div>
-           
-            <div class="text-left text-center mt-3">
-                <p class="rate-tease-text">Want To Rate the site!</p>  
-            </div>
+                    
         </div>
         
 
@@ -180,7 +195,7 @@
                             </li>
                         </ul>
 
-                        <div class="tab-content d-flex justify-content-center" id="myTabContent">
+                        <div class="tab-content d-flex justify-content-center p-3" id="myTabContent">
 
                             <div class="tab-pane fade show active" id="intro-tab-pane" role="tabpanel" aria-labelledby="info-tab">
                                 <h1>About Me</h1>
@@ -244,7 +259,7 @@
 
                                 <h1>Spark Crew</h1>
                                 <p>
-                                    Spark Crew is a group that I participate in that helps in providing opportunities for middle schoolers to have fun activities that develop their faith.
+                                        Spark Crew is a group that I participate in that helps in providing opportunities for middle schoolers to have fun activities that develop their faith.
                                     I lead by example and try to make what they come in thinking is a boring situation into one that they can enjoy and get something out of.
                                     Participating in this club is a great way for me to serve my community.
 
@@ -252,7 +267,7 @@
 
                                 <h1>Chazzo Warriors</h1>
                                 <p>
-                                    Chazzo Warriors is a group that meets every week and just hangs out. I am able to surround myself with good people that are there to support each other and to have fun.
+                                        Chazzo Warriors is a group that meets every week and just hangs out. I am able to surround myself with good people that are there to support each other and to have fun.
                                     We also do projects through out there such as a food drive, kitty pool kickball, and most members go on the yearly Catholic Heart Work Camp. We all travel to a different state and do service around the chosen community.
                                     Participating in this club is a great way I can surround myself with good influences and to also manage stress. 
                                 </p>
@@ -260,22 +275,22 @@
                             </div>
 
                             <div class="tab-pane fade" id="awards-tab-pane" role="tabpanel" aria-labelledby="awards-tab">
-                                <h1 class="text-center p-3">Awards</h1>
+                                <h1 class="text-center">Awards</h1>
 
-                                <div class="row">
+                                <div class="row text-center">
                                     <div class="col-4">
                                         <img class="img-fluid csa-badge" src="~/images/csa bronze award.png" />
                                     </div>
-                                    <div class="col-8 text-center">
+                                    <div class="col-8">
                                         <p class="mt-5">I was awarded a bronze badge for my particpation in CyberStart America 2021-2022. This recognised my accomplishment of achiving 25,000 points for the duration of the competition. </p>
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row text-center">
                                     <div class="col-4 ">
                                         <img class="img-fluid csa-badge" src="~/images/csa silver award.png" />
                                     </div>
-                                    <div class="col-8 text-center">
+                                    <div class="col-8 ">
                                         <p class="mt-5">I was awared a silver badge for my participation in CyberStart America 2022-2023. This recongnised my accomplishment of achiving 50,000 points for the duration of the competition. </p>
                                     </div>
                                 </div>

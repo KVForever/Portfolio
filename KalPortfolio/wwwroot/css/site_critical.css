@@ -103,24 +103,19 @@ form {
 }
 
 /*Home Style*/
+
 .rate-tease {
     position: fixed;
     background-color: #a50021;
-    height: 50%;
-    width: 15%;
+    border-top: solid white 1px;
+    border-radius: 10px;   
     left: -100vw;
     z-index: 3;
-    border-top: solid white 1px;
-    border-radius: 10px;
-  
 }
 
 .rate-site {
-    height: 50%;
-    width: 25%;
-    position: absolute;
-    left: 37.5%;
-    top: 25%;
+    margin-top: 55%;
+    width: 100%;
     background-size: 100% 100%;
     background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
     background-image: radial-gradient(49% 81% at 45% 47%, #00000045 0%, #073AFF00 100%),radial-gradient(113% 91% at 17% -2%, #281010FF 1%, #FF000000 99%),radial-gradient(142% 91% at 83% 7%, #FF0000FF 1%, #FF000000 99%),radial-gradient(142% 91% at -6% 74%, #EB1146FF 1%, #FF000000 99%),radial-gradient(142% 91% at 111% 84%, #3A0505FF 0%, #FF0000FF 100%);
@@ -129,7 +124,6 @@ form {
     display: none;
     z-index: 3;
 }
-
 
 #home-link {
     margin-bottom: 50vh;
@@ -273,6 +267,10 @@ form {
     border-radius: 30px;
     border-top: #a50021 1px solid;
     border-left: #a50021 5px solid;
+}
+
+#about-me-panel p {
+    text-indent: 5%;
 }
 
 /*Login style*/

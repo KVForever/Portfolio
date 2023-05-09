@@ -81,7 +81,6 @@ for details on configuring this project to bundle and minify static web assets. 
     border: 0;
 }
 
-
 .csa-badge {
     width: 60%;
     height: 100%;
@@ -115,13 +114,13 @@ for details on configuring this project to bundle and minify static web assets. 
 @keyframes rate-tease-reveal {
     from {
         left: -100vw;
-        top: 94vh;
+        bottom: 0;
         display: none;
     }
 
     to {
         left: 0vw;
-        top: 94vh;
+        bottom:-10px;
         display: block;
     }
 }
