@@ -13,6 +13,8 @@ public partial class PortfolioContext : DbContext
 
     public virtual DbSet<Role> Roles { get; set; }
 
+    public virtual DbSet<StarRating> StarRatings { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<UserMessage> UserMessages { get; set; }
@@ -28,6 +30,13 @@ public partial class PortfolioContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.Name).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<StarRating>(entity =>
+        {
+            entity.ToTable("StarRating");
+
+            entity.Property(e => e.DateRated).HasColumnType("date");
         });
 
         modelBuilder.Entity<User>(entity =>

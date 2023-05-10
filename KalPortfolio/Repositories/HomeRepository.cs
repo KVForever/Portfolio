@@ -1,4 +1,5 @@
 ﻿using DataEntities;
+using KalPortfolio.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
@@ -8,11 +9,11 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace MessagesLibrary
 {
-    public class MessageRepository : IMessageRepository
+    public class HomeRepository : IHomeRepository
     {
         private readonly PortfolioContext dbContext;
 
-        public MessageRepository(PortfolioContext dbContext)
+        public HomeRepository(PortfolioContext dbContext)
         {
             this.dbContext = dbContext;
         }
@@ -70,6 +71,16 @@ namespace MessagesLibrary
                 message.IsDeleted = true;
                 await dbContext.SaveChangesAsync();
             }
+
+            return true;
+        }
+
+        public async Task<bool> AddRating(StarRating starRating)
+        {
+            starRating.DateRated = DateTime.Now;
+
+            dbContext.Add(starRating);
+            await dbContext.SaveChangesAsync();
 
             return true;
         }

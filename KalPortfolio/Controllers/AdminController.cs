@@ -14,11 +14,11 @@ namespace KalPortfolio.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly IMessageRepository messageRepository;
+        private readonly IHomeRepository messageRepository;
         private readonly ILoginRepository loginRepository;
         private readonly IAdminRepository adminRepository;
 
-        public AdminController(IMessageRepository messageRepository, ILoginRepository loginRepository, IAdminRepository adminRepository)
+        public AdminController(IHomeRepository messageRepository, ILoginRepository loginRepository, IAdminRepository adminRepository)
         {
             this.messageRepository = messageRepository;
             this.loginRepository = loginRepository;

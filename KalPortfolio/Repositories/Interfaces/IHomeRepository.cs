@@ -1,4 +1,5 @@
 ﻿using DataEntities;
+using KalPortfolio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MessagesLibrary
 {
-    public interface IMessageRepository
+    public interface IHomeRepository
     {
         public Task<IEnumerable<UserMessage>> GetMessagesByName(string name);
 
@@ -18,5 +19,7 @@ namespace MessagesLibrary
         public Task<UserMessage> AddMessage(UserMessage message);
 
         public Task<bool> DeleteMessage(int id);
+
+        public Task<bool> AddRating(StarRating starRating);
     }
 }

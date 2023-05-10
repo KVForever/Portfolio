@@ -86,6 +86,8 @@ $(function () {
         function getStarIndex() {
             for (var i = 0; i < allStars.length; i++) {
                 if (allStars[i] === whichStar) {
+                   $('#rate-site').val(i + 1);
+                    
                     return i;
                 }
             }
@@ -102,6 +104,24 @@ $(function () {
         
     })
 });
+
+$(function () {
+    $(document).on("submit", "#rate-site-form", function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: $("#rate-site-form").attr('action'),
+            data: new FormData,
+            success: function (data) {
+                alert("It Worked, mabye?");
+            },
+            error: function (data) {
+                alert("It did not work.")
+            }
+        });
+    })
+    
+})
 
 function search() {
     $.get('/Admin/SearchResultList?name=' + document.querySelector('#search-for-message').value, function (data) {

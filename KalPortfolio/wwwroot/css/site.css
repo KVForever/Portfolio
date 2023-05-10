@@ -86,13 +86,13 @@ for details on configuring this project to bundle and minify static web assets. 
     height: 100%;
 }
 
-.rate-site-submit {
+.rate-submit-btn {
     color: white;
     border: solid white 2px;
     border-radius: 10px;
     width: 50%;
 }
-.rate-site-submit:hover {
+.rate-site-btn:hover {
     color: white;
     border: solid white 2px;
     border-radius: 10px;

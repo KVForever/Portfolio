@@ -37,7 +37,7 @@
 
     <div class="container">
 
-            <div class="position-fixed overlay">
+            @*<div class="position-fixed overlay">
                 <div class="row justify-content-center">
                     
                     <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8">
@@ -91,20 +91,22 @@
                                         </button>
                                     </div>
 
-                                </div>
+                                </div>*@
 
                                 <div class="postion-relative text-center my-4">
-                                    <button type="button" aria-label="submit" class="btn btn-lg rate-site-submit">Submit</button>
-                                </div>
 
-                                <div class="text-center m-3"><p>Be sure to leave a comment in the contact section as to why you rated the way you did!</p></div>
+                                    <partial name="~/Views/Home/SiteRating.cshtml"></partial>
+                                    
+                                </div>
+@*
+                                <div class="text-center mx-3 mt-3 mb-5"><p>Be sure to leave a comment in the contact section as to why you rated the way you did!</p></div>
                             </div>
                         </div>
                     </div>
                    
                 </div>
                     
-            </div>
+            </div>*@
                 
             
       
@@ -665,11 +667,3 @@
         </section>
     </div>
 }
-
-
-
-
-
-
-
-

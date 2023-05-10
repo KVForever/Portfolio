@@ -15,11 +15,11 @@ namespace KalPortfolio.Controllers
     public class HomeController : Controller
     {
        
-        private readonly IMessageRepository messageRepository;
+        private readonly IHomeRepository homeRepository;
 
-        public HomeController(IMessageRepository messageRepostiory)
+        public HomeController(IHomeRepository homeRepostiory)
         {
-            messageRepository = messageRepostiory;
+            this.homeRepository = homeRepostiory;
         }
        
         public ActionResult Home()
@@ -31,12 +31,10 @@ namespace KalPortfolio.Controllers
             return View();  
         }
 
-        
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> Home(CreateMessage formData)
         {
-            
-
             if (ModelState.IsValid)
             {
                 UserMessage userMessage = new();
@@ -49,7 +47,7 @@ namespace KalPortfolio.Controllers
             
                 }
 
-                await messageRepository.AddMessage(userMessage);
+                await homeRepository.AddMessage(userMessage);
             }
 
            
@@ -59,6 +57,22 @@ namespace KalPortfolio.Controllers
                 
             }
             return Redirect("/Home/Home#contact-link");
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public async Task<ActionResult> SiteRating(AddRating starRating)
+        {
+            StarRating userRating = new();
+            {
+                userRating.Rating = starRating.Rating;
+            }
+
+            await homeRepository.AddRating(userRating);
+            
+            return RedirectToAction("Home", "Home");
+            
+            
         }
 
         [ValidateAntiForgeryToken]
