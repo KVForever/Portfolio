@@ -37,7 +37,6 @@ $(function () {
         var display = style.getPropertyValue("display");
 
         if (display != 'none') {
-
             $('.overlay').css('display', 'block');
             $('.rate-site').css('display', 'block');
         }
@@ -49,7 +48,7 @@ $(function () {
     $(document).on("click", ".rate-site-close", function () {
         
         $('.overlay').css('display', 'none');
-
+        $('.rate-tease').css('display', 'none');
        
     })
 });
@@ -106,21 +105,46 @@ $(function () {
 });
 
 $(function () {
-    $(document).on("submit", "#rate-site-form", function (e) {
+    $(document).on("click", "#rate-submit-btn", function (e) {
         e.preventDefault();
+        var starRating = new Object();
+        starRating.Rating =  $('#rate-site').val();
+       
+        var url = $("#rate-site-form").attr('action');
         $.ajax({
             type: 'POST',
-            url: $("#rate-site-form").attr('action'),
-            data: new FormData,
-            success: function (data) {
-                alert("It Worked, mabye?");
+            url: url,
+            data: starRating,
+            error: function () {
+                alert('The form did not submit!')
             },
-            error: function (data) {
-                alert("It did not work.")
+            success: function () {
+                document.querySelector('#rate-submit-btn').innerText = 'Thank You!';
+                
             }
         });
     })
-    
+})
+
+$(function () {
+    $(document).on('click', '#submit-message', function (e) {
+        e.preventDefault();
+        var requestAntiForgeryToken = document.querySelector('[name=__RequestVerificationToken').value;
+        $.ajax({
+            type: 'POST',
+            url: '/Home/Home',
+            data: $('#messageform').serialize(), requestAntiForgeryToken,
+            error: function (response) {
+                alert("Sorry but the form did not submit!");
+            },
+            success: function (d) {
+                $('#messageform')[0].reset();
+                alert("Thank You!")
+                
+            }
+        })
+    })
+
 })
 
 function search() {
@@ -157,5 +181,3 @@ function createAccountBtn() {
 function messageFormSubmit() {
     location.href = '/Home/Home#contact-form';
 };
-
-

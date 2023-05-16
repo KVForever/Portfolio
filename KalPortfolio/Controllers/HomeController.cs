@@ -8,6 +8,7 @@ using KalPortfolio.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace KalPortfolio.Controllers
 {
@@ -46,7 +47,6 @@ namespace KalPortfolio.Controllers
                     userMessage.Message = formData.Message;
             
                 }
-
                 await homeRepository.AddMessage(userMessage);
             }
 
@@ -56,21 +56,27 @@ namespace KalPortfolio.Controllers
                 return Redirect("/Admin/UserView#contact-link");
                 
             }
+
             return Redirect("/Home/Home#contact-link");
         }
+        
+        
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<ActionResult> SiteRating(AddRating starRating)
+        public async Task<ActionResult> SiteRating(AddRating stars)
         {
             StarRating userRating = new();
             {
-                userRating.Rating = starRating.Rating;
+                userRating.Rating = stars.Rating;
             }
 
-            await homeRepository.AddRating(userRating);
-            
-            return RedirectToAction("Home", "Home");
+            if(await homeRepository.AddRating(userRating))
+            {
+                return RedirectToAction("Home", "Home");
+            }
+
+            return View();
             
             
         }

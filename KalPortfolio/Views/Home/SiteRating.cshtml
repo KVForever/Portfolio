@@ -2,14 +2,6 @@
 
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<head>
-    <script defer src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script defer src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script defer src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script defer src="~/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script defer src="~/js/site.js"></script>
-</head>
-
 <div class="position-fixed overlay">
     <div class="row justify-content-center">
 
@@ -68,9 +60,9 @@
 
                     <div class="postion-relative text-center my-4">
 
-                        <form asp-action="SiteRating" asp-controller="Home" method="post" class="text-center">
-                            <input type="hidden" asp-for="Rating" value="0" id="rate-site" />
-                            <button type="submit" aria-label="submit" class="btn btn-lg rate-submit-btn">Submit</button>
+                        <form asp-action="SiteRating" asp-controller="Home" method="post" class="text-center" id="rate-site-form">
+                            <input type="hidden" asp-for="@Model.Rating" value="5" id="rate-site" />
+                            <button type="submit" aria-label="submit" class="btn btn-lg" id="rate-submit-btn">Submit</button>
                         </form>
 
                     </div>

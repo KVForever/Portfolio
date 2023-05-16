@@ -45,6 +45,13 @@ for details on configuring this project to bundle and minify static web assets. 
     }
 }
 
+#submit-message-again-btn {
+    border: 3px solid green;
+    font-size: 1.2rem;
+    color: green;
+    background-color: black;
+}
+
 
 .header {
     height: 100px
@@ -82,17 +89,17 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .csa-badge {
-    width: 60%;
-    height: 100%;
+   width: 50%;
+   height: 50%;
 }
 
-.rate-submit-btn {
+#rate-submit-btn {
     color: white;
     border: solid white 2px;
     border-radius: 10px;
     width: 50%;
 }
-.rate-site-btn:hover {
+#rate-submit-btn:hover {
     color: white;
     border: solid white 2px;
     border-radius: 10px;
