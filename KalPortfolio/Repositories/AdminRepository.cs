@@ -10,16 +10,16 @@ namespace KalPortfolio.Repositories
 {
     public class AdminRepository : IAdminRepository
     {
-        public readonly PortfolioContext dbContext;
-        public AdminRepository(PortfolioContext Dbcontext)
+        public readonly PortfolioContext _dbContext;
+        public AdminRepository(PortfolioContext dbContext)
         {
-            dbContext = Dbcontext;
+            _dbContext = dbContext;
         } 
 
         public async Task<IEnumerable<User>> GetAdmins()
         {
-            //var admin = await dbContext.Users.Where(u => !u.IsDeleted).SelectMany(r => r.Roles).ToListAsync();
-            var admin = await dbContext.Roles.Where(r => r.Name.Equals("Admin")).SelectMany(r => r.Users).ToListAsync();
+            //var admin = await _dbContext.Users.Where(u => !u.IsDeleted).SelectMany(r => r.Roles).ToListAsync();
+            var admin = await _dbContext.Roles.Where(r => r.Name.Equals("Admin")).SelectMany(r => r.Users).ToListAsync();
 
             List<User> notDeleted = new List<User>();
 
@@ -35,12 +35,12 @@ namespace KalPortfolio.Repositories
 
         public async Task<bool> DeleteAdmin(int id)
         {
-            var toDelete = await dbContext.Users.Where(u => u.Id == id).FirstOrDefaultAsync();
+            var toDelete = await _dbContext.Users.Where(u => u.Id == id).FirstOrDefaultAsync();
             
             if(toDelete != null)
             {
                 toDelete.IsDeleted = true;
-                await dbContext.SaveChangesAsync(); ;
+                await _dbContext.SaveChangesAsync(); ;
             }
             return true;
         }

@@ -16,11 +16,11 @@ namespace KalPortfolio.Controllers
     public class HomeController : Controller
     {
        
-        private readonly IHomeRepository homeRepository;
+        private readonly IHomeRepository _homeRepository;
 
         public HomeController(IHomeRepository homeRepostiory)
         {
-            this.homeRepository = homeRepostiory;
+            _homeRepository = homeRepostiory;
         }
        
         public ActionResult Home()
@@ -34,7 +34,7 @@ namespace KalPortfolio.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<ActionResult> Home(CreateMessage formData)
+        public async Task Home(CreateMessage formData)
         {
             if (ModelState.IsValid)
             {
@@ -47,38 +47,24 @@ namespace KalPortfolio.Controllers
                     userMessage.Message = formData.Message;
             
                 }
-                await homeRepository.AddMessage(userMessage);
+                await _homeRepository.AddMessage(userMessage);
             }
-
            
-            if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
-            {
-                return Redirect("/Admin/UserView#contact-link");
-                
-            }
-
-            return Redirect("/Home/Home#contact-link");
         }
-        
-        
 
-        //[ValidateAntiForgeryToken]
+
+
+        [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<ActionResult> SiteRating(AddRating stars)
+        public async Task SiteRating(AddRating stars)
         {
             StarRating userRating = new();
             {
                 userRating.Rating = stars.Rating;
             }
 
-            if(await homeRepository.AddRating(userRating))
-            {
-                return RedirectToAction("Home", "Home");
-            }
+            await _homeRepository.AddRating(userRating);
 
-            return View();
-            
-            
         }
 
         [ValidateAntiForgeryToken]

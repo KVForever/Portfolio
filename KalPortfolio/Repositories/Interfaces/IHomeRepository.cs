@@ -16,10 +16,10 @@ namespace MessagesLibrary
 
         public Task<IEnumerable<UserMessage>> GetAllMessages();
 
-        public Task<UserMessage> AddMessage(UserMessage message);
+        public Task AddMessage(UserMessage message);
 
         public Task<bool> DeleteMessage(int id);
 
-        public Task<bool> AddRating(StarRating starRating);
+        public Task AddRating(StarRating starRating);
     }
 }

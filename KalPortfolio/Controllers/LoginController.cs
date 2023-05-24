@@ -63,9 +63,10 @@ namespace KalPortfolio.Controllers
                         return LocalRedirect(login.ReturnUrl);
                     }
                 }
-                ModelState.AddModelError("", "Please Check your Username and Password.");
+                ModelState.AddModelError("Username", "Please Check your Username and Password.");
+               
             }            
-            return View(login);
+            return BadRequest(ModelState);
         }
     }
 }

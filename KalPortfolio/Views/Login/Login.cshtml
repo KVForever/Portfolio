@@ -22,8 +22,8 @@
                             @Html.AntiForgeryToken()
                             <div class="row mt-5">
                                 <label class="login-label" for="Username">Username</label>
-                                <input type="text" class="login-input py-3 " required="" data-val="true" data-val-required="The Username field is required." id="Username" name="Username" value="">
-                                <span class="text-danger field-validation-valid" data-valmsg-for="Username" data-valmsg-replace="true"></span>
+                                <input type="text" asp-for="@Model.Username" class="login-input py-3 " required="" data-val="true" data-val-required="The Username field is required." id="Username" name="Username" value="">
+                                <span class="text-danger field-validation-valid" asp-validation-for="@Model.Username" data-valmsg-for="Username" data-valmsg-replace="true"></span>
                             </div>
 
                             <div class="row mt-5">
