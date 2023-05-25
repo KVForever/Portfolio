@@ -353,9 +353,9 @@ form {
 }
 
 .create-account-focus {
-    background-size: 100% 100%;
-    background-position: 0px 0px;
-    background-image: conic-gradient(from 234deg at 60% 30%, #FF0000FF 30%, #000000FF 100%);
+    background-size: 102% 100%;
+    background-position: 0px 0px,0px 0px;
+    background-image: conic-gradient(from 27deg at 57% 48%, #1E060CFF 30%, #921515FF 30%, #B71D1D00 99%),conic-gradient(from 221deg at 57% 48%, #FF0008FF 0%, #020000FF 100%);
     border-radius: 40px;
     margin-top: 10vh;
     margin-left: 10vw;

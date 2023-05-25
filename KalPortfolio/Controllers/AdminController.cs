@@ -122,9 +122,9 @@ namespace KalPortfolio.Controllers
                         await _loginRepository.CreateAccount(user);
                         return RedirectToAction("Home", "Admin");
                     }
-                    ModelState.AddModelError("Password", "Passwords Do Not Match");
+                    ModelState.AddModelError("Password", "Passwords do not match");
                 }
-                ModelState.AddModelError("Username", "Username Already in Use");
+                ModelState.AddModelError("Username", "Username is invalid.");
             }
             
             return View(model);

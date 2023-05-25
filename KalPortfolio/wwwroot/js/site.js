@@ -107,14 +107,13 @@ $(function () {
 $(function () {
     $(document).on("click", "#rate-submit-btn", function (e) {
         e.preventDefault();
-        var starRating = new Object();
-        starRating.Rating =  $('#rate-site').val();
-       
+        
+        var requestAntiForgeryToken = document.querySelector('[name=__RequestVerificationToken]').value;
         var url = $("#rate-site-form").attr('action');
         $.ajax({
             type: 'POST',
             url: url,
-            data: starRating,
+            data: $('#rate-site-form').serialize(), requestAntiForgeryToken,
             error: function () {
                 alert('The form did not submit!')
             },
@@ -129,7 +128,7 @@ $(function () {
 $(function () {
     $(document).on('click', '#submit-message', function (e) {
         e.preventDefault();
-        var requestAntiForgeryToken = document.querySelector('[name=__RequestVerificationToken').value;
+        var requestAntiForgeryToken = document.querySelector('[name=__RequestVerificationToken]').value;
         $.ajax({
             type: 'POST',
             url: '/Home/Home',
@@ -139,10 +138,12 @@ $(function () {
             },
             success: function (d) {
                 $('#messageform')[0].reset();
-                alert("Thank You!")
-                
+                document.querySelector('#submit-message').innerText = 'Thank You!';
             }
         })
+        setTimeout(function () {
+            document.querySelector('#submit-message').innerText = 'Submit';
+        }, 5000)
     })
 
 })

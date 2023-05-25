@@ -18,18 +18,18 @@
 
                 <div class="row mx-5">
                     <div class="col-12">
-                        <form asp-action="Login" asp-controller="Login" method="post" class="mx-lg-4">
-                            @Html.AntiForgeryToken()
+                        <form asp-action="Login" asp-controller="Login" method="post" class="mx-lg-4 ">
+                            @Html.AntiForgeryToken()                      
                             <div class="row mt-5">
                                 <label class="login-label" for="Username">Username</label>
                                 <input type="text" asp-for="@Model.Username" class="login-input py-3 " required="" data-val="true" data-val-required="The Username field is required." id="Username" name="Username" value="">
-                                <span class="text-danger field-validation-valid" asp-validation-for="@Model.Username" data-valmsg-for="Username" data-valmsg-replace="true"></span>
+                                <span class="text-danger"  asp-validation-for="@Model.Username"></span>
                             </div>
 
                             <div class="row mt-5">
                                 <label class="login-label " for="Password">Password</label>
-                                <input type="password" class="login-input py-3" required="" data-val="true" data-val-required="The Password field is required." id="Password" name="Password">
-                                <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                                <input type="password" asp-for="@Model.Password" class="login-input py-3" required="" data-val="true" data-val-required="The Password field is required." id="Password" name="Password">
+                                <span class="text-danger" asp-validation-for="@Model.Password"></span>
                             </div>
 
                             <div>
@@ -39,6 +39,7 @@
                             <div class="row my-5 pb-5">
                                 <button type="submit" class="py-3" id="login" placeholder="Login">Login</button>
                             </div>
+                            
                         </form>
                     </div>
                 </div>

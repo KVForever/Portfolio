@@ -3,6 +3,11 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /*Home styling*/
 
+.validation-summery-errors {
+    color: red;
+    text-decoration: none;
+}
+
 .depth {
     position: absolute;
     background-color: black;
