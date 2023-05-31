@@ -68,6 +68,7 @@ namespace MessagesLibrary
             if (message != null)
             {
                 message.IsDeleted = true;
+                message.DateModified = DateTime.Now;
                 await _dbContext.SaveChangesAsync();
             }
 

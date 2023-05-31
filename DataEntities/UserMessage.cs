@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Query;
+using System;
 using System.Collections.Generic;
 
 namespace DataEntities;
@@ -14,6 +15,8 @@ public partial class UserMessage
     public string Subject { get; set; } = null!;
 
     public string Email { get; set; } = null!;
+
+    public int Importance { get; set; }
 
     public string Message { get; set; } = null!;
 

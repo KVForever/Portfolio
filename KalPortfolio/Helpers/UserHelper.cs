@@ -16,7 +16,7 @@ namespace KalPortfolio.Helpers
             var combined = new byte[passwordBytes.Length + saltBytes.Length];
             Array.Copy(passwordBytes, combined, passwordBytes.Length);
             Array.Copy(saltBytes, 0, combined, passwordBytes.Length, saltBytes.Length);
-
+            
             var algorithm = SHA256.Create();
             var hash = algorithm.ComputeHash(combined);
             return Convert.ToBase64String(hash);

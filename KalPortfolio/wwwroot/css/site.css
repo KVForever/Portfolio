@@ -388,6 +388,11 @@ form.admin-logout-form {
     height: 5vh;
 }
 
+.projects-intro-discription p 
+{
+    text-indent: 5%;
+}
+
 .mail-to:hover {
     color: red;
     text-decoration: none;
