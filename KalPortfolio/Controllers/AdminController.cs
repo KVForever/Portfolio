@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace KalPortfolio.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly IHomeRepository _messageRepository;
@@ -25,7 +26,7 @@ namespace KalPortfolio.Controllers
             _adminRepository = adminRepository;
         }
 
-        [Authorize(Roles = "Admin")]
+        
         public async Task<ActionResult> Home(string name)
         {
             if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
@@ -35,19 +36,19 @@ namespace KalPortfolio.Controllers
             return RedirectToAction("Login", "login");
         }
 
-        [Authorize(Roles = "Admin")]
+      
         public ActionResult UserView()
         {
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+ 
         public async Task<PartialViewResult> SearchResultList(string name)
         {
             return PartialView(await _messageRepository.GetMessagesByName(name));
         }
 
-        [Authorize(Roles = "Admin")]
+   
         public async Task<ActionResult> DeleteResultList(int id)
         {
 
@@ -55,32 +56,32 @@ namespace KalPortfolio.Controllers
             return PartialView(await _messageRepository.GetAllMessages());
         }
 
-        [Authorize(Roles = "Admin")]
+    
         public ActionResult Details()
         {                
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+  
         public async Task<ActionResult> MessageDetail(int id)
         {
 
             return PartialView(await _messageRepository.GetMessageById(id));
         }
 
-        [Authorize(Roles = "Admin")]
+
         public async Task<ActionResult> ViewAdmins()
         {
             return View(await _adminRepository.GetAdmins());
         }
 
-        [Authorize(Roles = "Admin")]
+ 
         public ActionResult CreateAdmin()
         {
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+
         public async Task<ActionResult> DeleteAdminResultList(int id)
         {
             await _adminRepository.DeleteAdmin(id);
@@ -88,7 +89,6 @@ namespace KalPortfolio.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateAdmin(CreateAccount model)
         {

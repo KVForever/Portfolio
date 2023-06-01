@@ -42,7 +42,7 @@ namespace KalPortfolio.Controllers
                     userMessage.Email = formData.Email;
                     userMessage.Subject = formData.Subject;
                     userMessage.Message = formData.Message;
-            
+                    
                 }
                 await _homeRepository.AddMessage(userMessage);
             }

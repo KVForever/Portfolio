@@ -21,7 +21,6 @@ namespace LoginLibrary
             var result = await _dbContext.Users.Where(u => u.Username.Equals(username) && !u.IsDeleted)
                 .Include(u => u.Roles)
                 .FirstOrDefaultAsync();
-
             return result;
         }
 

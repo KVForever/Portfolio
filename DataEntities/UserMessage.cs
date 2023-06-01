@@ -16,8 +16,6 @@ public partial class UserMessage
 
     public string Email { get; set; } = null!;
 
-    public int Importance { get; set; }
-
     public string Message { get; set; } = null!;
 
     public DateTime DateCreated { get; set; }
