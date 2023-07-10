@@ -182,3 +182,61 @@ function createAccountBtn() {
 function messageFormSubmit() {
     location.href = '/Home/Home#contact-form';
 };
+
+$(function () {
+    const otherHidden = document.querySelectorAll(".hidden");
+    const hiddenAboutMe = document.querySelectorAll(".hidden-about");
+    const projectHidden = document.querySelectorAll(".hidden-project");
+
+    const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show-about');
+            }
+            else {
+                if (entry.target.classList.contains('show-about')) {
+                    entry.target.classList.remove('show-about');
+                }
+
+            }
+        });
+
+    });
+
+    hiddenAboutMe.forEach((el) => aboutObserver.observe(el));
+
+    const otherObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+            else {
+                if (entry.target.classList.contains('show')) {
+                    entry.target.classList.remove('show');
+                }
+
+            }
+        });
+    })
+
+    otherHidden.forEach((el) => otherObserver.observe(el));
+
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show-project');
+            }
+            else {
+                if (entry.target.classList.contains('show-project')) {
+                    entry.target.classList.remove('show-project');
+                }
+
+            }
+        });
+    })
+
+    projectHidden.forEach((el) => projectObserver.observe(el));
+})
+
+
+

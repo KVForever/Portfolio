@@ -1,4 +1,11 @@
 ﻿
+.single {
+    display: grid; 
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+}
+
 .skip {
     position: fixed;
     left: -1000vw;
@@ -123,10 +130,6 @@ form {
     border-radius: 10px;
     display: none;
     z-index: 3;
-}
-
-#home-link {
-    margin-bottom: 50vh;
 }
 
 .find-me-links {
@@ -262,8 +265,7 @@ form {
     }
 }
 
-#about-me-panel {
-    margin: 50vh 0 0 0;
+#about-me-panel {   
     border-radius: 30px;
     border-top: #a50021 1px solid;
     border-left: #a50021 5px solid;
@@ -369,3 +371,4 @@ form {
     border-right: 3px black solid;
     margin: 0 0 5% 0;
 }
+
