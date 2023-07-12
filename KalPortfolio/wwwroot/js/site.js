@@ -186,7 +186,8 @@ function messageFormSubmit() {
 $(function () {
     const otherHidden = document.querySelectorAll(".hidden");
     const hiddenAboutMe = document.querySelectorAll(".hidden-about");
-    const projectHidden = document.querySelectorAll(".hidden-project");
+    const firstRowHidden = document.querySelectorAll(".first-project");
+    
 
     const aboutObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -221,21 +222,26 @@ $(function () {
 
     otherHidden.forEach((el) => otherObserver.observe(el));
 
-    const projectObserver = new IntersectionObserver((entries) => {
+    const firstRowObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
+            const children = Array.from(document.querySelector('.small-projects').children);
             if (entry.isIntersecting) {
-                entry.target.classList.add('show-project');
+                children.forEach((item) => {
+                    item.classList.add('show-project');
+                });
             }
             else {
-                if (entry.target.classList.contains('show-project')) {
-                    entry.target.classList.remove('show-project');
+                if (children[1].classList.contains('show-project')) {
+                    children.forEach((item) => {
+                        item.classList.remove('show-project');
+                    });
                 }
-
+                
             }
         });
     })
 
-    projectHidden.forEach((el) => projectObserver.observe(el));
+    firstRowHidden.forEach((el) => firstRowObserver.observe(el));
 })
 
 

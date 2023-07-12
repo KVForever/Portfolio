@@ -314,7 +314,7 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 #contact-link {
-    margin-bottom: 5vh;
+    margin-bottom: 40vh;
 }
 
 /*Admin styling*/
@@ -444,10 +444,11 @@ form.admin-logout-form {
     filter: blur(0);
 }
 
+
 .hidden-project {
     opacity: .5;
     filter: blur(5px);
-    transform: translateX(-100%);
+    transform: translateX(-100vw);
     transition: all 2s;
 }
 
@@ -477,4 +478,8 @@ form.admin-logout-form {
 }
 .hidden-project:nth-child(8) {
     transition-delay: 1400ms;
+}
+
+.small-projects {
+    margin-bottom: 50vh;
 }

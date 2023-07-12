@@ -1,9 +1,8 @@
 ﻿
 .single {
     display: grid; 
-    place-items: center;
-    align-content: center;
-    min-height: 100vh;
+    
+    height: 100vh;
 }
 
 .skip {
@@ -150,7 +149,6 @@ form {
     height: 10vh;
     border: 1px solid white;
     margin-left: 100vw;
-    display: absolute;
     z-index: -1;
     position: fixed;
     display: none
