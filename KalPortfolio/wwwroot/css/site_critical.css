@@ -1,7 +1,6 @@
 ﻿
 .single {
-    display: grid; 
-    
+    display: grid;
     height: 100vh;
 }
 
@@ -114,7 +113,7 @@ form {
     position: fixed;
     background-color: #a50021;
     border-top: solid white 1px;
-    border-radius: 10px;   
+    border-radius: 10px;
     left: -100vw;
     z-index: 3;
 }
@@ -132,100 +131,97 @@ form {
 }
 
 .find-me-links {
-    margin-left: 100vw;
+    right: -100vw;
     height: 20vh;
-    display: absolute;
     position: fixed;
-    display: none;
+    display: inline;
 }
 
-@media screen and (min-width: 1675px) {
+@media screen and (max-width: 992px){
     .find-me-links {
         display: none;
     }
 }
 
-.vertical-line {
-    height: 10vh;
-    border: 1px solid white;
-    margin-left: 100vw;
-    z-index: -1;
-    position: fixed;
-    display: none
-}
+@media screen and (min-width: 992px) {
 
-@media screen and (min-width: 1675px) {
+    .links-animate {
+        animation-name: find-me-links-reveal;
+        animation-fill-mode: forwards;
+        animation-duration: 2s;
+    }
+
+    @keyframes find-me-links-reveal {
+        to {
+            right: 5vw;
+        }
+    }
+
+    .vertical-line {
+        height: 10vh;
+        border: 1px solid white;
+        right: -100vw;
+        position: fixed;
+    }
+
+
     .line-left {
         animation: 2s forwards vertical-line, 2s cubic-bezier(0.85, 0.1, 0.99, 0.94) forwards make-line-longer;
-        display: block;
+    }
+
+
+    @keyframes vertical-line {
+
+        100% {
+            margin-top: 13vh;
+            transform: translateX(15px);
+            right: 5vw;
+        }
+    }
+
+    @keyframes make-line-longer {
+        100% {
+            height: 36vh;
+        }
     }
 }
 
-
-@keyframes vertical-line {
-
-    100% {
-        margin-top: 13vh;
-        transform: translateX(calc(34vw - 2px));
-        margin-left: 43vw;
-    }
-}
-
-@keyframes make-line-longer {
-    100% {
-        height: 36vh;
-    }
-}
 
 #linkedIn-link {
     margin-top: 5vh;
 }
 
-@media screen and (min-width: 1675px) {
-    .links-animate {
-        animation-name: find-me-links-reveal;
-        animation-fill-mode: forwards;
-        animation-duration: 2s;
-        display: block;
-    }
-}
-
-
-@keyframes find-me-links-reveal {
-    to {
-        transform: translateX(45vw);
-        margin-left: 31vw;
-    }
-}
-
 .find-me {
-    position: absolute;
+    position: relative;
     z-index: 0;
-    margin-left: -100vw;
+    left: -100vw;
     animation: find-me-in 3s cubic-bezier(0.59, 0.13, 0.29, 1) forwards;
 }
 
-@media screen and (min-width: 1675px) {
-    .find-me-animate {
-        margin-left: 0;
-        animation-name: find-me;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
-    }
+
+.find-me-animate {
+    left: 0;
+    animation-name: find-me;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
-@keyframes find-me {
-    to {
-        transform: translateX(-32vw);
-        display: none;
+@media screen and (min-width: 992px) {
+    @keyframes find-me {
+        to {
+            left: -100vw;
+            display: none;
+        }
     }
 }
 
 @keyframes find-me-in {
     to {
-        margin-left: 0;
+        left: 0;
     }
 }
+
+
 
 #home-info-header {
     animation-name: home-header;
@@ -235,12 +231,12 @@ form {
 
 @keyframes home-header {
     from {
-        right: 100vw;
+        left: -100vw;
         top: 0px;
     }
 
     to {
-        right: 0px;
+        left: 0px;
         top: 0px;
     }
 }
@@ -263,15 +259,16 @@ form {
     }
 }
 
-#about-me-panel {   
+#about-me-panel {
     border-radius: 30px;
     border-top: #a50021 1px solid;
     border-left: #a50021 5px solid;
+    margin-bottom: 50vh;
 }
 
-#about-me-panel p {
-    text-indent: 5%;
-}
+    #about-me-panel p {
+        text-indent: 5%;
+    }
 
 /*Login style*/
 
@@ -370,3 +367,11 @@ form {
     margin: 0 0 5% 0;
 }
 
+#scene-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}

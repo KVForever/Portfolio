@@ -18,15 +18,17 @@
         <script defer src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
         <script defer src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <script defer src="~/lib/bootstrap/js/bootstrap.min.js"></script>
-        <script defer src="~/js/site.js"></script>
+        <script defer type="module" src="~/js/site.js"></script>
+       @* <script defer type="module" src="~/lib/three/src/logo.js"></script>*@
+
         @RenderSection("Scripts", required: false)
     </head>
  
     @RenderSection("header", required: false)
 
     <body class="@ViewBag.Background">
-
-        @RenderSection("body")
-
+        <main>
+            @RenderSection("body")
+        </main>
     </body>
 </html>

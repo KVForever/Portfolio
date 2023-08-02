@@ -3,6 +3,8 @@
 
 // Write your Javascript code.
 
+import { Logo } from './three/logo.js'
+
 $(function () {
     var findMeLinks = $(".find-me-links");
     var verticalLine = $(".vertical-line");
@@ -230,19 +232,24 @@ $(function () {
                     item.classList.add('show-project');
                 });
             }
-            else {
-                if (children[1].classList.contains('show-project')) {
-                    children.forEach((item) => {
-                        item.classList.remove('show-project');
-                    });
-                }
-                
-            }
         });
     })
 
     firstRowHidden.forEach((el) => firstRowObserver.observe(el));
+
+    
 })
 
 
+/*-------------------------------------------------------------------------------------------------three------------------------------------------------------------------------*/
 
+function three() {
+    const container = document.getElementById("scene-container");
+
+    const logo = new Logo(container);
+
+    logo.render();
+
+}
+
+three();
