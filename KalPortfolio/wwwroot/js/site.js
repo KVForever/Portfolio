@@ -3,8 +3,6 @@
 
 // Write your Javascript code.
 
-import { Logo } from './three/logo.js'
-
 $(function () {
     var findMeLinks = $(".find-me-links");
     var verticalLine = $(".vertical-line");
@@ -242,14 +240,3 @@ $(function () {
 
 
 /*-------------------------------------------------------------------------------------------------three------------------------------------------------------------------------*/
-
-function three() {
-    const container = document.getElementById("scene-container");
-
-    const logo = new Logo(container);
-
-    logo.render();
-
-}
-
-three();
