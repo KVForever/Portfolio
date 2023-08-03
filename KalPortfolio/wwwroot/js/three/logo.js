@@ -4,7 +4,7 @@ import { createScene } from './components/scene.js';
 
 import { createRenderer } from './systems/renderer.js';
 import { Resizer } from './systems/Resizer.js';
-//import { Loop } from './systems/Loop.js';
+import { Loop } from './systems/Loops.js';
 
 let camera;
 let renderer;
@@ -14,22 +14,40 @@ let loop;
 class Logo {
 
 	constructor(container) {
-		this.camera = createCamera();
+		this.camera = createCamera(container);
 		this.scene = createScene();
 	    this.renderer = createRenderer(container);
-		//loop = new Loop(camera, scene, renderer);
+		loop = new Loop(this.camera, this.scene, this.renderer);
 
 		const logo = createK();
+
+		
+		loop.updatables.push(this.scene);
+		
+
 		logo.forEach((cube) => {
 			this.scene.add(cube);
 		});
-		
+
+		this.camera.translateX(10%);
+
+		const resizer = new Resizer(this.container, this.camera, this.renderer);
+				
 	}
 
 	render() {
+
 		this.renderer.render(this.scene, this.camera);
+
 	}
 
+	start() {
+		loop.start();
+	}
+
+	stop() {
+		loop.stop();
+	}
 	
 }
 

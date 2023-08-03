@@ -27,6 +27,17 @@ function createK() {
     const object = [];
     object.push(cube, cube2, cube3);
 
+    //object.forEach((o) => {
+    //    o.tick = () => {
+    //        object.forEach((b) => {
+    //            b.rotateY(.01);
+    //            b.rotateZ(.01);
+    //            b.rotateX(.01);
+    //        })
+    //    }
+    //})
+    
+    
     return object;
 }
 

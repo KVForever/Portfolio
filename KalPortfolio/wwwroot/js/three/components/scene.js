@@ -5,6 +5,10 @@ function createScene() {
 
     scene.background = new Color('black');
 
+    scene.tick = () => {
+        scene.rotateY(.01);
+    }
+
     return scene;
 
 }
