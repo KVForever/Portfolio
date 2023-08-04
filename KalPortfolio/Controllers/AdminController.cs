@@ -26,7 +26,7 @@ namespace KalPortfolio.Controllers
             _adminRepository = adminRepository;
         }
 
-        
+
         public async Task<ActionResult> Home(string name)
         {
             if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
@@ -36,7 +36,7 @@ namespace KalPortfolio.Controllers
             return RedirectToAction("Login", "login");
         }
 
-      
+
         public ActionResult UserView()
         {
             return View();

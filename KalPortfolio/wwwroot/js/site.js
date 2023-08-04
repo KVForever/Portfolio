@@ -255,6 +255,7 @@ function three() {
 }
 
 three();
+
 /*
 const container = document.getElementById("scene-container");
 

@@ -29,10 +29,12 @@ class Logo {
 			this.scene.add(cube);
 		});
 
-		this.camera.translateX(10%);
+		this.camera.translateX(-3);
 
-		const resizer = new Resizer(this.container, this.camera, this.renderer);
-				
+		const resizer = new Resizer(container, this.camera, this.renderer);
+	    resizer.onResize = () => {
+			this.render();
+		}		
 	}
 
 	render() {
