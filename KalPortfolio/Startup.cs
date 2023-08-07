@@ -22,12 +22,11 @@ namespace KalPortfolio
 {
     public class Startup
     {
+        private readonly IConfiguration _config;
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _config = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -35,7 +34,7 @@ namespace KalPortfolio
             
             services.AddControllersWithViews();
 
-            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(_config["Portfolio Connection String"]));
            
             services.AddScoped<IHomeRepository, HomeRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
