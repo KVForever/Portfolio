@@ -31,8 +31,10 @@ class Logo {
 
 		this.camera.translateX(-1);
 
-		const resizer = new Resizer(this.container, this.camera, this.renderer);
-				
+		const resizer = new Resizer(container, this.camera, this.renderer);
+	    resizer.onResize = () => {
+			this.render();
+		}		
 	}
 
 	render() {

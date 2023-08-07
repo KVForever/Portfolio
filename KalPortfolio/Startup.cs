@@ -77,20 +77,11 @@ namespace KalPortfolio
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            //app.MapRazorPages();
-            //app.MapDefaultControllerRoute();
-
             app.UseRouting();
 
             app.UseAuthentication();
 
             app.UseAuthorization();
-
-            
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapRazorPages();
-            //});
             
             app.UseEndpoints(endpoints =>
             {
