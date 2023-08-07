@@ -5,7 +5,7 @@ function createK() {
     const geometry2 = new BoxGeometry(1.2, .5, .3);
     const geometry3 = new BoxGeometry(1, .5, .3);
     const geometry4 = new BoxGeometry(.8, .5, .3);
-    const geometry5 = new BoxGeometry(1.5, .5, .3);
+    const geometry5 = new BoxGeometry(1.8, .5, .3);
 
 
     const meterial = new MeshBasicMaterial();
@@ -33,7 +33,7 @@ function createK() {
     cube4.rotateZ(-.8);
 
     cube5.rotateZ(.77);
-    cube5.translateX(.68);
+    cube5.translateX(.828);
     cube5.translateY(-1.6);
 
     const object = [];

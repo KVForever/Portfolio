@@ -29,7 +29,7 @@ class Logo {
 			this.scene.add(cube);
 		});
 
-		this.camera.translateX(-3);
+		this.camera.translateX(-2);
 
 		const resizer = new Resizer(container, this.camera, this.renderer);
 	    resizer.onResize = () => {
