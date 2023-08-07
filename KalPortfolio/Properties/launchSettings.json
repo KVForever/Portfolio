@@ -15,12 +15,20 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "KalPortfolio": {
+    "Portfolio - Development": {
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "Portfolio - Production": {
+        "commandName": "Project",
+        "launchBrowser": false,
+        "applicationUrl":  "https://kalkidanvassar.azurewebsites.net",
+        "envirnonmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Production"
+        }
       }
     }
   }
