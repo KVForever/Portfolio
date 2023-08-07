@@ -6,7 +6,7 @@ function createRenderer(container) {
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    
+    renderer.physicallyCorrectLights = true;
     return renderer;
 }
 

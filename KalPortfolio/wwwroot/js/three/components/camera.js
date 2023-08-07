@@ -5,8 +5,6 @@ function createCamera(container) {
   
     camera.position.set(0, 0, 10);
 
-    //camera.translateX(-5);
-
     return camera;
 }
 
