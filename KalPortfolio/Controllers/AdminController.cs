@@ -32,9 +32,9 @@ namespace KalPortfolio.Controllers
             if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
             {
                 return View(await _messageRepository.GetMessagesByName(name));
-            }
-            return RedirectToAction("Login", "login");
         }
+            return RedirectToAction("Login", "login");
+    }
 
 
         public ActionResult UserView()
