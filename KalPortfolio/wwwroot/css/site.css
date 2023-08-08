@@ -449,7 +449,7 @@ form.admin-logout-form {
     opacity: .5;
     filter: blur(5px);
     transform: translateX(-100vw);
-    transition: all 2s;
+    transition: all 1s;
 }
 
 .show-project {

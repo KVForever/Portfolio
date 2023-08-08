@@ -58,6 +58,11 @@ header {
 .navbar {
     border-bottom: solid red 1px;
     border-radius: 2px;
+    background-color: black;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -372,6 +377,7 @@ form {
     top: 0;
     left: 0;
     z-index: -1;
-    width: 100vw;
+    margin-left: 50vw;
+    width: 50vw;
     height: 100vh;
 }
