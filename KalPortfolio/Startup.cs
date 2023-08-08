@@ -36,7 +36,7 @@ namespace KalPortfolio
 
             services.AddControllersWithViews();
 
-            var myConnString = _config["SQLAZURECONNSTR_Portfolio-DB-Connection"];
+            var myConnString = _config["SQLConnectionString"];
             services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(myConnString));
            
             services.AddScoped<IHomeRepository, HomeRepository>();
