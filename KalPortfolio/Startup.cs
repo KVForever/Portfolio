@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using KalPortfolio.Repositories.Interfaces;
 using KalPortfolio.Repositories;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Options;
 
 namespace KalPortfolio
 {
@@ -36,9 +37,10 @@ namespace KalPortfolio
 
             services.AddControllersWithViews();
 
-            var myConnString = _config["SQLConnectionString"];
-            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(myConnString));
-           
+            //var myConnString = _config["SQLConnectionString"];
+            //services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(myConnString));
+            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(_config["SQLConnectionString"]));
+
             services.AddScoped<IHomeRepository, HomeRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IAdminRepository, AdminRepository>();
