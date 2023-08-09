@@ -203,6 +203,9 @@ form {
     animation: find-me-in 3s cubic-bezier(0.59, 0.13, 0.29, 1) forwards;
 }
 
+    .find-me > a {
+        background-color: rgba(0,0,0,.7);
+    }
 
 .find-me-animate {
     left: 0;
@@ -232,6 +235,8 @@ form {
     animation-name: home-header;
     animation-duration: 3s;
     position: relative;
+    background-color: rgba(0,0,0,.7);
+    display: inline;
 }
 
 @keyframes home-header {
@@ -250,6 +255,8 @@ form {
     animation-name: home-tag-line;
     animation-duration: 3s;
     position: relative;
+    background-color: rgba(220,53,69, .7);
+    display: inline-block;
 }
 
 @keyframes home-tag-line {
@@ -372,12 +379,38 @@ form {
     margin: 0 0 5% 0;
 }
 
-#scene-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    margin-left: 50vw;
-    width: 50vw;
-    height: 100vh;
+@media screen and (min-width:1400px){
+    #scene-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        margin-left: 45vw;
+        width: 55vw;
+        height: 100vh;
+    }
+}
+
+
+@media screen and (max-width:1400px){
+    #scene-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        margin-left: 20vw;
+        width: 80vw;
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width:576px) {
+    #scene-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;       
+        width: 100vw;
+        height: 100vh;
+    }
 }

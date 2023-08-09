@@ -37,9 +37,9 @@ namespace KalPortfolio
 
             services.AddControllersWithViews();
 
-            //var myConnString = _config["SQLConnectionString"];
-            //services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(myConnString));
-            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(_config["SQLConnectionString"]));
+            var myConnString = _config["SQLConnectionString"];
+            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(myConnString));
+            
 
             services.AddScoped<IHomeRepository, HomeRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
