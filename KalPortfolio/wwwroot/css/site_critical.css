@@ -378,6 +378,17 @@ form {
     border-right: 3px black solid;
     margin: 0 0 5% 0;
 }
+@media screen and (max-width:975px){
+     #scene-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;       
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
 
 @media screen and (min-width:1400px){
     #scene-container {
@@ -391,8 +402,7 @@ form {
     }
 }
 
-
-@media screen and (max-width:1400px){
+@media screen and (min-width:976px){
     #scene-container {
         position: absolute;
         top: 0;
@@ -404,13 +414,3 @@ form {
     }
 }
 
-@media screen and (max-width:576px) {
-    #scene-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;       
-        width: 100vw;
-        height: 100vh;
-    }
-}
