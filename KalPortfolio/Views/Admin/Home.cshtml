@@ -10,15 +10,14 @@
 
 @section header {
     <a type="button" href="/Admin/UserView#home-link" class="btn btn-info skip">Skip navigation</a>
-
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark mx-3">
+        <nav class="navbar navbar-expand-lg navbar-dark mx-3 bg-transparent">
             <div class="container-fluid">
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="Home">@*@User.Identity.Name.ToString()*@</a>
+                <a class="navbar-brand" href="Home">@User.Identity.Name.ToString()</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="d-flex justify-content-center"><a class="nav-link" href="/Admin/Home" aria-label="Go to the top of the home page.">Home</a></li>
@@ -48,7 +47,7 @@
 
 
             <div class="row m-5">
-                <div class="col-12 d-flex justify-content-center">
+                <div class="col-12 d-flex justify-content-center mt-5">
                     <input type="text" class="search-message" id="search-for-message" placeholder="Search Last Name" />
                     <button type="submit" class="search-message" onclick="search()">Search</button>
                 </div>
@@ -94,9 +93,7 @@
                                         <td class="text-overflow">@messages.ElementAt(i).Message</td>
 
                                         <td>
-
                                             <button type="button" class="btn btn-outline-danger btn-sm message-delete" onclick="removeMessage(@messages.ElementAt(i).Id)">Delete</button>
-
 
                                             <button type="button" class="btn btn-outline-light btn-sm message-details" onclick="messageDetails(@messages.ElementAt(i).Id)">Details</button>
                                         </td>

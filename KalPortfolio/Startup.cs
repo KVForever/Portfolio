@@ -39,6 +39,7 @@ namespace KalPortfolio
 
             var myConnString = _config["SQLConnectionString"];
             services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(myConnString));
+
             services.AddScoped<IHomeRepository, HomeRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IAdminRepository, AdminRepository>();
