@@ -22,7 +22,7 @@ namespace KalPortfolio.Models
         public string Email { get; set; }
 
         [Required]
-        [RegularExpression("^([a-zA-Z1-9!@#$%^&*(),.?\":{}|\\s]){1,255}$", ErrorMessage = "Invalid UserMessage.")]
+        [RegularExpression("^([a-zA-Z1-9!@#$%^&*(),.?\":{}|\\s]){1,2147483647}$", ErrorMessage = "Invalid UserMessage.")]
         public string Message { get; set; }
     }
 }
