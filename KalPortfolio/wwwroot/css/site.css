@@ -236,7 +236,18 @@ for details on configuring this project to bundle and minify static web assets. 
         height: 40vh;
         background-image: url('../images/website.png');
         background-size: cover;
-        margin: 0 0 0 5vw;
+        margin: 0 0 0 0;
+        border: solid red .5px;
+    }
+
+    .project-img-two {
+        width: 40vw;
+        height: 40vh;
+        background-image: url('../images/TomOdell.png');
+        background-size: cover;
+        margin: 0 2rem 0 0;
+        right: 0;
+        border: solid red .5px;
     }
 }
 
@@ -251,7 +262,9 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .projects {
-    min-height: 50vh;
+    min-height: 60vh;
+    border-radius: 10%;
+    padding: 4rem 2rem 4rem 2rem;
 }
 
 .large-project-discription {
@@ -262,6 +275,12 @@ for details on configuring this project to bundle and minify static web assets. 
     .large-project-discription {
         position: inherit;
     }
+}
+
+#spotify-github {
+    position: absolute;
+    left: 0;
+    margin-left: 1rem;
 }
 
 .project-discription {
