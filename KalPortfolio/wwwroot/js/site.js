@@ -8,7 +8,7 @@ $(function () {
     var verticalLine = $(".vertical-line");
     var findMe = $(".find-me");
     var count = 0;
-    $(window).scroll(function () {
+    $(window).trigger( "scroll", function () {
         var scroll = $(window).scrollTop();
 
         if (scroll >= (5) && count < 1) {
@@ -21,7 +21,7 @@ $(function () {
 });
 
 $(function () {
-    $(window).scroll(function (ev) {
+    $(window).trigger("scroll", function (ev) {
         if ((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight / 1.75)) {
             var x = $(".rate-tease");
             x.addClass("rate-tease-reveal");
@@ -147,6 +147,34 @@ $(function () {
     })
 
 })
+
+const myModal = document.getElementById('spotify-popup');
+
+
+myModal.addEventListener('shown.bs.modal', () => {
+   
+})
+
+$(function () {
+    //$(document).on('click', '#spotify-project-imgs', function (e) {
+    //    let popup = document.querySelector(".modal");
+    //    popup.css("display", "flex");
+    //    popup.css("align", "center");
+    //})
+})
+
+function popUpStyling(e) {
+    let name = $(e).attr("value");
+    let popup = document.getElementById(name);   
+    popup.classList.add("d-flex");
+    popup.style.alignItems = "center";
+}
+
+function closePopUp(e) {
+    let name = $(e).attr("value");
+    let popup = document.getElementById(name);
+    popup.classList.remove("d-flex");
+}
 
 function search() {
     $.get('/Admin/SearchResultList?name=' + document.querySelector('#search-for-message').value, function (data) {

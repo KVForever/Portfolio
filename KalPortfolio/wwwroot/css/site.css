@@ -234,20 +234,118 @@ for details on configuring this project to bundle and minify static web assets. 
     .project-img {
         width: 40vw;
         height: 40vh;
-        background-image: url('../images/website.png');
+        background-image: url('../images/TomOdell.png');
         background-size: cover;
-        margin: 0 0 0 0;
+        margin: 0 5rem 0 0;
+        right: 0;
         border: solid red .5px;
+        z-index: -1
     }
 
     .project-img-two {
         width: 40vw;
         height: 40vh;
-        background-image: url('../images/TomOdell.png');
         background-size: cover;
-        margin: 0 2rem 0 0;
+        background-image: url('../images/hanszimmer.png');
+        margin: 2rem 0 0 0;
         right: 0;
         border: solid red .5px;
+        z-index: -2
+    }
+
+    .project-img-three {
+        width: 40vw;
+        height: 40vh;
+        background-image: url('../images/PortfolioHomeScreen.png');
+        background-size: cover;
+        margin: 0 0 0 5rem;
+        border: solid red .5px;
+        z-index: -1
+    }
+
+    .project-img-four {
+        width: 40vw;
+        height: 40vh;
+        background-image: url('../images/PortfolioAdmin.png');
+        background-size: cover;
+        margin: 2rem 0 0 0;
+        border: solid red .5px;
+        z-index: -2
+    }
+
+    #spotify-project-imgs {
+        width: 62%;
+        height: 70%;
+        z-index: 5;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 4rem;
+        background: transparent;
+        border: 0;
+        display: block !important;
+    }
+
+    #portfolio-project-imgs {
+        width: 62%;
+        height: 70%;
+        z-index: 5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 4rem;
+        background: transparent;
+        border: 0;
+        display: block !important;
+    }
+
+    #spotify-popup .modal-content{
+        width: 80%;
+    }
+
+    #portfolio-popup .modal-content {
+        width: 80%;
+    }
+
+    
+}
+
+#spotify-popup.modal.show .modal-dialog {
+    transform: none;
+    display: flex;
+    justify-content: center;
+}
+
+#portfolio-popup.modal.show .modal-dialog {
+    transform: none;
+    display: flex;
+    justify-content: center;
+}
+    
+#spotify-project-imgs{
+    display: none;
+}
+
+#portfolio-project-imgs {
+    display: none;
+}
+
+#spotify-popup {
+    display: none;
+}
+
+#portfolio-popup {
+    display: none;
+}
+
+.carousel-caption{
+    background-color: rgba(0,0,0, .7);
+    border-radius: 10px;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        all: unset;
     }
 }
 
